@@ -34,7 +34,7 @@
                      num_pieces: 1,           # The number of linear pieces used to make each maxout unit.
                      kernel_shape: [8, 8],    # done
                      pool_shape: [3, 3],      # max pooling shape done
-                     #pool_stride: [2, 2],    # The distance between the start of each max pooling region. Defaults
+                     pool_stride: [2, 2],    # The distance between the start of each max pooling region. Defaults
                                               # to num_pieces, which makes the pooling regions disjoint. If set to
                                               # a smaller number, can do overlapping pools.
                      irange: .005,
@@ -53,7 +53,7 @@
                      num_pieces: 1,
                      kernel_shape: [4, 4],
                      pool_shape: [2, 2],
-#                     pool_stride: [2, 2],
+                     pool_stride: [2, 2],
                      irange: .005,
 #                     max_kernel_norm: 1.9365,
 #                     partial_sum: 15,
