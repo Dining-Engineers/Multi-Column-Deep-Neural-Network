@@ -60,6 +60,7 @@
                  },
                  !obj:pylearn2.models.mlp.Tanh {
                     layer_name: 'h3',
+                    irange: .005,
                     dim: 30
                  },
                  !obj:pylearn2.models.mlp.Softmax {
