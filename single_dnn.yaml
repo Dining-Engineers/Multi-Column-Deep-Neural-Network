@@ -29,7 +29,7 @@
                                                # as each other. Otherwise, each bias at each location is learned independently.
                      #W_lr_scale: .05,         # The learning rate on the weights for this layer is multiplied by this scaling factor
                      #b_lr_scale: .05,         # The learning rate on the biases for this layer is multiplied by this scaling factor
-                     num_channels: 50,        # The number of output channels the layer should have. Note that it must
+                     num_channels: 96,        # The number of output channels the layer should have. Note that it must
                                               # internally compute num_channels * num_pieces convolution channels.
                      num_pieces: 1,           # The number of linear pieces used to make each maxout unit.
                      kernel_shape: [8, 8],    # done
@@ -49,7 +49,7 @@
                  !obj:pylearn2.models.maxout.MaxoutConvC01B {
                      layer_name: 'h1',
                      pad: 0,
-                     num_channels: 50,
+                     num_channels: 96,
                      num_pieces: 1,
                      kernel_shape: [4, 4],
                      pool_shape: [2, 2],
