@@ -88,20 +88,23 @@
         ],
     },
     algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
-        learning_rate: .17,
-        init_momentum: .5,
+        learning_rate: .1,
+#        init_momentum: .5,
+        learning_rule: !obj:pylearn2.training_algorithms.learning_rule.Momentum {
+            init_momentum: .5,
+        },
         train_iteration_mode: 'even_shuffled_sequential',
         monitor_iteration_mode: 'even_sequential',
         monitoring_dataset:
             {
-                'valid' : !obj:pylearn2.datasets.cifar10.CIFAR10 {
+                'valid' : &valid !obj:pylearn2.datasets.cifar10.CIFAR10 {
                               which_set: 'train',
                               one_hot: 1,
                               start: 40000,
                               stop:  50000,
                               axes: ['c', 0, 1, 'b']
                           },
-                'test'  : !obj:pylearn2.datasets.cifar10.CIFAR10 {
+                'test'  : &test !obj:pylearn2.datasets.cifar10.CIFAR10 {
                               which_set: 'test',
                               one_hot: 1,
 #                              stop: 1000,
@@ -141,13 +144,13 @@
             saturate: 500,
             decay_factor: .01
         }
-#        ,
-#        !obj:pylearn2.train_extensions.window_flip.WindowAndFlip {
-#            pad_randomized: 8,
-#            window_shape: *window_shape,
-#            randomize: [ *train],
-#            center: [ *valid ]
-#        }
+        ,
+        !obj:pylearn2.train_extensions.window_flip.WindowAndFlip {
+            pad_randomized: 8,
+            window_shape: *window_shape,
+            randomize: [ *train],
+            center: [ *valid ]
+        }
     ],
     save_path: "./test.pkl",
     save_freq: 1
