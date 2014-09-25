@@ -132,6 +132,6 @@
 #            center: [ *valid ]
 #        }
     ],
-    save_path: "${PYLEARN2_TRAIN_FILE_FULL_STEM}.pkl",
+    save_path: "./test.pkl",
     save_freq: 1
 }
