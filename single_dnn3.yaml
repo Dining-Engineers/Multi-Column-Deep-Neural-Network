@@ -21,66 +21,59 @@
             num_channels: 3,
             axes: ['c', 0, 1, 'b'],
         },
-        layers: [
-                 !obj:pylearn2.models.maxout.MaxoutConvC01B {
-                     W_lr_scale: .05,
-                     b_lr_scale: .05,
-                     tied_b: 1,
-
-
+        layers: [!obj:pylearn2.models.maxout.MaxoutConvC01B {
                      layer_name: 'h0',
-                     pad: 0,                  # add padding before convolution
-#                     tied_b: 1,               # If true, all biases in the same channel are constrained to be the same
-                                               # as each other. Otherwise, each bias at each location is learned independently.
-                     #W_lr_scale: .05,         # The learning rate on the weights for this layer is multiplied by this scaling factor
-                     #b_lr_scale: .05,         # The learning rate on the biases for this layer is multiplied by this scaling factor
-                     num_channels: 96,        # The number of output channels the layer should have. Note that it must
-                                              # internally compute num_channels * num_pieces convolution channels.
-                     num_pieces: 1,           # The number of linear pieces used to make each maxout unit.
-                     kernel_shape: [8, 8],    # done
-                     pool_shape: [3, 3],      # max pooling shape done
-                     pool_stride: [2, 2],    # The distance between the start of each max pooling region. Defaults
-                                              # to num_pieces, which makes the pooling regions disjoint. If set to
-                                              # a smaller number, can do overlapping pools.
-                     irange: .005,
-#                     max_kernel_norm: .9,     # If specified, each kernel is constrained to have at most this norm.
-#                     partial_sum: 33,         # a parameter that controls whether to prefer runtime savings or memory
-                                              # savings when computing the gradient with respect to the kernels.
-                                              # See pylearn2.sandbox.cuda_convnet.weight_acts.py for details. The default
-                                              # is to prefer high speed. Note that changing this setting may change the value
-                                              # of computed results slightly due to different rounding error
-
-                 },
-                 !obj:pylearn2.models.maxout.MaxoutConvC01B {
+                     pad: 4,
+                     tied_b: 1,
                      W_lr_scale: .05,
                      b_lr_scale: .05,
-                     tied_b: 1,
-
-                     layer_name: 'h1',
-                     pad: 0,
-                     num_channels: 192,
-                     num_pieces: 1,
-                     kernel_shape: [4, 4],
-                     pool_shape: [2, 2],
+                     num_channels: 96,
+                     num_pieces: 2,
+                     kernel_shape: [8, 8],
+                     pool_shape: [4, 4],
                      pool_stride: [2, 2],
                      irange: .005,
-#                     max_kernel_norm: 1.9365,
-#                     partial_sum: 15,
+                     max_kernel_norm: .9,
+                     partial_sum: 33,
                  },
-#                 !obj:pylearn2.models.mlp.Tanh {
-#                    layer_name: 'h2',
-#                    irange: .005,
-#                    dim: 30
+                 !obj:pylearn2.models.maxout.MaxoutConvC01B {
+                     layer_name: 'h1',
+                     pad: 3,
+                     tied_b: 1,
+                     W_lr_scale: .05,
+                     b_lr_scale: .05,
+                     num_channels: 144,
+                     num_pieces: 2,
+                     kernel_shape: [8, 8],
+                     pool_shape: [4, 4],
+                     pool_stride: [2, 2],
+                     irange: .005,
+                     max_kernel_norm: 1.9365,
+                     partial_sum: 15,
+                 },
+#                 !obj:pylearn2.models.maxout.MaxoutConvC01B {
+#                     pad: 3,
+#                     layer_name: 'h2',
+#                     tied_b: 1,
+#                     W_lr_scale: .05,
+#                     b_lr_scale: .05,
+#                     num_channels: 96,
+#                     num_pieces: 2,
+#                     kernel_shape: [5, 5],
+#                     pool_shape: [2, 2],
+#                     pool_stride: [2, 2],
+#                     irange: .005,
+#                     max_kernel_norm: 1.9365,
 #                 },
                  !obj:pylearn2.models.maxout.Maxout {
-                    layer_name: 'h2',
+                    layer_name: 'h3',
                     irange: .005,
-                    num_units: 500,
+                    num_units: 300,
                     num_pieces: 5,
-                    max_col_norm: 1.9,
+                    max_col_norm: 1.9
                  },
                  !obj:pylearn2.models.mlp.Softmax {
-#                     max_col_norm: 1.9365,
+                     max_col_norm: 1.9365,
                      layer_name: 'y',
                      n_classes: 10,
                      irange: .005
