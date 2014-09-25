@@ -58,7 +58,7 @@
 
                      layer_name: 'h1',
                      pad: 0,
-                     num_channels: 96,
+                     num_channels: 192,
                      num_pieces: 1,
                      kernel_shape: [4, 4],
                      pool_shape: [2, 2],
