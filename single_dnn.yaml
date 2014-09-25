@@ -3,8 +3,8 @@
     dataset: &train !obj:pylearn2.datasets.cifar10.CIFAR10 {
             which_set: 'train',
             one_hot: 1,
-#            start: 0,
-            stop: 2000,
+            start: 0,
+            stop: 40000,
             axes: ['c', 0, 1, 'b']
      },
 #    dataset: &train !obj:pylearn2.datasets.zca_dataset.ZCA_Dataset {
@@ -23,9 +23,14 @@
         },
         layers: [
                  !obj:pylearn2.models.maxout.MaxoutConvC01B {
+                     W_lr_scale: .05,
+                     b_lr_scale: .05,
+                     tied_b: 1,
+
+
                      layer_name: 'h0',
                      pad: 0,                  # add padding before convolution
-                     #tied_b: 1,               # If true, all biases in the same channel are constrained to be the same
+#                     tied_b: 1,               # If true, all biases in the same channel are constrained to be the same
                                                # as each other. Otherwise, each bias at each location is learned independently.
                      #W_lr_scale: .05,         # The learning rate on the weights for this layer is multiplied by this scaling factor
                      #b_lr_scale: .05,         # The learning rate on the biases for this layer is multiplied by this scaling factor
@@ -47,6 +52,10 @@
 
                  },
                  !obj:pylearn2.models.maxout.MaxoutConvC01B {
+                     W_lr_scale: .05,
+                     b_lr_scale: .05,
+                     tied_b: 1,
+
                      layer_name: 'h1',
                      pad: 0,
                      num_channels: 96,
@@ -58,10 +67,17 @@
 #                     max_kernel_norm: 1.9365,
 #                     partial_sum: 15,
                  },
-                 !obj:pylearn2.models.mlp.Tanh {
+#                 !obj:pylearn2.models.mlp.Tanh {
+#                    layer_name: 'h2',
+#                    irange: .005,
+#                    dim: 30
+#                 },
+                 !obj:pylearn2.models.maxout.Maxout {
                     layer_name: 'h2',
                     irange: .005,
-                    dim: 30
+                    num_units: 500,
+                    num_pieces: 5,
+                    max_col_norm: 1.9,
                  },
                  !obj:pylearn2.models.mlp.Softmax {
 #                     max_col_norm: 1.9365,
@@ -88,7 +104,7 @@
                 'test'  : !obj:pylearn2.datasets.cifar10.CIFAR10 {
                               which_set: 'test',
                               one_hot: 1,
-                              stop: 1000,
+#                              stop: 1000,
                               axes: ['c', 0, 1, 'b']
                           },
 
