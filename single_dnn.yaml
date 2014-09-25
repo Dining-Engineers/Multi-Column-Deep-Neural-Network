@@ -23,7 +23,7 @@
         },
         layers: [
                  !obj:pylearn2.models.maxout.MaxoutConvC01B {
-                     layer_name: 'h1',
+                     layer_name: 'h0',
                      pad: 0,                  # add padding before convolution
                      #tied_b: 1,               # If true, all biases in the same channel are constrained to be the same
                                                # as each other. Otherwise, each bias at each location is learned independently.
@@ -47,7 +47,7 @@
 
                  },
                  !obj:pylearn2.models.maxout.MaxoutConvC01B {
-                     layer_name: 'h2',
+                     layer_name: 'h1',
                      pad: 0,
                      num_channels: 50,
                      num_pieces: 1,
@@ -59,7 +59,7 @@
 #                     partial_sum: 15,
                  },
                  !obj:pylearn2.models.mlp.Tanh {
-                    layer_name: 'h3',
+                    layer_name: 'h2',
                     irange: .005,
                     dim: 30
                  },
