@@ -14,9 +14,10 @@ from vector_spaces_dataset_c01b import VectorSpacesDatasetC01B
 
 def load_dataset(which_set):
     print "loading.. ", which_set
+
     if which_set == 'test':
-        start_set = 50000
-        stop_set = 60000
+        start_set = 0
+        stop_set = 10000
     elif which_set == 'valid':
         start_set = 40000
         stop_set = 50000
@@ -30,13 +31,13 @@ def load_dataset(which_set):
     n_classes = 10
 
     # take original cifar10dataset
-    train_orig = CIFAR10(which_set='train',
+    train_orig = CIFAR10(which_set=which_set,
                          start=start_set,
                          stop=stop_set,
                          # axes=['b', 0, 1, 'c'])
                          axes=['c', 0, 1, 'b'])
 
-    train_2  = CIFAR10(which_set='train',
+    train_2  = CIFAR10(which_set=which_set,
                        start=start_set,
                        stop=stop_set,
                        # axes=['b', 0, 1, 'c'],
