@@ -117,10 +117,10 @@
             {
 
                 'valid' : !obj:create_dataset.load_dataset {
-                            which_set: 'valid'
+                            which_set: 'valid',
                           },
                 'test'  : !obj:create_dataset.load_dataset {
-                            which_set: 'test'
+                            which_set: 'test',
                           },
             },
         cost: !obj:pylearn2.costs.mlp.dropout.Dropout {
