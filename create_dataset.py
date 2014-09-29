@@ -2,15 +2,15 @@
 This script makes a dataset of 32x32 approximately whitened CIFAR-10 images.
 
 """
+from pylearn2.costs.mlp.dropout import Dropout
 from pylearn2.datasets.vector_spaces_dataset import VectorSpacesDataset
 from pylearn2.format.target_format import OneHotFormatter
-from pylearn2.models.maxout import Maxout
+from pylearn2.models.maxout import Maxout, MaxoutConvC01B
 from pylearn2.space import CompositeSpace, Conv2DSpace, VectorSpace
 from pylearn2.utils import string_utils
 from pylearn2.datasets.cifar10 import CIFAR10
 from vector_spaces_dataset_c01b import VectorSpacesDatasetC01B
 
-Maxout
 
 def load_dataset(which_set):
 
