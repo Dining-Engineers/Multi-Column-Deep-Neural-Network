@@ -42,7 +42,8 @@ def load_dataset(which_set):
                        # axes=['b', 0, 1, 'c'],
                        axes=['c', 0, 1, 'b'],
                        toronto_prepro=1,
-                       gcn=1)
+                       # gcn=1
+                        )
 
 
     # print t2.X[1, :] == train_orig.X[1, :]
