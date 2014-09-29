@@ -28,10 +28,10 @@
                     layer_name: 'h0',
                         layers: [
                             !obj:pylearn2.models.mlp.MLP {
-                              layer_name: 'h0_column0',
+                              layer_name: 'column0',
                               layers: [
                                   !obj:pylearn2.models.maxout.MaxoutConvC01B {
-                                     layer_name: 'h0_column0_conv1',
+                                     layer_name: 'conv1',
                                      pad: 0,
                                      num_channels: 32,
                                      num_pieces: 1,
@@ -46,7 +46,7 @@
                                      max_kernel_norm: 9.9,
                                   },
                                   !obj:pylearn2.models.mlp.Softmax {
-                                     layer_name: 'h0_column0_y',
+                                     layer_name: 'y1',
                                      n_classes: 10,
                                      istdev: .01,
                                      W_lr_scale: 1.,
@@ -57,10 +57,10 @@
                               ],
                             },
                             !obj:pylearn2.models.mlp.MLP {
-                              layer_name: 'h0_column1',
+                              layer_name: 'column1',
                               layers: [
                                   !obj:pylearn2.models.maxout.MaxoutConvC01B {
-                                     layer_name: 'h0_column1_conv1',
+                                     layer_name: 'conv1',
                                      pad: 0,
                                      num_channels: 32,
                                      num_pieces: 1,
@@ -75,7 +75,7 @@
                                      max_kernel_norm: 9.9,
                                   },
                                   !obj:pylearn2.models.mlp.Softmax {
-                                     layer_name: 'h0_column1_y',
+                                     layer_name: 'y1',
                                      n_classes: 10,
                                      istdev: .01,
                                      W_lr_scale: 1.,
@@ -132,8 +132,8 @@
                           }
             },
         cost: !obj:pylearn2.costs.mlp.dropout.Dropout {
-            input_include_probs: { 'h0_column0_h0_column0_conv1' : .8 , 'h0_column1_h0_column1_conv1' : .8 },
-            input_scales: { 'h0_column0_h0_column0_conv1' : 1., 'h0_column1_h0_column1_conv1' : 1. }
+            input_include_probs: { 'h0_column0_conv1' : .8 , 'h0_column1_conv1' : .8 },
+            input_scales: { 'h0_column0_conv1' : 1., 'h0_column1_conv1' : 1. }
         },
         termination_criterion: !obj:pylearn2.termination_criteria.EpochCounter {
             max_epochs: 20
