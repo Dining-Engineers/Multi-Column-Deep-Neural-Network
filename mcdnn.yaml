@@ -20,7 +20,7 @@
               axes: ['c', 0, 1, 'b']
               }
            ],
-        }
+        },
         input_source: ['features0', 'features1'],
 
         layers: [
