@@ -13,7 +13,7 @@ from vector_spaces_dataset_c01b import VectorSpacesDatasetC01B
 
 
 def load_dataset(which_set):
-
+    print "loading.. ", which_set
     if which_set == 'test':
         start_set = 50000
         stop_set = 60000
