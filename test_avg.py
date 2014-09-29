@@ -16,7 +16,8 @@ from pylearn2.models.mlp import (FlattenerLayer, MLP, Linear, Softmax, Sigmoid,
 from pylearn2.space import VectorSpace, CompositeSpace, Conv2DSpace
 from pylearn2.utils import is_iterable, sharedX
 from pylearn2.expr.nnet import pseudoinverse_softmax_numpy
-from AverageLayer import Sum, Average
+
+
 
 """
 Create a VectorSpacesDataset with two inputs (features0 and features1)
