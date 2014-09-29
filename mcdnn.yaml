@@ -92,7 +92,7 @@
                             1: [1],
                     },
 
-                 } # end composite layer
+                 }, # end composite layer
                  !obj:AverageLayer.Average {
                     layer_name: 'sum'
                  },
