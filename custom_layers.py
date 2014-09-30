@@ -67,6 +67,16 @@ class PreprocessorBlock(Layer):
         return state_below.copy()
 
 
+    @functools.wraps(Layer.get_layer_monitoring_channels)
+    def get_layer_monitoring_channels(self, state_below=None,
+                                    state=None, targets=None):
+        print state_below
+        print type(state_below)
+        # print
+
+
+
+
 class Average(Layer):
     """
     Monitoring channels are hardcoded for C01B batches
