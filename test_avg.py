@@ -1,6 +1,7 @@
 from itertools import product
 
 import numpy as np
+from pylearn2.costs.mlp.dropout import Dropout
 import theano
 from theano import tensor, config
 from nose.tools import assert_raises
@@ -16,7 +17,7 @@ from pylearn2.models.mlp import (FlattenerLayer, MLP, Linear, Softmax, Sigmoid,
 from pylearn2.space import VectorSpace, CompositeSpace, Conv2DSpace
 from pylearn2.utils import is_iterable, sharedX
 from pylearn2.expr.nnet import pseudoinverse_softmax_numpy
-
+from AverageLayer import Average
 
 
 """
@@ -50,6 +51,6 @@ dataset = VectorSpacesDataset(
         VectorSpace(5)]),
     ('features1', 'features0', 'targets'))
 )
-train = Train(dataset, mlp, SGD(0.1, batch_size=5))
+train = Train(dataset, mlp, SGD(0.1, batch_size=5, monitoring_dataset=dataset))#, cost=Dropout(input_include_probs={'composite':1.})))
 train.algorithm.termination_criterion = EpochCounter(1)
 train.main_loop()

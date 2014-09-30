@@ -94,7 +94,7 @@
 
                  }, # end composite layer
                  !obj:AverageLayer.Average {
-                    layer_name: 'sum'
+                    layer_name: 'avg'
                  },
                  !obj:pylearn2.models.mlp.Softmax {
                     layer_name: 'y',

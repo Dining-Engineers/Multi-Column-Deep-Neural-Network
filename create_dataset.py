@@ -13,19 +13,35 @@ from vector_spaces_dataset_c01b import VectorSpacesDatasetC01B
 
 
 def load_dataset(which_set):
+
+    size = 'small'
     print "loading.. ", which_set
 
-    if which_set == 'test':
-        start_set = 0
-        stop_set = 10000
-    elif which_set == 'valid':
-        which_set = 'train'
-        start_set = 40000
-        stop_set = 50000
+
+    if size == 'big':
+        if which_set == 'test':
+            start_set = 0
+            stop_set = 10000
+        elif which_set == 'valid':
+            which_set = 'train'
+            start_set = 40000
+            stop_set = 50000
+        else:
+            #train
+            start_set = 0
+            stop_set = 40000
     else:
-        #train
-        start_set = 0
-        stop_set = 40000
+        if which_set == 'test':
+            start_set = 0
+            stop_set = 4000
+        elif which_set == 'valid':
+            which_set = 'train'
+            start_set = 40000
+            stop_set = 43000
+        else:
+            #train
+            start_set = 0
+            stop_set = 10000
 
     data_dir = string_utils.preprocess('${PYLEARN2_DATA_PATH}/cifar10')
 

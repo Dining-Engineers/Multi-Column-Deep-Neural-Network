@@ -2,6 +2,9 @@ from pylearn2.models.mlp import Layer, Linear
 from pylearn2.models import Model
 from pylearn2.space import CompositeSpace
 import functools
+from theano import printing
+from theano.scalar import float64
+
 wraps = functools.wraps
 from theano.compat import OrderedDict
 
@@ -21,7 +24,6 @@ class Average(Layer):
         self.input_space = space
         assert isinstance(space, CompositeSpace)
         self.output_space = space.components[0]
-        print "DIO", self.output_space, type(self.output_space)
 
     def fprop(self, state_below):
         rval = state_below[0]
