@@ -13,35 +13,19 @@ from vector_spaces_dataset_c01b import VectorSpacesDatasetC01B
 
 
 def load_dataset(which_set):
-
-    size = 'small'
     print "loading.. ", which_set
 
-
-    if size == 'big':
-        if which_set == 'test':
-            start_set = 0
-            stop_set = 10000
-        elif which_set == 'valid':
-            which_set = 'train'
-            start_set = 40000
-            stop_set = 50000
-        else:
-            #train
-            start_set = 0
-            stop_set = 40000
+    if which_set == 'test':
+        start_set = 0
+        stop_set = 10000
+    elif which_set == 'valid':
+        which_set = 'train'
+        start_set = 40000
+        stop_set = 50000
     else:
-        if which_set == 'test':
-            start_set = 0
-            stop_set = 10000
-        elif which_set == 'valid':
-            which_set = 'train'
-            start_set = 40000
-            stop_set = 43000
-        else:
-            #train
-            start_set = 0
-            stop_set = 10000
+        #train
+        start_set = 0
+        stop_set = 20000
 
     data_dir = string_utils.preprocess('${PYLEARN2_DATA_PATH}/cifar10')
 
@@ -59,7 +43,7 @@ def load_dataset(which_set):
                        stop=stop_set,
                        # axes=['b', 0, 1, 'c'],
                        axes=['c', 0, 1, 'b'],
-                       # toronto_prepro=1,
+                       toronto_prepro=1,
                        # gcn=1
                         )
 
@@ -85,11 +69,10 @@ def load_dataset(which_set):
     #
 
 
-    # ERROR: A design matrix with data in rows. Data is assumed to be laid out in
-    #      memory according to the axis order ('b', 'c', 0, 1)
-    # MORTEMORTEMORTE
 
-
+    input1 = train_orig.get_topological_view()  # train_orig.X.reshape(3, 32, 32, train_set_dimension)
+    input2 = train_2.get_topological_view()
+    target = OneHotFormatter(n_classes).format(train_orig.y, mode="concatenate")
 
 
     # # b01c input space
@@ -101,15 +84,7 @@ def load_dataset(which_set):
     #
     # # Output Space
     out_space = VectorSpace(n_classes)
-
-
-    input1 = train_orig.get_formatted_view(train_orig, input_space1)
-    # train_orig.get_topological_view()  # train_orig.X.reshape(3, 32, 32, train_set_dimension)
-    input2 = train_2.get_formatted_view(train_orig, input_space2)
-    # .get_topological_view()
-    target = OneHotFormatter(n_classes).format(train_orig.y, mode="concatenate")
-    # print input1.shape, input2.shape, target.shape
-
+    #
     #
     # ###### TEST ###############################################################################
     # # c01b
@@ -141,12 +116,8 @@ def load_dataset(which_set):
          ('features0', 'features1', 'targets'))
     )
 
-    print set.get_data()[1].shape
     return set
 
-
-if __name__ == '__main__':
-    load_dataset('train')
 
 
 

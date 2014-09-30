@@ -80,10 +80,10 @@
     },
     algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
         learning_rate: .17,
-        init_momentum: .5,
-        #learning_rule: !obj:pylearn2.training_algorithms.learning_rule.Momentum {
-        #    init_momentum: .5,
-        #},
+#        init_momentum: .5,
+        learning_rule: !obj:pylearn2.training_algorithms.learning_rule.Momentum {
+            init_momentum: .5,
+        },
         train_iteration_mode: 'even_shuffled_sequential',
         monitor_iteration_mode: 'even_sequential',
         monitoring_dataset:
