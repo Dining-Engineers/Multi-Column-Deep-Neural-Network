@@ -5,7 +5,7 @@ from pylearn2.models.maxout import MaxoutConvC01B
 from pylearn2.termination_criteria import EpochCounter
 from pylearn2.training_algorithms.sgd import SGD
 from pylearn2.train import Train
-from pylearn2.models.mlp import (MLP, Softmax, SpaceConverter)
+from pylearn2.models.mlp import (MLP, Softmax, SpaceConverter, ConvRectifiedLinear)
 from pylearn2.space import Conv2DSpace
 from custom_layers import PreprocessorBlock
 
@@ -19,30 +19,39 @@ mlp = MLP(
     layers=[
             PreprocessorBlock(
                 layer_name='preproc',
-                gcn=1
+                toronto=True,
+                # gcn=1
             ),
-            SpaceConverter('spconveter',
-                           Conv2DSpace(shape= [32, 32],
-                                    num_channels= 3,
-                                    axes= ['c', 0, 1, 'b']
-                                    # axes= ['c', 0, 1, 'b']
-                                    )
-                           ),
-            MaxoutConvC01B(
-                layer_name='conv1',
-                pad= 0,
-                num_channels= 32,
-                num_pieces= 1,
-                kernel_shape= [5, 5],
-                pool_shape= [3, 3],
-                pool_stride= [2, 2],
-                irange= .01,
-                min_zero= True,
-                W_lr_scale= 1.,
-                b_lr_scale= 2.,
-                tied_b=True,
-                max_kernel_norm=9.9,
-            ),
+            # SpaceConverter('spconveter',
+            #                Conv2DSpace(shape= [32, 32],
+            #                         num_channels= 3,
+            #                         axes= ['c', 0, 1, 'b']
+            #                         # axes= ['c', 0, 1, 'b']
+            #                         )
+            #                ),
+            # MaxoutConvC01B(
+            #     layer_name='conv1',
+            #     pad= 0,
+            #     num_channels= 32,
+            #     num_pieces= 1,
+            #     kernel_shape= [5, 5],
+            #     pool_shape= [3, 3],
+            #     pool_stride= [2, 2],
+            #     irange= .01,
+            #     min_zero= True,
+            #     W_lr_scale= 1.,
+            #     b_lr_scale= 2.,
+            #     tied_b=True,
+            #     max_kernel_norm=9.9,
+            # ),
+            ConvRectifiedLinear(layer_name='conv1',
+                                irange= .01,
+                                output_channels = 32,
+                                 kernel_shape = [5,5],
+                                 pool_shape = [3, 3],
+                                 pool_stride = [2, 2]
+
+                                           ),
         # Average('sum'),
         Softmax(10, 'softmax', 0.1)
     ],

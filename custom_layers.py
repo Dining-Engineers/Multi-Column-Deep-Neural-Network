@@ -1,9 +1,10 @@
 from pylearn2.expr.preprocessing import global_contrast_normalize
 from pylearn2.models.mlp import Layer, Linear
 from pylearn2.models import Model
-from pylearn2.space import CompositeSpace
+from pylearn2.space import CompositeSpace, Conv2DSpace
 import functools
 from theano import printing
+import theano
 from theano.scalar import float64
 
 wraps = functools.wraps
@@ -24,7 +25,7 @@ class PreprocessorBlock(Layer):
         The space to convert to.
     """
 
-    def __init__(self, layer_name, gcn):
+    def __init__(self, layer_name, gcn=None, toronto=None):
         super(PreprocessorBlock, self).__init__()
         self.__dict__.update(locals())
         del self.self
@@ -33,15 +34,32 @@ class PreprocessorBlock(Layer):
     @wraps(Layer.set_input_space)
     def set_input_space(self, space):
         self.input_space = space
-        self.output_space = space
+        self.output_space = Conv2DSpace(shape=[32, 32],
+                                            num_channels=3,
+                                            axes=('b', 0, 1, 'c'))
+
 
     @wraps(Layer.fprop)
     def fprop(self, state_below):
 
-        if hasattr(self, 'gcn'):
-            gcn = float(self.gcn)
-            X = global_contrast_normalize(state_below, scale=gcn)
-        return X
+        if hasattr(self, 'toronto'):
+            rval = state_below
+            rval /= 255
+            rval -= rval.mean(axis=0)
+            print "bug"
+            return rval
+
+        # if hasattr(self, 'gcn'):
+        #     gcn = float(self.gcn)
+        #     # mean per example
+        #     mean = state_below.mean(axis = 0)
+        #     rval = state_below - mean
+        #     normalizer = theano.tensor.sqrt((rval ** 2).sum(axis=1))/gcn
+        #     rval /= normalizer
+        #     # X = global_contrast_normalize(state_below, scale=gcn)
+        # return rval
+
+        return state_below
 
 
 class Average(Layer):
