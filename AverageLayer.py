@@ -51,9 +51,9 @@ class Average(Layer):
             #     if isinstance(var, tuple):
             #         print "tuple length: ", len(var)
             #     assert False
-            v_max = var.max(axis=(1, 2, 3))
-            v_min = var.min(axis=(1, 2, 3))
-            v_mean = var.mean(axis=(1, 2, 3))
+            v_max = var.max(axis=1)
+            v_min = var.min(axis=1)
+            v_mean = var.mean(axis=1)
             v_range = v_max - v_min
 
             # max_x.mean_u is "the mean over *u*nits of the max over
