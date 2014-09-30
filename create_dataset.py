@@ -33,7 +33,7 @@ def load_dataset(which_set):
     else:
         if which_set == 'test':
             start_set = 0
-            stop_set = 4000
+            stop_set = 10000
         elif which_set == 'valid':
             which_set = 'train'
             start_set = 40000
