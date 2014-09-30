@@ -89,6 +89,7 @@ def load_dataset(which_set):
     input1 = train_orig.get_topological_view()  # train_orig.X.reshape(3, 32, 32, train_set_dimension)
     input2 = train_2.get_topological_view()
     target = OneHotFormatter(n_classes).format(train_orig.y, mode="concatenate")
+    # print input1.shape, input2.shape, target.shape
 
 
     # # b01c input space
@@ -132,8 +133,12 @@ def load_dataset(which_set):
          ('features0', 'features1', 'targets'))
     )
 
+    print set.get_data()[1].shape
     return set
 
+
+if __name__ == '__main__':
+    load_dataset('train')
 
 
 
