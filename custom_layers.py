@@ -9,6 +9,8 @@ wraps = functools.wraps
 from theano.compat import OrderedDict
 
 
+
+
 class Average(Layer):
     """
     Monitoring channels are hardcoded for C01B batches

@@ -16,6 +16,13 @@ and train an MLP which takes both inputs for 1 epoch.
 mlp = MLP(
     batch_size=128,
     layers=[
+            SpaceConverter('spconveter',
+                           Conv2DSpace(shape= [32, 32],
+                                    num_channels= 3,
+                                    axes= ['b', 0, 1, 'c']
+                                    # axes= ['c', 0, 1, 'b']
+                                    )
+                           ),
             MaxoutConvC01B(
                 layer_name='conv1',
                 pad= 0,
@@ -37,13 +44,16 @@ mlp = MLP(
     input_space=Conv2DSpace (
             shape= [32, 32],
             num_channels= 3,
-            axes= ['c', 0, 1, 'b']),
+            axes= ['b', 0, 1, 'c']
+            # axes= ['c', 0, 1, 'b']
+    ),
 )
 
 dataset = CIFAR10(toronto_prepro= True,
         which_set= 'train',
         one_hot= 1,
-        axes= ['c', 0, 1, 'b'],
+        # axes= ['c', 0, 1, 'b'],
+        axes= ['b', 0, 1, 'c'],
         start= 0,
         stop= 50000)
 
