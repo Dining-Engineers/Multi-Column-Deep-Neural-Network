@@ -19,7 +19,7 @@ mlp = MLP(
             SpaceConverter('spconveter',
                            Conv2DSpace(shape= [32, 32],
                                     num_channels= 3,
-                                    axes= ['b', 0, 1, 'c']
+                                    axes= ['c', 0, 1, 'b']
                                     # axes= ['c', 0, 1, 'b']
                                     )
                            ),
