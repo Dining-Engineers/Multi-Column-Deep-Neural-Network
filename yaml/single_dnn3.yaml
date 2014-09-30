@@ -125,7 +125,7 @@
     extensions: [
         !obj:pylearn2.train_extensions.best_params.MonitorBasedSaveBest {
              channel_name: 'valid_y_misclass',
-             save_path: "./test_best.pkl"
+             save_path: "pkl/single_dnn3_best.pkl"
         },
         !obj:pylearn2.training_algorithms.sgd.MomentumAdjustor {
             start: 1,
@@ -145,6 +145,6 @@
             center: [ *valid ]
         }
     ],
-    save_path: "./test.pkl",
+    save_path: "pkl/single_dnn3.pkl",
     save_freq: 5
 }

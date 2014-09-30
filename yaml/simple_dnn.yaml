@@ -68,6 +68,6 @@
 
         }
     },
-    save_path: "simple.pkl",
+    save_path: "pkl/simple_dnn1.pkl",
     save_freq: 1
 }
