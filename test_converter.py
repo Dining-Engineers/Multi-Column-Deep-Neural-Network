@@ -28,6 +28,7 @@ Create a VectorSpacesDataset with two inputs (features0 and features1)
 and train an MLP which takes both inputs for 1 epoch.
 """
 mlp = MLP(
+    batch_size=128,
     layers=[
             MaxoutConvC01B(
                 layer_name='conv1',
@@ -53,11 +54,12 @@ mlp = MLP(
             axes= ['c', 0, 1, 'b']),
 )
 
-dataset = CIFAR10(which_set='train',
-                         start=0,
-                         stop=40000,
-                         # axes=['b', 0, 1, 'c'])
-                         axes=['c', 0, 1, 'b'])
+dataset = CIFAR10(toronto_prepro= True,
+        which_set= 'train',
+        one_hot= 1,
+        axes= ['c', 0, 1, 'b'],
+        start= 0,
+        stop= 50000)
 
 
 train = Train(dataset,
@@ -94,5 +96,4 @@ train = Train(dataset,
 
               )
 )#, cost=Dropout(input_include_probs={'composite'=1.})))
-train.algorithm.termination_criterion = EpochCounter(3)
 train.main_loop()
