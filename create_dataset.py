@@ -59,7 +59,7 @@ def load_dataset(which_set):
                        stop=stop_set,
                        # axes=['b', 0, 1, 'c'],
                        axes=['c', 0, 1, 'b'],
-                       toronto_prepro=1,
+                       # toronto_prepro=1,
                        # gcn=1
                         )
 
