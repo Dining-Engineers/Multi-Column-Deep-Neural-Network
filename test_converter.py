@@ -7,6 +7,7 @@ from pylearn2.training_algorithms.sgd import SGD
 from pylearn2.train import Train
 from pylearn2.models.mlp import (MLP, Softmax, SpaceConverter)
 from pylearn2.space import Conv2DSpace
+from custom_layers import PreprocessorBlock
 
 
 """
@@ -16,6 +17,10 @@ and train an MLP which takes both inputs for 1 epoch.
 mlp = MLP(
     batch_size=128,
     layers=[
+            PreprocessorBlock(
+                layer_name='preproc',
+                gcn=1
+            ),
             SpaceConverter('spconveter',
                            Conv2DSpace(shape= [32, 32],
                                     num_channels= 3,

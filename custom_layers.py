@@ -1,3 +1,4 @@
+from pylearn2.expr.preprocessing import global_contrast_normalize
 from pylearn2.models.mlp import Layer, Linear
 from pylearn2.models import Model
 from pylearn2.space import CompositeSpace
@@ -9,6 +10,37 @@ wraps = functools.wraps
 from theano.compat import OrderedDict
 
 
+
+class PreprocessorBlock(Layer):
+    """
+    A Layer with no parameters that converts the input from
+    one space to another.
+
+    Parameters
+    ----------
+    layer_name : str
+        Name of the layer.
+    output_space : Space
+        The space to convert to.
+    """
+
+    def __init__(self, layer_name, gcn):
+        super(PreprocessorBlock, self).__init__()
+        self.__dict__.update(locals())
+        del self.self
+        self._params = []
+
+    @wraps(Layer.set_input_space)
+    def set_input_space(self, space):
+        self.input_space = space
+
+    @wraps(Layer.fprop)
+    def fprop(self, state_below):
+
+        if hasattr(self, 'gcn'):
+            gcn = float(self.gcn)
+            X = global_contrast_normalize(state_below, scale=gcn)
+        return X
 
 
 class Average(Layer):
