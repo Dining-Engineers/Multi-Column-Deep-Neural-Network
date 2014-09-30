@@ -65,7 +65,6 @@ dataset = CIFAR10(toronto_prepro= True,
 train = Train(dataset,
               mlp,
               SGD(
-                  0.1, batch_size=5,
                     batch_size=128,
                     learning_rate= .01,
                     init_momentum= .9,
