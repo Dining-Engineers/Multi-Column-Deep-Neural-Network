@@ -21,7 +21,7 @@ class Average(Layer):
         self.input_space = space
         assert isinstance(space, CompositeSpace)
         self.output_space = space.components[0]
-        print self.output_space, type(self.output_space)
+        print "DIO", self.output_space, type(self.output_space)
 
     def fprop(self, state_below):
         rval = state_below[0]
