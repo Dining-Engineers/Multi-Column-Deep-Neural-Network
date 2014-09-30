@@ -1,26 +1,12 @@
-from itertools import product
-
-import numpy as np
 from pylearn2.costs.mlp.dropout import Dropout
 from pylearn2.datasets.cifar10 import CIFAR10
 from pylearn2.models.maxout import MaxoutConvC01B
-from pylearn2.sandbox.cuda_convnet.debug import batch_size
-import theano
-from theano import tensor, config
-from nose.tools import assert_raises
 
-from pylearn2.datasets.vector_spaces_dataset import VectorSpacesDataset
-from pylearn2.datasets.dense_design_matrix import DenseDesignMatrix
 from pylearn2.termination_criteria import EpochCounter
 from pylearn2.training_algorithms.sgd import SGD
 from pylearn2.train import Train
-from pylearn2.models.mlp import (FlattenerLayer, MLP, Linear, Softmax, Sigmoid,
-                                 exhaustive_dropout_average,
-                                 sampled_dropout_average, CompositeLayer)
-from pylearn2.space import VectorSpace, CompositeSpace, Conv2DSpace
-from pylearn2.utils import is_iterable, sharedX
-from pylearn2.expr.nnet import pseudoinverse_softmax_numpy
-from AverageLayer import Average
+from pylearn2.models.mlp import (MLP, Softmax)
+from pylearn2.space import Conv2DSpace
 
 
 """
@@ -62,9 +48,9 @@ dataset = CIFAR10(toronto_prepro= True,
         stop= 50000)
 
 
-train = Train(dataset,
-              mlp,
-              SGD(
+train = Train(dataset=dataset,
+              model=mlp,
+              algorithm=SGD(
                     batch_size=128,
                     learning_rate= .01,
                     init_momentum= .9,
