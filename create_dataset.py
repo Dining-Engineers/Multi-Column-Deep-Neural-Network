@@ -14,7 +14,7 @@ from vector_spaces_dataset_c01b import VectorSpacesDatasetC01B
 
 def load_dataset(which_set):
 
-    size = 'small'
+    size = 'big'
     print "loading.. ", which_set
 
 
@@ -51,15 +51,16 @@ def load_dataset(which_set):
     train_orig = CIFAR10(which_set=which_set,
                          start=start_set,
                          stop=stop_set,
-                         # axes=['b', 0, 1, 'c'])
-                         axes=['c', 0, 1, 'b'])
+                         gcn=1,
+                         axes=['b', 0, 1, 'c'])
+                         # axes=['c', 0, 1, 'b'])
 
-    train_2  = CIFAR10(which_set=which_set,
+    train_2 = CIFAR10(which_set=which_set,
                        start=start_set,
                        stop=stop_set,
-                       # axes=['b', 0, 1, 'c'],
-                       axes=['c', 0, 1, 'b'],
-                       # toronto_prepro=1,
+                       axes=['b', 0, 1, 'c'],
+                       # axes=['c', 0, 1, 'b'],
+                       toronto_prepro=1,
                        # gcn=1
                         )
 
@@ -89,24 +90,22 @@ def load_dataset(which_set):
     #      memory according to the axis order ('b', 'c', 0, 1)
     # MORTEMORTEMORTE
 
-
-
-
     # # b01c input space
-    # input_space1 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
-    # input_space2 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
+    input_space1 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
+    input_space2 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
     # # c01b input space
-    input_space1 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('c', 0, 1, 'b'))
-    input_space2 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('c', 0, 1, 'b'))
+    # input_space1 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('c', 0, 1, 'b'))
+    # input_space2 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('c', 0, 1, 'b'))
     #
     # # Output Space
     out_space = VectorSpace(n_classes)
 
 
-    input1 = train_orig.get_formatted_view(train_orig, input_space1)
-    # train_orig.get_topological_view()  # train_orig.X.reshape(3, 32, 32, train_set_dimension)
-    input2 = train_2.get_formatted_view(train_orig, input_space2)
-    # .get_topological_view()
+    # input1 = train_orig.get_formatted_view(train_orig, input_space1)
+    input1 = train_orig.get_topological_view()  # train_orig.X.reshape(3, 32, 32, train_set_dimension)
+    # input2 = train_2.get_formatted_view(train_orig, input_space2)
+    input2 = train_2.get_topological_view()
+    # print input1.shape
     target = OneHotFormatter(n_classes).format(train_orig.y, mode="concatenate")
     # print input1.shape, input2.shape, target.shape
 
@@ -130,7 +129,7 @@ def load_dataset(which_set):
     #
     #
 
-    set = VectorSpacesDatasetC01B(
+    set = VectorSpacesDataset(
         (input1,
          input2,
          target),
@@ -140,6 +139,17 @@ def load_dataset(which_set):
             out_space]),
          ('features0', 'features1', 'targets'))
     )
+
+    # set = VectorSpacesDatasetC01B(
+    #     (input1,
+    #      input2,
+    #      target),
+    #     (CompositeSpace([
+    #         input_space1,
+    #         input_space2,
+    #         out_space]),
+    #      ('features0', 'features1', 'targets'))
+    # )
 
     print set.get_data()[1].shape
     return set
