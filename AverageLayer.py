@@ -43,6 +43,7 @@ class Average(Layer):
 
         for var, prefix in vars_and_prefixes:
 
+            print "average output: ", var.ndim, type(var)
             # if not hasattr(var, 'ndim') or var.ndim != 4:
             #     print "expected 4D tensor, got "
             #     print var
