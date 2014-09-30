@@ -72,6 +72,6 @@
 
         }
     },
-    save_path: "simple.pkl",
+    save_path: "simple2.pkl",
     save_freq: 1
 }

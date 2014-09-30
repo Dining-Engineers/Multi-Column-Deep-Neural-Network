@@ -128,7 +128,7 @@
             input_scales: { 'h0' : 1. }
         },
         termination_criterion: !obj:pylearn2.termination_criteria.EpochCounter {
-            max_epochs: 20
+            max_epochs: 100
 
         }
     },
