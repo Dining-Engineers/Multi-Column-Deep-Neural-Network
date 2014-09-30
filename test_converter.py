@@ -63,7 +63,8 @@ mlp = MLP(
     ),
 )
 
-dataset = CIFAR10(toronto_prepro= True,
+dataset = CIFAR10(
+        #toronto_prepro= True,
         which_set= 'train',
         one_hot= 1,
         # axes= ['c', 0, 1, 'b'],
@@ -83,7 +84,7 @@ train = Train(dataset=dataset,
                     monitoring_dataset=
                     {
                         'valid' : CIFAR10 (
-                                      toronto_prepro= True,
+                                      #toronto_prepro= True,
                                       axes= ['c', 0, 1, 'b'],
                                       which_set= 'train',
                                       one_hot= 1,
@@ -91,7 +92,7 @@ train = Train(dataset=dataset,
                                       stop=  50000
                         ),
                         'test': CIFAR10 (
-                                      toronto_prepro= True,
+                                      #toronto_prepro= True,
                                       axes= ['c', 0, 1, 'b'],
                                       which_set= 'test',
                                       one_hot= 1,

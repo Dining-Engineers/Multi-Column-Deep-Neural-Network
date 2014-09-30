@@ -42,23 +42,29 @@ class PreprocessorBlock(Layer):
     @wraps(Layer.fprop)
     def fprop(self, state_below):
 
-        if hasattr(self, 'toronto'):
-            rval = state_below
-            rval /= 255
-            rval -= rval.mean(axis=0)
+        if self.toronto is not None:
+            print "preprocessing: toronto"
+            X = state_below.copy()
+            X = X /255.
+            X2 = state_below.copy()
+            X2 = X2 / 255.
+            rval = X - X2.mean(axis=0)
             return rval
 
-        # if hasattr(self, 'gcn'):
-        #     gcn = float(self.gcn)
-        #     # mean per example
-        #     mean = state_below.mean(axis = 0)
-        #     rval = state_below - mean
-        #     normalizer = theano.tensor.sqrt((rval ** 2).sum(axis=1))/gcn
-        #     rval /= normalizer
-        #     # X = global_contrast_normalize(state_below, scale=gcn)
-        # return rval
 
-        return state_below
+        if self.gcn is not None:
+            print "preprocessing: gcn"
+            gcn = float(self.gcn)
+            # mean per example
+            mean = state_below.copy().mean(axis = 0)
+            rval = state_below - mean
+            normalizer = theano.tensor.sqrt((rval ** 2).sum(axis=1))/gcn
+            rval /= normalizer
+            # X = global_contrast_normalize(state_below, scale=gcn)
+            return rval
+
+        print "preprocessing: no"
+        return state_below.copy()
 
 
 class Average(Layer):
