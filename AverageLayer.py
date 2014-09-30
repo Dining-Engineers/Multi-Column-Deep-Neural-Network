@@ -21,6 +21,7 @@ class Average(Layer):
         self.input_space = space
         assert isinstance(space, CompositeSpace)
         self.output_space = space.components[0]
+        print self.output_space, type(self.output_space)
 
     def fprop(self, state_below):
         rval = state_below[0]
@@ -43,7 +44,7 @@ class Average(Layer):
 
         for var, prefix in vars_and_prefixes:
 
-            print "average output: ", var.ndim, type(var)
+            # print "average output: ", var.ndim, type(var)
             # if not hasattr(var, 'ndim') or var.ndim != 4:
             #     print "expected 4D tensor, got "
             #     print var
