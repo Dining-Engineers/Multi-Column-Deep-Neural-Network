@@ -46,7 +46,6 @@ class PreprocessorBlock(Layer):
             rval = state_below
             rval /= 255
             rval -= rval.mean(axis=0)
-            print "bug"
             return rval
 
         # if hasattr(self, 'gcn'):
