@@ -4,6 +4,7 @@ import numpy as np
 from pylearn2.costs.mlp.dropout import Dropout
 from pylearn2.datasets.cifar10 import CIFAR10
 from pylearn2.models.maxout import MaxoutConvC01B
+from pylearn2.sandbox.cuda_convnet.debug import batch_size
 import theano
 from theano import tensor, config
 from nose.tools import assert_raises
@@ -59,6 +60,39 @@ dataset = CIFAR10(which_set='train',
                          axes=['c', 0, 1, 'b'])
 
 
-train = Train(dataset, mlp, SGD(0.1, batch_size=5, monitoring_dataset=dataset))#, cost=Dropout(input_include_probs={'composite':1.})))
+train = Train(dataset,
+              mlp,
+              SGD(
+                  0.1, batch_size=5,
+                    batch_size=128,
+                    learning_rate= .01,
+                    init_momentum= .9,
+                    train_iteration_mode= 'even_shuffled_sequential',
+                    monitor_iteration_mode= 'even_sequential',
+                    monitoring_dataset=
+                    {
+                        'valid' : CIFAR10 (
+                                      toronto_prepro= True,
+                                      axes= ['c', 0, 1, 'b'],
+                                      which_set= 'train',
+                                      one_hot= 1,
+                                      start= 40000,
+                                      stop=  50000
+                        ),
+                        'test': CIFAR10 (
+                                      toronto_prepro= True,
+                                      axes= ['c', 0, 1, 'b'],
+                                      which_set= 'test',
+                                      one_hot= 1,
+                                      ),
+                    },
+                    cost= Dropout (
+                        input_include_probs= { 'conv1':.8 },
+                        input_scales= {'conv1':1.}
+                    ),
+                    termination_criterion=EpochCounter(max_epochs= 5),
+
+              )
+)#, cost=Dropout(input_include_probs={'composite'=1.})))
 train.algorithm.termination_criterion = EpochCounter(3)
 train.main_loop()
