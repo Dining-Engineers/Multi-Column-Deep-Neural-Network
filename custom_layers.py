@@ -33,6 +33,7 @@ class PreprocessorBlock(Layer):
     @wraps(Layer.set_input_space)
     def set_input_space(self, space):
         self.input_space = space
+        self.output_space = space
 
     @wraps(Layer.fprop)
     def fprop(self, state_below):
