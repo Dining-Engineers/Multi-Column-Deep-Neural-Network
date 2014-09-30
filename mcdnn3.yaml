@@ -145,11 +145,16 @@
             input_include_probs: { 'h0' : .8 },
             input_scales: { 'h0' : 1. }
         },
-        termination_criterion: !obj:pylearn2.termination_criteria.EpochCounter {
-            max_epochs: 20
+        #termination_criterion: !obj:pylearn2.termination_criteria.EpochCounter {
+        #    max_epochs: 20
 
-        }
+        #}
+        termination_criterion: !obj:pylearn2.termination_criteria.MonitorBased {
+            channel_name: "valid_y_misclass",
+            prop_decrease: 0.,
+            N: 100
+        },
     },
-    save_path: "simple.pkl",
+    save_path: "mcdnn3.pkl",
     save_freq: 1
 }
