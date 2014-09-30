@@ -5,7 +5,7 @@ from pylearn2.models.maxout import MaxoutConvC01B
 from pylearn2.termination_criteria import EpochCounter
 from pylearn2.training_algorithms.sgd import SGD
 from pylearn2.train import Train
-from pylearn2.models.mlp import (MLP, Softmax)
+from pylearn2.models.mlp import (MLP, Softmax, SpaceConverter)
 from pylearn2.space import Conv2DSpace
 
 
