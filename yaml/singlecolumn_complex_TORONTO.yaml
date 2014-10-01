@@ -32,7 +32,7 @@
                      tied_b: 1,
                      W_lr_scale: .05,
                      b_lr_scale: .05,
-                     num_channels: 64,
+                     num_channels: 48,
                      num_pieces: 1,
                      kernel_shape: [8, 8],
                      pool_shape: [4, 4],
@@ -75,7 +75,14 @@
                  !obj:pylearn2.models.maxout.Maxout {
                     layer_name: 'h3',
                     irange: .005,
-                    num_units: 500,
+                    num_units: 300,
+                    num_pieces: 5,
+                    max_col_norm: 1.9
+                 },
+                 !obj:pylearn2.models.maxout.Maxout {
+                    layer_name: 'h4',
+                    irange: .005,
+                    num_units: 100,
                     num_pieces: 5,
                     max_col_norm: 1.9
                  },

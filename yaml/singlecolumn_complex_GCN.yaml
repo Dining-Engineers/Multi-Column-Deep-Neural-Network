@@ -17,7 +17,7 @@
                      tied_b: 1,
                      W_lr_scale: .05,
                      b_lr_scale: .05,
-                     num_channels: 32,
+                     num_channels: 48,
                      num_pieces: 1,
                      kernel_shape: [8, 8],
                      pool_shape: [4, 4],
@@ -25,7 +25,6 @@
                      irange: .005,
                      max_kernel_norm: .9,
                      partial_sum: 33,
-                     min_zero: 1
                  },
                  !obj:pylearn2.models.maxout.MaxoutConvC01B {
                      layer_name: 'h1',
@@ -33,7 +32,7 @@
                      tied_b: 1,
                      W_lr_scale: .05,
                      b_lr_scale: .05,
-                     num_channels: 32,
+                     num_channels: 48,
                      num_pieces: 1,
                      kernel_shape: [8, 8],
                      pool_shape: [4, 4],
@@ -41,12 +40,50 @@
                      irange: .005,
                      max_kernel_norm: 1.9365,
                      partial_sum: 15,
-                     min_zero: 1
                  },
+#                 !obj:pylearn2.models.maxout.MaxoutConvC01B {
+#                     layer_name: 'h0',
+#                     pad: 4,
+#                     tied_b: 1,
+#                     W_lr_scale: .05,
+#                     b_lr_scale: .05,
+#                     num_channels: 32,
+#                     num_pieces: 1,
+#                     kernel_shape: [8, 8],
+#                     pool_shape: [4, 4],
+#                     pool_stride: [2, 2],
+#                     irange: .005,
+#                     max_kernel_norm: .9,
+#                     partial_sum: 33,
+#                     min_zero: 1
+#                 },
+#                 !obj:pylearn2.models.maxout.MaxoutConvC01B {
+#                     layer_name: 'h1',
+#                     pad: 3,
+#                     tied_b: 1,
+#                     W_lr_scale: .05,
+#                     b_lr_scale: .05,
+#                     num_channels: 32,
+#                     num_pieces: 1,
+#                     kernel_shape: [8, 8],
+#                     pool_shape: [4, 4],
+#                     pool_stride: [2, 2],
+#                     irange: .005,
+#                     max_kernel_norm: 1.9365,
+#                     partial_sum: 15,
+#                     min_zero: 1
+#                 },
                  !obj:pylearn2.models.maxout.Maxout {
                     layer_name: 'h3',
                     irange: .005,
-                    num_units: 500,
+                    num_units: 300,
+                    num_pieces: 5,
+                    max_col_norm: 1.9
+                 },
+                 !obj:pylearn2.models.maxout.Maxout {
+                    layer_name: 'h4',
+                    irange: .005,
+                    num_units: 100,
                     num_pieces: 5,
                     max_col_norm: 1.9
                  },
