@@ -73,7 +73,7 @@
                                   !obj:pylearn2.models.maxout.Maxout {
                                       layer_name: 'N0',
                                       irange: .005,
-                                      num_units: 300,
+                                      num_units: 500,
                                       num_pieces: 5,
                                       max_col_norm: 1.9
                                    },
@@ -124,7 +124,7 @@
                                   !obj:pylearn2.models.maxout.Maxout {
                                       layer_name: 'N1',
                                       irange: .005,
-                                      num_units: 300,
+                                      num_units: 500,
                                       num_pieces: 5,
                                       max_col_norm: 1.9
                                    },
