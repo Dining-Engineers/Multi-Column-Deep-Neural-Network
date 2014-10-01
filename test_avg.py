@@ -27,9 +27,13 @@ and train an MLP which takes both inputs for 1 epoch.
 mlp = MLP(
     layers=[
             CompositeLayer(
-                'composite',
-                [Linear(10, 'h0', 0.1),
-                 Linear(10, 'h1', 0.1)],
+                layer_name='composite',
+                layers=
+                [
+                    MLP(layer_name='mlp1', layers=[ Linear(10, 'h0', 0.1) ]),
+                    Linear(10, 'h1', 0.1)
+                ],
+                inputs_to_layers=
                 {
                     0: [1],
                     1: [0]
@@ -51,6 +55,12 @@ dataset = VectorSpacesDataset(
         VectorSpace(5)]),
     ('features1', 'features0', 'targets'))
 )
-train = Train(dataset, mlp, SGD(0.1, batch_size=5, monitoring_dataset=dataset))#, cost=Dropout(input_include_probs={'composite':1.})))
+train = Train(dataset, mlp, SGD(0.1, batch_size=5, monitoring_dataset=dataset,
+                                cost=Dropout(
+                                    input_include_probs={'composite_mlp1': 1,},
+                                    input_scales={'composite_mlp1': 1,}
+                                ),
+                                )
+)#, cost=Dropout(input_include_probs={'composite':1.})))
 train.algorithm.termination_criterion = EpochCounter(1)
 train.main_loop()
