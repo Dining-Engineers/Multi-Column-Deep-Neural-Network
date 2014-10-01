@@ -12,11 +12,9 @@ from pylearn2.datasets.cifar10 import CIFAR10
 from vector_spaces_dataset_c01b import VectorSpacesDatasetC01B
 
 
-def load_dataset(which_set):
+def load_dataset(which_set, size='big'):
 
-    size = 'big'
     print "loading.. ", which_set
-
 
     if size == 'big':
         if which_set == 'test':
@@ -151,7 +149,7 @@ def load_dataset(which_set):
     #      ('features0', 'features1', 'targets'))
     # )
 
-    print set.get_data()[1].shape
+    # print set.get_data()[1].shape
     return set
 
 

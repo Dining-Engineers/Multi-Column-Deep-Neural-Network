@@ -55,14 +55,21 @@
                                      tied_b: True,
                                      max_kernel_norm: 9.9,
                                   },
-                                  !obj:pylearn2.models.mlp.Softmax {
-                                     layer_name: 'column0y1',
-                                     n_classes: 10,
-                                     istdev: .01,
-                                     W_lr_scale: 1.,
-                                     b_lr_scale: 2.,
-                                     max_col_norm: 9.9365
-                                  },
+                                  !obj:pylearn2.models.maxout.Maxout {
+                                      layer_name: 'N0',
+                                      irange: .005,
+                                      num_units: 300,
+                                      num_pieces: 5,
+                                      max_col_norm: 1.9
+                                   },
+#                                  !obj:pylearn2.models.mlp.Softmax {
+#                                     layer_name: 'column0y1',
+#                                     n_classes: 10,
+#                                     istdev: .01,
+#                                     W_lr_scale: 1.,
+#                                     b_lr_scale: 2.,
+#                                     max_col_norm: 9.9365
+#                                  },
 
                               ],
                             },
@@ -92,14 +99,21 @@
                                      tied_b: True,
                                      max_kernel_norm: 9.9,
                                   },
-                                  !obj:pylearn2.models.mlp.Softmax {
-                                     layer_name: 'column1y1',
-                                     n_classes: 10,
-                                     istdev: .01,
-                                     W_lr_scale: 1.,
-                                     b_lr_scale: 2.,
-                                     max_col_norm: 9.9365
-                                  },
+                                  !obj:pylearn2.models.maxout.Maxout {
+                                      layer_name: 'N1',
+                                      irange: .005,
+                                      num_units: 300,
+                                      num_pieces: 5,
+                                      max_col_norm: 1.9
+                                   },
+#                                  !obj:pylearn2.models.mlp.Softmax {
+#                                     layer_name: 'column1y1',
+#                                     n_classes: 10,
+#                                     istdev: .01,
+#                                     W_lr_scale: 1.,
+#                                     b_lr_scale: 2.,
+#                                     max_col_norm: 9.9365
+#                                  },
 
                               ],
                             },
