@@ -111,7 +111,7 @@
                     },
 
                  }, # end composite layer
-                 !obj:custom_layers.Average {
+                 !obj:AverageLayer.Average {
                     layer_name: 'avg'
                  },
                  !obj:pylearn2.models.mlp.Softmax {
@@ -128,10 +128,7 @@
     algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
         batch_size: 128,
         learning_rate: .01,
-        #init_momentum: .9,
-        learning_rule: !obj:pylearn2.training_algorithms.learning_rule.Momentum {
-            init_momentum: .5,
-        },
+        init_momentum: .9,
         train_iteration_mode: 'even_shuffled_sequential',
         monitor_iteration_mode: 'even_sequential',
         monitoring_dataset:
@@ -150,37 +147,14 @@
         },
         #termination_criterion: !obj:pylearn2.termination_criteria.EpochCounter {
         #    max_epochs: 20
-        #
+
         #}
         termination_criterion: !obj:pylearn2.termination_criteria.MonitorBased {
             channel_name: "valid_y_misclass",
             prop_decrease: 0.,
-            N: 150
+            N: 100
         },
     },
-    extensions: [
-        !obj:pylearn2.train_extensions.best_params.MonitorBasedSaveBest {
-             channel_name: 'valid_y_misclass',
-             save_path: "pkl/mcdnn3_best.pkl"
-        },
-        !obj:pylearn2.training_algorithms.sgd.MomentumAdjustor {
-            start: 1,
-            saturate: 250,
-            final_momentum: .65
-        },
-        !obj:pylearn2.training_algorithms.sgd.LinearDecayOverEpoch {
-            start: 1,
-            saturate: 500,
-            decay_factor: .01
-        },
-#        ,
-#        !obj:pylearn2.train_extensions.window_flip.WindowAndFlip {
-#            pad_randomized: 8,
-#            window_shape: *window_shape,
-#            randomize: [ *train],
-#            center: [ *valid ]
-#        }
-    ],
-    save_path: "pkl/mcdnn3.pkl",
+    save_path: "mcdnn3.pkl",
     save_freq: 1
 }
