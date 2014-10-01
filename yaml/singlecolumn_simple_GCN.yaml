@@ -79,6 +79,6 @@
 
         }
     },
-    save_path: "kl/simple_dnn3.pkl",
+    save_path: "pkl/simple_dnn3.pkl",
     save_freq: 1
 }
