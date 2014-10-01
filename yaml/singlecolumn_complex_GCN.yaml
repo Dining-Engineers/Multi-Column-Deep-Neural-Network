@@ -64,7 +64,7 @@
         },
     },
     algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
-        learning_rate: .1,
+        learning_rate: .01,
         learning_rule: !obj:pylearn2.training_algorithms.learning_rule.Momentum {
             init_momentum: .9,
         },
