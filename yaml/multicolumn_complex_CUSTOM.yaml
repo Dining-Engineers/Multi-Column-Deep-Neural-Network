@@ -264,7 +264,7 @@
                                       max_col_norm: 1.9
                                    },
                                   !obj:pylearn2.models.maxout.Maxout {
-                                      layer_name: 'N1',
+                                      layer_name: 'N11',
                                       irange: .005,
                                       num_units: 10,
                                       num_pieces: 5,
