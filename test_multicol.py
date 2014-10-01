@@ -75,10 +75,10 @@ train = Train(dataset, mlp, SGD(0.1, batch_size=5, monitoring_dataset=dataset,
 # model.add_layers([new_output_layer])
 
 
-column1_pretrained = serial.load('multicolumn_complex.pkl')
-pretrained_layers_1 = column1_pretrained.batch_size
+column1_pretrained = serial.load('./pkl/multicolumn_complex.pkl')
+pretrained_layers_1 = column1_pretrained.layers
 
-print pretrained_layers_1
+print pretrained_layers_1, len(pretrained_layers_1)
 
 
 # mlp.layers.extend(pretrained_layers[start_layer:])
