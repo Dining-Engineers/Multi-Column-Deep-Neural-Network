@@ -71,6 +71,8 @@
         monitor_iteration_mode: 'even_sequential',
         monitoring_dataset:
             {
+               'train': *train,
+
                'valid' : !obj:pylearn2.datasets.cifar10.CIFAR10 {
                               toronto_prepro: True,
                               axes: ['c', 0, 1, 'b'],
