@@ -26,26 +26,25 @@ and train an MLP which takes both inputs for 1 epoch.
 """
 mlp = MLP(
     layers=[
-            CompositeLayer(
-                layer_name='composite',
-                layers=
-                [
-                    MLP(layer_name='mlp1', layers=[ Linear(10, 'h0', 0.1) ]),
-                    Linear(10, 'h1', 0.1)
-                ],
-                inputs_to_layers=
-                {
-                    0: [0],
-                    1: [1]
-                }
-            ),
+        CompositeLayer(
+            layer_name='composite',
+            layers=
+            [
+                MLP(layer_name='mlp1', layers=[Linear(10, 'h0', 0.1)]),
+                Linear(10, 'h1', 0.1)
+            ],
+            inputs_to_layers=
+            {
+                0: [0],
+                1: [1]
+            }
+        ),
         Average('sum'),
         Softmax(10, 'softmax', 0.1)
     ],
     input_space=CompositeSpace([VectorSpace(15), VectorSpace(20)]),
     input_source=('features0', 'features1')
 )
-
 
 dataset = VectorSpacesDataset(
     (np.random.rand(20, 20).astype(theano.config.floatX),
@@ -55,14 +54,14 @@ dataset = VectorSpacesDataset(
         VectorSpace(20),
         VectorSpace(15),
         VectorSpace(5)]),
-    ('features1', 'features0', 'targets'))
+     ('features1', 'features0', 'targets'))
 )
 train = Train(dataset, mlp, SGD(0.1, batch_size=5, monitoring_dataset=dataset,
                                 cost=Dropout(
-                                    input_include_probs={'composite_mlp1': 1,},
-                                    input_scales={'composite_mlp1': 1,}
+                                    input_include_probs={'composite_mlp1': 1, },
+                                    input_scales={'composite_mlp1': 1, }
                                 ),
-                                ))
+))
 
 # # Load the saved model
 # model = serial.load(saved_model_path)
@@ -83,6 +82,6 @@ print pretrained_layers_1, len(pretrained_layers_1)
 
 # mlp.layers.extend(pretrained_layers[start_layer:])
 
-                                #, cost=Dropout(input_include_probs={'composite':1.})))
+# , cost=Dropout(input_include_probs={'composite':1.})))
 # train.algorithm.termination_criterion = EpochCounter(1)
 # train.main_loop()
