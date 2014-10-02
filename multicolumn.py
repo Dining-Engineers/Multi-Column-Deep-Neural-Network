@@ -15,8 +15,6 @@ class MCDNN():
         self.generate_test_sets(models)
 
 
-        models_path = ['pkl/toronto_best.pkl']
-
     def get_predictor(self, model_path):
 
         # get model
@@ -27,20 +25,20 @@ class MCDNN():
         return theano.function([X], Y)
 
 
-    def generate_test_sets(self, columns):
+    def generate_test_sets(self, models):
 
-        for key in columns.keys():
+        for key, model_path in models:
             if key == 'gcn':
                 cifar10_gcn = CIFAR10(which_set='test',
                              gcn=1,
                              axes=['c', 0, 1, 'b'])
 
-                self.columns['gcn'] = (cifar10_gcn, self.get_predictor(columns[key]))
+                self.columns['gcn'] = (cifar10_gcn, self.get_predictor(model_path))
             if key == 'toronto':
                 cifar10_toronto = CIFAR10(which_set='test',
                              toronto_prepro=True,
                              axes=['c', 0, 1, 'b'])
-                self.columns['toronto'] = (cifar10_toronto,  self.get_predictor(columns[key]))
+                self.columns['toronto'] = (cifar10_toronto,  self.get_predictor(model_path))
 
         # x_column0, y_column0 = get_nparray_from_design_matrix(cifar10_gcn, start, stop)
         # x_column1, y_column1 = get_nparray_from_design_matrix(cifar10_toronto, start, stop)
@@ -98,7 +96,6 @@ if __name__ == '__main__':
     # get dataset CIFAR10
 
     columns = {'gcn': 'pkl/toronto_best.pkl'}
-
 
     start = 0
     stop = 100
