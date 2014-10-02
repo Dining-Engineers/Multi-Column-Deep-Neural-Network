@@ -13,7 +13,7 @@ dataset = CIFAR10(which_set='test',
                          toronto_prepro=1,
                          axes=['b', 0, 1, 'c'])
 
-x_test = dataset.X
+x_test = dataset.get_topological_view()
 
 print x_test[0,:]
 
