@@ -11,11 +11,11 @@ dataset = CIFAR10(which_set='test',
                          stop=10000,
                          # gcn=1,
                          toronto_prepro=1,
-                         axes=['b', 0, 1, 'c'])
+                         axes=['c', 0, 1, 'b'])
 
 x_test = dataset.get_topological_view()
 
-print x_test[0,:]
+# print x_test[0,:]
 
 # number of column
 n_column = 2
