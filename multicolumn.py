@@ -15,6 +15,7 @@ class MCDNN():
 
         for key, column in self.columns.iteritems():
             i = 0
+            model = load_model_from_pkl(column[1])
             while i < self.dataset_size:
                 batch_start = i
                 batch_end = i+self.batch_size-1 if i+self.batch_size-1 < self.dataset_size-1 else self.dataset_size-1
@@ -22,7 +23,7 @@ class MCDNN():
                 x_batch, y_batch = get_nparray_from_design_matrix(column[0], batch_start, batch_end)
                 # x_batch, y_batch = get_nparray_from_design_matrix(column[0], 0, 127)
 
-                f_model = column[1]
+                f_model = model
                 y = f_model(x_batch)
 
                 column[2][batch_start:batch_end] = y # np.argmax(y, axis=1)
@@ -37,7 +38,7 @@ class MCDNN():
 
         average = np.zeros((self.dataset_size, 10))
 
-        for key, column in self.columns:
+        for key, column in self.columns.iteritems():
             average += column[2]
 
         average /= self.n_column
@@ -66,20 +67,22 @@ if __name__ == '__main__':
     # get dataset CIFAR10
 
     cifar10_gcn = CIFAR10(which_set='test',
-                             gcn=1,
+                             gcn=55.,
                              axes=['c', 0, 1, 'b'])
     cifar10_toronto = CIFAR10(which_set='test',
                              toronto_prepro=True,
                              axes=['c', 0, 1, 'b'])
 
     columns = {
-        # 'gcn': (cifar10_gcn, load_model_from_pkl('pkl/gcn_best.pkl')),
-        'toronto': (cifar10_toronto, load_model_from_pkl('pkl/toronto_best.pkl'), np.zeros((10000, 10)))
+        'gcn': (cifar10_gcn, 'pkl/gcn_best.pkl', np.zeros((10000, 10))),
+        'toronto': (cifar10_toronto, 'pkl/toronto_best.pkl', np.zeros((10000, 10)))
     }
 
     multi_column_dnn = MCDNN(columns)
 
     multi_column_dnn.get_prediction()
+
+    multi_column_dnn.get_mcdnn_predictions()
 
     # predictor_list = get_predictor(models_path)
 

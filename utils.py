@@ -4,13 +4,13 @@ import numpy as np
 
 
 def load_model_from_pkl(model_path):
-
-        # get model
-        model = serial.load(model_path)
-        X = model.get_input_space().make_theano_batch()
-        Y = model.fprop(X)
-        # get prediction
-        return theano.function([X], Y)
+    print 'Loading model... ', model_path
+    # get model
+    model = serial.load(model_path)
+    X = model.get_input_space().make_theano_batch()
+    Y = model.fprop(X)
+    # get prediction
+    return theano.function([X], Y)
 
 def get_nparray_from_design_matrix(dataset, start=0, stop=128):
     """
