@@ -113,7 +113,7 @@
     extensions: [
         !obj:pylearn2.train_extensions.best_params.MonitorBasedSaveBest {
              channel_name: 'valid_y_misclass',
-             save_path: "pkl/singlecolumn_complex_toronto_paper_best.pkl"
+             save_path: "pkl/singlecolumn_complex_gcn_paper_best.pkl"
         },
         !obj:pylearn2.training_algorithms.sgd.MomentumAdjustor {
             start: 1,
@@ -126,6 +126,6 @@
             decay_factor: .01
         },
     ],
-    save_path: "pkl/singlecolumn_complex_toronto_paper.pkl",
+    save_path: "pkl/singlecolumn_complex_gcn_paper.pkl",
     save_freq: 5
 }

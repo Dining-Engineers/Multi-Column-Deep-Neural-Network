@@ -1,9 +1,4 @@
 from pylearn2.datasets.cifar10 import CIFAR10
-from pylearn2.space import Conv2DSpace
-
-import theano
-from theano import tensor as T
-import numpy as np
 from utils import *
 
 
@@ -13,16 +8,16 @@ class MCDNN():
         self.n_column = len(models)
         self.columns = models
         self.y_ground_truth = models[models.keys()[0]][0].y.T[0]
-        # self.y_test = np.zeros(shape=self.y_ground_truth.shape)
+        self.dataset_size = 10000
+        self.batch_size = 128
 
     def get_prediction(self):
-        batch_size = 128
-        dataset_size = 10000
-        for column in self.columns.values():
+
+        for key, column in self.columns.iteritems():
             i = 0
-            while i < dataset_size:
+            while i < self.dataset_size:
                 batch_start = i
-                batch_end = i+batch_size-1 if i+batch_size-1 < dataset_size-1 else dataset_size-1
+                batch_end = i+self.batch_size-1 if i+self.batch_size-1 < self.dataset_size-1 else self.dataset_size-1
 
                 x_batch, y_batch = get_nparray_from_design_matrix(column[0], batch_start, batch_end)
                 # x_batch, y_batch = get_nparray_from_design_matrix(column[0], 0, 127)
@@ -30,13 +25,25 @@ class MCDNN():
                 f_model = column[1]
                 y = f_model(x_batch)
 
-                column[2][batch_start:batch_end] = y# np.argmax(y, axis=1)
+                column[2][batch_start:batch_end] = y # np.argmax(y, axis=1)
                 print batch_start, ':', batch_end, '   ', get_statistics(y_batch, y)
-                i += batch_size
+                i += self.batch_size
+
+            print "Column ", key
+            print "\t ", get_statistics(self.y_ground_truth, column[2])
 
 
-        # print self.y_ground_truth.shape, self.y_test.shape
-            print get_statistics(self.y_ground_truth, column[2])
+    def get_mcdnn_predictions(self):
+
+        average = np.zeros((self.dataset_size, 10))
+
+        for key, column in self.columns:
+            average += column[2]
+
+        average /= self.n_column
+
+        print "MCDNN results: "
+        print "\t ", get_statistics(self.y_ground_truth, average)
 #
 #
 # def average_dnn_results(dnn_predictors, x_test, y_test):
@@ -50,8 +57,6 @@ class MCDNN():
 #
 #     y_avg /= len(dnn_predictors)
 #     pass
-
-
 
 
     # return predictor_list
@@ -68,12 +73,11 @@ if __name__ == '__main__':
                              axes=['c', 0, 1, 'b'])
 
     columns = {
-        # 'gcn': (cifar10_gcn, load_model_from_pkl('pkl/toronto_best.pkl')),
+        # 'gcn': (cifar10_gcn, load_model_from_pkl('pkl/gcn_best.pkl')),
         'toronto': (cifar10_toronto, load_model_from_pkl('pkl/toronto_best.pkl'), np.zeros((10000, 10)))
     }
 
     multi_column_dnn = MCDNN(columns)
-
 
     multi_column_dnn.get_prediction()
 
