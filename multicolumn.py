@@ -7,12 +7,15 @@ class MCDNN():
     def __init__(self, models):
         self.n_column = len(models)
         self.columns = models
+        # get predictions from first model since every model share the same dataset
         self.y_ground_truth = models[models.keys()[0]][0].y.T[0]
+        # Cifar10 has 10000 img in test set for 10 classes
         self.dataset_size = 10000
+        self.n_classes = 10
         self.batch_size = 128
+        self.y_predictions = np.zeros((self.dataset_size, self.n_classes))
 
-    def get_prediction(self):
-
+    def get_columns_predictions(self):
         for key, column in self.columns.iteritems():
             i = 0
             model = load_model_from_pkl(column[1])
@@ -33,34 +36,17 @@ class MCDNN():
             print "Column ", key
             print "\t ", get_statistics(self.y_ground_truth, column[2])
 
-
     def get_mcdnn_predictions(self):
 
-        average = np.zeros((self.dataset_size, 10))
+        self.y_predictions = np.zeros((self.dataset_size, self.n_classes))
 
         for key, column in self.columns.iteritems():
-            average += column[2]
+            self.y_predictions += column[2]
 
-        average /= self.n_column
+        self.y_predictions /= self.n_column
 
         print "MCDNN results: "
-        print "\t ", get_statistics(self.y_ground_truth, average)
-#
-#
-# def average_dnn_results(dnn_predictors, x_test, y_test):
-#     y_avg = np.zeros(y_test.shape[1], 10)
-#
-#     for i, predictor in enumerate(predictor_list):
-#         single_dnn = get_prediction(predictor, x_column0, y_column0)
-#         print 'column ', i, 'results: '
-#         print '/t', get_statistics(single_dnn)
-#         y_avg += single_dnn
-#
-#     y_avg /= len(dnn_predictors)
-#     pass
-
-
-    # return predictor_list
+        print "\t ", get_statistics(self.y_ground_truth, self.y_predictions)
 
 
 if __name__ == '__main__':
@@ -74,17 +60,10 @@ if __name__ == '__main__':
                              axes=['c', 0, 1, 'b'])
 
     columns = {
-        'gcn': (cifar10_gcn, 'pkl/gcn_best.pkl', np.zeros((10000, 10))),
-        'toronto': (cifar10_toronto, 'pkl/toronto_best.pkl', np.zeros((10000, 10)))
+        'gcn': (cifar10_gcn, 'pkl/best/singlecolumn_complex_GCN_paper_best.pkl', np.zeros((10000, 10))),
+        'toronto': (cifar10_toronto, 'pkl/best/singlecolumn_complex_TORONTO_paper_best.pkl', np.zeros((10000, 10)))
     }
-
     multi_column_dnn = MCDNN(columns)
-
-    multi_column_dnn.get_prediction()
-
+    multi_column_dnn.get_columns_predictions()
     multi_column_dnn.get_mcdnn_predictions()
-
-    # predictor_list = get_predictor(models_path)
-
-
 
