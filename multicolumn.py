@@ -12,11 +12,12 @@ class MCDNN():
     def __init__(self, models):
         self.n_column = len(models)
         self.columns = models
-        self.y_ground_truth = models[models.keys()[0]][0].y
+        self.y_ground_truth = models[models.keys()[0]][0].y.T[0]
+        # self.y_test = np.zeros(shape=self.y_ground_truth.shape)
 
     def get_prediction(self):
         batch_size = 128
-        dataset_size = 258
+        dataset_size = 10000
         for column in self.columns.values():
             i = 0
             while i < dataset_size:
@@ -29,9 +30,13 @@ class MCDNN():
                 f_model = column[1]
                 y = f_model(x_batch)
 
+                column[2][batch_start:batch_end] = y# np.argmax(y, axis=1)
                 print batch_start, ':', batch_end, '   ', get_statistics(y_batch, y)
                 i += batch_size
 
+
+        # print self.y_ground_truth.shape, self.y_test.shape
+            print get_statistics(self.y_ground_truth, column[2])
 #
 #
 # def average_dnn_results(dnn_predictors, x_test, y_test):
@@ -64,7 +69,7 @@ if __name__ == '__main__':
 
     columns = {
         # 'gcn': (cifar10_gcn, load_model_from_pkl('pkl/toronto_best.pkl')),
-        'toronto': (cifar10_toronto, load_model_from_pkl('pkl/toronto_best.pkl'))
+        'toronto': (cifar10_toronto, load_model_from_pkl('pkl/toronto_best.pkl'), np.zeros((10000, 10)))
     }
 
     multi_column_dnn = MCDNN(columns)
