@@ -2,12 +2,12 @@ from pylearn2.train_extensions.best_params import MonitorBasedSaveBest
 from pylearn2.termination_criteria import EpochCounter
 from pylearn2.training_algorithms.sgd import SGD
 from pylearn2.train import Train
-from pylearn2.models.mlp import (FlattenerLayer, MLP, Softmax, CompositeLayer)
+from pylearn2.models.mlp import (FlattenerLayer, MLP, Softmax, CompositeLayer, SpaceConverter)
 from pylearn2.space import CompositeSpace, Conv2DSpace
 from pylearn2.utils import serial
 
 import create_dataset
-from custom_layers import PretrainedMLP, SpaceConverter2, Average
+from custom_layers import PretrainedMLP, Average
 
 
 """
@@ -23,7 +23,7 @@ mlp = MLP(
             layers=
             [
                 MLP(layers=[
-                    SpaceConverter2('spconveter',
+                    SpaceConverter('spconveter',
                                     Conv2DSpace(shape=[32, 32],
                                                 num_channels=3,
                                                 axes=['c', 0, 1, 'b']
@@ -34,7 +34,7 @@ mlp = MLP(
                 ]),
 
                 MLP(layers=[
-                    SpaceConverter2('spconveter',
+                    SpaceConverter('spconveter',
                                     Conv2DSpace(shape=[32, 32],
                                                 num_channels=3,
                                                 axes=['c', 0, 1, 'b']

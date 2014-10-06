@@ -70,7 +70,7 @@ def load_dataset(which_set, dataset_types):
     data.append(target_data)
 
     data_source = []
-    for i in len(dataset_types):
+    for i in range(len(dataset_types)):
         data_source.append('features'+str(i))
     data_source.append('targets')
 
