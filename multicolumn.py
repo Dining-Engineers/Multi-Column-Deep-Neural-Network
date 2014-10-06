@@ -80,7 +80,7 @@ if __name__ == '__main__':
     multi_column_dnn.get_mcdnn_predictions()
 
     from sklearn.metrics import confusion_matrix
-    cm = confusion_matrix(multi_column_dnn.y_ground_truth, multi_column_dnn.y_predictions, ['airplane', 'automobile', 'bird', 'cat', 'deer',
+    cm = confusion_matrix(multi_column_dnn.y_ground_truth,  np.argmax(multi_column_dnn.y_predictions, axis=1), ['airplane', 'automobile', 'bird', 'cat', 'deer',
                             'dog', 'frog', 'horse', 'ship', 'truck'])
 
     import matplotlib.pyplot as plt
