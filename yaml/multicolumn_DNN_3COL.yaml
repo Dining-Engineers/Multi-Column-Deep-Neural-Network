@@ -88,7 +88,7 @@
                 shape: [32, 32],
                 num_channels: 3,
                 axes: ['b', 0, 1, 'c']
-              }
+              },
               !obj:pylearn2.space.Conv2DSpace {
                 shape: [32, 32],
                 num_channels: 3,
