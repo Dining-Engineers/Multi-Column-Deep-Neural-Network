@@ -23,9 +23,10 @@
                                       },
                                   },
                                   !obj:custom_layers.PretrainedMLP {
-                                    layer_name:'gcn_column',
+                                    layer_name: 'gcn_column',
                                     layer_content: !pkl: 'pkl/best/singlecolumn_complex_GCN_paper_best.pkl'
-                                  }]
+                                  }
+                                  ]
                         },
 #                        !obj:pylearn2.models.mlp.MLP {
 #                          layers: [
@@ -38,7 +39,7 @@
 #                                      },
 #                                  },
 #                                  !obj:custom_layers.PretrainedMLP {
-#                                    layer_name:'toronto_column',
+#                                    layer_name: 'toronto_column',
 #                                    layer_content: !pkl: 'pkl/best/singlecolumn_complex_TORONTO_paper_best.pkl'
 #                                  }]
 #                        },
@@ -53,9 +54,10 @@
                                       },
                                   },
                                   !obj:custom_layers.PretrainedMLP {
-                                    layer_name:'zca_column',
+                                    layer_name: 'zca_column',
                                     layer_content: !pkl: 'pkl/best/singlecolumn_complex_ZCA_paper_best.pkl'
-                                  }]
+                                  }
+                                  ]
                         },
                     ],
                     inputs_to_layers=
