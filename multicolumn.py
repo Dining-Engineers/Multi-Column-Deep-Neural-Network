@@ -1,4 +1,6 @@
 from pylearn2.datasets.cifar10 import CIFAR10
+from pylearn2.datasets.zca_dataset import ZCA_Dataset
+from pylearn2.utils import string_utils
 from utils import *
 
 
@@ -52,17 +54,27 @@ class MCDNN():
 if __name__ == '__main__':
     # get dataset CIFAR10
 
+    print "Loading gcn dataset.."
     cifar10_gcn = CIFAR10(which_set='test',
                              gcn=55.,
                              axes=['c', 0, 1, 'b'])
+    print "Loading torontoprepro dataset.."
     cifar10_toronto = CIFAR10(which_set='test',
                              toronto_prepro=True,
                              axes=['c', 0, 1, 'b'])
 
+    print "Loading zca dataset.."
+    data_dir = string_utils.preprocess('${PYLEARN2_DATA_PATH}/cifar10')
+    cifar10_zca = ZCA_Dataset(preprocessed_dataset=serial.load(data_dir+"/pylearn2_gcn_whitened/test.pkl"),
+                              preprocessor=serial.load(data_dir+"/pylearn2_gcn_whitened/preprocessor.pkl"),
+                              axes=['c', 0, 1, 'b'])
+
     columns = {
         'gcn': (cifar10_gcn, 'pkl/best/singlecolumn_complex_GCN_paper_best.pkl', np.zeros((10000, 10))),
-        'toronto': (cifar10_toronto, 'pkl/best/singlecolumn_complex_TORONTO_paper_best.pkl', np.zeros((10000, 10)))
+        'toronto': (cifar10_toronto, 'pkl/best/singlecolumn_complex_TORONTO_paper_best.pkl', np.zeros((10000, 10))),
+        'zca': (cifar10_zca, 'pkl/best/singlecolumn_complex_ZCA_paper_best.pkl', np.zeros((10000, 10)))
     }
+
     multi_column_dnn = MCDNN(columns)
     multi_column_dnn.get_columns_predictions()
     multi_column_dnn.get_mcdnn_predictions()

@@ -4,13 +4,14 @@ This script makes a dataset of 32x32 approximately whitened CIFAR-10 images.
 """
 from pylearn2.costs.mlp.dropout import Dropout
 from pylearn2.datasets.vector_spaces_dataset import VectorSpacesDataset
+from pylearn2.datasets.zca_dataset import ZCA_Dataset
 from pylearn2.format.target_format import OneHotFormatter
 from pylearn2.models.maxout import Maxout, MaxoutConvC01B
 from pylearn2.space import CompositeSpace, Conv2DSpace, VectorSpace
 from pylearn2.utils import string_utils
 from pylearn2.datasets.cifar10 import CIFAR10
 from vector_spaces_dataset_c01b import VectorSpacesDatasetC01B
-
+from pylearn2.utils import is_iterable, sharedX, serial
 
 def load_dataset(which_set, size='big'):
 
@@ -41,46 +42,31 @@ def load_dataset(which_set, size='big'):
             start_set = 0
             stop_set = 10000
 
-    data_dir = string_utils.preprocess('${PYLEARN2_DATA_PATH}/cifar10')
-
     n_classes = 10
-
     # take original cifar10dataset
     train_orig = CIFAR10(which_set=which_set,
                          start=start_set,
                          stop=stop_set,
-                         gcn=1,
+                         gcn=55.,
                          axes=['b', 0, 1, 'c'])
                          # axes=['c', 0, 1, 'b'])
 
-    train_2 = CIFAR10(which_set=which_set,
-                       start=start_set,
-                       stop=stop_set,
-                       axes=['b', 0, 1, 'c'],
-                       # axes=['c', 0, 1, 'b'],
-                       toronto_prepro=1,
-                       # gcn=1
-                        )
+    # train_2 = CIFAR10(which_set=which_set,
+    #                    start=start_set,
+    #                    stop=stop_set,
+    #                    axes=['b', 0, 1, 'c'],
+    #                    # axes=['c', 0, 1, 'b'],
+    #                    toronto_prepro=1,
+    #                     )
 
-
-    # print t2.X[1, :] == train_orig.X[1, :]
-                         # axes=['c', 0, 1, 'b'])
-
-
+    data_dir = string_utils.preprocess('${PYLEARN2_DATA_PATH}/cifar10')
     # IF ZCA
-    # # take whitened cifar10 dataset
-    # with open(data_dir+"/pylearn2_gcn_whitened/train.pkl", 'rb') as f:
-    #     pre_dataset = cPickle.load(f)
-    #
-    # with open(data_dir+"/pylearn2_gcn_whitened/preprocessor.pkl", 'rb') as f:
-    #     preproc = cPickle.load(f)
-    #
-    # train_2 = ZCA_Dataset(preprocessed_dataset=pre_dataset,
-    #                           preprocessor=preproc,
-    #                           start=start_set,
-    #                           stop=stop_set,
-    #                           axes=['b', 0, 1, 'c'])
-    #                           # axes=['c', 0, 1, 'b'])
+    train_2 = ZCA_Dataset(preprocessed_dataset=serial.load(data_dir+"/pylearn2_gcn_whitened/"+which_set+".pkl"),
+                              preprocessor=serial.load(data_dir+"/pylearn2_gcn_whitened/preprocessor.pkl"),
+                              start=start_set,
+                              stop=stop_set,
+                              axes=['b', 0, 1, 'c'])
+                              # axes=['c', 0, 1, 'b'])
     #
 
 

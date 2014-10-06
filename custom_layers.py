@@ -19,145 +19,66 @@ from theano.compat import OrderedDict
 floatX = config.floatX
 
 
-class PreprocessorBlock(Layer):
+class PretrainedMLP(Layer):
     """
-    A Layer with no parameters that converts the input from
-    one space to another.
+    A layer whose weights are initialized, and optionally fixed,
+    based on prior training.
 
     Parameters
     ----------
-    layer_name : str
-        Name of the layer.
-    output_space : Space
-        The space to convert to.
+    layer_content : Model
+        Should implement "upward_pass" (RBM and Autoencoder do this)
+    freeze_params: bool
+        If True, regard layer_conent's parameters as fixed
+        If False, they become parameters of this layer and can be
+        fine-tuned to optimize the MLP's cost function.
     """
 
-    def __init__(self, layer_name, gcn=None, toronto=None):
-        super(PreprocessorBlock, self).__init__()
+    def __init__(self, layer_name, layer_content, freeze_params=True):
+        super(PretrainedMLP, self).__init__()
         self.__dict__.update(locals())
+        # model = layer_content
+        # # X = model.get_input_space().make_theano_batch()
+        # # Y = model.fprop(X)
+        # # self.pretrained_fprop = theano.function([X], Y)
+
         del self.self
-        self._params = []
 
     @wraps(Layer.set_input_space)
     def set_input_space(self, space):
-        self.input_space = space
-        self.output_space = Conv2DSpace(shape=[32, 32],
-                                        num_channels=3,
-                                        axes=('b', 0, 1, 'c'))
+        # print self.get_input_space()
+        # print space
+        assert self.get_input_space() == space
+
+        # self.input_space = space.components[0]
 
 
-    # def lecun_lcn(self, X, kernel_size=7, threshold=1e-4, use_divisor=False):
-    #     """
-    #     Yann LeCun's local contrast normalization
-    #     Orginal code in Theano by: Guillaume Desjardins
-    #     """
-    #
-    #     filter_shape = (1, 1, kernel_size, kernel_size)
-    #     filters = gaussian_filter(kernel_size).reshape(filter_shape)
-    #     filters = shared(_asarray(filters, dtype=floatX), borrow=True)
-    #
-    #     convout = conv2d(X, filters=filters, filter_shape=filter_shape,
-    #                      border_mode='full')
-    #
-    #     # For each pixel, remove mean of kernel_sizexkernel_size neighborhood
-    #     mid = int(numpy.floor(kernel_size / 2.))
-    #     new_X = X - convout[:, :, mid:-mid, mid:-mid]
-    #
-    #     if use_divisor:
-    #         # Scale down norm of kernel_sizexkernel_size patch
-    #         sum_sqr_XX = conv2d(T.sqr(T.abs_(X)), filters=filters,
-    #                             filter_shape=filter_shape, border_mode='full')
-    #
-    #         denom = T.sqrt(sum_sqr_XX[:, :, mid:-mid, mid:-mid])
-    #         per_img_mean = denom.mean(axis=[2, 3])
-    #         divisor = T.largest(per_img_mean.dimshuffle(0, 1, 'x', 'x'), denom)
-    #         divisor = T.maximum(divisor, threshold)
-    #
-    #         new_X /= divisor
-    #
-    #     return new_X  # T.cast(new_X, floatX)
-    #
-    # def local_mean_subtraction(self, X, kernel_size=5):
-    #
-    #     filter_shape = (1, 1, kernel_size, kernel_size)
-    #     filters = mean_filter(kernel_size).reshape(filter_shape)
-    #     filters = T.shared(_asarray(filters, dtype=floatX), borrow=True)
-    #
-    #     mean = conv2d(X, filters=filters, filter_shape=filter_shape,
-    #                   border_mode='full')
-    #     mid = int(numpy.floor(kernel_size / 2.))
-    #
-    #     return X - mean[:, :, mid:-mid, mid:-mid]
+    @wraps(Layer.get_params)
+    def get_params(self):
 
+        if self.freeze_params:
+            return []
+        return self.layer_content.get_params()
 
-    def global_contrast_normalize(self, X, scale=1., subtract_mean=True,
-                                  use_std=False, sqrt_bias=0., min_divisor=1e-8):
+    @wraps(Layer.get_input_space)
+    def get_input_space(self):
 
-        """
+        return self.layer_content.get_input_space()
 
-        :rtype : object
-        """
-        ndim = X.ndim
-        # print "DIO", type(X)
-        if not ndim in [3, 4]: raise NotImplementedError("X.dim>4 or X.ndim<3")
+    @wraps(Layer.get_output_space)
+    def get_output_space(self):
 
-        scale = float(scale)
-        # mean = X.mean(axis=0)
-        mean = X.mean(axis=ndim - 1)
+        return self.layer_content.get_output_space()
 
-        # print "AAA", mean.ndim #ndim - 1)
-        new_X = X.copy()
-
-        if subtract_mean:
-            if ndim == 3:
-                new_X = X - mean[:, :, None]
-            else:
-                # new_X = X - mean[None, :, :, :]
-                new_X = X - mean[:, :, :, None]
-
-
-
-        if use_std:
-            normalizers = T.sqrt(sqrt_bias + X.var(axis=ndim - 1)) / scale
-            # normalizers = T.sqrt(sqrt_bias + X.var(axis=0)) / scale
-
-        else:
-            normalizers = T.sqrt(sqrt_bias + (new_X ** 2).sum(axis=ndim - 1)) / scale
-            # normalizers = T.sqrt(sqrt_bias + (new_X ** 2).sum(axis=0)) / scale
-
-        # Don't normalize by anything too small.
-        T.set_subtensor(normalizers[(normalizers < min_divisor).nonzero()], 1.)
-
-        if ndim == 3:
-            new_X /= normalizers[:, :, None]
-        else:
-            # new_X /= normalizers[None, :, :, :]
-            new_X /= (normalizers[:, :, :, None] + min_divisor)
-
-        return new_X
-
-    def toronto_preproc(self, X):
-        X /= 255.
-        # x2 should be all dataset
-        X2 = X.copy()
-        X2 /= 255.
-        return X - X2.mean(axis=0)
-
+    @wraps(Layer.get_layer_monitoring_channels)
+    def get_layer_monitoring_channels(self, state_below=None,
+                                    state=None, targets=None):
+        return OrderedDict([])
 
     @wraps(Layer.fprop)
     def fprop(self, state_below):
-
-        p = state_below.copy()
-        # p.apply_preprocessor(preprocessor = preprocessor, can_fit = True)
-        # return(p)
-        if self.toronto is not None:
-            print "preprocessing: toronto"
-            return self.toronto_preproc(p)
-
-        if self.gcn is not None:
-            return self.global_contrast_normalize(p)
-
-        return p
+        # get prediction
+        return self.layer_content.fprop(state_below) #self.layer_content.upward_pass(state_below)
 
 
 class Average(Layer):
@@ -234,22 +155,128 @@ class Average(Layer):
         return rval
 
 
-def gaussian_filter(kernel_shape):
-    x = zeros((kernel_shape, kernel_shape), dtype='float32')
+class PreprocessorBlock(Layer):
+    """
+    A Layer with no parameters that converts the input from
+    one space to another.
 
-    def gauss(x, y, sigma=2.0):
-        Z = 2 * pi * sigma ** 2
-        return 1. / Z * exp(-(x ** 2 + y ** 2) / (2. * sigma ** 2))
+    Parameters
+    ----------
+    layer_name : str
+        Name of the layer.
+    output_space : Space
+        The space to convert to.
+    """
 
-    mid = numpy.floor(kernel_shape / 2.)
-    for i in xrange(0, kernel_shape):
-        for j in xrange(0, kernel_shape):
-            x[i, j] = gauss(i - mid, j - mid)
+    def __init__(self, layer_name, gcn=None, toronto=None):
+        super(PreprocessorBlock, self).__init__()
+        self.__dict__.update(locals())
+        del self.self
+        self._params = []
 
-    return x / sum(x)
+    @wraps(Layer.set_input_space)
+    def set_input_space(self, space):
+        self.input_space = space
+        self.output_space = Conv2DSpace(shape=[32, 32],
+                                        num_channels=3,
+                                        axes=('b', 0, 1, 'c'))
 
 
-def mean_filter(kernel_size):
-    s = kernel_size ** 2
-    x = repeat(1. / s, s).reshape((kernel_size, kernel_size))
-    return x
+    def global_contrast_normalize(self, X, scale=1., subtract_mean=True,
+                                  use_std=False, sqrt_bias=0., min_divisor=1e-8):
+
+        """
+
+        :rtype : object
+        """
+        ndim = X.ndim
+        # print "DIO", type(X)
+        if not ndim in [3, 4]: raise NotImplementedError("X.dim>4 or X.ndim<3")
+
+        scale = float(scale)
+        # mean = X.mean(axis=0)
+        mean = X.mean(axis=ndim - 1)
+
+        # print "AAA", mean.ndim #ndim - 1)
+        new_X = X.copy()
+
+        if subtract_mean:
+            if ndim == 3:
+                new_X = X - mean[:, :, None]
+            else:
+                # new_X = X - mean[None, :, :, :]
+                new_X = X - mean[:, :, :, None]
+
+
+
+        if use_std:
+            normalizers = T.sqrt(sqrt_bias + X.var(axis=ndim - 1)) / scale
+            # normalizers = T.sqrt(sqrt_bias + X.var(axis=0)) / scale
+
+        else:
+            normalizers = T.sqrt(sqrt_bias + (new_X ** 2).sum(axis=ndim - 1)) / scale
+            # normalizers = T.sqrt(sqrt_bias + (new_X ** 2).sum(axis=0)) / scale
+
+        # Don't normalize by anything too small.
+        T.set_subtensor(normalizers[(normalizers < min_divisor).nonzero()], 1.)
+
+        if ndim == 3:
+            new_X /= normalizers[:, :, None]
+        else:
+            # new_X /= normalizers[None, :, :, :]
+            new_X /= (normalizers[:, :, :, None] + min_divisor)
+
+        return new_X
+
+    def toronto_preproc(self, X):
+        X /= 255.
+        # x2 should be all dataset
+        X2 = X.copy()
+        X2 /= 255.
+        return X - X2.mean(axis=0)
+
+
+    @wraps(Layer.fprop)
+    def fprop(self, state_below):
+
+        p = state_below.copy()
+        # p.apply_preprocessor(preprocessor = preprocessor, can_fit = True)
+        # return(p)
+        if self.toronto is not None:
+            print "preprocessing: toronto"
+            return self.toronto_preproc(p)
+
+        if self.gcn is not None:
+            return self.global_contrast_normalize(p)
+
+        return p
+
+
+class SpaceConverter2(Layer):
+    """
+    A Layer with no parameters that converts the input from
+    one space to another.
+
+    Parameters
+    ----------
+    layer_name : str
+        Name of the layer.
+    output_space : Space
+        The space to convert to.
+    """
+
+    def __init__(self, layer_name, output_space):
+        super(SpaceConverter2, self).__init__()
+        self.__dict__.update(locals())
+        del self.self
+        self._params = []
+
+    @wraps(Layer.set_input_space)
+    def set_input_space(self, space):
+        print space
+        self.input_space = space
+
+    @wraps(Layer.fprop)
+    def fprop(self, state_below):
+        print state_below
+        return self.input_space.format_as(state_below, self.output_space)

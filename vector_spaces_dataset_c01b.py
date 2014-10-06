@@ -1,4 +1,6 @@
 """TODO: module-level docstring."""
+from pylearn2.datasets import vector_spaces_dataset
+
 __authors__ = "Pascal Lamblin and Razvan Pascanu"
 __copyright__ = "Copyright 2010-2013, Universite de Montreal"
 __credits__ = ["Pascal Lamblin", "Razvan Pascanu", "Ian Goodfellow",
@@ -19,7 +21,7 @@ from pylearn2.utils.iteration import (
 from pylearn2.utils.data_specs import is_flat_specs
 from pylearn2.utils.rng import make_np_rng
 from pylearn2.utils import contains_nan
-
+import pylearn2.datasets.vector_spaces_dataset
 
 class VectorSpacesDatasetC01B(Dataset):
     """
