@@ -63,9 +63,9 @@ mlp = MLP(
     input_source=('features0', 'features1')
 )
 
-dataset = create_dataset.load_dataset(which_set='train', size='big')
-dataset_valid = create_dataset.load_dataset(which_set='valid', size='big')
-dataset_test = create_dataset.load_dataset(which_set='test', size='big')
+dataset = create_dataset.load_dataset(which_set='train', dataset_types=['gcn', 'zca'])
+dataset_valid = create_dataset.load_dataset(which_set='valid', dataset_types=['gcn', 'zca'])
+dataset_test = create_dataset.load_dataset(which_set='test', dataset_types=['gcn', 'zca'])
 
 train = Train(
     dataset,

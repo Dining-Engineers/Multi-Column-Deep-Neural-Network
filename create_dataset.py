@@ -13,116 +13,117 @@ from pylearn2.datasets.cifar10 import CIFAR10
 from vector_spaces_dataset_c01b import VectorSpacesDatasetC01B
 from pylearn2.utils import is_iterable, sharedX, serial
 
-def load_dataset(which_set, size='big'):
+def load_dataset(which_set, dataset_types):
+
+    # we need to have at least 2 types otherwise this func is useless
+    assert len(dataset_types) > 1
 
     print "loading.. ", which_set
 
-    if size == 'big':
-        if which_set == 'test':
-            start_set = 0
-            stop_set = 10000
-        elif which_set == 'valid':
-            which_set = 'train'
-            start_set = 40000
-            stop_set = 50000
-        else:
-            #train
-            start_set = 0
-            stop_set = 40000
+    # if size == 'big':
+
+    if which_set == 'test':
+        start_set = 0
+        stop_set = 10000
+    elif which_set == 'valid':
+        which_set = 'train'
+        start_set = 40000
+        stop_set = 50000
     else:
-        if which_set == 'test':
-            start_set = 0
-            stop_set = 10000
-        elif which_set == 'valid':
-            which_set = 'train'
-            start_set = 40000
-            stop_set = 43000
-        else:
-            #train
-            start_set = 0
-            stop_set = 10000
+        #train
+        start_set = 0
+        stop_set = 40000
 
     n_classes = 10
-    # take original cifar10dataset
-    train_orig = CIFAR10(which_set=which_set,
+
+
+    data = []
+    data_source = []
+    for prepro in dataset_types:
+
+        if prepro == 'gcn':
+            input_data = CIFAR10(which_set=which_set,
                          start=start_set,
                          stop=stop_set,
                          gcn=55.,
                          axes=['b', 0, 1, 'c'])
-                         # axes=['c', 0, 1, 'b'])
+            data.append(input_data.get_topological_view())
+            data_source.append('featureGCN')
 
-    # train_2 = CIFAR10(which_set=which_set,
-    #                    start=start_set,
-    #                    stop=stop_set,
-    #                    axes=['b', 0, 1, 'c'],
-    #                    # axes=['c', 0, 1, 'b'],
-    #                    toronto_prepro=1,
-    #                     )
+        if prepro == 'toronto':
+            input_data = CIFAR10(which_set=which_set,
+                       start=start_set,
+                       stop=stop_set,
+                       axes=['b', 0, 1, 'c'],
+                       toronto_prepro=1)
+            data.append(input_data.get_topological_view())
+            data_source.append('featureTOR')
 
-    data_dir = string_utils.preprocess('${PYLEARN2_DATA_PATH}/cifar10')
-    # IF ZCA
-    train_2 = ZCA_Dataset(preprocessed_dataset=serial.load(data_dir+"/pylearn2_gcn_whitened/"+which_set+".pkl"),
+
+        if prepro == 'zca':
+            data_dir = string_utils.preprocess('${PYLEARN2_DATA_PATH}/cifar10')
+            input_data = ZCA_Dataset(preprocessed_dataset=serial.load(data_dir+"/pylearn2_gcn_whitened/"+which_set+".pkl"),
                               preprocessor=serial.load(data_dir+"/pylearn2_gcn_whitened/preprocessor.pkl"),
                               start=start_set,
                               stop=stop_set,
                               axes=['b', 0, 1, 'c'])
-                              # axes=['c', 0, 1, 'b'])
+            data.append(input_data.get_topological_view())
+            data_source.append('featureZCA')
+
+
+
+    data.append(OneHotFormatter(n_classes).format(input_data.y, mode="concatenate"))
+    data_source.append('target')
+
+
+
+
+    ################################## DEFINE SPACES ##################################
+
+    spaces = []
+    for i in range(0, len(dataset_types)):
+        spaces.append(Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c')))
+    spaces.append(VectorSpace(n_classes))
+
+    # # # b01c input space
+    # input_space1 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
+    # input_space2 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
+    # input_space3 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
     #
-
-
-    # ERROR: A design matrix with data in rows. Data is assumed to be laid out in
-    #      memory according to the axis order ('b', 'c', 0, 1)
-    # MORTEMORTEMORTE
-
-    # # b01c input space
-    input_space1 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
-    input_space2 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
-    # # c01b input space
-    # input_space1 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('c', 0, 1, 'b'))
-    # input_space2 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('c', 0, 1, 'b'))
-    #
-    # # Output Space
-    out_space = VectorSpace(n_classes)
-
-
-    # input1 = train_orig.get_formatted_view(train_orig, input_space1)
-    input1 = train_orig.get_topological_view()  # train_orig.X.reshape(3, 32, 32, train_set_dimension)
-    # input2 = train_2.get_formatted_view(train_orig, input_space2)
-    input2 = train_2.get_topological_view()
-    # print input1.shape
-    target = OneHotFormatter(n_classes).format(train_orig.y, mode="concatenate")
-    # print input1.shape, input2.shape, target.shape
-
-    #
-    # ###### TEST ###############################################################################
-    # # c01b
-    # # input1 = np.random.rand(3, 32, 32, train_set_dimension).astype(theano.config.floatX)
-    # # input2 = np.random.rand(3, 32, 32, train_set_dimension).astype(theano.config.floatX)
-    # # target = np.random.rand(train_set_dimension, n_classes).astype(theano.config.floatX)
+    # # # c01b input space
     # # input_space1 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('c', 0, 1, 'b'))
     # # input_space2 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('c', 0, 1, 'b'))
     #
-    # #
-    # # #b01c
-    # # input1 = np.random.rand(train_set_dimension, 32, 32, 3).astype(theano.config.floatX)
-    # # input2 = np.random.rand(train_set_dimension, 32, 32, 3).astype(theano.config.floatX)
-    # # target = np.random.rand(train_set_dimension, n_classes).astype(theano.config.floatX)
-    # # input_space1 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
-    # # input_space2 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
-    # ###########################################################################################
-    #
-    #
+    # # # Output Space
+    # out_space = VectorSpace(n_classes)
+    ####################################################################################
+
+
+    ######################### GET DATA IN B01C FORMAT SPACES ###########################
+
+    # input1 = train_orig.get_topological_view()  # train_orig.X.reshape(3, 32, 32, train_set_dimension)
+    # input2 = train_2.get_topological_view()
+    # target = OneHotFormatter(n_classes).format(train_orig.y, mode="concatenate")
+    ####################################################################################
+
+
 
     set = VectorSpacesDataset(
-        (input1,
-         input2,
-         target),
-        (CompositeSpace([
-            input_space1,
-            input_space2,
-            out_space]),
-         ('features0', 'features1', 'targets'))
+        tuple(data),
+        (CompositeSpace(spaces), tuple(data_source))
     )
+
+
+    # set = VectorSpacesDataset(
+    #     (input1,
+    #      input2,
+    #      target),
+    #     (CompositeSpace([
+    #         input_space1,
+    #         input_space2,
+    #         out_space]),
+    #      ('features0', 'features1', 'targets'))
+    # )
 
     # set = VectorSpacesDatasetC01B(
     #     (input1,
@@ -165,7 +166,25 @@ if __name__ == '__main__':
 
 
 
-
+#
+# ###### TEST ###############################################################################
+# # c01b
+# # input1 = np.random.rand(3, 32, 32, train_set_dimension).astype(theano.config.floatX)
+# # input2 = np.random.rand(3, 32, 32, train_set_dimension).astype(theano.config.floatX)
+# # target = np.random.rand(train_set_dimension, n_classes).astype(theano.config.floatX)
+# # input_space1 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('c', 0, 1, 'b'))
+# # input_space2 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('c', 0, 1, 'b'))
+#
+# #
+# # #b01c
+# # input1 = np.random.rand(train_set_dimension, 32, 32, 3).astype(theano.config.floatX)
+# # input2 = np.random.rand(train_set_dimension, 32, 32, 3).astype(theano.config.floatX)
+# # target = np.random.rand(train_set_dimension, n_classes).astype(theano.config.floatX)
+# # input_space1 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
+# # input_space2 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
+# ###########################################################################################
+#
+#
 
 
 
