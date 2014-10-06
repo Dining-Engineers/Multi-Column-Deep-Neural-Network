@@ -11,6 +11,8 @@ class MCDNN():
         self.columns = models
         # get predictions from first model since every model share the same dataset
         self.y_ground_truth = models[models.keys()[0]][0].y.T[0]
+        with open('prediction_ground_truth.csv', 'w') as file_handle:
+                np.savetxt(file_handle, self.y_ground_truth, delimiter=',')
         # Cifar10 has 10000 img in test set for 10 classes
         self.dataset_size = 10000
         self.n_classes = 10
@@ -35,6 +37,9 @@ class MCDNN():
                 print batch_start, ':', batch_end, '   ', get_statistics(y_batch, y)
                 i += self.batch_size
 
+            # save predicition for this column ( still onehot)
+            with open('prediction_'+key+'.csv', 'w') as file_handle:
+                np.savetxt(file_handle, column[2], delimiter=',')
             print "Column ", key
             print "\t ", get_statistics(self.y_ground_truth, column[2])
 
@@ -85,7 +90,7 @@ if __name__ == '__main__':
 
     import matplotlib.pyplot as plt
 
-    plt.matshow(cm)
+    plt.matshow(cm, fignum=0)
     plt.title("Cifar-10 Confusion Matrix")
     plt.colorbar()
     plt.ylabel('true labels')
