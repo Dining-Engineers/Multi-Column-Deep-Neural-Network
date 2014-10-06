@@ -1,5 +1,6 @@
 import numpy
 import pylearn2
+from pylearn2.datasets.preprocessing import ZCA
 from pylearn2.expr.preprocessing import global_contrast_normalize
 from pylearn2.models.mlp import Layer, Linear
 from pylearn2.models import Model
@@ -177,9 +178,11 @@ class PreprocessorBlock(Layer):
     @wraps(Layer.set_input_space)
     def set_input_space(self, space):
         self.input_space = space
-        self.output_space = Conv2DSpace(shape=[32, 32],
-                                        num_channels=3,
-                                        axes=('b', 0, 1, 'c'))
+        self.output_space = space
+
+        # Conv2DSpace(shape=[32, 32],
+        #                                 num_channels=3,
+        #                                 axes=('b', 0, 1, 'c'))
 
 
     def global_contrast_normalize(self, X, scale=1., subtract_mean=True,
@@ -206,8 +209,6 @@ class PreprocessorBlock(Layer):
             else:
                 # new_X = X - mean[None, :, :, :]
                 new_X = X - mean[:, :, :, None]
-
-
 
         if use_std:
             normalizers = T.sqrt(sqrt_bias + X.var(axis=ndim - 1)) / scale
@@ -247,7 +248,8 @@ class PreprocessorBlock(Layer):
             return self.toronto_preproc(p)
 
         if self.gcn is not None:
-            return self.global_contrast_normalize(p)
+            print "preproc gcn"
+            return self.global_contrast_normalize(p, scale=self.gcn)
 
         return p
 
