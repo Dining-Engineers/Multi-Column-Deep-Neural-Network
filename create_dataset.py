@@ -49,7 +49,7 @@ def load_dataset(which_set, dataset_types):
                          axes=['b', 0, 1, 'c'])
             gcn_data = input_data.get_topological_view()
             data.append(gcn_data)
-            data_source.append('featureGCN')
+            data_source.append('features0')
 
         if prepro == 'toronto':
             input_data = CIFAR10(which_set=which_set,
@@ -71,13 +71,13 @@ def load_dataset(which_set, dataset_types):
                               axes=['b', 0, 1, 'c'])
             zca_data = input_data.get_topological_view()
             data.append(zca_data)
-            data_source.append('featureZCA')
+            data_source.append('features1')
 
 
 
     target_data = OneHotFormatter(n_classes).format(input_data.y, mode="concatenate")
     data.append(target_data)
-    data_source.append('target')
+    data_source.append('targets')
 
 
 
@@ -117,6 +117,8 @@ def load_dataset(which_set, dataset_types):
     #     (CompositeSpace(spaces), tuple(data_source))
     # )
 
+    print "test ", tuple(data_source) == ('features0', 'features1', 'targets')
+    # print "test2, "
 
     set = VectorSpacesDataset(
         (gcn_data,
@@ -142,7 +144,7 @@ def load_dataset(which_set, dataset_types):
 
 
 if __name__ == '__main__':
-    load_dataset('train')
+    load_dataset('train', ['gcn', 'zca'])
 
 
 
