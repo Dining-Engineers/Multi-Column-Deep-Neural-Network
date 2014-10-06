@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import confusion_matrix
+import pylearn2
+import theano
 from create_dataset import load_dataset
 from utils import load_model_from_pkl, get_nparray_from_design_matrix
 
@@ -68,11 +70,20 @@ def plot_single_cm(ytrue, ypred, name):
 
 def get_mcdnn_predictions(model_pkl_url, dataset_list):
 
-    dataset = load_dataset('test', dataset_list)
-    model = load_model_from_pkl(model_pkl_url)
+    # dataset = load_dataset('test', dataset_list)
+    # model = load_model_from_pkl(model_pkl_url)
     dataset_size = 10000
     batch_size = 128
     i = 0
+    from pylearn2.utils import serial
+
+    model = serial.load(model_pkl_url)
+    X = model.get_input_space().make_theano_batch()
+    print model.get_input_space()
+    # Y = model.fprop(X)
+    # get prediction
+    # f = theano.function([X], Y)
+
     # while i < dataset_size:
     #     batch_start = i
     #     batch_end = i+batch_size-1 if i+batch_size-1 < dataset_size-1 else dataset_size-1
@@ -96,16 +107,17 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
 
 def get_all_mcdnn_predictions():
 
-    dataset_list = ['gcn', 'toronto']
-    get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_TOR_best.pkl', dataset_list)
-    dataset_list = ['gcn', 'zca']
-    get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_ZCA_best.pkl', dataset_list)
-    dataset_list = ['zca', 'toronto']
-    get_mcdnn_predictions('pkl/best/multicolumn_2COL_ZCA_TOR_best.pkl', dataset_list)
+    # dataset_list = ['gcn', 'toronto']
+    # get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_TOR_best.pkl', dataset_list)
+    # dataset_list = ['gcn', 'zca']
+    # get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_ZCA_best.pkl', dataset_list)
+    # dataset_list = ['zca', 'toronto']
+    # get_mcdnn_predictions('pkl/best/multicolumn_2COL_ZCA_TOR_best.pkl', dataset_list)
     dataset_list = ['gcn', 'toronto', 'zca']
     get_mcdnn_predictions('pkl/best/multicolumn_3COL_best.pkl', dataset_list)
 
 
 
 if __name__ == '__main__':
-    plot_confusion_matrix()
+    # plot_confusion_matrix()
+    get_all_mcdnn_predictions()
