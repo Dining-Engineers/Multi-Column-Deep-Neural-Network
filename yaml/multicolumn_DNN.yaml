@@ -60,7 +60,7 @@
                                   ]
                         },
                     ],
-                    inputs_to_layers=
+                    inputs_to_layers:
                     {
                         0: [0],
                         1: [1]
