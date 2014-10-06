@@ -52,6 +52,8 @@ class MCDNN():
 
         self.y_predictions /= self.n_column
 
+        with open('prediction_multicolumn_naive.csv', 'w') as file_handle:
+            np.savetxt(file_handle, self.y_predictions, delimiter=',')
         print "MCDNN results: "
         print "\t ", get_statistics(self.y_ground_truth, self.y_predictions)
 
@@ -84,18 +86,3 @@ if __name__ == '__main__':
     multi_column_dnn.get_columns_predictions()
     multi_column_dnn.get_mcdnn_predictions()
 
-    from sklearn.metrics import confusion_matrix
-    cm = confusion_matrix(multi_column_dnn.y_ground_truth,  np.argmax(multi_column_dnn.y_predictions, axis=1), ['airplane', 'automobile', 'bird', 'cat', 'deer',
-                            'dog', 'frog', 'horse', 'ship', 'truck'])
-
-    import matplotlib.pyplot as plt
-
-    import matplotlib
-    matplotlib.use('Agg')
-
-    plt.matshow(cm, fignum=0)
-    plt.title("Cifar-10 Confusion Matrix")
-    plt.colorbar()
-    plt.ylabel('true labels')
-    plt.xlabel('predicted labels')
-    plt.savefig('./confusion.png', dpi=150)

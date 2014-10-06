@@ -8,20 +8,20 @@ def plot_confusion_matrix():
     y_gcn_predictions = np.float64(np.argmax(np.genfromtxt('prediction_gcn.csv', delimiter=','), axis=1))
     y_toronto_predictions = np.float64(np.argmax(np.genfromtxt('prediction_toronto.csv', delimiter=','), axis=1))
     y_zca_predictions = np.float64(np.argmax(np.genfromtxt('prediction_zca.csv', delimiter=','), axis=1))
+    # y_multi_naive_predictions = np.float64(np.argmax(np.genfromtxt('prediction_multicolumn_naive.csv', delimiter=','), axis=1))
+
 
     plot_cm(y_ground_truth, y_gcn_predictions, "Single GCN")
     plot_cm(y_ground_truth, y_toronto_predictions, "Single Toronto")
     plot_cm(y_ground_truth, y_zca_predictions, "Single ZCA")
+    # plot_cm(y_ground_truth, y_multi_naive_predictions, "Multi Naive")
+
 
 
 
 def plot_cm(ytrue, ypred, name):
 
-
-
     cm = confusion_matrix(ytrue, ypred)
-
-
     norm_conf = []
     for i in cm:
         a = 0
@@ -31,6 +31,9 @@ def plot_cm(ytrue, ypred, name):
             tmp_arr.append(float(j)/float(a))
         norm_conf.append(tmp_arr)
 
+
+    # cm /= cm.sum(axis=1)*100
+    cm = cm / cm.astype(np.float).sum(axis=1)
     labels = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
 
     fig = plt.figure()
