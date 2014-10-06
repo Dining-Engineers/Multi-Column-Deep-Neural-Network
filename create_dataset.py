@@ -112,21 +112,21 @@ def load_dataset(which_set, dataset_types):
 
     print spaces, tuple(data_source)
 
-    # set = VectorSpacesDataset(
-    #     tuple(data),
-    #     (CompositeSpace(spaces), tuple(data_source))
-    # )
+    set = VectorSpacesDataset(
+        tuple(data),
+        (CompositeSpace(spaces), tuple(data_source))
+    )
 
     print "test ", tuple(data_source) == ('features0', 'features1', 'targets')
-    # print "test2, "
+    print "test2, ", (gcn_data, zca_data, target_data) == tuple(data)
 
-    set = VectorSpacesDataset(
-        (gcn_data,
-         zca_data,
-         target_data),
-        (CompositeSpace(spaces),
-         ('features0', 'features1', 'targets'))
-    )
+    # set = VectorSpacesDataset(
+    #     (gcn_data,
+    #      zca_data,
+    #      target_data),
+    #     (CompositeSpace(spaces),
+    #      ('features0', 'features1', 'targets'))
+    # )
 
     # set = VectorSpacesDatasetC01B(
     #     (input1,
