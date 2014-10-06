@@ -65,7 +65,7 @@
                         0: [0],
                         1: [1]
                     }
-                 }
+                 },
                  !obj:custom_layers.Average {
                     layer_name: 'avg'
                  },
