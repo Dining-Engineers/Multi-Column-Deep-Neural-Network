@@ -47,7 +47,8 @@ def load_dataset(which_set, dataset_types):
                          stop=stop_set,
                          gcn=55.,
                          axes=['b', 0, 1, 'c'])
-            data.append(input_data.get_topological_view())
+            gcn_data = input_data.get_topological_view()
+            data.append(gcn_data)
             data_source.append('featureGCN')
 
         if prepro == 'toronto':
@@ -56,7 +57,8 @@ def load_dataset(which_set, dataset_types):
                        stop=stop_set,
                        axes=['b', 0, 1, 'c'],
                        toronto_prepro=1)
-            data.append(input_data.get_topological_view())
+            tor_data = input_data.get_topological_view()
+            data.append(tor_data)
             data_source.append('featureTOR')
 
 
@@ -67,12 +69,14 @@ def load_dataset(which_set, dataset_types):
                               start=start_set,
                               stop=stop_set,
                               axes=['b', 0, 1, 'c'])
-            data.append(input_data.get_topological_view())
+            zca_data = input_data.get_topological_view()
+            data.append(zca_data)
             data_source.append('featureZCA')
 
 
 
-    data.append(OneHotFormatter(n_classes).format(input_data.y, mode="concatenate"))
+    target_data = OneHotFormatter(n_classes).format(input_data.y, mode="concatenate")
+    data.append(target_data)
     data_source.append('target')
 
 
@@ -108,22 +112,19 @@ def load_dataset(which_set, dataset_types):
 
     print spaces, tuple(data_source)
 
-    set = VectorSpacesDataset(
-        tuple(data),
-        (CompositeSpace(spaces), tuple(data_source))
-    )
-
-
     # set = VectorSpacesDataset(
-    #     (input1,
-    #      input2,
-    #      target),
-    #     (CompositeSpace([
-    #         input_space1,
-    #         input_space2,
-    #         out_space]),
-    #      ('features0', 'features1', 'targets'))
+    #     tuple(data),
+    #     (CompositeSpace(spaces), tuple(data_source))
     # )
+
+
+    set = VectorSpacesDataset(
+        (gcn_data,
+         zca_data,
+         target_data),
+        (CompositeSpace(spaces),
+         ('features0', 'features1', 'targets'))
+    )
 
     # set = VectorSpacesDatasetC01B(
     #     (input1,

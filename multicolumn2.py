@@ -60,7 +60,7 @@ mlp = MLP(
     input_space=CompositeSpace([
         Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c')),
         Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))]),
-    input_source=('featureGCN', 'featureZCA')
+    input_source=('features0', 'features1')
 )
 
 dataset = create_dataset.load_dataset(which_set='train', dataset_types=['gcn', 'zca'])
