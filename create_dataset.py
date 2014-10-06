@@ -17,10 +17,7 @@ def load_dataset(which_set, dataset_types):
 
     # we need to have at least 2 types otherwise this func is useless
     assert len(dataset_types) > 1
-
     print "loading.. ", which_set
-
-    # if size == 'big':
 
     if which_set == 'test':
         start_set = 0
@@ -36,9 +33,7 @@ def load_dataset(which_set, dataset_types):
 
     n_classes = 10
 
-
     data = []
-    data_source = []
     for prepro in dataset_types:
 
         if prepro == 'gcn':
@@ -47,9 +42,8 @@ def load_dataset(which_set, dataset_types):
                          stop=stop_set,
                          gcn=55.,
                          axes=['b', 0, 1, 'c'])
-            gcn_data = input_data.get_topological_view()
-            data.append(gcn_data)
-            data_source.append('features0')
+            # gcn_data = input_data.get_topological_view()
+            data.append(input_data.get_topological_view())
 
         if prepro == 'toronto':
             input_data = CIFAR10(which_set=which_set,
@@ -57,9 +51,8 @@ def load_dataset(which_set, dataset_types):
                        stop=stop_set,
                        axes=['b', 0, 1, 'c'],
                        toronto_prepro=1)
-            tor_data = input_data.get_topological_view()
-            data.append(tor_data)
-            data_source.append('featureTOR')
+            # tor_data = input_data.get_topological_view()
+            data.append(input_data.get_topological_view())
 
 
         if prepro == 'zca':
@@ -69,56 +62,47 @@ def load_dataset(which_set, dataset_types):
                               start=start_set,
                               stop=stop_set,
                               axes=['b', 0, 1, 'c'])
-            zca_data = input_data.get_topological_view()
-            data.append(zca_data)
-            data_source.append('features1')
-
+            # zca_data = input_data.get_topological_view()
+            data.append(input_data.get_topological_view())
 
 
     target_data = OneHotFormatter(n_classes).format(input_data.y, mode="concatenate")
     data.append(target_data)
+
+    data_source = []
+    for i in len(dataset_types):
+        data_source.append('features'+str(i))
     data_source.append('targets')
 
 
-
-
     ################################## DEFINE SPACES ##################################
-
     spaces = []
+    # add input spaces as b01c
     for i in range(0, len(dataset_types)):
         spaces.append(Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c')))
+    # add output space
     spaces.append(VectorSpace(n_classes))
-
-    # # # b01c input space
-    # input_space1 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
-    # input_space2 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
-    # input_space3 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('b', 0, 1, 'c'))
-    #
-    # # # c01b input space
-    # # input_space1 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('c', 0, 1, 'b'))
-    # # input_space2 = Conv2DSpace(shape=(32, 32), num_channels=3, axes=('c', 0, 1, 'b'))
-    #
-    # # # Output Space
-    # out_space = VectorSpace(n_classes)
-    ####################################################################################
-
-
-    ######################### GET DATA IN B01C FORMAT SPACES ###########################
-
-    # input1 = train_orig.get_topological_view()  # train_orig.X.reshape(3, 32, 32, train_set_dimension)
-    # input2 = train_2.get_topological_view()
-    # target = OneHotFormatter(n_classes).format(train_orig.y, mode="concatenate")
-    ####################################################################################
-
-    print spaces, tuple(data_source)
 
     set = VectorSpacesDataset(
         tuple(data),
         (CompositeSpace(spaces), tuple(data_source))
     )
 
-    print "test ", tuple(data_source) == ('features0', 'features1', 'targets')
-    print "test2, ", (gcn_data, zca_data, target_data) == tuple(data)
+    return set
+
+
+if __name__ == '__main__':
+    load_dataset('train', ['gcn', 'zca'])
+
+
+
+
+
+
+
+
+
+
 
     # set = VectorSpacesDataset(
     #     (gcn_data,
@@ -139,12 +123,6 @@ def load_dataset(which_set, dataset_types):
     #      ('features0', 'features1', 'targets'))
     # )
 
-    # print set.get_data()[1].shape
-    return set
-
-
-if __name__ == '__main__':
-    load_dataset('train', ['gcn', 'zca'])
 
 
 
@@ -157,18 +135,11 @@ if __name__ == '__main__':
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+    ######################### GET DATA IN B01C FORMAT SPACES ###########################
+    # input1 = train_orig.get_topological_view()  # train_orig.X.reshape(3, 32, 32, train_set_dimension)
+    # input2 = train_2.get_topological_view()
+    # target = OneHotFormatter(n_classes).format(train_orig.y, mode="concatenate")
+    ####################################################################################
 #
 # ###### TEST ###############################################################################
 # # c01b
