@@ -4,7 +4,7 @@ from pylearn2.utils import string_utils
 from utils import *
 
 
-class MCDNN():
+class NaiveMCDNN():
 
     def __init__(self, models):
         self.n_column = len(models)
@@ -38,7 +38,7 @@ class MCDNN():
                 i += self.batch_size
 
             # save predicition for this column ( still onehot)
-            with open('prediction_'+key+'.csv', 'w') as file_handle:
+            with open('csv/prediction_'+key+'.csv', 'w') as file_handle:
                 np.savetxt(file_handle, column[2], delimiter=',')
             print "Column ", key
             print "\t ", get_statistics(self.y_ground_truth, column[2])
@@ -52,7 +52,7 @@ class MCDNN():
 
         self.y_predictions /= self.n_column
 
-        with open('prediction_multicolumn_naive.csv', 'w') as file_handle:
+        with open('csv/prediction_multicolumn_naive.csv', 'w') as file_handle:
             np.savetxt(file_handle, self.y_predictions, delimiter=',')
         print "MCDNN results: "
         print "\t ", get_statistics(self.y_ground_truth, self.y_predictions)
@@ -82,7 +82,7 @@ if __name__ == '__main__':
         'zca': (cifar10_zca, 'pkl/best/singlecolumn_complex_ZCA_paper_best.pkl', np.zeros((10000, 10)))
     }
 
-    multi_column_dnn = MCDNN(columns)
+    multi_column_dnn = NaiveMCDNN(columns)
     multi_column_dnn.get_columns_predictions()
     multi_column_dnn.get_mcdnn_predictions()
 

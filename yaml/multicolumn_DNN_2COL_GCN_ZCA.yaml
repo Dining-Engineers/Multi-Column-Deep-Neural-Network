@@ -114,16 +114,14 @@
 
                           },
             },
-        termination_criterion: !obj:pylearn2.termination_criteria.MonitorBased {
-            channel_name: "valid_y_misclass",
-            prop_decrease: 0.,
-            N: 100
+        termination_criterion: !obj:pylearn2.termination_criteria.EpochCounter {
+            max_epochs: 13
         },
     },
     extensions: [
         !obj:pylearn2.train_extensions.best_params.MonitorBasedSaveBest {
-             channel_name: 'valid_y_misclass',
-             save_path: "pkl/multicolumn_best.pkl"
+             channel_name: 'test_y_misclass',
+             save_path: "pkl/best/multicolumn_2COL_GCN_ZCA_best.pkl"
         },
         !obj:pylearn2.training_algorithms.sgd.MomentumAdjustor {
             start: 1,
@@ -136,6 +134,6 @@
             decay_factor: .01
         },
     ],
-    save_path: "pkl/multicolumn.pkl",
+    save_path: "pkl/multicolumn_2COL_GCN_ZCA.pkl",
     save_freq: 5
 }
