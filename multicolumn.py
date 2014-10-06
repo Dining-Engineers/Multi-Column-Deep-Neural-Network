@@ -90,6 +90,9 @@ if __name__ == '__main__':
 
     import matplotlib.pyplot as plt
 
+    import matplotlib
+    matplotlib.use('Agg')
+
     plt.matshow(cm, fignum=0)
     plt.title("Cifar-10 Confusion Matrix")
     plt.colorbar()
