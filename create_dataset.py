@@ -106,7 +106,7 @@ def load_dataset(which_set, dataset_types):
     # target = OneHotFormatter(n_classes).format(train_orig.y, mode="concatenate")
     ####################################################################################
 
-
+    print spaces, tuple(data_source)
 
     set = VectorSpacesDataset(
         tuple(data),
