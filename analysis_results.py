@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import confusion_matrix
 from create_dataset import load_dataset
-from utils import load_model_from_pkl
+from utils import load_model_from_pkl, get_nparray_from_design_matrix
 
 
 def plot_confusion_matrix():
@@ -70,10 +70,28 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
 
     dataset = load_dataset('test', dataset_list)
     model = load_model_from_pkl(model_pkl_url)
-
+    dataset_size = 10000
+    batch_size = 128
     i = 0
-
-
+    # while i < dataset_size:
+    #     batch_start = i
+    #     batch_end = i+batch_size-1 if i+batch_size-1 < dataset_size-1 else dataset_size-1
+    #
+    #     x_batch, y_batch = get_nparray_from_design_matrix(column[0], batch_start, batch_end)
+    #     # x_batch, y_batch = get_nparray_from_design_matrix(column[0], 0, 127)
+    #
+    #     f_model = model
+    #     y = f_model(x_batch)
+    #
+    #     column[2][batch_start:batch_end] = y # np.argmax(y, axis=1)
+    #     # print batch_start, ':', batch_end, '   ', get_statistics(y_batch, y)
+    #     i += self.batch_size
+    #
+    # # save predicition for this column ( still onehot)
+    # with open('csv/prediction_'+key+'.csv', 'w') as file_handle:
+    #     np.savetxt(file_handle, column[2], delimiter=',')
+    # print "Column ", key
+    # print "\t ", get_statistics(self.y_ground_truth, column[2])
 
 
 def get_all_mcdnn_predictions():

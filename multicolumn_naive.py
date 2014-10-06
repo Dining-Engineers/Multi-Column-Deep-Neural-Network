@@ -11,7 +11,7 @@ class NaiveMCDNN():
         self.columns = models
         # get predictions from first model since every model share the same dataset
         self.y_ground_truth = models[models.keys()[0]][0].y.T[0]
-        with open('prediction_ground_truth.csv', 'w') as file_handle:
+        with open('csv/prediction_ground_truth.csv', 'w') as file_handle:
                 np.savetxt(file_handle, self.y_ground_truth, delimiter=',')
         # Cifar10 has 10000 img in test set for 10 classes
         self.dataset_size = 10000
@@ -34,7 +34,7 @@ class NaiveMCDNN():
                 y = f_model(x_batch)
 
                 column[2][batch_start:batch_end] = y # np.argmax(y, axis=1)
-                print batch_start, ':', batch_end, '   ', get_statistics(y_batch, y)
+                # print batch_start, ':', batch_end, '   ', get_statistics(y_batch, y)
                 i += self.batch_size
 
             # save predicition for this column ( still onehot)
