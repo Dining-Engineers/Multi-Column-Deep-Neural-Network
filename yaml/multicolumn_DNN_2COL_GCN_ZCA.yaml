@@ -115,7 +115,7 @@
                           },
             },
         termination_criterion: !obj:pylearn2.termination_criteria.EpochCounter {
-            max_epochs: 13
+            max_epochs: 30
         },
     },
     extensions: [

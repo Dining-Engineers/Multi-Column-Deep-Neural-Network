@@ -2,7 +2,7 @@
 
     dataset: &train !obj:create_dataset.load_dataset {
         which_set: 'train',
-        dataset_types: ['zca', 'toronto']
+        dataset_types: ['toronto', 'zca']
     },
     model: !obj:pylearn2.models.mlp.MLP {
         batch_size: 128,
@@ -12,22 +12,6 @@
                     layer_name: 'composite',
                     layers: [
 
-#                        !obj:pylearn2.models.mlp.MLP {
-#                          layers: [
-#                                  !obj:pylearn2.models.mlp.SpaceConverter {
-#                                    layer_name: 'spconveter0',
-#                                    output_space: !obj:pylearn2.space.Conv2DSpace {
-#                                          shape: [32, 32],
-#                                          num_channels: 3,
-#                                          axes: ['c', 0, 1, 'b'],
-#                                      },
-#                                  },
-#                                  !obj:custom_layers.PretrainedMLP {
-#                                    layer_name: 'gcn_column',
-#                                    layer_content: !pkl: 'pkl/best/singlecolumn_complex_GCN_paper_best.pkl'
-#                                  }
-#                                  ]
-#                        },
                         !obj:pylearn2.models.mlp.MLP {
                           layers: [
                                   !obj:pylearn2.models.mlp.SpaceConverter {
@@ -105,17 +89,17 @@
 
                 'valid' : !obj:create_dataset.load_dataset {
                             which_set: 'valid',
-                            dataset_types: ['zca', 'toronto']
+                            dataset_types: ['toronto', 'zca']
 
                           },
                 'test'  : !obj:create_dataset.load_dataset {
                             which_set: 'test',
-                            dataset_types: ['zca', 'toronto']
+                            dataset_types: ['toronto', 'zca']
 
                           },
             },
         termination_criterion: !obj:pylearn2.termination_criteria.EpochCounter {
-            max_epochs: 13
+            max_epochs: 30
         },
     },
     extensions: [

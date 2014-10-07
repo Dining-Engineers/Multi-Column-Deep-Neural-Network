@@ -13,17 +13,18 @@ from pylearn2.utils import serial
 def analysis():
 
     y_ground_truth = np.float64(np.genfromtxt('csv_prediction/prediction_ground_truth.csv', delimiter=','))
-    y_gcn_predictions = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_gcn.csv', delimiter=','), axis=1))
-    y_toronto_predictions = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_toronto.csv', delimiter=','), axis=1))
-    y_zca_predictions = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_zca.csv', delimiter=','), axis=1))
-    y_multi_gcn_tor = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','), axis=1))
-    y_multi_gcn_zca = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','), axis=1))
-    y_multi_zca_tor = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','), axis=1))
-    y_multi_gcn_tor_zca = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','), axis=1))
-    y_multi_naive_gcn_tor = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_gcn_toronto.csv', delimiter=','), axis=1))
-    y_multi_naive_gcn_zca = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_gcn_zca.csv', delimiter=','), axis=1))
-    y_multi_naive_zca_tor = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_zca_toronto.csv', delimiter=','), axis=1))
-    y_multi_naive_gcn_tor_zca = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_gcn_toronto_zca.csv', delimiter=','), axis=1))
+
+    y_gcn_predictions = np.float64(np.genfromtxt('csv_prediction/prediction_gcn.csv', delimiter=','))
+    y_toronto_predictions = np.float64(np.genfromtxt('csv_prediction/prediction_toronto.csv', delimiter=','))
+    y_zca_predictions = np.float64(np.genfromtxt('csv_prediction/prediction_zca.csv', delimiter=','))
+    y_multi_gcn_tor = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','))
+    y_multi_gcn_zca = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','))
+    y_multi_zca_tor = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','))
+    y_multi_gcn_tor_zca = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','))
+    y_multi_naive_gcn_tor = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_toronto_gcn.csv', delimiter=','))
+    y_multi_naive_gcn_zca = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_zca_gcn.csv', delimiter=','))
+    y_multi_naive_zca_tor = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_toronto_zca.csv', delimiter=','))
+    y_multi_naive_gcn_tor_zca = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_toronto_zca_gcn.csv', delimiter=','))
 
     print "Results _______________\t______________________"
     print " ______METHOD__________\t_____MEAN____VAR______"
@@ -55,7 +56,7 @@ def analysis():
 
 def plot_single_cm(ytrue, ypred, name):
 
-    cm = confusion_matrix(ytrue, ypred)
+    cm = confusion_matrix(ytrue, np.argmax(ypred, axis=1))
     norm_conf = []
     for i in cm:
         a = 0
@@ -154,7 +155,7 @@ def get_all_mcdnn_predictions():
     get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_TOR_best.pkl', dataset_list)
     dataset_list = ['gcn', 'zca']
     get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_ZCA_best.pkl', dataset_list)
-    dataset_list = ['zca', 'toronto']
+    dataset_list = ['toronto', 'zca']
     get_mcdnn_predictions('pkl/best/multicolumn_2COL_ZCA_TOR_best.pkl', dataset_list)
     dataset_list = ['gcn', 'toronto', 'zca']
     get_mcdnn_predictions('pkl/best/multicolumn_3COL_best.pkl', dataset_list)
@@ -163,5 +164,5 @@ def get_all_mcdnn_predictions():
 
 if __name__ == '__main__':
     # plot_confusion_matrix()
-    get_all_mcdnn_predictions()
+    # get_all_mcdnn_predictions()
     analysis()

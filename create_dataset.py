@@ -37,6 +37,7 @@ def load_dataset(which_set, dataset_types):
     for prepro in dataset_types:
 
         if prepro == 'gcn':
+            print "LOADING GCN..."
             input_data = CIFAR10(which_set=which_set,
                          start=start_set,
                          stop=stop_set,
@@ -46,6 +47,7 @@ def load_dataset(which_set, dataset_types):
             data.append(input_data.get_topological_view())
 
         if prepro == 'toronto':
+            print "LOADING TOR..."
             input_data = CIFAR10(which_set=which_set,
                        start=start_set,
                        stop=stop_set,
@@ -56,6 +58,8 @@ def load_dataset(which_set, dataset_types):
 
 
         if prepro == 'zca':
+            print "LOADING ZCA..."
+
             data_dir = string_utils.preprocess('${PYLEARN2_DATA_PATH}/cifar10')
             input_data = ZCA_Dataset(preprocessed_dataset=serial.load(data_dir+"/pylearn2_gcn_whitened/"+which_set+".pkl"),
                               preprocessor=serial.load(data_dir+"/pylearn2_gcn_whitened/preprocessor.pkl"),

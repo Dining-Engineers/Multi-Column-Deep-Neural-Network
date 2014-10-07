@@ -43,22 +43,7 @@
                                     layer_content: !pkl: 'pkl/best/singlecolumn_complex_TORONTO_paper_best.pkl'
                                   }]
                         },
-#                        !obj:pylearn2.models.mlp.MLP {
-#                          layers: [
-#                                  !obj:pylearn2.models.mlp.SpaceConverter {
-#                                    layer_name: 'spconveter2',
-#                                    output_space: !obj:pylearn2.space.Conv2DSpace {
-#                                          shape: [32, 32],
-#                                          num_channels: 3,
-#                                          axes: ['c', 0, 1, 'b'],
-#                                      },
-#                                  },
-#                                  !obj:custom_layers.PretrainedMLP {
-#                                    layer_name: 'zca_column',
-#                                    layer_content: !pkl: 'pkl/best/singlecolumn_complex_ZCA_paper_best.pkl'
-#                                  }
-#                                  ]
-#                        },
+
                     ],
                     inputs_to_layers:
                     {
@@ -115,7 +100,7 @@
                           },
             },
         termination_criterion: !obj:pylearn2.termination_criteria.EpochCounter {
-            max_epochs: 13
+            max_epochs: 30
         },
     },
     extensions: [
