@@ -98,7 +98,7 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
     # loro
     inputs = model.get_input_space().make_theano_batch()
     theano_inputs = [inputs]
-    f_model = theano.function(theano_inputs, model.fprop(inputs), name='morte')
+    f_model = theano.function(inputs, model.fprop(inputs), name='morte')
 
 
 
@@ -119,12 +119,13 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
         batch_start = i
         batch_end = i+batch_size-1 if i+batch_size-1 < dataset_size-1 else dataset_size-1
 
-        x1_batch, y1_batch = get_nparray_from_design_matrix_b01c(cifar10_gcn, batch_start, batch_end)
-        x2_batch, y2_batch = get_nparray_from_design_matrix_b01c(cifar10_toronto, batch_start, batch_end)
+        # x1_batch, y1_batch = get_nparray_from_design_matrix_b01c(cifar10_gcn, batch_start, batch_end)
+        # x2_batch, y2_batch = get_nparray_from_design_matrix_b01c(cifar10_toronto, batch_start, batch_end)
 
         # x_batch, y_batch = get_nparray_from_design_matrix(column[0], 0, 127)
 
-        y = f_model((x1_batch, x2_batch))
+
+        y = f_model((a, b))
 
 
         y_predictions[batch_start:batch_end] = y # np.argmax(y, axis=1)
