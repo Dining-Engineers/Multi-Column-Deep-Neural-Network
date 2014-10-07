@@ -18,39 +18,43 @@ def analysis():
     y_toronto_predictions = np.float64(np.genfromtxt('csv_prediction/prediction_toronto.csv', delimiter=','))
     y_zca_predictions = np.float64(np.genfromtxt('csv_prediction/prediction_zca.csv', delimiter=','))
     y_multi_gcn_tor = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','))
-    y_multi_gcn_zca = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','))
-    y_multi_zca_tor = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','))
-    y_multi_gcn_tor_zca = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','))
+    y_multi_gcn_zca = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_zca.csv', delimiter=','))
+    y_multi_zca_tor = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_toronto_zca.csv', delimiter=','))
+    y_multi_gcn_tor_zca = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto_zca.csv', delimiter=','))
     y_multi_naive_gcn_tor = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_toronto_gcn.csv', delimiter=','))
     y_multi_naive_gcn_zca = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_zca_gcn.csv', delimiter=','))
     y_multi_naive_zca_tor = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_toronto_zca.csv', delimiter=','))
     y_multi_naive_gcn_tor_zca = np.float64(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_toronto_zca_gcn.csv', delimiter=','))
 
-    print "Results _______________\t______________________"
-    print " ______METHOD__________\t_____MEAN____VAR______"
+    print "_____Results __________\t______________________"
+    print "_______METHOD__________\t_____MEAN____VAR______"
     print "Single GCN             \t ", get_statistics(y_ground_truth, y_gcn_predictions)
     print "Single TOR             \t ", get_statistics(y_ground_truth, y_toronto_predictions)
     print "Single ZCA             \t ", get_statistics(y_ground_truth, y_zca_predictions)
-    print "Multi-Naive GCN_TOR    \t ", get_statistics(y_ground_truth, y_multi_naive_gcn_tor)
+    print "------------------------------------------------------------------"
     print "Multi GCN_TOR          \t ", get_statistics(y_ground_truth, y_multi_gcn_tor)
-    print "Multi-Naive GCN_ZCA    \t ", get_statistics(y_ground_truth, y_multi_naive_gcn_zca)
     print "Multi GCN_ZCA          \t ", get_statistics(y_ground_truth, y_multi_gcn_zca)
-    print "Multi-Naive ZCA_TOR    \t ", get_statistics(y_ground_truth, y_multi_naive_zca_tor)
     print "Multi ZCA_TOR          \t ", get_statistics(y_ground_truth, y_multi_zca_tor)
-    print "Multi-Naive GCN_TOR_ZCA\t ", get_statistics(y_ground_truth, y_multi_naive_gcn_tor_zca)
     print "Multi GCN_TOR_ZCA      \t ", get_statistics(y_ground_truth, y_multi_gcn_tor_zca)
+    print "-------------------------------------------------------------------"
+    print "Multi-Naive GCN_TOR    \t ", get_statistics(y_ground_truth, y_multi_naive_gcn_tor)
+    print "Multi-Naive GCN_ZCA    \t ", get_statistics(y_ground_truth, y_multi_naive_gcn_zca)
+    print "Multi-Naive ZCA_TOR    \t ", get_statistics(y_ground_truth, y_multi_naive_zca_tor)
+    print "Multi-Naive GCN_TOR_ZCA\t ", get_statistics(y_ground_truth, y_multi_naive_gcn_tor_zca)
     print "_______________________________________"
 
     plot_single_cm(y_ground_truth, y_gcn_predictions, "Single GCN")
     plot_single_cm(y_ground_truth, y_toronto_predictions, "Single Toronto")
     plot_single_cm(y_ground_truth, y_zca_predictions, "Single ZCA")
+
     plot_single_cm(y_ground_truth, y_multi_gcn_tor, "Multi GCN_TOR")
-    plot_single_cm(y_ground_truth, y_multi_naive_gcn_tor, "Multi-Naive GCN_TOR")
     plot_single_cm(y_ground_truth, y_multi_gcn_zca, "Multi GCN_ZCA")
-    plot_single_cm(y_ground_truth, y_multi_naive_gcn_zca, "Multi-Naive GCN_ZCA")
     plot_single_cm(y_ground_truth, y_multi_zca_tor, "Multi ZCA_TOR")
-    plot_single_cm(y_ground_truth, y_multi_naive_zca_tor, "Multi-Naive ZCA_TOR")
     plot_single_cm(y_ground_truth, y_multi_gcn_tor_zca, "Multi GCN_TOR_ZCA")
+
+    plot_single_cm(y_ground_truth, y_multi_naive_gcn_tor, "Multi-Naive GCN_TOR")
+    plot_single_cm(y_ground_truth, y_multi_naive_gcn_zca, "Multi-Naive GCN_ZCA")
+    plot_single_cm(y_ground_truth, y_multi_naive_zca_tor, "Multi-Naive ZCA_TOR")
     plot_single_cm(y_ground_truth, y_multi_naive_gcn_tor_zca, "Multi-Naive GCN_TOR_ZCA")
 
 
@@ -66,14 +70,11 @@ def plot_single_cm(ytrue, ypred, name):
             tmp_arr.append(float(j)/float(a))
         norm_conf.append(tmp_arr)
 
-
     # cm /= cm.sum(axis=1)*100
     cm = cm / cm.astype(np.float).sum(axis=1)
     labels = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
-
     fig = plt.figure()
     plt.title("Cifar-10 Confusion Matrix - "+name)
-
 
     ax = fig.add_subplot(111)
     ax.set_aspect(1)
@@ -141,6 +142,7 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
         pass
 
     # save predicition for this column ( still onehot)
+    print "save "+'csv_prediction/prediction_multicolumn_'+"_".join(dataset_list)+'.csv'
     with open('csv_prediction/prediction_multicolumn_'+"_".join(dataset_list)+'.csv', 'w') as file_handle:
         np.savetxt(file_handle, y_predictions, delimiter=',')
     # print "Column ", key
