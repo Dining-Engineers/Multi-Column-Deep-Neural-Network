@@ -90,9 +90,9 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
 
     dataset = load_dataset('test', dataset_list)
     it = dataset.iterator(mode='sequential', batch_size=2)
-    a,b = it.next()
+    a,b, c = it.next()
 
-    print a, b
+    print a, b, c
 
 
     # loro
