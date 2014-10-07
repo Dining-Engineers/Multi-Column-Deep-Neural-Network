@@ -152,10 +152,10 @@ def get_all_mcdnn_predictions():
 
     dataset_list = ['gcn', 'toronto']
     get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_TOR_best.pkl', dataset_list)
-    # dataset_list = ['gcn', 'zca']
-    # get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_ZCA_best.pkl', dataset_list)
-    # dataset_list = ['zca', 'toronto']
-    # get_mcdnn_predictions('pkl/best/multicolumn_2COL_ZCA_TOR_best.pkl', dataset_list)
+    dataset_list = ['gcn', 'zca']
+    get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_ZCA_best.pkl', dataset_list)
+    dataset_list = ['zca', 'toronto']
+    get_mcdnn_predictions('pkl/best/multicolumn_2COL_ZCA_TOR_best.pkl', dataset_list)
     dataset_list = ['gcn', 'toronto', 'zca']
     get_mcdnn_predictions('pkl/best/multicolumn_3COL_best.pkl', dataset_list)
 
@@ -164,3 +164,4 @@ def get_all_mcdnn_predictions():
 if __name__ == '__main__':
     # plot_confusion_matrix()
     get_all_mcdnn_predictions()
+    analysis()
