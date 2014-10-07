@@ -26,6 +26,19 @@ def get_nparray_from_design_matrix(dataset, start=0, stop=128):
     # print y_dataset, y_dataset.shape
     return x_dataset.transpose(*axis_order), y_dataset.T[0]
 
+def get_nparray_from_design_matrix_b01c(dataset, start=0, stop=128):
+    """
+    get design matrix in form batch per image
+    images are in form [c, 0, 1]
+    """
+    x_dataset = dataset.X[start:stop, :]
+    bc01_shape = (stop-start, 3, 32, 32)
+    x_dataset = x_dataset.reshape(bc01_shape)
+    axis_order = [('b', 'c', 0, 1).index(axis) for axis in ['b', 0, 1, 'c']]
+
+    y_dataset = dataset.y[start:stop, :]
+    # print y_dataset, y_dataset.shape
+    return x_dataset.transpose(*axis_order), y_dataset.T[0]
 
 def get_statistics(y_true, prediction):
     y_hat = np.argmax(prediction, axis=1)
