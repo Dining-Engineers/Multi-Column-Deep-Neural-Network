@@ -120,7 +120,7 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
         # x_batch, y_batch = get_nparray_from_design_matrix(column[0], 0, 127)
 
 
-        y = f_model(a)
+        y = f_model(a, b)
 
 
         y_predictions[batch_start:batch_end] = y # np.argmax(y, axis=1)
