@@ -129,7 +129,7 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
 
 
         y_predictions[batch_start:batch_end] = y # np.argmax(y, axis=1)
-        print batch_start, ':', batch_end, '   ', get_statistics(y1_batch, y)
+        print batch_start, ':', batch_end, '   ', get_statistics(c, y)
         i += batch_size
 
     # save predicition for this column ( still onehot)
