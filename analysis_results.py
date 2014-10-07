@@ -11,11 +11,11 @@ from pylearn2.utils import serial
 
 
 def plot_confusion_matrix():
-    y_ground_truth = np.float64(np.genfromtxt('csv/prediction_ground_truth.csv', delimiter=','))
-    y_gcn_predictions = np.float64(np.argmax(np.genfromtxt('csv/prediction_gcn.csv', delimiter=','), axis=1))
-    y_toronto_predictions = np.float64(np.argmax(np.genfromtxt('csv/prediction_toronto.csv', delimiter=','), axis=1))
-    y_zca_predictions = np.float64(np.argmax(np.genfromtxt('csv/prediction_zca.csv', delimiter=','), axis=1))
-    # y_multi_naive_predictions = np.float64(np.argmax(np.genfromtxt('csv/prediction_multicolumn_naive.csv', delimiter=','), axis=1))
+    y_ground_truth = np.float64(np.genfromtxt('csv_prediction/prediction_ground_truth.csv', delimiter=','))
+    y_gcn_predictions = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_gcn.csv', delimiter=','), axis=1))
+    y_toronto_predictions = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_toronto.csv', delimiter=','), axis=1))
+    y_zca_predictions = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_zca.csv', delimiter=','), axis=1))
+    # y_multi_naive_predictions = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_naive.csv', delimiter=','), axis=1))
 
 
     plot_single_cm(y_ground_truth, y_gcn_predictions, "Single GCN")
@@ -107,8 +107,6 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
             a, b, c = it.next()
             y = f_model(a, b)
 
-            print batch_start, batch_end
-
             y_predictions[batch_start:batch_end] = y # np.argmax(y, axis=1)
 
             print batch_start, ':', batch_end, '   ', get_statistics(np.argmax(c, axis=1), y)
@@ -125,7 +123,7 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
     # with open('csv/prediction_'+key+'.csv', 'w') as file_handle:
     #     np.savetxt(file_handle, column[2], delimiter=',')
     # print "Column ", key
-    y_ground_truth = np.float64(np.genfromtxt('csv/prediction_ground_truth.csv', delimiter=','))
+    y_ground_truth = np.float64(np.genfromtxt('csv_prediction/prediction_ground_truth.csv', delimiter=','))
 
     print "total\t ", get_statistics(y_ground_truth, y_predictions)
 

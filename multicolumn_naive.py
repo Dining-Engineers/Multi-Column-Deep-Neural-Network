@@ -11,7 +11,7 @@ class NaiveMCDNN():
         self.columns = models
         # get predictions from first model since every model share the same dataset
         self.y_ground_truth = models[models.keys()[0]][0].y.T[0]
-        with open('csv/prediction_ground_truth.csv', 'w') as file_handle:
+        with open('csv_prediction/prediction_ground_truth.csv', 'w') as file_handle:
                 np.savetxt(file_handle, self.y_ground_truth, delimiter=',')
         # Cifar10 has 10000 img in test set for 10 classes
         self.dataset_size = 10000
@@ -38,7 +38,7 @@ class NaiveMCDNN():
                 i += self.batch_size
 
             # save predicition for this column ( still onehot)
-            with open('csv/prediction_'+key+'.csv', 'w') as file_handle:
+            with open('csv_prediction/prediction_'+key+'.csv', 'w') as file_handle:
                 np.savetxt(file_handle, column[2], delimiter=',')
             print "Column ", key
             print "\t ", get_statistics(self.y_ground_truth, column[2])
@@ -52,7 +52,7 @@ class NaiveMCDNN():
 
         self.y_predictions /= self.n_column
 
-        with open('csv/prediction_multicolumn_naive.csv', 'w') as file_handle:
+        with open('csv_prediction/prediction_multicolumn_naive.csv', 'w') as file_handle:
             np.savetxt(file_handle, self.y_predictions, delimiter=',')
         print "MCDNN results: "
         print "\t ", get_statistics(self.y_ground_truth, self.y_predictions)
