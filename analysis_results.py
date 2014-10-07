@@ -89,8 +89,8 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
 
     model = serial.load(model_pkl_url)
     X1, X2 = model.get_input_space().make_theano_batch()
-    print X1, X2
-    Y = model.fprop((X1, X2))
+    print model.get_input_space().make_theano_batch()
+    Y = model.fprop(model.get_input_space().make_theano_batch())
     # get prediction
     f_model = theano.function([X1, X2], Y)
     print model.layers
