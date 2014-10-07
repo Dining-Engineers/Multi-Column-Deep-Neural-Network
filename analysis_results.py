@@ -110,12 +110,12 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
     it = dataset.iterator(mode='sequential', batch_size=128)
     # loro
     inputs = model.get_input_space().make_theano_batch()
-    assert len(inputs) == 4 or len(inputs) == 3
+    assert len(inputs) == 2 or len(inputs) == 3
     f_model = theano.function(inputs, model.fprop(inputs), name='morte')
     # where to save the predictions
     y_predictions = np.zeros((dataset_size, 10))
 
-    print len(inputs), inputs
+    # print len(inputs), inputs
     i = 0
     try:
         while 1:
@@ -124,7 +124,7 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
             batch_end = i+batch_size if i+batch_size < dataset_size else dataset_size
 
 
-            if len(inputs) == 3:
+            if len(inputs) == 2:
                 x1_batch, x2_batch, y_batch = it.next()
                 y = f_model(x1_batch, x2_batch)
             else:
@@ -150,8 +150,8 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
 
 def get_all_mcdnn_predictions():
 
-    # dataset_list = ['gcn', 'toronto']
-    # get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_TOR_best.pkl', dataset_list)
+    dataset_list = ['gcn', 'toronto']
+    get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_TOR_best.pkl', dataset_list)
     # dataset_list = ['gcn', 'zca']
     # get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_ZCA_best.pkl', dataset_list)
     # dataset_list = ['zca', 'toronto']
