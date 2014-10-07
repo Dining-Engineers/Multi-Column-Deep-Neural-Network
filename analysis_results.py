@@ -7,6 +7,7 @@ import theano
 from create_dataset import load_dataset
 from utils import load_model_from_pkl, get_nparray_from_design_matrix, get_statistics, \
     get_nparray_from_design_matrix_b01c
+from pylearn2.utils import serial
 
 
 def plot_confusion_matrix():
@@ -81,20 +82,17 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
     # cifar10_toronto = CIFAR10(which_set='test',
     #                          toronto_prepro=True,
     #                          axes=['b', 0, 1, 'c'])
+
+
     dataset_size = 10000
     batch_size = 128
-    i = 0
-    from pylearn2.utils import serial
-
     model = serial.load(model_pkl_url)
 
     dataset = load_dataset('test', dataset_list)
     it = dataset.iterator(mode='sequential', batch_size=128)
-
     # loro
     inputs = model.get_input_space().make_theano_batch()
     f_model = theano.function(inputs, model.fprop(inputs), name='morte')
-
     # where to save the predictions
     y_predictions = np.zeros((dataset_size, 10))
 
@@ -108,6 +106,9 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
 
             a, b, c = it.next()
             y = f_model(a, b)
+
+            print y_predictions[batch_start:batch_end].shape, batch_start, batch_end
+            print y.shape
 
             y_predictions[batch_start:batch_end] = y # np.argmax(y, axis=1)
 
