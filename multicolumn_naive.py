@@ -46,13 +46,12 @@ class NaiveMCDNN():
     def get_mcdnn_predictions(self):
 
         self.y_predictions = np.zeros((self.dataset_size, self.n_classes))
-
         for key, column in self.columns.iteritems():
             self.y_predictions += column[2]
 
         self.y_predictions /= self.n_column
 
-        with open('csv_prediction/prediction_multicolumn_naive.csv', 'w') as file_handle:
+        with open('csv_prediction/prediction_multicolumn_naive_'+'_'.join(self.columns.keys())+'.csv', 'w') as file_handle:
             np.savetxt(file_handle, self.y_predictions, delimiter=',')
         print "MCDNN results: "
         print "\t ", get_statistics(self.y_ground_truth, self.y_predictions)

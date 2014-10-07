@@ -10,18 +10,47 @@ from utils import load_model_from_pkl, get_nparray_from_design_matrix, get_stati
 from pylearn2.utils import serial
 
 
-def plot_confusion_matrix():
+def analysis():
+
     y_ground_truth = np.float64(np.genfromtxt('csv_prediction/prediction_ground_truth.csv', delimiter=','))
     y_gcn_predictions = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_gcn.csv', delimiter=','), axis=1))
     y_toronto_predictions = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_toronto.csv', delimiter=','), axis=1))
     y_zca_predictions = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_zca.csv', delimiter=','), axis=1))
-    # y_multi_naive_predictions = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_naive.csv', delimiter=','), axis=1))
+    y_multi_gcn_tor = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','), axis=1))
+    y_multi_gcn_zca = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','), axis=1))
+    y_multi_zca_tor = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','), axis=1))
+    y_multi_gcn_tor_zca = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_gcn_toronto.csv', delimiter=','), axis=1))
+    y_multi_naive_gcn_tor = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_gcn_toronto.csv', delimiter=','), axis=1))
+    y_multi_naive_gcn_zca = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_gcn_zca.csv', delimiter=','), axis=1))
+    y_multi_naive_zca_tor = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_zca_toronto.csv', delimiter=','), axis=1))
+    y_multi_naive_gcn_tor_zca = np.float64(np.argmax(np.genfromtxt('csv_prediction/prediction_multicolumn_naive_gcn_toronto_zca.csv', delimiter=','), axis=1))
 
+    print "Results _______________\t______________________"
+    print " ______METHOD__________\t_____MEAN____VAR______"
+    print "Single GCN             \t ", get_statistics(y_ground_truth, y_gcn_predictions)
+    print "Single TOR             \t ", get_statistics(y_ground_truth, y_toronto_predictions)
+    print "Single ZCA             \t ", get_statistics(y_ground_truth, y_zca_predictions)
+    print "Multi-Naive GCN_TOR    \t ", get_statistics(y_ground_truth, y_multi_naive_gcn_tor)
+    print "Multi GCN_TOR          \t ", get_statistics(y_ground_truth, y_multi_gcn_tor)
+    print "Multi-Naive GCN_ZCA    \t ", get_statistics(y_ground_truth, y_multi_naive_gcn_zca)
+    print "Multi GCN_ZCA          \t ", get_statistics(y_ground_truth, y_multi_gcn_zca)
+    print "Multi-Naive ZCA_TOR    \t ", get_statistics(y_ground_truth, y_multi_naive_zca_tor)
+    print "Multi ZCA_TOR          \t ", get_statistics(y_ground_truth, y_multi_zca_tor)
+    print "Multi-Naive GCN_TOR_ZCA\t ", get_statistics(y_ground_truth, y_multi_naive_gcn_tor_zca)
+    print "Multi GCN_TOR_ZCA      \t ", get_statistics(y_ground_truth, y_multi_gcn_tor_zca)
+    print "_______________________________________"
 
     plot_single_cm(y_ground_truth, y_gcn_predictions, "Single GCN")
     plot_single_cm(y_ground_truth, y_toronto_predictions, "Single Toronto")
     plot_single_cm(y_ground_truth, y_zca_predictions, "Single ZCA")
-    # plot_single_cm(y_ground_truth, y_multi_naive_predictions, "Multi Naive")
+    plot_single_cm(y_ground_truth, y_multi_gcn_tor, "Multi GCN_TOR")
+    plot_single_cm(y_ground_truth, y_multi_naive_gcn_tor, "Multi-Naive GCN_TOR")
+    plot_single_cm(y_ground_truth, y_multi_gcn_zca, "Multi GCN_ZCA")
+    plot_single_cm(y_ground_truth, y_multi_naive_gcn_zca, "Multi-Naive GCN_ZCA")
+    plot_single_cm(y_ground_truth, y_multi_zca_tor, "Multi ZCA_TOR")
+    plot_single_cm(y_ground_truth, y_multi_naive_zca_tor, "Multi-Naive ZCA_TOR")
+    plot_single_cm(y_ground_truth, y_multi_gcn_tor_zca, "Multi GCN_TOR_ZCA")
+    plot_single_cm(y_ground_truth, y_multi_naive_gcn_tor_zca, "Multi-Naive GCN_TOR_ZCA")
 
 
 def plot_single_cm(ytrue, ypred, name):
@@ -65,24 +94,13 @@ def plot_single_cm(ytrue, ypred, name):
     # plt.savefig('confusion_matrix.png', format='png')
     plt.ylabel('true labels')
     plt.xlabel('predicted labels')
-    plt.show()
+    # plt.show()
 
     # plt.clf()
-    # plt.savefig('./img/confusion'+name.replace(' ', '_')+'.png', dpi=150)
+    plt.savefig('./img/confusion'+name.replace(' ', '_')+'.png', dpi=150)
 
 
 def get_mcdnn_predictions(model_pkl_url, dataset_list):
-
-    # print "Loading gcn dataset.."
-    # cifar10_gcn = CIFAR10(which_set='test',
-    #                          gcn=55.,
-    #                          axes=['b', 0, 1, 'c'])
-    #
-    # print "Loading torontoprepro dataset.."
-    # cifar10_toronto = CIFAR10(which_set='test',
-    #                          toronto_prepro=True,
-    #                          axes=['b', 0, 1, 'c'])
-
 
     dataset_size = 10000
     batch_size = 128
@@ -92,10 +110,10 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
     it = dataset.iterator(mode='sequential', batch_size=128)
     # loro
     inputs = model.get_input_space().make_theano_batch()
+    assert len(inputs) == 4 or len(inputs) == 3
     f_model = theano.function(inputs, model.fprop(inputs), name='morte')
     # where to save the predictions
     y_predictions = np.zeros((dataset_size, 10))
-
 
     i = 0
     try:
@@ -104,24 +122,25 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
             batch_start = i
             batch_end = i+batch_size if i+batch_size < dataset_size else dataset_size
 
-            a, b, c = it.next()
-            y = f_model(a, b)
 
-            y_predictions[batch_start:batch_end] = y # np.argmax(y, axis=1)
+            if len(inputs) == 3:
+                x1_batch, x2_batch, y_batch = it.next()
+                y = f_model(x1_batch, x2_batch)
+            else:
+                x1_batch, x2_batch, x3_batch, y_batch = it.next()
+                y = f_model(x1_batch, x2_batch, x3_batch)
 
-            print batch_start, ':', batch_end, '   ', get_statistics(np.argmax(c, axis=1), y)
+
+            y_predictions[batch_start:batch_end] = y
+
+            # print batch_start, ':', batch_end, '   ', get_statistics(np.argmax(y_batch, axis=1), y)
             i += batch_size
-
-
     except StopIteration:
         pass
 
-
-
-
     # save predicition for this column ( still onehot)
-    # with open('csv/prediction_'+key+'.csv', 'w') as file_handle:
-    #     np.savetxt(file_handle, column[2], delimiter=',')
+    with open('csv_prediction/prediction_multicolumn_'+"_".join(dataset_list)+'.csv', 'w') as file_handle:
+        np.savetxt(file_handle, y_predictions, delimiter=',')
     # print "Column ", key
     y_ground_truth = np.float64(np.genfromtxt('csv_prediction/prediction_ground_truth.csv', delimiter=','))
 
@@ -130,14 +149,14 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
 
 def get_all_mcdnn_predictions():
 
-    dataset_list = ['gcn', 'toronto']
-    get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_TOR_best.pkl', dataset_list)
+    # dataset_list = ['gcn', 'toronto']
+    # get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_TOR_best.pkl', dataset_list)
     # dataset_list = ['gcn', 'zca']
     # get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_ZCA_best.pkl', dataset_list)
     # dataset_list = ['zca', 'toronto']
     # get_mcdnn_predictions('pkl/best/multicolumn_2COL_ZCA_TOR_best.pkl', dataset_list)
-    # dataset_list = ['gcn', 'toronto', 'zca']
-    # get_mcdnn_predictions('pkl/best/multicolumn_3COL_best.pkl', dataset_list)
+    dataset_list = ['gcn', 'toronto', 'zca']
+    get_mcdnn_predictions('pkl/best/multicolumn_3COL_best.pkl', dataset_list)
 
 
 
