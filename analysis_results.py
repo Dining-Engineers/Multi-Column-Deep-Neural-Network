@@ -72,27 +72,45 @@ def plot_single_cm(ytrue, ypred, name):
 
 def get_mcdnn_predictions(model_pkl_url, dataset_list):
 
-    # dataset = load_dataset('test', dataset_list)
-    print "Loading gcn dataset.."
-    cifar10_gcn = CIFAR10(which_set='test',
-                             gcn=55.,
-                             axes=['b', 0, 1, 'c'])
-
-    print "Loading torontoprepro dataset.."
-    cifar10_toronto = CIFAR10(which_set='test',
-                             toronto_prepro=True,
-                             axes=['b', 0, 1, 'c'])
+    # print "Loading gcn dataset.."
+    # cifar10_gcn = CIFAR10(which_set='test',
+    #                          gcn=55.,
+    #                          axes=['b', 0, 1, 'c'])
+    #
+    # print "Loading torontoprepro dataset.."
+    # cifar10_toronto = CIFAR10(which_set='test',
+    #                          toronto_prepro=True,
+    #                          axes=['b', 0, 1, 'c'])
     dataset_size = 10000
     batch_size = 128
     i = 0
     from pylearn2.utils import serial
 
     model = serial.load(model_pkl_url)
-    X1, X2 = model.get_input_space().make_theano_batch()
-    print model.get_input_space().make_theano_batch()
-    Y = model.fprop(model.get_input_space().make_theano_batch())
-    # get prediction
-    f_model = theano.function((X1, X2), Y)
+
+    dataset = load_dataset('test', dataset_list)
+    it = dataset.iterator(mode='sequential', batch_size=2)
+    a,b = it.next()
+
+    print a, b
+
+
+    # loro
+    inputs = model.get_input_space().make_theano_batch()
+    theano_inputs = [inputs]
+    f_model = theano.function(theano_inputs, model.fprop(inputs), name='morte')
+
+
+
+
+
+
+
+    # X1, X2 = model.get_input_space().make_theano_batch()
+    # print model.get_input_space().make_theano_batch()
+    # Y = model.fprop(model.get_input_space().make_theano_batch())
+    # # get prediction
+    # f_model = theano.function((X1, X2), Y)
     print model.layers
     print model.layers[0].layers
     y_predictions = np.zeros((dataset_size, 10))
