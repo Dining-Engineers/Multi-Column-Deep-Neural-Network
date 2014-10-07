@@ -92,7 +92,7 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
     print model.get_input_space().make_theano_batch()
     Y = model.fprop(model.get_input_space().make_theano_batch())
     # get prediction
-    f_model = theano.function([X1, X2], Y)
+    f_model = theano.function((X1, X2), Y)
     print model.layers
     print model.layers[0].layers
     y_predictions = np.zeros((dataset_size, 10))
@@ -106,7 +106,7 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
 
         # x_batch, y_batch = get_nparray_from_design_matrix(column[0], 0, 127)
 
-        y = f_model([x1_batch, x2_batch])
+        y = f_model((x1_batch, x2_batch))
 
 
         y_predictions[batch_start:batch_end] = y # np.argmax(y, axis=1)
