@@ -102,13 +102,12 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
         while 1:
 
             batch_start = i
-            batch_end = i+batch_size-1 if i+batch_size-1 < dataset_size-1 else dataset_size-1
+            batch_end = i+batch_size if i+batch_size < dataset_size else dataset_size
 
             a, b, c = it.next()
             y = f_model(a, b)
 
-            print y_predictions[batch_start:batch_end].shape, batch_start, batch_end
-            print y.shape
+            print batch_start, batch_end
 
             y_predictions[batch_start:batch_end] = y # np.argmax(y, axis=1)
 
