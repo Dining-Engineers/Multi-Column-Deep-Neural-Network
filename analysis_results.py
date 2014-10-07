@@ -122,6 +122,8 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
 
         y = f_model(a, b)
 
+        print y
+
 
         y_predictions[batch_start:batch_end] = y # np.argmax(y, axis=1)
         print batch_start, ':', batch_end, '   ', get_statistics(c, y)
