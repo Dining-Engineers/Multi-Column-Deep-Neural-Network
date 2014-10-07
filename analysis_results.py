@@ -89,45 +89,37 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
     model = serial.load(model_pkl_url)
 
     dataset = load_dataset('test', dataset_list)
-    it = dataset.iterator(mode='sequential', batch_size=2)
-    a, b, c = it.next()
-
-    print a.shape, b.shape, c.shape
-
+    it = dataset.iterator(mode='sequential', batch_size=128)
 
     # loro
     inputs = model.get_input_space().make_theano_batch()
-    theano_inputs = [inputs]
     f_model = theano.function(inputs, model.fprop(inputs), name='morte')
 
-
-    # X1, X2 = model.get_input_space().make_theano_batch()
-    # print model.get_input_space().make_theano_batch()
-    # Y = model.fprop(model.get_input_space().make_theano_batch())
-    # # get prediction
-    # f_model = theano.function((X1, X2), Y)
-    print model.layers
-    print model.layers[0].layers
+    # where to save the predictions
     y_predictions = np.zeros((dataset_size, 10))
 
-    while i < dataset_size:
-        batch_start = i
-        batch_end = i+batch_size-1 if i+batch_size-1 < dataset_size-1 else dataset_size-1
 
-        # x1_batch, y1_batch = get_nparray_from_design_matrix_b01c(cifar10_gcn, batch_start, batch_end)
-        # x2_batch, y2_batch = get_nparray_from_design_matrix_b01c(cifar10_toronto, batch_start, batch_end)
+    i = 0
+    try:
+        while 1:
 
-        # x_batch, y_batch = get_nparray_from_design_matrix(column[0], 0, 127)
+            batch_start = i
+            batch_end = i+batch_size-1 if i+batch_size-1 < dataset_size-1 else dataset_size-1
+
+            a, b, c = it.next()
+            y = f_model(a, b)
+
+            y_predictions[batch_start:batch_end] = y # np.argmax(y, axis=1)
+
+            print batch_start, ':', batch_end, '   ', get_statistics(c, y)
+            i += batch_size
 
 
-        y = f_model(a, b)
+    except StopIteration:
+        pass
 
-        print y
 
 
-        y_predictions[batch_start:batch_end] = y # np.argmax(y, axis=1)
-        print batch_start, ':', batch_end, '   ', get_statistics(c, y)
-        i += batch_size
 
     # save predicition for this column ( still onehot)
     # with open('csv/prediction_'+key+'.csv', 'w') as file_handle:
