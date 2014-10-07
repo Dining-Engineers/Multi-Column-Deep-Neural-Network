@@ -115,6 +115,7 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
     # where to save the predictions
     y_predictions = np.zeros((dataset_size, 10))
 
+    print len(inputs), inputs
     i = 0
     try:
         while 1:
