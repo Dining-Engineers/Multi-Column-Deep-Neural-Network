@@ -42,6 +42,7 @@ class PretrainedMLP(Layer):
         # # X = model.get_input_space().make_theano_batch()
         # # Y = model.fprop(X)
         # # self.pretrained_fprop = theano.function([X], Y)
+        print self.layer_content.layers
 
         del self.self
 
@@ -69,7 +70,7 @@ class PretrainedMLP(Layer):
     @wraps(Layer.get_output_space)
     def get_output_space(self):
 
-        return self.layer_content.get_output_space()
+        return self.layer_content.layers[-2].get_output_space()
 
     @wraps(Layer.get_layer_monitoring_channels)
     def get_layer_monitoring_channels(self, state_below=None,
@@ -79,7 +80,15 @@ class PretrainedMLP(Layer):
     @wraps(Layer.fprop)
     def fprop(self, state_below):
         # get prediction
-        return self.layer_content.fprop(state_below) #self.layer_content.upward_pass(state_below)
+
+        # GET PREDICTION ON SECOND-LAST LAYER
+        for layer in self.layer_content.layers[:-1]:
+            state_below =layer.fprop(state_below)
+
+        return state_below
+
+        # USE THIS FOR LAST LAYER
+        # return self.layer_content.layers[3].fprop(self.layer_content.layers[2].fprop(self.layer_content.layers[1].fprop(self.layer_content.layers[0].fprop(state_below)))) #self.layer_content.upward_pass(state_below)
 
 
 class Average(Layer):
@@ -96,6 +105,7 @@ class Average(Layer):
     def set_input_space(self, space):
         self.input_space = space
         assert isinstance(space, CompositeSpace)
+        print "AAAAAAAAAAAAAAAAAAAAAAAAAA", space
         self.output_space = space.components[0]
 
     def fprop(self, state_below):

@@ -78,7 +78,7 @@
         input_source: ['features0', 'features1'],
     },
     algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
-        learning_rate: .1,
+        learning_rate: .03,
         learning_rule: !obj:pylearn2.training_algorithms.learning_rule.Momentum {
             init_momentum: .5,
         },
