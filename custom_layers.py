@@ -42,6 +42,7 @@ class PretrainedMLP(Layer):
         # # X = model.get_input_space().make_theano_batch()
         # # Y = model.fprop(X)
         # # self.pretrained_fprop = theano.function([X], Y)
+        print self.layer_content.layers
 
         del self.self
 
@@ -79,7 +80,7 @@ class PretrainedMLP(Layer):
     @wraps(Layer.fprop)
     def fprop(self, state_below):
         # get prediction
-        return self.layer_content.layers.fprop(state_below) #self.layer_content.upward_pass(state_below)
+        return self.layer_content.fprop(state_below) #self.layer_content.upward_pass(state_below)
 
 
 class Average(Layer):
