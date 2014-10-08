@@ -1,0 +1,126 @@
+!obj:pylearn2.train.Train {
+
+    dataset: &train !obj:create_dataset.load_dataset {
+        which_set: 'train',
+        dataset_types: ['gcn', 'zca']
+    },
+    model: !obj:pylearn2.models.mlp.MLP {
+        batch_size: 128,
+        layers: [
+
+                !obj:pylearn2.models.mlp.CompositeLayer {
+                    layer_name: 'composite',
+                    layers: [
+
+                        !obj:pylearn2.models.mlp.MLP {
+                          layers: [
+                                  !obj:pylearn2.models.mlp.SpaceConverter {
+                                    layer_name: 'spconveter0',
+                                    output_space: !obj:pylearn2.space.Conv2DSpace {
+                                          shape: [32, 32],
+                                          num_channels: 3,
+                                          axes: ['c', 0, 1, 'b'],
+                                      },
+                                  },
+                                  !obj:custom_layers.PretrainedMLP {
+                                    layer_name: 'gcn_column',
+                                    layer_content: !pkl: 'pkl/best/singlecolumn_complex_GCN_paper_best.pkl',
+                                    freeze_params: False
+                                  }
+                                  ]
+                        },
+                        !obj:pylearn2.models.mlp.MLP {
+                          layers: [
+                                  !obj:pylearn2.models.mlp.SpaceConverter {
+                                    layer_name: 'spconveter2',
+                                    output_space: !obj:pylearn2.space.Conv2DSpace {
+                                          shape: [32, 32],
+                                          num_channels: 3,
+                                          axes: ['c', 0, 1, 'b'],
+                                      },
+                                  },
+                                  !obj:custom_layers.PretrainedMLP {
+                                    layer_name: 'zca_column',
+                                    layer_content: !pkl: 'pkl/best/singlecolumn_complex_ZCA_paper_best.pkl',
+                                    freeze_params: False
+                                  }
+                                  ]
+                        },
+                    ],
+                    inputs_to_layers:
+                    {
+                        0: [0],
+                        1: [1]
+                    }
+                 },
+                 !obj:custom_layers.Average {
+                    layer_name: 'avg'
+                 },
+                 !obj:pylearn2.models.mlp.Softmax {
+                     max_col_norm: 1.9365,
+                     layer_name: 'y',
+                     n_classes: 10,
+                     irange: .005
+                 }
+                ],
+        input_space: !obj:pylearn2.space.CompositeSpace {
+          components: [
+              !obj:pylearn2.space.Conv2DSpace {
+              shape: [32, 32],
+              num_channels: 3,
+              axes: ['b', 0, 1, 'c']
+              },
+              !obj:pylearn2.space.Conv2DSpace {
+              shape: [32, 32],
+              num_channels: 3,
+              axes: ['b', 0, 1, 'c']
+              }
+           ],
+        },
+        input_source: ['features0', 'features1'],
+    },
+    algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
+        learning_rate: .1,
+        learning_rule: !obj:pylearn2.training_algorithms.learning_rule.Momentum {
+            init_momentum: .5,
+        },
+        train_iteration_mode: 'even_shuffled_sequential',
+        monitor_iteration_mode: 'even_sequential',
+        monitoring_dataset:
+            {
+                'train': *train,
+
+                'valid' : !obj:create_dataset.load_dataset {
+                            which_set: 'valid',
+                            dataset_types: ['gcn', 'zca']
+
+                          },
+                'test'  : !obj:create_dataset.load_dataset {
+                            which_set: 'test',
+                            dataset_types: ['gcn', 'zca']
+
+                          },
+            },
+        termination_criterion: !obj:pylearn2.termination_criteria.EpochCounter {
+            max_epochs: 30
+        },
+    },
+    extensions: [
+        !obj:pylearn2.train_extensions.best_params.MonitorBasedSaveBest {
+             channel_name: 'test_y_misclass',
+             save_path: "pkl/best/multicolumn_2COL_GCN_ZCA_NOFIXED_best.pkl"
+        },
+        !obj:pylearn2.training_algorithms.sgd.MomentumAdjustor {
+            start: 1,
+            saturate: 250,
+            final_momentum: .6
+        },
+        !obj:pylearn2.training_algorithms.sgd.LinearDecayOverEpoch {
+            start: 1,
+            saturate: 250,
+            decay_factor: .01
+        },
+    ],
+    save_path: "pkl/multicolumn_2COL_GCN_ZCA_NOFIXED.pkl",
+    save_freq: 5
+}
