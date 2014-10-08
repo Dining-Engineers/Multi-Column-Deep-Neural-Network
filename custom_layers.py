@@ -81,8 +81,14 @@ class PretrainedMLP(Layer):
     def fprop(self, state_below):
         # get prediction
 
+        # GET PREDICTION ON SECOND-LAST LAYER
+        for layer in self.layer_content.layers[:-1]:
+            state_below =layer.fprop(state_below)
 
-        return self.layer_content.layers[3].fprop(self.layer_content.layers[2].fprop(self.layer_content.layers[1].fprop(self.layer_content.layers[0].fprop(state_below)))) #self.layer_content.upward_pass(state_below)
+        return state_below
+
+        # USE THIS FOR LAST LAYER
+        # return self.layer_content.layers[3].fprop(self.layer_content.layers[2].fprop(self.layer_content.layers[1].fprop(self.layer_content.layers[0].fprop(state_below)))) #self.layer_content.upward_pass(state_below)
 
 
 class Average(Layer):
