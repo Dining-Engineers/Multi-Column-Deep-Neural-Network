@@ -106,10 +106,10 @@
         },
     },
     extensions: [
-        !obj:pylearn2.train_extensions.best_params.MonitorBasedSaveBest {
-             channel_name: 'test_y_misclass',
-             save_path: "pkl/best/multicolumn_2COL_GCN_TOR_NOFIXED_best.pkl"
-        },
+#        !obj:pylearn2.train_extensions.best_params.MonitorBasedSaveBest {
+#             channel_name: 'test_y_misclass',
+#             save_path: "pkl/best/multicolumn_2COL_GCN_TOR_NOFIXED_best.pkl"
+#        },
         !obj:pylearn2.training_algorithms.sgd.MomentumAdjustor {
             start: 1,
             saturate: 250,
