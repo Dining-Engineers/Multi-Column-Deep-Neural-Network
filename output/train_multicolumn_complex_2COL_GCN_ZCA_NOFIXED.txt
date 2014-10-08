@@ -1,0 +1,249 @@
+Using gpu device 0: GeForce GTX 670
+loading..  test
+LOADING GCN...
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+LOADING ZCA...
+loading..  train
+LOADING GCN...
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+LOADING ZCA...
+loading..  valid
+LOADING GCN...
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+/home/hunter/Appz/pylearn2/pylearn2/training_algorithms/sgd.py:902: UserWarning: sgd.MomentumAdjustor interface is deprecated and will become officially unsupported as of May 9, 2014. Please use `learning_rule.MomentumAdjustor` instead.
+  warnings.warn("sgd.MomentumAdjustor interface is deprecated and will "
+LOADING ZCA...
+Parameter and initial learning rate summary:
+	h0_W: 0.10000000149
+	h0_b: 0.10000000149
+	h1_W: 0.10000000149
+	h1_b: 0.10000000149
+	h2_W: 0.10000000149
+	h2_b: 0.10000000149
+	h3_W: 0.10000000149
+	h3_b: 0.10000000149
+	softmax_b: 0.10000000149
+	softmax_W: 0.10000000149
+	h0_W: 0.10000000149
+	h0_b: 0.10000000149
+	h1_W: 0.10000000149
+	h1_b: 0.10000000149
+	h2_W: 0.10000000149
+	h2_b: 0.10000000149
+	h3_W: 0.10000000149
+	h3_b: 0.10000000149
+	softmax_b: 0.10000000149
+	softmax_W: 0.10000000149
+	softmax_b: 0.10000000149
+	softmax_W: 0.10000000149
+Compiling sgd_update...
+Compiling sgd_update done. Time elapsed: 5.718630 seconds
+compiling begin_record_entry...
+compiling begin_record_entry done. Time elapsed: 0.189406 seconds
+Monitored channels: 
+	learning_rate
+	momentum
+	test_avg_max_x.max_u
+	test_avg_max_x.mean_u
+	test_avg_max_x.min_u
+	test_avg_mean_x.max_u
+	test_avg_mean_x.mean_u
+	test_avg_mean_x.min_u
+	test_avg_min_x.max_u
+	test_avg_min_x.mean_u
+	test_avg_min_x.min_u
+	test_avg_range_x.max_u
+	test_avg_range_x.mean_u
+	test_avg_range_x.min_u
+	test_objective
+	test_y_col_norms_max
+	test_y_col_norms_mean
+	test_y_col_norms_min
+	test_y_max_max_class
+	test_y_mean_max_class
+	test_y_min_max_class
+	test_y_misclass
+	test_y_nll
+	test_y_row_norms_max
+	test_y_row_norms_mean
+	test_y_row_norms_min
+	total_seconds_last_epoch
+	train_avg_max_x.max_u
+	train_avg_max_x.mean_u
+	train_avg_max_x.min_u
+	train_avg_mean_x.max_u
+	train_avg_mean_x.mean_u
+	train_avg_mean_x.min_u
+	train_avg_min_x.max_u
+	train_avg_min_x.mean_u
+	train_avg_min_x.min_u
+	train_avg_range_x.max_u
+	train_avg_range_x.mean_u
+	train_avg_range_x.min_u
+	train_objective
+	train_y_col_norms_max
+	train_y_col_norms_mean
+	train_y_col_norms_min
+	train_y_max_max_class
+	train_y_mean_max_class
+	train_y_min_max_class
+	train_y_misclass
+	train_y_nll
+	train_y_row_norms_max
+	train_y_row_norms_mean
+	train_y_row_norms_min
+	training_seconds_this_epoch
+	valid_avg_max_x.max_u
+	valid_avg_max_x.mean_u
+	valid_avg_max_x.min_u
+	valid_avg_mean_x.max_u
+	valid_avg_mean_x.mean_u
+	valid_avg_mean_x.min_u
+	valid_avg_min_x.max_u
+	valid_avg_min_x.mean_u
+	valid_avg_min_x.min_u
+	valid_avg_range_x.max_u
+	valid_avg_range_x.mean_u
+	valid_avg_range_x.min_u
+	valid_objective
+	valid_y_col_norms_max
+	valid_y_col_norms_mean
+	valid_y_col_norms_min
+	valid_y_max_max_class
+	valid_y_mean_max_class
+	valid_y_min_max_class
+	valid_y_misclass
+	valid_y_nll
+	valid_y_row_norms_max
+	valid_y_row_norms_mean
+	valid_y_row_norms_min
+Compiling accum...
+graph size: 200
+graph size: 196
+graph size: 196
+Compiling accum done. Time elapsed: 5.750767 seconds
+Monitoring step:
+	Epochs seen: 0
+	Batches seen: 0
+	Examples seen: 0
+	learning_rate: 0.10000000149
+	momentum: 0.500000536442
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.888933539391
+	test_avg_max_x.min_u: 0.361955225468
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.00120181567036
+	test_avg_min_x.mean_u: 1.76424437086e-05
+	test_avg_min_x.min_u: 8.14667768709e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.88891595602
+	test_avg_range_x.min_u: 0.361727565527
+	test_objective: 2.30317997932
+	test_y_col_norms_max: 0.0113889230415
+	test_y_col_norms_mean: 0.00943499617279
+	test_y_col_norms_min: 0.00825979188085
+	test_y_max_max_class: 0.100619539618
+	test_y_mean_max_class: 0.100392654538
+	test_y_min_max_class: 0.100134924054
+	test_y_misclass: 0.910657048225
+	test_y_nll: 2.30317997932
+	test_y_row_norms_max: 0.0116075035185
+	test_y_row_norms_mean: 0.00942762289196
+	test_y_row_norms_min: 0.00818183738738
+	total_seconds_last_epoch: 0.0
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.985184431076
+	train_avg_max_x.min_u: 0.64835703373
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000300219573546
+	train_avg_min_x.mean_u: 3.91918820242e-06
+	train_avg_min_x.min_u: 7.01951919821e-18
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.985180497169
+	train_avg_range_x.min_u: 0.648277580738
+	train_objective: 2.30335998535
+	train_y_col_norms_max: 0.0113889696077
+	train_y_col_norms_mean: 0.00943499151617
+	train_y_col_norms_min: 0.00825981143862
+	train_y_max_max_class: 0.100619509816
+	train_y_mean_max_class: 0.100424043834
+	train_y_min_max_class: 0.100222922862
+	train_y_misclass: 0.899188697338
+	train_y_nll: 2.30335998535
+	train_y_row_norms_max: 0.0116075044498
+	train_y_row_norms_mean: 0.00942762754858
+	train_y_row_norms_min: 0.00818183179945
+	training_seconds_this_epoch: 0.0
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.901596903801
+	valid_avg_max_x.min_u: 0.415572851896
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000468751502922
+	valid_avg_min_x.mean_u: 6.48953346172e-06
+	valid_avg_min_x.min_u: 5.38834177773e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.90159034729
+	valid_avg_range_x.min_u: 0.415489643812
+	valid_objective: 2.30327177048
+	valid_y_col_norms_max: 0.0113889230415
+	valid_y_col_norms_mean: 0.00943499617279
+	valid_y_col_norms_min: 0.00825979188085
+	valid_y_max_max_class: 0.100619539618
+	valid_y_mean_max_class: 0.100397154689
+	valid_y_min_max_class: 0.100147508085
+	valid_y_misclass: 0.914162755013
+	valid_y_nll: 2.30327177048
+	valid_y_row_norms_max: 0.0116075035185
+	valid_y_row_norms_mean: 0.00942762289196
+	valid_y_row_norms_min: 0.00818183738738
+Error allocating 707788800 bytes of device memory (out of memory). Driver report 440717312 bytes free and 2146762752 bytes total 
+Traceback (most recent call last):
+  File "train_multicolumn_complex_2COL_GCN_ZCA_NOFIXED.py", line 6, in <module>
+    train.main_loop()
+  File "/home/hunter/Appz/pylearn2/pylearn2/train.py", line 217, in main_loop
+    rval = self.algorithm.train(dataset=self.dataset)
+  File "/home/hunter/Appz/pylearn2/pylearn2/training_algorithms/sgd.py", line 471, in train
+    self.sgd_update(*batch)
+  File "/usr/local/lib/python2.7/dist-packages/theano/compile/function_module.py", line 589, in __call__
+    self.fn.thunks[self.fn.position_of_error])
+  File "/usr/local/lib/python2.7/dist-packages/theano/compile/function_module.py", line 579, in __call__
+    outputs = self.fn()
+MemoryError: Error allocating 707788800 bytes of device memory (out of memory).
+Apply node that caused the error: <pylearn2.sandbox.cuda_convnet.weight_acts.WeightActs object at 0x7f72ae81f450>(GpuContiguous.0, GpuContiguous.0, Subtensor{int64:int64:}.0)
+Inputs types: [CudaNdarrayType(float32, 4D), CudaNdarrayType(float32, 4D), TensorType(int64, vector)]
+Inputs shapes: [(48, 16, 16, 128), (256, 15, 15, 128), (2,)]
+Inputs strides: [(32768, 2048, 128, 1), (28800, 1920, 128, 1), (8,)]
+Inputs scalar values: ['not scalar', 'not scalar', 'not scalar']
+
+Backtrace when the node is created:
+  File "/usr/local/lib/python2.7/dist-packages/theano/gradient.py", line 895, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/dist-packages/theano/gradient.py", line 1173, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/dist-packages/theano/gradient.py", line 1034, in access_term_cache
+    input_grads = node.op.grad(inputs, new_output_grads)
+  File "/home/hunter/Appz/pylearn2/pylearn2/sandbox/cuda_convnet/filter_acts.py", line 381, in grad
+    images, dout, fshape)[0]
+
+HINT: Use the Theano flag 'exception_verbosity=high' for a debugprint of this apply node.

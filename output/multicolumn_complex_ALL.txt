@@ -1,0 +1,5065 @@
+Using gpu device 0: GeForce GTX 670
+#####################################################
+ TRAIN 2 COL GCN TOR
+loading..  test
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading..  train
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading..  valid
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+/home/hunter/Appz/pylearn2/pylearn2/training_algorithms/sgd.py:902: UserWarning: sgd.MomentumAdjustor interface is deprecated and will become officially unsupported as of May 9, 2014. Please use `learning_rule.MomentumAdjustor` instead.
+  warnings.warn("sgd.MomentumAdjustor interface is deprecated and will "
+Parameter and initial learning rate summary:
+	softmax_b: 0.10000000149
+	softmax_W: 0.10000000149
+Compiling sgd_update...
+Compiling sgd_update done. Time elapsed: 1.633797 seconds
+compiling begin_record_entry...
+compiling begin_record_entry done. Time elapsed: 0.205934 seconds
+Monitored channels: 
+	learning_rate
+	momentum
+	test_avg_max_x.max_u
+	test_avg_max_x.mean_u
+	test_avg_max_x.min_u
+	test_avg_mean_x.max_u
+	test_avg_mean_x.mean_u
+	test_avg_mean_x.min_u
+	test_avg_min_x.max_u
+	test_avg_min_x.mean_u
+	test_avg_min_x.min_u
+	test_avg_range_x.max_u
+	test_avg_range_x.mean_u
+	test_avg_range_x.min_u
+	test_objective
+	test_y_col_norms_max
+	test_y_col_norms_mean
+	test_y_col_norms_min
+	test_y_max_max_class
+	test_y_mean_max_class
+	test_y_min_max_class
+	test_y_misclass
+	test_y_nll
+	test_y_row_norms_max
+	test_y_row_norms_mean
+	test_y_row_norms_min
+	total_seconds_last_epoch
+	train_avg_max_x.max_u
+	train_avg_max_x.mean_u
+	train_avg_max_x.min_u
+	train_avg_mean_x.max_u
+	train_avg_mean_x.mean_u
+	train_avg_mean_x.min_u
+	train_avg_min_x.max_u
+	train_avg_min_x.mean_u
+	train_avg_min_x.min_u
+	train_avg_range_x.max_u
+	train_avg_range_x.mean_u
+	train_avg_range_x.min_u
+	train_objective
+	train_y_col_norms_max
+	train_y_col_norms_mean
+	train_y_col_norms_min
+	train_y_max_max_class
+	train_y_mean_max_class
+	train_y_min_max_class
+	train_y_misclass
+	train_y_nll
+	train_y_row_norms_max
+	train_y_row_norms_mean
+	train_y_row_norms_min
+	training_seconds_this_epoch
+	valid_avg_max_x.max_u
+	valid_avg_max_x.mean_u
+	valid_avg_max_x.min_u
+	valid_avg_mean_x.max_u
+	valid_avg_mean_x.mean_u
+	valid_avg_mean_x.min_u
+	valid_avg_min_x.max_u
+	valid_avg_min_x.mean_u
+	valid_avg_min_x.min_u
+	valid_avg_range_x.max_u
+	valid_avg_range_x.mean_u
+	valid_avg_range_x.min_u
+	valid_objective
+	valid_y_col_norms_max
+	valid_y_col_norms_mean
+	valid_y_col_norms_min
+	valid_y_max_max_class
+	valid_y_mean_max_class
+	valid_y_min_max_class
+	valid_y_misclass
+	valid_y_nll
+	valid_y_row_norms_max
+	valid_y_row_norms_mean
+	valid_y_row_norms_min
+Compiling accum...
+graph size: 200
+graph size: 196
+graph size: 196
+Compiling accum done. Time elapsed: 5.852522 seconds
+Monitoring step:
+	Epochs seen: 0
+	Batches seen: 0
+	Examples seen: 0
+	learning_rate: 0.10000000149
+	momentum: 0.500000536442
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.890089929104
+	test_avg_max_x.min_u: 0.36314663291
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.000799388100859
+	test_avg_min_x.mean_u: 1.15528464448e-05
+	test_avg_min_x.min_u: 4.2739681924e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.890078306198
+	test_avg_range_x.min_u: 0.362885296345
+	test_objective: 2.30314779282
+	test_y_col_norms_max: 0.0113889230415
+	test_y_col_norms_mean: 0.00943499617279
+	test_y_col_norms_min: 0.00825979188085
+	test_y_max_max_class: 0.100619539618
+	test_y_mean_max_class: 0.100391149521
+	test_y_min_max_class: 0.100136175752
+	test_y_misclass: 0.91145837307
+	test_y_nll: 2.30314779282
+	test_y_row_norms_max: 0.0116075035185
+	test_y_row_norms_mean: 0.00942762289196
+	test_y_row_norms_min: 0.00818183738738
+	total_seconds_last_epoch: 0.0
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.987091124058
+	train_avg_max_x.min_u: 0.646683037281
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 8.58807470649e-05
+	train_avg_min_x.mean_u: 1.16340243039e-06
+	train_avg_min_x.min_u: 4.49862382932e-19
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.987089812756
+	train_avg_range_x.min_u: 0.64667057991
+	train_objective: 2.30336165428
+	train_y_col_norms_max: 0.0113889696077
+	train_y_col_norms_mean: 0.00943499151617
+	train_y_col_norms_min: 0.00825981143862
+	train_y_max_max_class: 0.100619509816
+	train_y_mean_max_class: 0.100425295532
+	train_y_min_max_class: 0.100230120122
+	train_y_misclass: 0.899063527584
+	train_y_nll: 2.30336165428
+	train_y_row_norms_max: 0.0116075044498
+	train_y_row_norms_mean: 0.00942762754858
+	train_y_row_norms_min: 0.00818183179945
+	training_seconds_this_epoch: 0.0
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.89198744297
+	valid_avg_max_x.min_u: 0.367697387934
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00070957216667
+	valid_avg_min_x.mean_u: 9.99478197627e-06
+	valid_avg_min_x.min_u: 4.08565142696e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.89197742939
+	valid_avg_range_x.min_u: 0.367533892393
+	valid_objective: 2.30314278603
+	valid_y_col_norms_max: 0.0113889230415
+	valid_y_col_norms_mean: 0.00943499617279
+	valid_y_col_norms_min: 0.00825979188085
+	valid_y_max_max_class: 0.100619539618
+	valid_y_mean_max_class: 0.100392729044
+	valid_y_min_max_class: 0.100139826536
+	valid_y_misclass: 0.914362847805
+	valid_y_nll: 2.30314278603
+	valid_y_row_norms_max: 0.0116075035185
+	valid_y_row_norms_mean: 0.00942762289196
+	valid_y_row_norms_min: 0.00818183738738
+Time this epoch: 0:02:51.062672
+Monitoring step:
+	Epochs seen: 1
+	Batches seen: 312
+	Examples seen: 39936
+	learning_rate: 0.099604062736
+	momentum: 0.500000536442
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.890089929104
+	test_avg_max_x.min_u: 0.36314663291
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.000799388100859
+	test_avg_min_x.mean_u: 1.15528464448e-05
+	test_avg_min_x.min_u: 4.2739681924e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.890078306198
+	test_avg_range_x.min_u: 0.362885296345
+	test_objective: 1.12893724442
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.472694694996
+	test_y_mean_max_class: 0.403682768345
+	test_y_min_max_class: 0.165854483843
+	test_y_misclass: 0.172976732254
+	test_y_nll: 1.12893724442
+	test_y_row_norms_max: 1.94470560551
+	test_y_row_norms_mean: 1.93649685383
+	test_y_row_norms_min: 1.93118524551
+	total_seconds_last_epoch: 171.062957764
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.987091124058
+	train_avg_max_x.min_u: 0.646683037281
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 8.58807470649e-05
+	train_avg_min_x.mean_u: 1.16340243039e-06
+	train_avg_min_x.min_u: 4.49862382932e-19
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.987089812756
+	train_avg_range_x.min_u: 0.64667057991
+	train_objective: 0.792179882526
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.472777307034
+	train_y_mean_max_class: 0.453943938017
+	train_y_min_max_class: 0.277392357588
+	train_y_misclass: 0.000475761218695
+	train_y_nll: 0.792179882526
+	train_y_row_norms_max: 1.9446978569
+	train_y_row_norms_mean: 1.9364989996
+	train_y_row_norms_min: 1.93118703365
+	training_seconds_this_epoch: 171.062652588
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.89198744297
+	valid_avg_max_x.min_u: 0.367697387934
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00070957216667
+	valid_avg_min_x.mean_u: 9.99478197627e-06
+	valid_avg_min_x.min_u: 4.08565142696e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.89197742939
+	valid_avg_range_x.min_u: 0.367533892393
+	valid_objective: 1.1239207983
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.472722560167
+	valid_y_mean_max_class: 0.404629200697
+	valid_y_min_max_class: 0.166242882609
+	valid_y_misclass: 0.170773223042
+	valid_y_nll: 1.1239207983
+	valid_y_row_norms_max: 1.94470560551
+	valid_y_row_norms_mean: 1.93649685383
+	valid_y_row_norms_min: 1.93118524551
+Time this epoch: 0:02:44.211315
+Monitoring step:
+	Epochs seen: 2
+	Batches seen: 624
+	Examples seen: 79872
+	learning_rate: 0.0992079377174
+	momentum: 0.500401437283
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.890089929104
+	test_avg_max_x.min_u: 0.36314663291
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.000799388100859
+	test_avg_min_x.mean_u: 1.15528464448e-05
+	test_avg_min_x.min_u: 4.2739681924e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.890078306198
+	test_avg_range_x.min_u: 0.362885296345
+	test_objective: 1.12896561623
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.468939393759
+	test_y_mean_max_class: 0.403752952814
+	test_y_min_max_class: 0.165010750294
+	test_y_misclass: 0.174078509212
+	test_y_nll: 1.12896561623
+	test_y_row_norms_max: 1.94045829773
+	test_y_row_norms_mean: 1.93649744987
+	test_y_row_norms_min: 1.93287968636
+	total_seconds_last_epoch: 164.211456299
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.987091124058
+	train_avg_max_x.min_u: 0.646683037281
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 8.58807470649e-05
+	train_avg_min_x.mean_u: 1.16340243039e-06
+	train_avg_min_x.min_u: 4.49862382932e-19
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.987089812756
+	train_avg_range_x.min_u: 0.64667057991
+	train_objective: 0.79208278656
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.468941837549
+	train_y_mean_max_class: 0.453957945108
+	train_y_min_max_class: 0.27756935358
+	train_y_misclass: 0.000475761218695
+	train_y_nll: 0.79208278656
+	train_y_row_norms_max: 1.94045603275
+	train_y_row_norms_mean: 1.93650400639
+	train_y_row_norms_min: 1.93287086487
+	training_seconds_this_epoch: 164.211196899
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.89198744297
+	valid_avg_max_x.min_u: 0.367697387934
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00070957216667
+	valid_avg_min_x.mean_u: 9.99478197627e-06
+	valid_avg_min_x.min_u: 4.08565142696e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.89197742939
+	valid_avg_range_x.min_u: 0.367533892393
+	valid_objective: 1.12379813194
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.468934953213
+	valid_y_mean_max_class: 0.404775977135
+	valid_y_min_max_class: 0.166582807899
+	valid_y_misclass: 0.170873388648
+	valid_y_nll: 1.12379813194
+	valid_y_row_norms_max: 1.94045829773
+	valid_y_row_norms_mean: 1.93649744987
+	valid_y_row_norms_min: 1.93287968636
+Time this epoch: 0:02:38.630007
+Monitoring step:
+	Epochs seen: 3
+	Batches seen: 936
+	Examples seen: 119808
+	learning_rate: 0.0988120883703
+	momentum: 0.500803172588
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.890089929104
+	test_avg_max_x.min_u: 0.36314663291
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.000799388100859
+	test_avg_min_x.mean_u: 1.15528464448e-05
+	test_avg_min_x.min_u: 4.2739681924e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.890078306198
+	test_avg_range_x.min_u: 0.362885296345
+	test_objective: 1.1290307045
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.464886426926
+	test_y_mean_max_class: 0.403882652521
+	test_y_min_max_class: 0.164849296212
+	test_y_misclass: 0.173978388309
+	test_y_nll: 1.1290307045
+	test_y_row_norms_max: 1.94016742706
+	test_y_row_norms_mean: 1.93649744987
+	test_y_row_norms_min: 1.93277943134
+	total_seconds_last_epoch: 158.630279541
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.987091124058
+	train_avg_max_x.min_u: 0.646683037281
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 8.58807470649e-05
+	train_avg_min_x.mean_u: 1.16340243039e-06
+	train_avg_min_x.min_u: 4.49862382932e-19
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.987089812756
+	train_avg_range_x.min_u: 0.64667057991
+	train_objective: 0.792020022869
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.464887797832
+	train_y_mean_max_class: 0.454004317522
+	train_y_min_max_class: 0.275820285082
+	train_y_misclass: 0.000475761218695
+	train_y_nll: 0.792020022869
+	train_y_row_norms_max: 1.9401601553
+	train_y_row_norms_mean: 1.93650400639
+	train_y_row_norms_min: 1.93278491497
+	training_seconds_this_epoch: 158.630187988
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.89198744297
+	valid_avg_max_x.min_u: 0.367697387934
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00070957216667
+	valid_avg_min_x.mean_u: 9.99478197627e-06
+	valid_avg_min_x.min_u: 4.08565142696e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.89197742939
+	valid_avg_range_x.min_u: 0.367533892393
+	valid_objective: 1.12395763397
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.464885175228
+	valid_y_mean_max_class: 0.404927611351
+	valid_y_min_max_class: 0.166344061494
+	valid_y_misclass: 0.171274036169
+	valid_y_nll: 1.12395763397
+	valid_y_row_norms_max: 1.94016742706
+	valid_y_row_norms_mean: 1.93649744987
+	valid_y_row_norms_min: 1.93277943134
+Time this epoch: 0:02:38.041570
+Monitoring step:
+	Epochs seen: 4
+	Batches seen: 1248
+	Examples seen: 159744
+	learning_rate: 0.098415941
+	momentum: 0.501205146313
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.890089929104
+	test_avg_max_x.min_u: 0.36314663291
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.000799388100859
+	test_avg_min_x.mean_u: 1.15528464448e-05
+	test_avg_min_x.min_u: 4.2739681924e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.890078306198
+	test_avg_range_x.min_u: 0.362885296345
+	test_objective: 1.12912333012
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.466019421816
+	test_y_mean_max_class: 0.40397131443
+	test_y_min_max_class: 0.16458491981
+	test_y_misclass: 0.174379006028
+	test_y_nll: 1.12912333012
+	test_y_row_norms_max: 1.94013035297
+	test_y_row_norms_mean: 1.93649709225
+	test_y_row_norms_min: 1.93117845058
+	total_seconds_last_epoch: 158.041641235
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.987091124058
+	train_avg_max_x.min_u: 0.646683037281
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 8.58807470649e-05
+	train_avg_min_x.mean_u: 1.16340243039e-06
+	train_avg_min_x.min_u: 4.49862382932e-19
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.987089812756
+	train_avg_range_x.min_u: 0.64667057991
+	train_objective: 0.792064130306
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.46604681015
+	train_y_mean_max_class: 0.453992843628
+	train_y_min_max_class: 0.275857448578
+	train_y_misclass: 0.000500801310409
+	train_y_nll: 0.792064130306
+	train_y_row_norms_max: 1.940122962
+	train_y_row_norms_mean: 1.93650388718
+	train_y_row_norms_min: 1.93118524551
+	training_seconds_this_epoch: 158.041549683
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.89198744297
+	valid_avg_max_x.min_u: 0.367697387934
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00070957216667
+	valid_avg_min_x.mean_u: 9.99478197627e-06
+	valid_avg_min_x.min_u: 4.08565142696e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.89197742939
+	valid_avg_range_x.min_u: 0.367533892393
+	valid_objective: 1.12399077415
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.466039299965
+	valid_y_mean_max_class: 0.405013978481
+	valid_y_min_max_class: 0.165750488639
+	valid_y_misclass: 0.171173870564
+	valid_y_nll: 1.12399077415
+	valid_y_row_norms_max: 1.94013035297
+	valid_y_row_norms_mean: 1.93649709225
+	valid_y_row_norms_min: 1.93117845058
+Time this epoch: 0:02:38.040227
+Saving to pkl/multicolumn_2COL_GCN_TOR.pkl...
+Saving to pkl/multicolumn_2COL_GCN_TOR.pkl done. Time elapsed: 4.586674 seconds
+Monitoring step:
+	Epochs seen: 5
+	Batches seen: 1560
+	Examples seen: 199680
+	learning_rate: 0.0980200245976
+	momentum: 0.501606822014
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.890089929104
+	test_avg_max_x.min_u: 0.36314663291
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.000799388100859
+	test_avg_min_x.mean_u: 1.15528464448e-05
+	test_avg_min_x.min_u: 4.2739681924e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.890078306198
+	test_avg_range_x.min_u: 0.362885296345
+	test_objective: 1.12903356552
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.470061957836
+	test_y_mean_max_class: 0.403808027506
+	test_y_min_max_class: 0.16558521986
+	test_y_misclass: 0.174078524113
+	test_y_nll: 1.12903356552
+	test_y_row_norms_max: 1.94287610054
+	test_y_row_norms_mean: 1.93649709225
+	test_y_row_norms_min: 1.93196642399
+	total_seconds_last_epoch: 162.627075195
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.987091124058
+	train_avg_max_x.min_u: 0.646683037281
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 8.58807470649e-05
+	train_avg_min_x.mean_u: 1.16340243039e-06
+	train_avg_min_x.min_u: 4.49862382932e-19
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.987089812756
+	train_avg_range_x.min_u: 0.64667057991
+	train_objective: 0.792069077492
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.470074057579
+	train_y_mean_max_class: 0.453997433186
+	train_y_min_max_class: 0.275233775377
+	train_y_misclass: 0.000600961560849
+	train_y_nll: 0.792069077492
+	train_y_row_norms_max: 1.94287359715
+	train_y_row_norms_mean: 1.93650388718
+	train_y_row_norms_min: 1.93196809292
+	training_seconds_this_epoch: 158.040100098
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.89198744297
+	valid_avg_max_x.min_u: 0.367697387934
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00070957216667
+	valid_avg_min_x.mean_u: 9.99478197627e-06
+	valid_avg_min_x.min_u: 4.08565142696e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.89197742939
+	valid_avg_range_x.min_u: 0.367533892393
+	valid_objective: 1.12406826019
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.47002851963
+	valid_y_mean_max_class: 0.404872238636
+	valid_y_min_max_class: 0.166880071163
+	valid_y_misclass: 0.170973524451
+	valid_y_nll: 1.12406826019
+	valid_y_row_norms_max: 1.94287610054
+	valid_y_row_norms_mean: 1.93649709225
+	valid_y_row_norms_min: 1.93196642399
+Time this epoch: 0:02:38.424080
+Monitoring step:
+	Epochs seen: 6
+	Batches seen: 1872
+	Examples seen: 239616
+	learning_rate: 0.0976240932941
+	momentum: 0.502007722855
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.890089929104
+	test_avg_max_x.min_u: 0.36314663291
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.000799388100859
+	test_avg_min_x.mean_u: 1.15528464448e-05
+	test_avg_min_x.min_u: 4.2739681924e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.890078306198
+	test_avg_range_x.min_u: 0.362885296345
+	test_objective: 1.12882828712
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.472405344248
+	test_y_mean_max_class: 0.403565973043
+	test_y_min_max_class: 0.16610237956
+	test_y_misclass: 0.173377379775
+	test_y_nll: 1.12882828712
+	test_y_row_norms_max: 1.94059562683
+	test_y_row_norms_mean: 1.93649744987
+	test_y_row_norms_min: 1.93147647381
+	total_seconds_last_epoch: 158.424377441
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.987091124058
+	train_avg_max_x.min_u: 0.646683037281
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 8.58807470649e-05
+	train_avg_min_x.mean_u: 1.16340243039e-06
+	train_avg_min_x.min_u: 4.49862382932e-19
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.987089812756
+	train_avg_range_x.min_u: 0.64667057991
+	train_objective: 0.792111873627
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.472852736712
+	train_y_mean_max_class: 0.453939080238
+	train_y_min_max_class: 0.278049200773
+	train_y_misclass: 0.000475761218695
+	train_y_nll: 0.792111873627
+	train_y_row_norms_max: 1.94059705734
+	train_y_row_norms_mean: 1.93650400639
+	train_y_row_norms_min: 1.93148291111
+	training_seconds_this_epoch: 158.424041748
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.89198744297
+	valid_avg_max_x.min_u: 0.367697387934
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00070957216667
+	valid_avg_min_x.mean_u: 9.99478197627e-06
+	valid_avg_min_x.min_u: 4.08565142696e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.89197742939
+	valid_avg_range_x.min_u: 0.367533892393
+	valid_objective: 1.12374866009
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.472406208515
+	valid_y_mean_max_class: 0.404573231936
+	valid_y_min_max_class: 0.166949227452
+	valid_y_misclass: 0.170873403549
+	valid_y_nll: 1.12374866009
+	valid_y_row_norms_max: 1.94059562683
+	valid_y_row_norms_mean: 1.93649744987
+	valid_y_row_norms_min: 1.93147647381
+Time this epoch: 0:02:38.322563
+Monitoring step:
+	Epochs seen: 7
+	Batches seen: 2184
+	Examples seen: 279552
+	learning_rate: 0.0972279459238
+	momentum: 0.50240945816
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.890089929104
+	test_avg_max_x.min_u: 0.36314663291
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.000799388100859
+	test_avg_min_x.mean_u: 1.15528464448e-05
+	test_avg_min_x.min_u: 4.2739681924e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.890078306198
+	test_avg_range_x.min_u: 0.362885296345
+	test_objective: 1.12896680832
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.465893983841
+	test_y_mean_max_class: 0.403802096844
+	test_y_min_max_class: 0.165235579014
+	test_y_misclass: 0.173076912761
+	test_y_nll: 1.12896680832
+	test_y_row_norms_max: 1.93914687634
+	test_y_row_norms_mean: 1.93649744987
+	test_y_row_norms_min: 1.93194103241
+	total_seconds_last_epoch: 158.322784424
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.987091124058
+	train_avg_max_x.min_u: 0.646683037281
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 8.58807470649e-05
+	train_avg_min_x.mean_u: 1.16340243039e-06
+	train_avg_min_x.min_u: 4.49862382932e-19
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.987089812756
+	train_avg_range_x.min_u: 0.64667057991
+	train_objective: 0.792012512684
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.465930372477
+	train_y_mean_max_class: 0.453997552395
+	train_y_min_max_class: 0.276713371277
+	train_y_misclass: 0.000475761218695
+	train_y_nll: 0.792012512684
+	train_y_row_norms_max: 1.93914687634
+	train_y_row_norms_mean: 1.93650400639
+	train_y_row_norms_min: 1.93193876743
+	training_seconds_this_epoch: 158.322509766
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.89198744297
+	valid_avg_max_x.min_u: 0.367697387934
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00070957216667
+	valid_avg_min_x.mean_u: 9.99478197627e-06
+	valid_avg_min_x.min_u: 4.08565142696e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.89197742939
+	valid_avg_range_x.min_u: 0.367533892393
+	valid_objective: 1.12398099899
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.465918213129
+	valid_y_mean_max_class: 0.404784798622
+	valid_y_min_max_class: 0.16656498611
+	valid_y_misclass: 0.170873373747
+	valid_y_nll: 1.12398099899
+	valid_y_row_norms_max: 1.93914687634
+	valid_y_row_norms_mean: 1.93649744987
+	valid_y_row_norms_min: 1.93194103241
+Time this epoch: 0:02:38.290790
+Monitoring step:
+	Epochs seen: 8
+	Batches seen: 2496
+	Examples seen: 319488
+	learning_rate: 0.0968320295215
+	momentum: 0.502811491489
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.890089929104
+	test_avg_max_x.min_u: 0.36314663291
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.000799388100859
+	test_avg_min_x.mean_u: 1.15528464448e-05
+	test_avg_min_x.min_u: 4.2739681924e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.890078306198
+	test_avg_range_x.min_u: 0.362885296345
+	test_objective: 1.1289434433
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.469170063734
+	test_y_mean_max_class: 0.403638899326
+	test_y_min_max_class: 0.16523912549
+	test_y_misclass: 0.172876596451
+	test_y_nll: 1.1289434433
+	test_y_row_norms_max: 1.94232690334
+	test_y_row_norms_mean: 1.93649685383
+	test_y_row_norms_min: 1.93148696423
+	total_seconds_last_epoch: 158.29107666
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.987091124058
+	train_avg_max_x.min_u: 0.646683037281
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 8.58807470649e-05
+	train_avg_min_x.mean_u: 1.16340243039e-06
+	train_avg_min_x.min_u: 4.49862382932e-19
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.987089812756
+	train_avg_range_x.min_u: 0.64667057991
+	train_objective: 0.792114078999
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.469167739153
+	train_y_mean_max_class: 0.453965038061
+	train_y_min_max_class: 0.27740213275
+	train_y_misclass: 0.000500801310409
+	train_y_nll: 0.792114078999
+	train_y_row_norms_max: 1.94231796265
+	train_y_row_norms_mean: 1.9364989996
+	train_y_row_norms_min: 1.93148565292
+	training_seconds_this_epoch: 158.290740967
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.89198744297
+	valid_avg_max_x.min_u: 0.367697387934
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00070957216667
+	valid_avg_min_x.mean_u: 9.99478197627e-06
+	valid_avg_min_x.min_u: 4.08565142696e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.89197742939
+	valid_avg_range_x.min_u: 0.367533892393
+	valid_objective: 1.12410998344
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.469170063734
+	valid_y_mean_max_class: 0.40457674861
+	valid_y_min_max_class: 0.16687528789
+	valid_y_misclass: 0.170472770929
+	valid_y_nll: 1.12410998344
+	valid_y_row_norms_max: 1.94232690334
+	valid_y_row_norms_mean: 1.93649685383
+	valid_y_row_norms_min: 1.93148696423
+Time this epoch: 0:02:42.948757
+Monitoring step:
+	Epochs seen: 9
+	Batches seen: 2808
+	Examples seen: 359424
+	learning_rate: 0.0964359715581
+	momentum: 0.503213226795
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.890089929104
+	test_avg_max_x.min_u: 0.36314663291
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.000799388100859
+	test_avg_min_x.mean_u: 1.15528464448e-05
+	test_avg_min_x.min_u: 4.2739681924e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.890078306198
+	test_avg_range_x.min_u: 0.362885296345
+	test_objective: 1.12889719009
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.465114712715
+	test_y_mean_max_class: 0.403839677572
+	test_y_min_max_class: 0.165101826191
+	test_y_misclass: 0.173677891493
+	test_y_nll: 1.12889719009
+	test_y_row_norms_max: 1.93969321251
+	test_y_row_norms_mean: 1.93649756908
+	test_y_row_norms_min: 1.93358850479
+	total_seconds_last_epoch: 162.949035645
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.987091124058
+	train_avg_max_x.min_u: 0.646683037281
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 8.58807470649e-05
+	train_avg_min_x.mean_u: 1.16340243039e-06
+	train_avg_min_x.min_u: 4.49862382932e-19
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.987089812756
+	train_avg_range_x.min_u: 0.64667057991
+	train_objective: 0.791990876198
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.465201884508
+	train_y_mean_max_class: 0.454002171755
+	train_y_min_max_class: 0.276564121246
+	train_y_misclass: 0.000475761218695
+	train_y_nll: 0.791990876198
+	train_y_row_norms_max: 1.93969714642
+	train_y_row_norms_mean: 1.93650400639
+	train_y_row_norms_min: 1.93359601498
+	training_seconds_this_epoch: 162.948745728
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.89198744297
+	valid_avg_max_x.min_u: 0.367697387934
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00070957216667
+	valid_avg_min_x.mean_u: 9.99478197627e-06
+	valid_avg_min_x.min_u: 4.08565142696e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.89197742939
+	valid_avg_range_x.min_u: 0.367533892393
+	valid_objective: 1.12381529808
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.465144246817
+	valid_y_mean_max_class: 0.404868423939
+	valid_y_min_max_class: 0.166315197945
+	valid_y_misclass: 0.171274021268
+	valid_y_nll: 1.12381529808
+	valid_y_row_norms_max: 1.93969321251
+	valid_y_row_norms_mean: 1.93649756908
+	valid_y_row_norms_min: 1.93358850479
+Time this epoch: 0:02:38.256949
+Saving to pkl/multicolumn_2COL_GCN_TOR.pkl...
+Saving to pkl/multicolumn_2COL_GCN_TOR.pkl done. Time elapsed: 4.522465 seconds
+Monitoring step:
+	Epochs seen: 10
+	Batches seen: 3120
+	Examples seen: 399360
+	learning_rate: 0.0960400551558
+	momentum: 0.503614068031
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.890089929104
+	test_avg_max_x.min_u: 0.36314663291
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.000799388100859
+	test_avg_min_x.mean_u: 1.15528464448e-05
+	test_avg_min_x.min_u: 4.2739681924e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.890078306198
+	test_avg_range_x.min_u: 0.362885296345
+	test_objective: 1.12912476063
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.470297664404
+	test_y_mean_max_class: 0.403891533613
+	test_y_min_max_class: 0.165261179209
+	test_y_misclass: 0.173577710986
+	test_y_nll: 1.12912476063
+	test_y_row_norms_max: 1.9413022995
+	test_y_row_norms_mean: 1.9364964962
+	test_y_row_norms_min: 1.93117082119
+	total_seconds_last_epoch: 162.77973938
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.987091124058
+	train_avg_max_x.min_u: 0.646683037281
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 8.58807470649e-05
+	train_avg_min_x.mean_u: 1.16340243039e-06
+	train_avg_min_x.min_u: 4.49862382932e-19
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.987089812756
+	train_avg_range_x.min_u: 0.64667057991
+	train_objective: 0.792130529881
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.47029954195
+	train_y_mean_max_class: 0.453988194466
+	train_y_min_max_class: 0.275417387486
+	train_y_misclass: 0.000550881435629
+	train_y_nll: 0.792130529881
+	train_y_row_norms_max: 1.94130373001
+	train_y_row_norms_mean: 1.93649888039
+	train_y_row_norms_min: 1.93117845058
+	training_seconds_this_epoch: 158.256958008
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.89198744297
+	valid_avg_max_x.min_u: 0.367697387934
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00070957216667
+	valid_avg_min_x.mean_u: 9.99478197627e-06
+	valid_avg_min_x.min_u: 4.08565142696e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.89197742939
+	valid_avg_range_x.min_u: 0.367533892393
+	valid_objective: 1.12410914898
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.470293194056
+	valid_y_mean_max_class: 0.404824972153
+	valid_y_min_max_class: 0.166409179568
+	valid_y_misclass: 0.171674638987
+	valid_y_nll: 1.12410914898
+	valid_y_row_norms_max: 1.9413022995
+	valid_y_row_norms_mean: 1.9364964962
+	valid_y_row_norms_min: 1.93117082119
+Time this epoch: 0:02:38.321759
+Monitoring step:
+	Epochs seen: 11
+	Batches seen: 3432
+	Examples seen: 439296
+	learning_rate: 0.095643915236
+	momentum: 0.504015803337
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.890089929104
+	test_avg_max_x.min_u: 0.36314663291
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.000799388100859
+	test_avg_min_x.mean_u: 1.15528464448e-05
+	test_avg_min_x.min_u: 4.2739681924e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.890078306198
+	test_avg_range_x.min_u: 0.362885296345
+	test_objective: 1.12904512882
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.474848896265
+	test_y_mean_max_class: 0.403701454401
+	test_y_min_max_class: 0.165578886867
+	test_y_misclass: 0.173377394676
+	test_y_nll: 1.12904512882
+	test_y_row_norms_max: 1.9458605051
+	test_y_row_norms_mean: 1.93649673462
+	test_y_row_norms_min: 1.93210804462
+	total_seconds_last_epoch: 158.322021484
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.987091124058
+	train_avg_max_x.min_u: 0.646683037281
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 8.58807470649e-05
+	train_avg_min_x.mean_u: 1.16340243039e-06
+	train_avg_min_x.min_u: 4.49862382932e-19
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.987089812756
+	train_avg_range_x.min_u: 0.64667057991
+	train_objective: 0.79214155674
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.474847108126
+	train_y_mean_max_class: 0.453960567713
+	train_y_min_max_class: 0.276658326387
+	train_y_misclass: 0.000500801310409
+	train_y_nll: 0.79214155674
+	train_y_row_norms_max: 1.9458694458
+	train_y_row_norms_mean: 1.9364989996
+	train_y_row_norms_min: 1.93211019039
+	training_seconds_this_epoch: 158.321929932
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.89198744297
+	valid_avg_max_x.min_u: 0.367697387934
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00070957216667
+	valid_avg_min_x.mean_u: 9.99478197627e-06
+	valid_avg_min_x.min_u: 4.08565142696e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.89197742939
+	valid_avg_range_x.min_u: 0.367533892393
+	valid_objective: 1.12411427498
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.47484895587
+	valid_y_mean_max_class: 0.404638499022
+	valid_y_min_max_class: 0.16675542295
+	valid_y_misclass: 0.170873403549
+	valid_y_nll: 1.12411427498
+	valid_y_row_norms_max: 1.9458605051
+	valid_y_row_norms_mean: 1.93649673462
+	valid_y_row_norms_min: 1.93210804462
+Time this epoch: 0:02:38.233533
+Monitoring step:
+	Epochs seen: 12
+	Batches seen: 3744
+	Examples seen: 479232
+	learning_rate: 0.0952479764819
+	momentum: 0.504417777061
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.890089929104
+	test_avg_max_x.min_u: 0.36314663291
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.000799388100859
+	test_avg_min_x.mean_u: 1.15528464448e-05
+	test_avg_min_x.min_u: 4.2739681924e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.890078306198
+	test_avg_range_x.min_u: 0.362885296345
+	test_objective: 1.12898802757
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.465531975031
+	test_y_mean_max_class: 0.403797239065
+	test_y_min_max_class: 0.165434882045
+	test_y_misclass: 0.172776415944
+	test_y_nll: 1.12898802757
+	test_y_row_norms_max: 1.94058871269
+	test_y_row_norms_mean: 1.93649721146
+	test_y_row_norms_min: 1.93208253384
+	total_seconds_last_epoch: 158.233856201
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.987091124058
+	train_avg_max_x.min_u: 0.646683037281
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 8.58807470649e-05
+	train_avg_min_x.mean_u: 1.16340243039e-06
+	train_avg_min_x.min_u: 4.49862382932e-19
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.987089812756
+	train_avg_range_x.min_u: 0.64667057991
+	train_objective: 0.792045533657
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.465534895658
+	train_y_mean_max_class: 0.45399543643
+	train_y_min_max_class: 0.276071935892
+	train_y_misclass: 0.000500801310409
+	train_y_nll: 0.792045533657
+	train_y_row_norms_max: 1.9405952692
+	train_y_row_norms_mean: 1.93650388718
+	train_y_row_norms_min: 1.93208086491
+	training_seconds_this_epoch: 158.233520508
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.89198744297
+	valid_avg_max_x.min_u: 0.367697387934
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00070957216667
+	valid_avg_min_x.mean_u: 9.99478197627e-06
+	valid_avg_min_x.min_u: 4.08565142696e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.89197742939
+	valid_avg_range_x.min_u: 0.367533892393
+	valid_objective: 1.12397551537
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.46553337574
+	valid_y_mean_max_class: 0.404760479927
+	valid_y_min_max_class: 0.166883111
+	valid_y_misclass: 0.171674668789
+	valid_y_nll: 1.12397551537
+	valid_y_row_norms_max: 1.94058871269
+	valid_y_row_norms_mean: 1.93649721146
+	valid_y_row_norms_min: 1.93208253384
+Time this epoch: 0:02:43.931938
+Monitoring step:
+	Epochs seen: 13
+	Batches seen: 4056
+	Examples seen: 519168
+	learning_rate: 0.094852052629
+	momentum: 0.504819512367
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.890089929104
+	test_avg_max_x.min_u: 0.36314663291
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.000799388100859
+	test_avg_min_x.mean_u: 1.15528464448e-05
+	test_avg_min_x.min_u: 4.2739681924e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.890078306198
+	test_avg_range_x.min_u: 0.362885296345
+	test_objective: 1.1287984848
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.467006504536
+	test_y_mean_max_class: 0.403669774532
+	test_y_min_max_class: 0.164833888412
+	test_y_misclass: 0.172375798225
+	test_y_nll: 1.1287984848
+	test_y_row_norms_max: 1.94042789936
+	test_y_row_norms_mean: 1.93649721146
+	test_y_row_norms_min: 1.93238759041
+	total_seconds_last_epoch: 163.932159424
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.987091124058
+	train_avg_max_x.min_u: 0.646683037281
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 8.58807470649e-05
+	train_avg_min_x.mean_u: 1.16340243039e-06
+	train_avg_min_x.min_u: 4.49862382932e-19
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.987089812756
+	train_avg_range_x.min_u: 0.64667057991
+	train_objective: 0.792031347752
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.467009156942
+	train_y_mean_max_class: 0.453991234303
+	train_y_min_max_class: 0.276953399181
+	train_y_misclass: 0.000475761218695
+	train_y_nll: 0.792031347752
+	train_y_row_norms_max: 1.94042050838
+	train_y_row_norms_mean: 1.93650388718
+	train_y_row_norms_min: 1.93238520622
+	training_seconds_this_epoch: 163.931854248
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.89198744297
+	valid_avg_max_x.min_u: 0.367697387934
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00070957216667
+	valid_avg_min_x.mean_u: 9.99478197627e-06
+	valid_avg_min_x.min_u: 4.08565142696e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.89197742939
+	valid_avg_range_x.min_u: 0.367533892393
+	valid_objective: 1.12392544746
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.46700206399
+	valid_y_mean_max_class: 0.404647737741
+	valid_y_min_max_class: 0.166692078114
+	valid_y_misclass: 0.17017224431
+	valid_y_nll: 1.12392544746
+	valid_y_row_norms_max: 1.94042789936
+	valid_y_row_norms_mean: 1.93649721146
+	valid_y_row_norms_min: 1.93238759041
+Time this epoch: 0:01:39.183387
+Saving to pkl/multicolumn_2COL_GCN_TOR.pkl...
+Saving to pkl/multicolumn_2COL_GCN_TOR.pkl done. Time elapsed: 6.101059 seconds
+#####################################################
+ TRAIN 2 COL ZCA TOR
+loading..  test
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading..  train
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading..  valid
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+Parameter and initial learning rate summary:
+	softmax_b: 0.10000000149
+	softmax_W: 0.10000000149
+Compiling sgd_update...
+Compiling sgd_update done. Time elapsed: 21.252283 seconds
+compiling begin_record_entry...
+compiling begin_record_entry done. Time elapsed: 0.207103 seconds
+Monitored channels: 
+	learning_rate
+	momentum
+	test_avg_max_x.max_u
+	test_avg_max_x.mean_u
+	test_avg_max_x.min_u
+	test_avg_mean_x.max_u
+	test_avg_mean_x.mean_u
+	test_avg_mean_x.min_u
+	test_avg_min_x.max_u
+	test_avg_min_x.mean_u
+	test_avg_min_x.min_u
+	test_avg_range_x.max_u
+	test_avg_range_x.mean_u
+	test_avg_range_x.min_u
+	test_objective
+	test_y_col_norms_max
+	test_y_col_norms_mean
+	test_y_col_norms_min
+	test_y_max_max_class
+	test_y_mean_max_class
+	test_y_min_max_class
+	test_y_misclass
+	test_y_nll
+	test_y_row_norms_max
+	test_y_row_norms_mean
+	test_y_row_norms_min
+	total_seconds_last_epoch
+	train_avg_max_x.max_u
+	train_avg_max_x.mean_u
+	train_avg_max_x.min_u
+	train_avg_mean_x.max_u
+	train_avg_mean_x.mean_u
+	train_avg_mean_x.min_u
+	train_avg_min_x.max_u
+	train_avg_min_x.mean_u
+	train_avg_min_x.min_u
+	train_avg_range_x.max_u
+	train_avg_range_x.mean_u
+	train_avg_range_x.min_u
+	train_objective
+	train_y_col_norms_max
+	train_y_col_norms_mean
+	train_y_col_norms_min
+	train_y_max_max_class
+	train_y_mean_max_class
+	train_y_min_max_class
+	train_y_misclass
+	train_y_nll
+	train_y_row_norms_max
+	train_y_row_norms_mean
+	train_y_row_norms_min
+	training_seconds_this_epoch
+	valid_avg_max_x.max_u
+	valid_avg_max_x.mean_u
+	valid_avg_max_x.min_u
+	valid_avg_mean_x.max_u
+	valid_avg_mean_x.mean_u
+	valid_avg_mean_x.min_u
+	valid_avg_min_x.max_u
+	valid_avg_min_x.mean_u
+	valid_avg_min_x.min_u
+	valid_avg_range_x.max_u
+	valid_avg_range_x.mean_u
+	valid_avg_range_x.min_u
+	valid_objective
+	valid_y_col_norms_max
+	valid_y_col_norms_mean
+	valid_y_col_norms_min
+	valid_y_max_max_class
+	valid_y_mean_max_class
+	valid_y_min_max_class
+	valid_y_misclass
+	valid_y_nll
+	valid_y_row_norms_max
+	valid_y_row_norms_mean
+	valid_y_row_norms_min
+Compiling accum...
+graph size: 200
+graph size: 196
+graph size: 196
+Compiling accum done. Time elapsed: 5.700781 seconds
+Monitoring step:
+	Epochs seen: 0
+	Batches seen: 0
+	Examples seen: 0
+	learning_rate: 0.10000000149
+	momentum: 0.500000536442
+	test_avg_max_x.max_u: 0.994244933128
+	test_avg_max_x.mean_u: 0.534699618816
+	test_avg_max_x.min_u: 0.309397131205
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.00157716253307
+	test_avg_min_x.mean_u: 3.21544794133e-05
+	test_avg_min_x.min_u: 1.54320566742e-11
+	test_avg_range_x.max_u: 0.994244515896
+	test_avg_range_x.mean_u: 0.534667432308
+	test_avg_range_x.min_u: 0.309154331684
+	test_objective: 2.30255389214
+	test_y_col_norms_max: 0.0113889230415
+	test_y_col_norms_mean: 0.00943499617279
+	test_y_col_norms_min: 0.00825979188085
+	test_y_max_max_class: 0.100507393479
+	test_y_mean_max_class: 0.100266315043
+	test_y_min_max_class: 0.100103534758
+	test_y_misclass: 0.912059485912
+	test_y_nll: 2.30255389214
+	test_y_row_norms_max: 0.0116075035185
+	test_y_row_norms_mean: 0.00942762289196
+	test_y_row_norms_min: 0.00818183738738
+	total_seconds_last_epoch: 0.0
+	train_avg_max_x.max_u: 0.995287835598
+	train_avg_max_x.mean_u: 0.537277460098
+	train_avg_max_x.min_u: 0.312398016453
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.00135885144118
+	train_avg_min_x.mean_u: 2.81808479485e-05
+	train_avg_min_x.min_u: 1.35958883041e-11
+	train_avg_range_x.max_u: 0.995287060738
+	train_avg_range_x.mean_u: 0.537248969078
+	train_avg_range_x.min_u: 0.312100946903
+	train_objective: 2.30255055428
+	train_y_col_norms_max: 0.0113889696077
+	train_y_col_norms_mean: 0.00943499151617
+	train_y_col_norms_min: 0.00825981143862
+	train_y_max_max_class: 0.100511282682
+	train_y_mean_max_class: 0.100267246366
+	train_y_min_max_class: 0.100101791322
+	train_y_misclass: 0.909630119801
+	train_y_nll: 2.30255055428
+	train_y_row_norms_max: 0.0116075044498
+	train_y_row_norms_mean: 0.00942762754858
+	train_y_row_norms_min: 0.00818183179945
+	training_seconds_this_epoch: 0.0
+	valid_avg_max_x.max_u: 0.994962096214
+	valid_avg_max_x.mean_u: 0.533341467381
+	valid_avg_max_x.min_u: 0.311296522617
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00161506445147
+	valid_avg_min_x.mean_u: 3.25209512084e-05
+	valid_avg_min_x.min_u: 1.78367893372e-11
+	valid_avg_range_x.max_u: 0.994961798191
+	valid_avg_range_x.mean_u: 0.533309042454
+	valid_avg_range_x.min_u: 0.311047017574
+	valid_objective: 2.30252408981
+	valid_y_col_norms_max: 0.0113889230415
+	valid_y_col_norms_mean: 0.00943499617279
+	valid_y_col_norms_min: 0.00825979188085
+	valid_y_max_max_class: 0.100517757237
+	valid_y_mean_max_class: 0.100266128778
+	valid_y_min_max_class: 0.100102305412
+	valid_y_misclass: 0.911358237267
+	valid_y_nll: 2.30252408981
+	valid_y_row_norms_max: 0.0116075035185
+	valid_y_row_norms_mean: 0.00942762289196
+	valid_y_row_norms_min: 0.00818183738738
+Time this epoch: 0:02:48.741938
+Monitoring step:
+	Epochs seen: 1
+	Batches seen: 312
+	Examples seen: 39936
+	learning_rate: 0.099604062736
+	momentum: 0.500000536442
+	test_avg_max_x.max_u: 0.994244933128
+	test_avg_max_x.mean_u: 0.534699618816
+	test_avg_max_x.min_u: 0.309397131205
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.00157716253307
+	test_avg_min_x.mean_u: 3.21544794133e-05
+	test_avg_min_x.min_u: 1.54320566742e-11
+	test_avg_range_x.max_u: 0.994244515896
+	test_avg_range_x.mean_u: 0.534667432308
+	test_avg_range_x.min_u: 0.309154331684
+	test_objective: 1.83704686165
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.66995060444
+	test_y_col_norms_min: 0.812654614449
+	test_y_max_max_class: 0.413480639458
+	test_y_mean_max_class: 0.210483834147
+	test_y_min_max_class: 0.131053715944
+	test_y_misclass: 0.488381356001
+	test_y_nll: 1.83704686165
+	test_y_row_norms_max: 2.05214762688
+	test_y_row_norms_mean: 1.63146471977
+	test_y_row_norms_min: 0.333053708076
+	total_seconds_last_epoch: 168.742141724
+	train_avg_max_x.max_u: 0.995287835598
+	train_avg_max_x.mean_u: 0.537277460098
+	train_avg_max_x.min_u: 0.312398016453
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.00135885144118
+	train_avg_min_x.mean_u: 2.81808479485e-05
+	train_avg_min_x.min_u: 1.35958883041e-11
+	train_avg_range_x.max_u: 0.995287060738
+	train_avg_range_x.mean_u: 0.537248969078
+	train_avg_range_x.min_u: 0.312100946903
+	train_objective: 1.80514609814
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.66994452477
+	train_y_col_norms_min: 0.812654852867
+	train_y_max_max_class: 0.408124357462
+	train_y_mean_max_class: 0.21101346612
+	train_y_min_max_class: 0.131329581141
+	train_y_misclass: 0.454201698303
+	train_y_nll: 1.80514609814
+	train_y_row_norms_max: 2.05214309692
+	train_y_row_norms_mean: 1.63145804405
+	train_y_row_norms_min: 0.333053916693
+	training_seconds_this_epoch: 168.742034912
+	valid_avg_max_x.max_u: 0.994962096214
+	valid_avg_max_x.mean_u: 0.533341467381
+	valid_avg_max_x.min_u: 0.311296522617
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00161506445147
+	valid_avg_min_x.mean_u: 3.25209512084e-05
+	valid_avg_min_x.min_u: 1.78367893372e-11
+	valid_avg_range_x.max_u: 0.994961798191
+	valid_avg_range_x.mean_u: 0.533309042454
+	valid_avg_range_x.min_u: 0.311047017574
+	valid_objective: 1.83439660072
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.66995060444
+	valid_y_col_norms_min: 0.812654614449
+	valid_y_max_max_class: 0.415865838528
+	valid_y_mean_max_class: 0.210520267487
+	valid_y_min_max_class: 0.132026344538
+	valid_y_misclass: 0.494290888309
+	valid_y_nll: 1.83439660072
+	valid_y_row_norms_max: 2.05214762688
+	valid_y_row_norms_mean: 1.63146471977
+	valid_y_row_norms_min: 0.333053708076
+Time this epoch: 0:02:43.540063
+Monitoring step:
+	Epochs seen: 2
+	Batches seen: 624
+	Examples seen: 79872
+	learning_rate: 0.0992079377174
+	momentum: 0.500401437283
+	test_avg_max_x.max_u: 0.994244933128
+	test_avg_max_x.mean_u: 0.534699618816
+	test_avg_max_x.min_u: 0.309397131205
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.00157716253307
+	test_avg_min_x.mean_u: 3.21544794133e-05
+	test_avg_min_x.min_u: 1.54320566742e-11
+	test_avg_range_x.max_u: 0.994244515896
+	test_avg_range_x.mean_u: 0.534667432308
+	test_avg_range_x.min_u: 0.309154331684
+	test_objective: 1.80392408371
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.88553345203
+	test_y_col_norms_min: 1.42684674263
+	test_y_max_max_class: 0.444919645786
+	test_y_mean_max_class: 0.219410523772
+	test_y_min_max_class: 0.135585680604
+	test_y_misclass: 0.481169879436
+	test_y_nll: 1.80392408371
+	test_y_row_norms_max: 2.20157647133
+	test_y_row_norms_mean: 1.84128201008
+	test_y_row_norms_min: 0.640154123306
+	total_seconds_last_epoch: 163.540206909
+	train_avg_max_x.max_u: 0.995287835598
+	train_avg_max_x.mean_u: 0.537277460098
+	train_avg_max_x.min_u: 0.312398016453
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.00135885144118
+	train_avg_min_x.mean_u: 2.81808479485e-05
+	train_avg_min_x.min_u: 1.35958883041e-11
+	train_avg_range_x.max_u: 0.995287060738
+	train_avg_range_x.mean_u: 0.537248969078
+	train_avg_range_x.min_u: 0.312100946903
+	train_objective: 1.7687202692
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.88554179668
+	train_y_col_norms_min: 1.42684662342
+	train_y_max_max_class: 0.437737047672
+	train_y_mean_max_class: 0.220462739468
+	train_y_min_max_class: 0.136530578136
+	train_y_misclass: 0.446964919567
+	train_y_nll: 1.7687202692
+	train_y_row_norms_max: 2.20157790184
+	train_y_row_norms_mean: 1.84128379822
+	train_y_row_norms_min: 0.640152871609
+	training_seconds_this_epoch: 163.539932251
+	valid_avg_max_x.max_u: 0.994962096214
+	valid_avg_max_x.mean_u: 0.533341467381
+	valid_avg_max_x.min_u: 0.311296522617
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00161506445147
+	valid_avg_min_x.mean_u: 3.25209512084e-05
+	valid_avg_min_x.min_u: 1.78367893372e-11
+	valid_avg_range_x.max_u: 0.994961798191
+	valid_avg_range_x.mean_u: 0.533309042454
+	valid_avg_range_x.min_u: 0.311047017574
+	valid_objective: 1.8011456728
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.88553345203
+	valid_y_col_norms_min: 1.42684674263
+	valid_y_max_max_class: 0.444302409887
+	valid_y_mean_max_class: 0.219335466623
+	valid_y_min_max_class: 0.137060821056
+	valid_y_misclass: 0.483974337578
+	valid_y_nll: 1.8011456728
+	valid_y_row_norms_max: 2.20157647133
+	valid_y_row_norms_mean: 1.84128201008
+	valid_y_row_norms_min: 0.640154123306
+Time this epoch: 0:02:42.216839
+Monitoring step:
+	Epochs seen: 3
+	Batches seen: 936
+	Examples seen: 119808
+	learning_rate: 0.0988120883703
+	momentum: 0.500803172588
+	test_avg_max_x.max_u: 0.994244933128
+	test_avg_max_x.mean_u: 0.534699618816
+	test_avg_max_x.min_u: 0.309397131205
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.00157716253307
+	test_avg_min_x.mean_u: 3.21544794133e-05
+	test_avg_min_x.min_u: 1.54320566742e-11
+	test_avg_range_x.max_u: 0.994244515896
+	test_avg_range_x.mean_u: 0.534667432308
+	test_avg_range_x.min_u: 0.309154331684
+	test_objective: 1.79941773415
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93575263023
+	test_y_col_norms_min: 1.92902088165
+	test_y_max_max_class: 0.454078614712
+	test_y_mean_max_class: 0.219795376062
+	test_y_min_max_class: 0.135885283351
+	test_y_misclass: 0.480969518423
+	test_y_nll: 1.79941773415
+	test_y_row_norms_max: 2.25240969658
+	test_y_row_norms_mean: 1.90124499798
+	test_y_row_norms_min: 0.936187803745
+	total_seconds_last_epoch: 162.217086792
+	train_avg_max_x.max_u: 0.995287835598
+	train_avg_max_x.mean_u: 0.537277460098
+	train_avg_max_x.min_u: 0.312398016453
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.00135885144118
+	train_avg_min_x.mean_u: 2.81808479485e-05
+	train_avg_min_x.min_u: 1.35958883041e-11
+	train_avg_range_x.max_u: 0.995287060738
+	train_avg_range_x.mean_u: 0.537248969078
+	train_avg_range_x.min_u: 0.312100946903
+	train_objective: 1.76410233974
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.93575501442
+	train_y_col_norms_min: 1.92902314663
+	train_y_max_max_class: 0.445707708597
+	train_y_mean_max_class: 0.220949158072
+	train_y_min_max_class: 0.136033803225
+	train_y_misclass: 0.446439355612
+	train_y_nll: 1.76410233974
+	train_y_row_norms_max: 2.25241827965
+	train_y_row_norms_mean: 1.90124642849
+	train_y_row_norms_min: 0.93618875742
+	training_seconds_this_epoch: 162.216781616
+	valid_avg_max_x.max_u: 0.994962096214
+	valid_avg_max_x.mean_u: 0.533341467381
+	valid_avg_max_x.min_u: 0.311296522617
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00161506445147
+	valid_avg_min_x.mean_u: 3.25209512084e-05
+	valid_avg_min_x.min_u: 1.78367893372e-11
+	valid_avg_range_x.max_u: 0.994961798191
+	valid_avg_range_x.mean_u: 0.533309042454
+	valid_avg_range_x.min_u: 0.311047017574
+	valid_objective: 1.7972881794
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93575263023
+	valid_y_col_norms_min: 1.92902088165
+	valid_y_max_max_class: 0.453702479601
+	valid_y_mean_max_class: 0.219837710261
+	valid_y_min_max_class: 0.136602759361
+	valid_y_misclass: 0.485176324844
+	valid_y_nll: 1.7972881794
+	valid_y_row_norms_max: 2.25240969658
+	valid_y_row_norms_mean: 1.90124499798
+	valid_y_row_norms_min: 0.936187803745
+Time this epoch: 0:02:42.727542
+Monitoring step:
+	Epochs seen: 4
+	Batches seen: 1248
+	Examples seen: 159744
+	learning_rate: 0.098415941
+	momentum: 0.501205146313
+	test_avg_max_x.max_u: 0.994244933128
+	test_avg_max_x.mean_u: 0.534699618816
+	test_avg_max_x.min_u: 0.309397131205
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.00157716253307
+	test_avg_min_x.mean_u: 3.21544794133e-05
+	test_avg_min_x.min_u: 1.54320566742e-11
+	test_avg_range_x.max_u: 0.994244515896
+	test_avg_range_x.mean_u: 0.534667432308
+	test_avg_range_x.min_u: 0.309154331684
+	test_objective: 1.79952073097
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.454003483057
+	test_y_mean_max_class: 0.220120191574
+	test_y_min_max_class: 0.135428860784
+	test_y_misclass: 0.478565722704
+	test_y_nll: 1.79952073097
+	test_y_row_norms_max: 2.23571395874
+	test_y_row_norms_mean: 1.90558922291
+	test_y_row_norms_min: 1.00112235546
+	total_seconds_last_epoch: 162.727737427
+	train_avg_max_x.max_u: 0.995287835598
+	train_avg_max_x.mean_u: 0.537277460098
+	train_avg_max_x.min_u: 0.312398016453
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.00135885144118
+	train_avg_min_x.mean_u: 2.81808479485e-05
+	train_avg_min_x.min_u: 1.35958883041e-11
+	train_avg_range_x.max_u: 0.995287060738
+	train_avg_range_x.mean_u: 0.537248969078
+	train_avg_range_x.min_u: 0.312100946903
+	train_objective: 1.76407217979
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.445391833782
+	train_y_mean_max_class: 0.221242189407
+	train_y_min_max_class: 0.135520994663
+	train_y_misclass: 0.44501170516
+	train_y_nll: 1.76407217979
+	train_y_row_norms_max: 2.23571562767
+	train_y_row_norms_mean: 1.90559124947
+	train_y_row_norms_min: 1.00111794472
+	training_seconds_this_epoch: 162.727661133
+	valid_avg_max_x.max_u: 0.994962096214
+	valid_avg_max_x.mean_u: 0.533341467381
+	valid_avg_max_x.min_u: 0.311296522617
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00161506445147
+	valid_avg_min_x.mean_u: 3.25209512084e-05
+	valid_avg_min_x.min_u: 1.78367893372e-11
+	valid_avg_range_x.max_u: 0.994961798191
+	valid_avg_range_x.mean_u: 0.533309042454
+	valid_avg_range_x.min_u: 0.311047017574
+	valid_objective: 1.79701411724
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.454150676727
+	valid_y_mean_max_class: 0.220142021775
+	valid_y_min_max_class: 0.136185333133
+	valid_y_misclass: 0.483673870564
+	valid_y_nll: 1.79701411724
+	valid_y_row_norms_max: 2.23571395874
+	valid_y_row_norms_mean: 1.90558922291
+	valid_y_row_norms_min: 1.00112235546
+Time this epoch: 0:02:42.216673
+Saving to pkl/multicolumn_2COL_ZCA_TOR.pkl...
+Saving to pkl/multicolumn_2COL_ZCA_TOR.pkl done. Time elapsed: 3.935095 seconds
+Monitoring step:
+	Epochs seen: 5
+	Batches seen: 1560
+	Examples seen: 199680
+	learning_rate: 0.0980200245976
+	momentum: 0.501606822014
+	test_avg_max_x.max_u: 0.994244933128
+	test_avg_max_x.mean_u: 0.534699618816
+	test_avg_max_x.min_u: 0.309397131205
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.00157716253307
+	test_avg_min_x.mean_u: 3.21544794133e-05
+	test_avg_min_x.min_u: 1.54320566742e-11
+	test_avg_range_x.max_u: 0.994244515896
+	test_avg_range_x.mean_u: 0.534667432308
+	test_avg_range_x.min_u: 0.309154331684
+	test_objective: 1.79947602749
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.455528497696
+	test_y_mean_max_class: 0.219789251685
+	test_y_min_max_class: 0.136922746897
+	test_y_misclass: 0.481470346451
+	test_y_nll: 1.79947602749
+	test_y_row_norms_max: 2.22391581535
+	test_y_row_norms_mean: 1.90782976151
+	test_y_row_norms_min: 1.04306733608
+	total_seconds_last_epoch: 166.152191162
+	train_avg_max_x.max_u: 0.995287835598
+	train_avg_max_x.mean_u: 0.537277460098
+	train_avg_max_x.min_u: 0.312398016453
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.00135885144118
+	train_avg_min_x.mean_u: 2.81808479485e-05
+	train_avg_min_x.min_u: 1.35958883041e-11
+	train_avg_range_x.max_u: 0.995287060738
+	train_avg_range_x.mean_u: 0.537248969078
+	train_avg_range_x.min_u: 0.312100946903
+	train_objective: 1.76395654678
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.44697201252
+	train_y_mean_max_class: 0.221009597182
+	train_y_min_max_class: 0.136580333114
+	train_y_misclass: 0.446764677763
+	train_y_nll: 1.76395654678
+	train_y_row_norms_max: 2.22391057014
+	train_y_row_norms_mean: 1.90783011913
+	train_y_row_norms_min: 1.04306662083
+	training_seconds_this_epoch: 162.216690063
+	valid_avg_max_x.max_u: 0.994962096214
+	valid_avg_max_x.mean_u: 0.533341467381
+	valid_avg_max_x.min_u: 0.311296522617
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00161506445147
+	valid_avg_min_x.mean_u: 3.25209512084e-05
+	valid_avg_min_x.min_u: 1.78367893372e-11
+	valid_avg_range_x.max_u: 0.994961798191
+	valid_avg_range_x.mean_u: 0.533309042454
+	valid_avg_range_x.min_u: 0.311047017574
+	valid_objective: 1.79713761806
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.456498622894
+	valid_y_mean_max_class: 0.219841212034
+	valid_y_min_max_class: 0.1375477314
+	valid_y_misclass: 0.48557689786
+	valid_y_nll: 1.79713761806
+	valid_y_row_norms_max: 2.22391581535
+	valid_y_row_norms_mean: 1.90782976151
+	valid_y_row_norms_min: 1.04306733608
+Time this epoch: 0:02:38.271305
+Monitoring step:
+	Epochs seen: 6
+	Batches seen: 1872
+	Examples seen: 239616
+	learning_rate: 0.0976240932941
+	momentum: 0.502007722855
+	test_avg_max_x.max_u: 0.994244933128
+	test_avg_max_x.mean_u: 0.534699618816
+	test_avg_max_x.min_u: 0.309397131205
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.00157716253307
+	test_avg_min_x.mean_u: 3.21544794133e-05
+	test_avg_min_x.min_u: 1.54320566742e-11
+	test_avg_range_x.max_u: 0.994244515896
+	test_avg_range_x.mean_u: 0.534667432308
+	test_avg_range_x.min_u: 0.309154331684
+	test_objective: 1.79964923859
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.450522214174
+	test_y_mean_max_class: 0.219095259905
+	test_y_min_max_class: 0.136382460594
+	test_y_misclass: 0.478365361691
+	test_y_nll: 1.79964923859
+	test_y_row_norms_max: 2.21312117577
+	test_y_row_norms_mean: 1.90911114216
+	test_y_row_norms_min: 1.06983208656
+	total_seconds_last_epoch: 158.271591187
+	train_avg_max_x.max_u: 0.995287835598
+	train_avg_max_x.mean_u: 0.537277460098
+	train_avg_max_x.min_u: 0.312398016453
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.00135885144118
+	train_avg_min_x.mean_u: 2.81808479485e-05
+	train_avg_min_x.min_u: 1.35958883041e-11
+	train_avg_range_x.max_u: 0.995287060738
+	train_avg_range_x.mean_u: 0.537248969078
+	train_avg_range_x.min_u: 0.312100946903
+	train_objective: 1.76405131817
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.443165004253
+	train_y_mean_max_class: 0.220227137208
+	train_y_min_max_class: 0.137486293912
+	train_y_misclass: 0.443835049868
+	train_y_nll: 1.76405131817
+	train_y_row_norms_max: 2.21311855316
+	train_y_row_norms_mean: 1.9091039896
+	train_y_row_norms_min: 1.06982910633
+	training_seconds_this_epoch: 158.271270752
+	valid_avg_max_x.max_u: 0.994962096214
+	valid_avg_max_x.mean_u: 0.533341467381
+	valid_avg_max_x.min_u: 0.311296522617
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00161506445147
+	valid_avg_min_x.mean_u: 3.25209512084e-05
+	valid_avg_min_x.min_u: 1.78367893372e-11
+	valid_avg_range_x.max_u: 0.994961798191
+	valid_avg_range_x.mean_u: 0.533309042454
+	valid_avg_range_x.min_u: 0.311047017574
+	valid_objective: 1.79712736607
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.450891673565
+	valid_y_mean_max_class: 0.219094440341
+	valid_y_min_max_class: 0.137886062264
+	valid_y_misclass: 0.483273297548
+	valid_y_nll: 1.79712736607
+	valid_y_row_norms_max: 2.21312117577
+	valid_y_row_norms_mean: 1.90911114216
+	valid_y_row_norms_min: 1.06983208656
+Time this epoch: 0:02:42.212195
+Monitoring step:
+	Epochs seen: 7
+	Batches seen: 2184
+	Examples seen: 279552
+	learning_rate: 0.0972279459238
+	momentum: 0.50240945816
+	test_avg_max_x.max_u: 0.994244933128
+	test_avg_max_x.mean_u: 0.534699618816
+	test_avg_max_x.min_u: 0.309397131205
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.00157716253307
+	test_avg_min_x.mean_u: 3.21544794133e-05
+	test_avg_min_x.min_u: 1.54320566742e-11
+	test_avg_range_x.max_u: 0.994244515896
+	test_avg_range_x.mean_u: 0.534667432308
+	test_avg_range_x.min_u: 0.309154331684
+	test_objective: 1.79946470261
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.450387358665
+	test_y_mean_max_class: 0.220145747066
+	test_y_min_max_class: 0.13634775579
+	test_y_misclass: 0.479967951775
+	test_y_nll: 1.79946470261
+	test_y_row_norms_max: 2.2098762989
+	test_y_row_norms_mean: 1.9099407196
+	test_y_row_norms_min: 1.08755481243
+	total_seconds_last_epoch: 162.212387085
+	train_avg_max_x.max_u: 0.995287835598
+	train_avg_max_x.mean_u: 0.537277460098
+	train_avg_max_x.min_u: 0.312398016453
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.00135885144118
+	train_avg_min_x.mean_u: 2.81808479485e-05
+	train_avg_min_x.min_u: 1.35958883041e-11
+	train_avg_range_x.max_u: 0.995287060738
+	train_avg_range_x.mean_u: 0.537248969078
+	train_avg_range_x.min_u: 0.312100946903
+	train_objective: 1.76377701759
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.442245006561
+	train_y_mean_max_class: 0.221242770553
+	train_y_min_max_class: 0.136260136962
+	train_y_misclass: 0.446263730526
+	train_y_nll: 1.76377701759
+	train_y_row_norms_max: 2.20987677574
+	train_y_row_norms_mean: 1.90994286537
+	train_y_row_norms_min: 1.08755326271
+	training_seconds_this_epoch: 162.212310791
+	valid_avg_max_x.max_u: 0.994962096214
+	valid_avg_max_x.mean_u: 0.533341467381
+	valid_avg_max_x.min_u: 0.311296522617
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00161506445147
+	valid_avg_min_x.mean_u: 3.25209512084e-05
+	valid_avg_min_x.min_u: 1.78367893372e-11
+	valid_avg_range_x.max_u: 0.994961798191
+	valid_avg_range_x.mean_u: 0.533309042454
+	valid_avg_range_x.min_u: 0.311047017574
+	valid_objective: 1.79703593254
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.451335579157
+	valid_y_mean_max_class: 0.220155701041
+	valid_y_min_max_class: 0.136744439602
+	valid_y_misclass: 0.486077725887
+	valid_y_nll: 1.79703593254
+	valid_y_row_norms_max: 2.2098762989
+	valid_y_row_norms_mean: 1.9099407196
+	valid_y_row_norms_min: 1.08755481243
+Time this epoch: 0:02:38.204868
+Monitoring step:
+	Epochs seen: 8
+	Batches seen: 2496
+	Examples seen: 319488
+	learning_rate: 0.0968320295215
+	momentum: 0.502811491489
+	test_avg_max_x.max_u: 0.994244933128
+	test_avg_max_x.mean_u: 0.534699618816
+	test_avg_max_x.min_u: 0.309397131205
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.00157716253307
+	test_avg_min_x.mean_u: 3.21544794133e-05
+	test_avg_min_x.min_u: 1.54320566742e-11
+	test_avg_range_x.max_u: 0.994244515896
+	test_avg_range_x.mean_u: 0.534667432308
+	test_avg_range_x.min_u: 0.309154331684
+	test_objective: 1.79979681969
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.446056991816
+	test_y_mean_max_class: 0.219849810004
+	test_y_min_max_class: 0.136322975159
+	test_y_misclass: 0.481269985437
+	test_y_nll: 1.79979681969
+	test_y_row_norms_max: 2.20153546333
+	test_y_row_norms_mean: 1.91062033176
+	test_y_row_norms_min: 1.10077822208
+	total_seconds_last_epoch: 158.205047607
+	train_avg_max_x.max_u: 0.995287835598
+	train_avg_max_x.mean_u: 0.537277460098
+	train_avg_max_x.min_u: 0.312398016453
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.00135885144118
+	train_avg_min_x.mean_u: 2.81808479485e-05
+	train_avg_min_x.min_u: 1.35958883041e-11
+	train_avg_range_x.max_u: 0.995287060738
+	train_avg_range_x.mean_u: 0.537248969078
+	train_avg_range_x.min_u: 0.312100946903
+	train_objective: 1.76404476166
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.438610345125
+	train_y_mean_max_class: 0.220979303122
+	train_y_min_max_class: 0.136485368013
+	train_y_misclass: 0.445462405682
+	train_y_nll: 1.76404476166
+	train_y_row_norms_max: 2.20153927803
+	train_y_row_norms_mean: 1.91061997414
+	train_y_row_norms_min: 1.10077607632
+	training_seconds_this_epoch: 158.204940796
+	valid_avg_max_x.max_u: 0.994962096214
+	valid_avg_max_x.mean_u: 0.533341467381
+	valid_avg_max_x.min_u: 0.311296522617
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00161506445147
+	valid_avg_min_x.mean_u: 3.25209512084e-05
+	valid_avg_min_x.min_u: 1.78367893372e-11
+	valid_avg_range_x.max_u: 0.994961798191
+	valid_avg_range_x.mean_u: 0.533309042454
+	valid_avg_range_x.min_u: 0.311047017574
+	valid_objective: 1.79757726192
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.446728050709
+	valid_y_mean_max_class: 0.219847247005
+	valid_y_min_max_class: 0.136729478836
+	valid_y_misclass: 0.484675467014
+	valid_y_nll: 1.79757726192
+	valid_y_row_norms_max: 2.20153546333
+	valid_y_row_norms_mean: 1.91062033176
+	valid_y_row_norms_min: 1.10077822208
+Time this epoch: 0:02:38.218054
+Monitoring step:
+	Epochs seen: 9
+	Batches seen: 2808
+	Examples seen: 359424
+	learning_rate: 0.0964359715581
+	momentum: 0.503213226795
+	test_avg_max_x.max_u: 0.994244933128
+	test_avg_max_x.mean_u: 0.534699618816
+	test_avg_max_x.min_u: 0.309397131205
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.00157716253307
+	test_avg_min_x.mean_u: 3.21544794133e-05
+	test_avg_min_x.min_u: 1.54320566742e-11
+	test_avg_range_x.max_u: 0.994244515896
+	test_avg_range_x.mean_u: 0.534667432308
+	test_avg_range_x.min_u: 0.309154331684
+	test_objective: 1.79947626591
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.453643649817
+	test_y_mean_max_class: 0.219782412052
+	test_y_min_max_class: 0.136233121157
+	test_y_misclass: 0.479867726564
+	test_y_nll: 1.79947626591
+	test_y_row_norms_max: 2.20918917656
+	test_y_row_norms_mean: 1.91100335121
+	test_y_row_norms_min: 1.11076533794
+	total_seconds_last_epoch: 158.218383789
+	train_avg_max_x.max_u: 0.995287835598
+	train_avg_max_x.mean_u: 0.537277460098
+	train_avg_max_x.min_u: 0.312398016453
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.00135885144118
+	train_avg_min_x.mean_u: 2.81808479485e-05
+	train_avg_min_x.min_u: 1.35958883041e-11
+	train_avg_range_x.max_u: 0.995287060738
+	train_avg_range_x.mean_u: 0.537248969078
+	train_avg_range_x.min_u: 0.312100946903
+	train_objective: 1.76374793053
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.445698469877
+	train_y_mean_max_class: 0.220902368426
+	train_y_min_max_class: 0.136418610811
+	train_y_misclass: 0.445562601089
+	train_y_nll: 1.76374793053
+	train_y_row_norms_max: 2.20919919014
+	train_y_row_norms_mean: 1.91099953651
+	train_y_row_norms_min: 1.11076450348
+	training_seconds_this_epoch: 158.218048096
+	valid_avg_max_x.max_u: 0.994962096214
+	valid_avg_max_x.mean_u: 0.533341467381
+	valid_avg_max_x.min_u: 0.311296522617
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00161506445147
+	valid_avg_min_x.mean_u: 3.25209512084e-05
+	valid_avg_min_x.min_u: 1.78367893372e-11
+	valid_avg_range_x.max_u: 0.994961798191
+	valid_avg_range_x.mean_u: 0.533309042454
+	valid_avg_range_x.min_u: 0.311047017574
+	valid_objective: 1.79682695866
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.454189747572
+	valid_y_mean_max_class: 0.219812005758
+	valid_y_min_max_class: 0.136845305562
+	valid_y_misclass: 0.484975963831
+	valid_y_nll: 1.79682695866
+	valid_y_row_norms_max: 2.20918917656
+	valid_y_row_norms_mean: 1.91100335121
+	valid_y_row_norms_min: 1.11076533794
+Time this epoch: 0:02:38.219669
+Saving to pkl/multicolumn_2COL_ZCA_TOR.pkl...
+Saving to pkl/multicolumn_2COL_ZCA_TOR.pkl done. Time elapsed: 3.934027 seconds
+Monitoring step:
+	Epochs seen: 10
+	Batches seen: 3120
+	Examples seen: 399360
+	learning_rate: 0.0960400551558
+	momentum: 0.503614068031
+	test_avg_max_x.max_u: 0.994244933128
+	test_avg_max_x.mean_u: 0.534699618816
+	test_avg_max_x.min_u: 0.309397131205
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.00157716253307
+	test_avg_min_x.mean_u: 3.21544794133e-05
+	test_avg_min_x.min_u: 1.54320566742e-11
+	test_avg_range_x.max_u: 0.994244515896
+	test_avg_range_x.mean_u: 0.534667432308
+	test_avg_range_x.min_u: 0.309154331684
+	test_objective: 1.7999856472
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.452438831329
+	test_y_mean_max_class: 0.222212716937
+	test_y_min_max_class: 0.136656358838
+	test_y_misclass: 0.481570541859
+	test_y_nll: 1.7999856472
+	test_y_row_norms_max: 2.20575928688
+	test_y_row_norms_mean: 1.91151428223
+	test_y_row_norms_min: 1.1181936264
+	total_seconds_last_epoch: 162.154067993
+	train_avg_max_x.max_u: 0.995287835598
+	train_avg_max_x.mean_u: 0.537277460098
+	train_avg_max_x.min_u: 0.312398016453
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.00135885144118
+	train_avg_min_x.mean_u: 2.81808479485e-05
+	train_avg_min_x.min_u: 1.35958883041e-11
+	train_avg_range_x.max_u: 0.995287060738
+	train_avg_range_x.mean_u: 0.537248969078
+	train_avg_range_x.min_u: 0.312100946903
+	train_objective: 1.76406860352
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.445476710796
+	train_y_mean_max_class: 0.223170235753
+	train_y_min_max_class: 0.136854380369
+	train_y_misclass: 0.447365731001
+	train_y_nll: 1.76406860352
+	train_y_row_norms_max: 2.20575857162
+	train_y_row_norms_mean: 1.91151285172
+	train_y_row_norms_min: 1.11819493771
+	training_seconds_this_epoch: 158.219680786
+	valid_avg_max_x.max_u: 0.994962096214
+	valid_avg_max_x.mean_u: 0.533341467381
+	valid_avg_max_x.min_u: 0.311296522617
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00161506445147
+	valid_avg_min_x.mean_u: 3.25209512084e-05
+	valid_avg_min_x.min_u: 1.78367893372e-11
+	valid_avg_range_x.max_u: 0.994961798191
+	valid_avg_range_x.mean_u: 0.533309042454
+	valid_avg_range_x.min_u: 0.311047017574
+	valid_objective: 1.79766714573
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.453931063414
+	valid_y_mean_max_class: 0.222207948565
+	valid_y_min_max_class: 0.137015238404
+	valid_y_misclass: 0.485977619886
+	valid_y_nll: 1.79766714573
+	valid_y_row_norms_max: 2.20575928688
+	valid_y_row_norms_mean: 1.91151428223
+	valid_y_row_norms_min: 1.1181936264
+Time this epoch: 0:02:39.561956
+Monitoring step:
+	Epochs seen: 11
+	Batches seen: 3432
+	Examples seen: 439296
+	learning_rate: 0.095643915236
+	momentum: 0.504015803337
+	test_avg_max_x.max_u: 0.994244933128
+	test_avg_max_x.mean_u: 0.534699618816
+	test_avg_max_x.min_u: 0.309397131205
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.00157716253307
+	test_avg_min_x.mean_u: 3.21544794133e-05
+	test_avg_min_x.min_u: 1.54320566742e-11
+	test_avg_range_x.max_u: 0.994244515896
+	test_avg_range_x.mean_u: 0.534667432308
+	test_avg_range_x.min_u: 0.309154331684
+	test_objective: 1.79978656769
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649888039
+	test_y_max_max_class: 0.445894092321
+	test_y_mean_max_class: 0.220482334495
+	test_y_min_max_class: 0.136745736003
+	test_y_misclass: 0.47976770997
+	test_y_nll: 1.79978656769
+	test_y_row_norms_max: 2.19800567627
+	test_y_row_norms_mean: 1.91168963909
+	test_y_row_norms_min: 1.12222516537
+	total_seconds_last_epoch: 159.562194824
+	train_avg_max_x.max_u: 0.995287835598
+	train_avg_max_x.mean_u: 0.537277460098
+	train_avg_max_x.min_u: 0.312398016453
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.00135885144118
+	train_avg_min_x.mean_u: 2.81808479485e-05
+	train_avg_min_x.min_u: 1.35958883041e-11
+	train_avg_range_x.max_u: 0.995287060738
+	train_avg_range_x.mean_u: 0.537248969078
+	train_avg_range_x.min_u: 0.312100946903
+	train_objective: 1.76404476166
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.93650436401
+	train_y_max_max_class: 0.438108772039
+	train_y_mean_max_class: 0.221619352698
+	train_y_min_max_class: 0.136522114277
+	train_y_misclass: 0.445988357067
+	train_y_nll: 1.76404476166
+	train_y_row_norms_max: 2.1980073452
+	train_y_row_norms_mean: 1.91169607639
+	train_y_row_norms_min: 1.1222294569
+	training_seconds_this_epoch: 159.562103271
+	valid_avg_max_x.max_u: 0.994962096214
+	valid_avg_max_x.mean_u: 0.533341467381
+	valid_avg_max_x.min_u: 0.311296522617
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00161506445147
+	valid_avg_min_x.mean_u: 3.25209512084e-05
+	valid_avg_min_x.min_u: 1.78367893372e-11
+	valid_avg_range_x.max_u: 0.994961798191
+	valid_avg_range_x.mean_u: 0.533309042454
+	valid_avg_range_x.min_u: 0.311047017574
+	valid_objective: 1.79735338688
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649888039
+	valid_y_max_max_class: 0.448047608137
+	valid_y_mean_max_class: 0.220472291112
+	valid_y_min_max_class: 0.137360587716
+	valid_y_misclass: 0.484475165606
+	valid_y_nll: 1.79735338688
+	valid_y_row_norms_max: 2.19800567627
+	valid_y_row_norms_mean: 1.91168963909
+	valid_y_row_norms_min: 1.12222516537
+Time this epoch: 0:02:38.230097
+Monitoring step:
+	Epochs seen: 12
+	Batches seen: 3744
+	Examples seen: 479232
+	learning_rate: 0.0952479764819
+	momentum: 0.504417777061
+	test_avg_max_x.max_u: 0.994244933128
+	test_avg_max_x.mean_u: 0.534699618816
+	test_avg_max_x.min_u: 0.309397131205
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.00157716253307
+	test_avg_min_x.mean_u: 3.21544794133e-05
+	test_avg_min_x.min_u: 1.54320566742e-11
+	test_avg_range_x.max_u: 0.994244515896
+	test_avg_range_x.mean_u: 0.534667432308
+	test_avg_range_x.min_u: 0.309154331684
+	test_objective: 1.79968822002
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.452446550131
+	test_y_mean_max_class: 0.220645055175
+	test_y_min_max_class: 0.136414334178
+	test_y_misclass: 0.481069713831
+	test_y_nll: 1.79968822002
+	test_y_row_norms_max: 2.20680832863
+	test_y_row_norms_mean: 1.91174674034
+	test_y_row_norms_min: 1.12383270264
+	total_seconds_last_epoch: 158.230377197
+	train_avg_max_x.max_u: 0.995287835598
+	train_avg_max_x.mean_u: 0.537277460098
+	train_avg_max_x.min_u: 0.312398016453
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.00135885144118
+	train_avg_min_x.mean_u: 2.81808479485e-05
+	train_avg_min_x.min_u: 1.35958883041e-11
+	train_avg_range_x.max_u: 0.995287060738
+	train_avg_range_x.mean_u: 0.537248969078
+	train_avg_range_x.min_u: 0.312100946903
+	train_objective: 1.76387619972
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.445333361626
+	train_y_mean_max_class: 0.221727594733
+	train_y_min_max_class: 0.136686444283
+	train_y_misclass: 0.446063429117
+	train_y_nll: 1.76387619972
+	train_y_row_norms_max: 2.20680189133
+	train_y_row_norms_mean: 1.91174328327
+	train_y_row_norms_min: 1.12383270264
+	training_seconds_this_epoch: 158.230285645
+	valid_avg_max_x.max_u: 0.994962096214
+	valid_avg_max_x.mean_u: 0.533341467381
+	valid_avg_max_x.min_u: 0.311296522617
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00161506445147
+	valid_avg_min_x.mean_u: 3.25209512084e-05
+	valid_avg_min_x.min_u: 1.78367893372e-11
+	valid_avg_range_x.max_u: 0.994961798191
+	valid_avg_range_x.mean_u: 0.533309042454
+	valid_avg_range_x.min_u: 0.311047017574
+	valid_objective: 1.79732131958
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.452588140965
+	valid_y_mean_max_class: 0.220661237836
+	valid_y_min_max_class: 0.137210413814
+	valid_y_misclass: 0.485176324844
+	valid_y_nll: 1.79732131958
+	valid_y_row_norms_max: 2.20680832863
+	valid_y_row_norms_mean: 1.91174674034
+	valid_y_row_norms_min: 1.12383270264
+Time this epoch: 0:02:38.235340
+Monitoring step:
+	Epochs seen: 13
+	Batches seen: 4056
+	Examples seen: 519168
+	learning_rate: 0.094852052629
+	momentum: 0.504819512367
+	test_avg_max_x.max_u: 0.994244933128
+	test_avg_max_x.mean_u: 0.534699618816
+	test_avg_max_x.min_u: 0.309397131205
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.00157716253307
+	test_avg_min_x.mean_u: 3.21544794133e-05
+	test_avg_min_x.min_u: 1.54320566742e-11
+	test_avg_range_x.max_u: 0.994244515896
+	test_avg_range_x.mean_u: 0.534667432308
+	test_avg_range_x.min_u: 0.309154331684
+	test_objective: 1.79957818985
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.451785266399
+	test_y_mean_max_class: 0.220276013017
+	test_y_min_max_class: 0.136768698692
+	test_y_misclass: 0.480969548225
+	test_y_nll: 1.79957818985
+	test_y_row_norms_max: 2.20331072807
+	test_y_row_norms_mean: 1.91184020042
+	test_y_row_norms_min: 1.12652385235
+	total_seconds_last_epoch: 158.235534668
+	train_avg_max_x.max_u: 0.995287835598
+	train_avg_max_x.mean_u: 0.537277460098
+	train_avg_max_x.min_u: 0.312398016453
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.00135885144118
+	train_avg_min_x.mean_u: 2.81808479485e-05
+	train_avg_min_x.min_u: 1.35958883041e-11
+	train_avg_range_x.max_u: 0.995287060738
+	train_avg_range_x.mean_u: 0.537248969078
+	train_avg_range_x.min_u: 0.312100946903
+	train_objective: 1.76379394531
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.443697273731
+	train_y_mean_max_class: 0.221413984895
+	train_y_min_max_class: 0.136663883924
+	train_y_misclass: 0.446013271809
+	train_y_nll: 1.76379394531
+	train_y_row_norms_max: 2.20330524445
+	train_y_row_norms_mean: 1.91184520721
+	train_y_row_norms_min: 1.12652397156
+	training_seconds_this_epoch: 158.23526001
+	valid_avg_max_x.max_u: 0.994962096214
+	valid_avg_max_x.mean_u: 0.533341467381
+	valid_avg_max_x.min_u: 0.311296522617
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.099999986589
+	valid_avg_min_x.max_u: 0.00161506445147
+	valid_avg_min_x.mean_u: 3.25209512084e-05
+	valid_avg_min_x.min_u: 1.78367893372e-11
+	valid_avg_range_x.max_u: 0.994961798191
+	valid_avg_range_x.mean_u: 0.533309042454
+	valid_avg_range_x.min_u: 0.311047017574
+	valid_objective: 1.79721689224
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.45238801837
+	valid_y_mean_max_class: 0.22030171752
+	valid_y_min_max_class: 0.137076884508
+	valid_y_misclass: 0.484575271606
+	valid_y_nll: 1.79721689224
+	valid_y_row_norms_max: 2.20331072807
+	valid_y_row_norms_mean: 1.91184020042
+	valid_y_row_norms_min: 1.12652385235
+Time this epoch: 0:01:34.974745
+Saving to pkl/multicolumn_2COL_ZCA_TOR.pkl...
+Saving to pkl/multicolumn_2COL_ZCA_TOR.pkl done. Time elapsed: 3.926386 seconds
+#####################################################
+ TRAIN 2 COL GCN ZCA
+loading..  test
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading..  train
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading..  valid
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+Parameter and initial learning rate summary:
+	softmax_b: 0.10000000149
+	softmax_W: 0.10000000149
+Compiling sgd_update...
+Compiling sgd_update done. Time elapsed: 11.385412 seconds
+compiling begin_record_entry...
+compiling begin_record_entry done. Time elapsed: 0.178591 seconds
+Monitored channels: 
+	learning_rate
+	momentum
+	test_avg_max_x.max_u
+	test_avg_max_x.mean_u
+	test_avg_max_x.min_u
+	test_avg_mean_x.max_u
+	test_avg_mean_x.mean_u
+	test_avg_mean_x.min_u
+	test_avg_min_x.max_u
+	test_avg_min_x.mean_u
+	test_avg_min_x.min_u
+	test_avg_range_x.max_u
+	test_avg_range_x.mean_u
+	test_avg_range_x.min_u
+	test_objective
+	test_y_col_norms_max
+	test_y_col_norms_mean
+	test_y_col_norms_min
+	test_y_max_max_class
+	test_y_mean_max_class
+	test_y_min_max_class
+	test_y_misclass
+	test_y_nll
+	test_y_row_norms_max
+	test_y_row_norms_mean
+	test_y_row_norms_min
+	total_seconds_last_epoch
+	train_avg_max_x.max_u
+	train_avg_max_x.mean_u
+	train_avg_max_x.min_u
+	train_avg_mean_x.max_u
+	train_avg_mean_x.mean_u
+	train_avg_mean_x.min_u
+	train_avg_min_x.max_u
+	train_avg_min_x.mean_u
+	train_avg_min_x.min_u
+	train_avg_range_x.max_u
+	train_avg_range_x.mean_u
+	train_avg_range_x.min_u
+	train_objective
+	train_y_col_norms_max
+	train_y_col_norms_mean
+	train_y_col_norms_min
+	train_y_max_max_class
+	train_y_mean_max_class
+	train_y_min_max_class
+	train_y_misclass
+	train_y_nll
+	train_y_row_norms_max
+	train_y_row_norms_mean
+	train_y_row_norms_min
+	training_seconds_this_epoch
+	valid_avg_max_x.max_u
+	valid_avg_max_x.mean_u
+	valid_avg_max_x.min_u
+	valid_avg_mean_x.max_u
+	valid_avg_mean_x.mean_u
+	valid_avg_mean_x.min_u
+	valid_avg_min_x.max_u
+	valid_avg_min_x.mean_u
+	valid_avg_min_x.min_u
+	valid_avg_range_x.max_u
+	valid_avg_range_x.mean_u
+	valid_avg_range_x.min_u
+	valid_objective
+	valid_y_col_norms_max
+	valid_y_col_norms_mean
+	valid_y_col_norms_min
+	valid_y_max_max_class
+	valid_y_mean_max_class
+	valid_y_min_max_class
+	valid_y_misclass
+	valid_y_nll
+	valid_y_row_norms_max
+	valid_y_row_norms_mean
+	valid_y_row_norms_min
+Compiling accum...
+graph size: 200
+graph size: 196
+graph size: 196
+Compiling accum done. Time elapsed: 5.731590 seconds
+Monitoring step:
+	Epochs seen: 0
+	Batches seen: 0
+	Examples seen: 0
+	learning_rate: 0.10000000149
+	momentum: 0.500000536442
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.888933539391
+	test_avg_max_x.min_u: 0.361955225468
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.00120181567036
+	test_avg_min_x.mean_u: 1.76424437086e-05
+	test_avg_min_x.min_u: 8.14667768709e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.88891595602
+	test_avg_range_x.min_u: 0.361727565527
+	test_objective: 2.30317997932
+	test_y_col_norms_max: 0.0113889230415
+	test_y_col_norms_mean: 0.00943499617279
+	test_y_col_norms_min: 0.00825979188085
+	test_y_max_max_class: 0.100619539618
+	test_y_mean_max_class: 0.100392654538
+	test_y_min_max_class: 0.100134924054
+	test_y_misclass: 0.910657048225
+	test_y_nll: 2.30317997932
+	test_y_row_norms_max: 0.0116075035185
+	test_y_row_norms_mean: 0.00942762289196
+	test_y_row_norms_min: 0.00818183738738
+	total_seconds_last_epoch: 0.0
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.985184431076
+	train_avg_max_x.min_u: 0.64835703373
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000300219573546
+	train_avg_min_x.mean_u: 3.91918820242e-06
+	train_avg_min_x.min_u: 7.01951919821e-18
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.985180497169
+	train_avg_range_x.min_u: 0.648277580738
+	train_objective: 2.30335998535
+	train_y_col_norms_max: 0.0113889696077
+	train_y_col_norms_mean: 0.00943499151617
+	train_y_col_norms_min: 0.00825981143862
+	train_y_max_max_class: 0.100619509816
+	train_y_mean_max_class: 0.100424043834
+	train_y_min_max_class: 0.100222922862
+	train_y_misclass: 0.899188697338
+	train_y_nll: 2.30335998535
+	train_y_row_norms_max: 0.0116075044498
+	train_y_row_norms_mean: 0.00942762754858
+	train_y_row_norms_min: 0.00818183179945
+	training_seconds_this_epoch: 0.0
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.901596903801
+	valid_avg_max_x.min_u: 0.415572851896
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000468751502922
+	valid_avg_min_x.mean_u: 6.48953346172e-06
+	valid_avg_min_x.min_u: 5.38834177773e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.90159034729
+	valid_avg_range_x.min_u: 0.415489643812
+	valid_objective: 2.30327177048
+	valid_y_col_norms_max: 0.0113889230415
+	valid_y_col_norms_mean: 0.00943499617279
+	valid_y_col_norms_min: 0.00825979188085
+	valid_y_max_max_class: 0.100619539618
+	valid_y_mean_max_class: 0.100397154689
+	valid_y_min_max_class: 0.100147508085
+	valid_y_misclass: 0.914162755013
+	valid_y_nll: 2.30327177048
+	valid_y_row_norms_max: 0.0116075035185
+	valid_y_row_norms_mean: 0.00942762289196
+	valid_y_row_norms_min: 0.00818183738738
+Time this epoch: 0:02:50.014260
+Monitoring step:
+	Epochs seen: 1
+	Batches seen: 312
+	Examples seen: 39936
+	learning_rate: 0.099604062736
+	momentum: 0.500000536442
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.888933539391
+	test_avg_max_x.min_u: 0.361955225468
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.00120181567036
+	test_avg_min_x.mean_u: 1.76424437086e-05
+	test_avg_min_x.min_u: 8.14667768709e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.88891595602
+	test_avg_range_x.min_u: 0.361727565527
+	test_objective: 1.07690441608
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649888039
+	test_y_max_max_class: 0.471139103174
+	test_y_mean_max_class: 0.403429448605
+	test_y_min_max_class: 0.16411203146
+	test_y_misclass: 0.142728388309
+	test_y_nll: 1.07690441608
+	test_y_row_norms_max: 1.94484674931
+	test_y_row_norms_mean: 1.9364964962
+	test_y_row_norms_min: 1.93056476116
+	total_seconds_last_epoch: 170.014434814
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.985184431076
+	train_avg_max_x.min_u: 0.64835703373
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000300219573546
+	train_avg_min_x.mean_u: 3.91918820242e-06
+	train_avg_min_x.min_u: 7.01951919821e-18
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.985180497169
+	train_avg_range_x.min_u: 0.648277580738
+	train_objective: 0.794505357742
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.93650436401
+	train_y_max_max_class: 0.471137434244
+	train_y_mean_max_class: 0.452900737524
+	train_y_min_max_class: 0.277275979519
+	train_y_misclass: 0.000250400655204
+	train_y_nll: 0.794505357742
+	train_y_row_norms_max: 1.94483995438
+	train_y_row_norms_mean: 1.93649888039
+	train_y_row_norms_min: 1.93056261539
+	training_seconds_this_epoch: 170.014343262
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.901596903801
+	valid_avg_max_x.min_u: 0.415572851896
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000468751502922
+	valid_avg_min_x.mean_u: 6.48953346172e-06
+	valid_avg_min_x.min_u: 5.38834177773e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.90159034729
+	valid_avg_range_x.min_u: 0.415489643812
+	valid_objective: 0.944809436798
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649888039
+	valid_y_max_max_class: 0.471139103174
+	valid_y_mean_max_class: 0.409934520721
+	valid_y_min_max_class: 0.18176086247
+	valid_y_misclass: 0.0643028914928
+	valid_y_nll: 0.944809436798
+	valid_y_row_norms_max: 1.94484674931
+	valid_y_row_norms_mean: 1.9364964962
+	valid_y_row_norms_min: 1.93056476116
+Time this epoch: 0:02:42.458606
+Monitoring step:
+	Epochs seen: 2
+	Batches seen: 624
+	Examples seen: 79872
+	learning_rate: 0.0992079377174
+	momentum: 0.500401437283
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.888933539391
+	test_avg_max_x.min_u: 0.361955225468
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.00120181567036
+	test_avg_min_x.mean_u: 1.76424437086e-05
+	test_avg_min_x.min_u: 8.14667768709e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.88891595602
+	test_avg_range_x.min_u: 0.361727565527
+	test_objective: 1.07679021358
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.471845895052
+	test_y_mean_max_class: 0.403382897377
+	test_y_min_max_class: 0.165004983544
+	test_y_misclass: 0.144831731915
+	test_y_nll: 1.07679021358
+	test_y_row_norms_max: 1.94144546986
+	test_y_row_norms_mean: 1.93649744987
+	test_y_row_norms_min: 1.93298399448
+	total_seconds_last_epoch: 162.458770752
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.985184431076
+	train_avg_max_x.min_u: 0.64835703373
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000300219573546
+	train_avg_min_x.mean_u: 3.91918820242e-06
+	train_avg_min_x.min_u: 7.01951919821e-18
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.985180497169
+	train_avg_range_x.min_u: 0.648277580738
+	train_objective: 0.794411420822
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.472492069006
+	train_y_mean_max_class: 0.452879607677
+	train_y_min_max_class: 0.279998660088
+	train_y_misclass: 0.000275440717814
+	train_y_nll: 0.794411420822
+	train_y_row_norms_max: 1.94145095348
+	train_y_row_norms_mean: 1.93650400639
+	train_y_row_norms_min: 1.93298053741
+	training_seconds_this_epoch: 162.458679199
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.901596903801
+	valid_avg_max_x.min_u: 0.415572851896
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000468751502922
+	valid_avg_min_x.mean_u: 6.48953346172e-06
+	valid_avg_min_x.min_u: 5.38834177773e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.90159034729
+	valid_avg_range_x.min_u: 0.415489643812
+	valid_objective: 0.944636166096
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.472177952528
+	valid_y_mean_max_class: 0.409909963608
+	valid_y_min_max_class: 0.182517170906
+	valid_y_misclass: 0.0689102560282
+	valid_y_nll: 0.944636166096
+	valid_y_row_norms_max: 1.94144546986
+	valid_y_row_norms_mean: 1.93649744987
+	valid_y_row_norms_min: 1.93298399448
+Time this epoch: 0:02:38.290262
+Monitoring step:
+	Epochs seen: 3
+	Batches seen: 936
+	Examples seen: 119808
+	learning_rate: 0.0988120883703
+	momentum: 0.500803172588
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.888933539391
+	test_avg_max_x.min_u: 0.361955225468
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.00120181567036
+	test_avg_min_x.mean_u: 1.76424437086e-05
+	test_avg_min_x.min_u: 8.14667768709e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.88891595602
+	test_avg_range_x.min_u: 0.361727565527
+	test_objective: 1.07685995102
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.464105576277
+	test_y_mean_max_class: 0.403531491756
+	test_y_min_max_class: 0.164885342121
+	test_y_misclass: 0.14513219893
+	test_y_nll: 1.07685995102
+	test_y_row_norms_max: 1.94078171253
+	test_y_row_norms_mean: 1.93649709225
+	test_y_row_norms_min: 1.92994916439
+	total_seconds_last_epoch: 158.290390015
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.985184431076
+	train_avg_max_x.min_u: 0.64835703373
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000300219573546
+	train_avg_min_x.mean_u: 3.91918820242e-06
+	train_avg_min_x.min_u: 7.01951919821e-18
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.985180497169
+	train_avg_range_x.min_u: 0.648277580738
+	train_objective: 0.794343829155
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.464105308056
+	train_y_mean_max_class: 0.452935248613
+	train_y_min_max_class: 0.277908980846
+	train_y_misclass: 0.000250400655204
+	train_y_nll: 0.794343829155
+	train_y_row_norms_max: 1.94078302383
+	train_y_row_norms_mean: 1.93650388718
+	train_y_row_norms_min: 1.92995262146
+	training_seconds_this_epoch: 158.290283203
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.901596903801
+	valid_avg_max_x.min_u: 0.415572851896
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000468751502922
+	valid_avg_min_x.mean_u: 6.48953346172e-06
+	valid_avg_min_x.min_u: 5.38834177773e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.90159034729
+	valid_avg_range_x.min_u: 0.415489643812
+	valid_objective: 0.944735884666
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.464105665684
+	valid_y_mean_max_class: 0.410004556179
+	valid_y_min_max_class: 0.18165448308
+	valid_y_misclass: 0.0704126656055
+	valid_y_nll: 0.944735884666
+	valid_y_row_norms_max: 1.94078171253
+	valid_y_row_norms_mean: 1.93649709225
+	valid_y_row_norms_min: 1.92994916439
+Time this epoch: 0:02:38.286744
+Monitoring step:
+	Epochs seen: 4
+	Batches seen: 1248
+	Examples seen: 159744
+	learning_rate: 0.098415941
+	momentum: 0.501205146313
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.888933539391
+	test_avg_max_x.min_u: 0.361955225468
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.00120181567036
+	test_avg_min_x.mean_u: 1.76424437086e-05
+	test_avg_min_x.min_u: 8.14667768709e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.88891595602
+	test_avg_range_x.min_u: 0.361727565527
+	test_objective: 1.07704246044
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.468041151762
+	test_y_mean_max_class: 0.403656423092
+	test_y_min_max_class: 0.165170431137
+	test_y_misclass: 0.145833313465
+	test_y_nll: 1.07704246044
+	test_y_row_norms_max: 1.94057655334
+	test_y_row_norms_mean: 1.93649685383
+	test_y_row_norms_min: 1.92865824699
+	total_seconds_last_epoch: 158.286819458
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.985184431076
+	train_avg_max_x.min_u: 0.64835703373
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000300219573546
+	train_avg_min_x.mean_u: 3.91918820242e-06
+	train_avg_min_x.min_u: 7.01951919821e-18
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.985180497169
+	train_avg_range_x.min_u: 0.648277580738
+	train_objective: 0.794387280941
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.4681404531
+	train_y_mean_max_class: 0.452925682068
+	train_y_min_max_class: 0.277839899063
+	train_y_misclass: 0.000275440717814
+	train_y_nll: 0.794387280941
+	train_y_row_norms_max: 1.94056928158
+	train_y_row_norms_mean: 1.9364989996
+	train_y_row_norms_min: 1.9286583662
+	training_seconds_this_epoch: 158.286727905
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.901596903801
+	valid_avg_max_x.min_u: 0.415572851896
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000468751502922
+	valid_avg_min_x.mean_u: 6.48953346172e-06
+	valid_avg_min_x.min_u: 5.38834177773e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.90159034729
+	valid_avg_range_x.min_u: 0.415489643812
+	valid_objective: 0.944798767567
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.468145787716
+	valid_y_mean_max_class: 0.410085082054
+	valid_y_min_max_class: 0.181554824114
+	valid_y_misclass: 0.0703125074506
+	valid_y_nll: 0.944798767567
+	valid_y_row_norms_max: 1.94057655334
+	valid_y_row_norms_mean: 1.93649685383
+	valid_y_row_norms_min: 1.92865824699
+Time this epoch: 0:02:38.299206
+Saving to pkl/multicolumn_2COL_GCN_ZCA.pkl...
+Saving to pkl/multicolumn_2COL_GCN_ZCA.pkl done. Time elapsed: 3.922114 seconds
+Monitoring step:
+	Epochs seen: 5
+	Batches seen: 1560
+	Examples seen: 199680
+	learning_rate: 0.0980200245976
+	momentum: 0.501606822014
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.888933539391
+	test_avg_max_x.min_u: 0.361955225468
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.00120181567036
+	test_avg_min_x.mean_u: 1.76424437086e-05
+	test_avg_min_x.min_u: 8.14667768709e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.88891595602
+	test_avg_range_x.min_u: 0.361727565527
+	test_objective: 1.07673728466
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.471137046814
+	test_y_mean_max_class: 0.403352290392
+	test_y_min_max_class: 0.164956003428
+	test_y_misclass: 0.144330948591
+	test_y_nll: 1.07673728466
+	test_y_row_norms_max: 1.94297552109
+	test_y_row_norms_mean: 1.93649709225
+	test_y_row_norms_min: 1.93172633648
+	total_seconds_last_epoch: 162.221832275
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.985184431076
+	train_avg_max_x.min_u: 0.64835703373
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000300219573546
+	train_avg_min_x.mean_u: 3.91918820242e-06
+	train_avg_min_x.min_u: 7.01951919821e-18
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.985180497169
+	train_avg_range_x.min_u: 0.648277580738
+	train_objective: 0.794390380383
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.471140950918
+	train_y_mean_max_class: 0.452904552221
+	train_y_min_max_class: 0.27894705534
+	train_y_misclass: 0.000225360578042
+	train_y_nll: 0.794390380383
+	train_y_row_norms_max: 1.94297730923
+	train_y_row_norms_mean: 1.93650388718
+	train_y_row_norms_min: 1.93171775341
+	training_seconds_this_epoch: 158.299316406
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.901596903801
+	valid_avg_max_x.min_u: 0.415572851896
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000468751502922
+	valid_avg_min_x.mean_u: 6.48953346172e-06
+	valid_avg_min_x.min_u: 5.38834177773e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.90159034729
+	valid_avg_range_x.min_u: 0.415489643812
+	valid_objective: 0.944764018059
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.471123933792
+	valid_y_mean_max_class: 0.409885048866
+	valid_y_min_max_class: 0.181953623891
+	valid_y_misclass: 0.0689102634788
+	valid_y_nll: 0.944764018059
+	valid_y_row_norms_max: 1.94297552109
+	valid_y_row_norms_mean: 1.93649709225
+	valid_y_row_norms_min: 1.93172633648
+Time this epoch: 0:02:39.308750
+Monitoring step:
+	Epochs seen: 6
+	Batches seen: 1872
+	Examples seen: 239616
+	learning_rate: 0.0976240932941
+	momentum: 0.502007722855
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.888933539391
+	test_avg_max_x.min_u: 0.361955225468
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.00120181567036
+	test_avg_min_x.mean_u: 1.76424437086e-05
+	test_avg_min_x.min_u: 8.14667768709e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.88891595602
+	test_avg_range_x.min_u: 0.361727565527
+	test_objective: 1.07659590244
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.476363152266
+	test_y_mean_max_class: 0.403156250715
+	test_y_min_max_class: 0.164505675435
+	test_y_misclass: 0.143529638648
+	test_y_nll: 1.07659590244
+	test_y_row_norms_max: 1.94022536278
+	test_y_row_norms_mean: 1.93649721146
+	test_y_row_norms_min: 1.93173384666
+	total_seconds_last_epoch: 159.308822632
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.985184431076
+	train_avg_max_x.min_u: 0.64835703373
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000300219573546
+	train_avg_min_x.mean_u: 3.91918820242e-06
+	train_avg_min_x.min_u: 7.01951919821e-18
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.985180497169
+	train_avg_range_x.min_u: 0.648277580738
+	train_objective: 0.794431447983
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.477100521326
+	train_y_mean_max_class: 0.452856898308
+	train_y_min_max_class: 0.280743002892
+	train_y_misclass: 0.000225360578042
+	train_y_nll: 0.794431447983
+	train_y_row_norms_max: 1.94022548199
+	train_y_row_norms_mean: 1.93650388718
+	train_y_row_norms_min: 1.93173766136
+	training_seconds_this_epoch: 159.308731079
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.901596903801
+	valid_avg_max_x.min_u: 0.415572851896
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000468751502922
+	valid_avg_min_x.mean_u: 6.48953346172e-06
+	valid_avg_min_x.min_u: 5.38834177773e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.90159034729
+	valid_avg_range_x.min_u: 0.415489643812
+	valid_objective: 0.944580793381
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.476732075214
+	valid_y_mean_max_class: 0.409759640694
+	valid_y_min_max_class: 0.183071479201
+	valid_y_misclass: 0.0662059485912
+	valid_y_nll: 0.944580793381
+	valid_y_row_norms_max: 1.94022536278
+	valid_y_row_norms_mean: 1.93649721146
+	valid_y_row_norms_min: 1.93173384666
+Time this epoch: 0:02:38.266780
+Monitoring step:
+	Epochs seen: 7
+	Batches seen: 2184
+	Examples seen: 279552
+	learning_rate: 0.0972279459238
+	momentum: 0.50240945816
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.888933539391
+	test_avg_max_x.min_u: 0.361955225468
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.00120181567036
+	test_avg_min_x.mean_u: 1.76424437086e-05
+	test_avg_min_x.min_u: 8.14667768709e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.88891595602
+	test_avg_range_x.min_u: 0.361727565527
+	test_objective: 1.07684719563
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.466463088989
+	test_y_mean_max_class: 0.403483271599
+	test_y_min_max_class: 0.165378287435
+	test_y_misclass: 0.144431084394
+	test_y_nll: 1.07684719563
+	test_y_row_norms_max: 1.9397418499
+	test_y_row_norms_mean: 1.93649709225
+	test_y_row_norms_min: 1.92926979065
+	total_seconds_last_epoch: 158.266937256
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.985184431076
+	train_avg_max_x.min_u: 0.64835703373
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000300219573546
+	train_avg_min_x.mean_u: 3.91918820242e-06
+	train_avg_min_x.min_u: 7.01951919821e-18
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.985180497169
+	train_avg_range_x.min_u: 0.648277580738
+	train_objective: 0.794337689877
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.466522425413
+	train_y_mean_max_class: 0.452934116125
+	train_y_min_max_class: 0.278200089931
+	train_y_misclass: 0.000275440717814
+	train_y_nll: 0.794337689877
+	train_y_row_norms_max: 1.93974196911
+	train_y_row_norms_mean: 1.93650388718
+	train_y_row_norms_min: 1.92926263809
+	training_seconds_this_epoch: 158.266830444
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.901596903801
+	valid_avg_max_x.min_u: 0.415572851896
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000468751502922
+	valid_avg_min_x.mean_u: 6.48953346172e-06
+	valid_avg_min_x.min_u: 5.38834177773e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.90159034729
+	valid_avg_range_x.min_u: 0.415489643812
+	valid_objective: 0.944758534431
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.466527819633
+	valid_y_mean_max_class: 0.409899204969
+	valid_y_min_max_class: 0.181870877743
+	valid_y_misclass: 0.067708350718
+	valid_y_nll: 0.944758534431
+	valid_y_row_norms_max: 1.9397418499
+	valid_y_row_norms_mean: 1.93649709225
+	valid_y_row_norms_min: 1.92926979065
+Time this epoch: 0:02:38.273603
+Monitoring step:
+	Epochs seen: 8
+	Batches seen: 2496
+	Examples seen: 319488
+	learning_rate: 0.0968320295215
+	momentum: 0.502811491489
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.888933539391
+	test_avg_max_x.min_u: 0.361955225468
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.00120181567036
+	test_avg_min_x.mean_u: 1.76424437086e-05
+	test_avg_min_x.min_u: 8.14667768709e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.88891595602
+	test_avg_range_x.min_u: 0.361727565527
+	test_objective: 1.07686567307
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.468114554882
+	test_y_mean_max_class: 0.403356403112
+	test_y_min_max_class: 0.165824070573
+	test_y_misclass: 0.144431084394
+	test_y_nll: 1.07686567307
+	test_y_row_norms_max: 1.94271993637
+	test_y_row_norms_mean: 1.9364964962
+	test_y_row_norms_min: 1.93090128899
+	total_seconds_last_epoch: 158.273727417
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.985184431076
+	train_avg_max_x.min_u: 0.64835703373
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000300219573546
+	train_avg_min_x.mean_u: 3.91918820242e-06
+	train_avg_min_x.min_u: 7.01951919821e-18
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.985180497169
+	train_avg_range_x.min_u: 0.648277580738
+	train_objective: 0.794440984726
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.468115657568
+	train_y_mean_max_class: 0.452906519175
+	train_y_min_max_class: 0.278640002012
+	train_y_misclass: 0.000250400655204
+	train_y_nll: 0.794440984726
+	train_y_row_norms_max: 1.94271814823
+	train_y_row_norms_mean: 1.93649888039
+	train_y_row_norms_min: 1.93089783192
+	training_seconds_this_epoch: 158.273620605
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.901596903801
+	valid_avg_max_x.min_u: 0.415572851896
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000468751502922
+	valid_avg_min_x.mean_u: 6.48953346172e-06
+	valid_avg_min_x.min_u: 5.38834177773e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.90159034729
+	valid_avg_range_x.min_u: 0.415489643812
+	valid_objective: 0.944916546345
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.468101501465
+	valid_y_mean_max_class: 0.409760653973
+	valid_y_min_max_class: 0.182182520628
+	valid_y_misclass: 0.0671073868871
+	valid_y_nll: 0.944916546345
+	valid_y_row_norms_max: 1.94271993637
+	valid_y_row_norms_mean: 1.9364964962
+	valid_y_row_norms_min: 1.93090128899
+Time this epoch: 0:02:38.297516
+Monitoring step:
+	Epochs seen: 9
+	Batches seen: 2808
+	Examples seen: 359424
+	learning_rate: 0.0964359715581
+	momentum: 0.503213226795
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.888933539391
+	test_avg_max_x.min_u: 0.361955225468
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.00120181567036
+	test_avg_min_x.mean_u: 1.76424437086e-05
+	test_avg_min_x.min_u: 8.14667768709e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.88891595602
+	test_avg_range_x.min_u: 0.361727565527
+	test_objective: 1.07677078247
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.465061366558
+	test_y_mean_max_class: 0.403502225876
+	test_y_min_max_class: 0.164695486426
+	test_y_misclass: 0.144130602479
+	test_y_nll: 1.07677078247
+	test_y_row_norms_max: 1.94035339355
+	test_y_row_norms_mean: 1.93649744987
+	test_y_row_norms_min: 1.93089699745
+	total_seconds_last_epoch: 158.297775269
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.985184431076
+	train_avg_max_x.min_u: 0.64835703373
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000300219573546
+	train_avg_min_x.mean_u: 3.91918820242e-06
+	train_avg_min_x.min_u: 7.01951919821e-18
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.985180497169
+	train_avg_range_x.min_u: 0.648277580738
+	train_objective: 0.794317364693
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.465324729681
+	train_y_mean_max_class: 0.452936023474
+	train_y_min_max_class: 0.278166294098
+	train_y_misclass: 0.000250400655204
+	train_y_nll: 0.794317364693
+	train_y_row_norms_max: 1.94034612179
+	train_y_row_norms_mean: 1.93650400639
+	train_y_row_norms_min: 1.93089187145
+	training_seconds_this_epoch: 158.297515869
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.901596903801
+	valid_avg_max_x.min_u: 0.415572851896
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000468751502922
+	valid_avg_min_x.mean_u: 6.48953346172e-06
+	valid_avg_min_x.min_u: 5.38834177773e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.90159034729
+	valid_avg_range_x.min_u: 0.415489643812
+	valid_objective: 0.944640636444
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.46517637372
+	valid_y_mean_max_class: 0.409985750914
+	valid_y_min_max_class: 0.181766167283
+	valid_y_misclass: 0.0687099397182
+	valid_y_nll: 0.944640636444
+	valid_y_row_norms_max: 1.94035339355
+	valid_y_row_norms_mean: 1.93649744987
+	valid_y_row_norms_min: 1.93089699745
+Time this epoch: 0:02:38.277854
+Saving to pkl/multicolumn_2COL_GCN_ZCA.pkl...
+Saving to pkl/multicolumn_2COL_GCN_ZCA.pkl done. Time elapsed: 3.927138 seconds
+Monitoring step:
+	Epochs seen: 10
+	Batches seen: 3120
+	Examples seen: 399360
+	learning_rate: 0.0960400551558
+	momentum: 0.503614068031
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.888933539391
+	test_avg_max_x.min_u: 0.361955225468
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.00120181567036
+	test_avg_min_x.mean_u: 1.76424437086e-05
+	test_avg_min_x.min_u: 8.14667768709e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.88891595602
+	test_avg_range_x.min_u: 0.361727565527
+	test_objective: 1.07698154449
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.467629253864
+	test_y_mean_max_class: 0.403560698032
+	test_y_min_max_class: 0.164267927408
+	test_y_misclass: 0.144130632281
+	test_y_nll: 1.07698154449
+	test_y_row_norms_max: 1.94262433052
+	test_y_row_norms_mean: 1.93649506569
+	test_y_row_norms_min: 1.92847061157
+	total_seconds_last_epoch: 162.205505371
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.985184431076
+	train_avg_max_x.min_u: 0.64835703373
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000300219573546
+	train_avg_min_x.mean_u: 3.91918820242e-06
+	train_avg_min_x.min_u: 7.01951919821e-18
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.985180497169
+	train_avg_range_x.min_u: 0.648277580738
+	train_objective: 0.794461905956
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.467637479305
+	train_y_mean_max_class: 0.452937662601
+	train_y_min_max_class: 0.275955319405
+	train_y_misclass: 0.000250400655204
+	train_y_nll: 0.794461905956
+	train_y_row_norms_max: 1.94261550903
+	train_y_row_norms_mean: 1.93649852276
+	train_y_row_norms_min: 1.92847204208
+	training_seconds_this_epoch: 158.277923584
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.901596903801
+	valid_avg_max_x.min_u: 0.415572851896
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000468751502922
+	valid_avg_min_x.mean_u: 6.48953346172e-06
+	valid_avg_min_x.min_u: 5.38834177773e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.90159034729
+	valid_avg_range_x.min_u: 0.415489643812
+	valid_objective: 0.944908380508
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.467637121677
+	valid_y_mean_max_class: 0.409995734692
+	valid_y_min_max_class: 0.180870607495
+	valid_y_misclass: 0.0658053010702
+	valid_y_nll: 0.944908380508
+	valid_y_row_norms_max: 1.94262433052
+	valid_y_row_norms_mean: 1.93649506569
+	valid_y_row_norms_min: 1.92847061157
+Time this epoch: 0:02:38.713826
+Monitoring step:
+	Epochs seen: 11
+	Batches seen: 3432
+	Examples seen: 439296
+	learning_rate: 0.095643915236
+	momentum: 0.504015803337
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.888933539391
+	test_avg_max_x.min_u: 0.361955225468
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.00120181567036
+	test_avg_min_x.mean_u: 1.76424437086e-05
+	test_avg_min_x.min_u: 8.14667768709e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.88891595602
+	test_avg_range_x.min_u: 0.361727565527
+	test_objective: 1.07697999477
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.472364157438
+	test_y_mean_max_class: 0.403399974108
+	test_y_min_max_class: 0.165690854192
+	test_y_misclass: 0.144431099296
+	test_y_nll: 1.07697999477
+	test_y_row_norms_max: 1.94625067711
+	test_y_row_norms_mean: 1.9364964962
+	test_y_row_norms_min: 1.93263757229
+	total_seconds_last_epoch: 158.713989258
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.985184431076
+	train_avg_max_x.min_u: 0.64835703373
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000300219573546
+	train_avg_min_x.mean_u: 3.91918820242e-06
+	train_avg_min_x.min_u: 7.01951919821e-18
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.985180497169
+	train_avg_range_x.min_u: 0.648277580738
+	train_objective: 0.79446542263
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.472364157438
+	train_y_mean_max_class: 0.452887624502
+	train_y_min_max_class: 0.279061436653
+	train_y_misclass: 0.000275440717814
+	train_y_nll: 0.79446542263
+	train_y_row_norms_max: 1.94625079632
+	train_y_row_norms_mean: 1.93649888039
+	train_y_row_norms_min: 1.93263792992
+	training_seconds_this_epoch: 158.713729858
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.901596903801
+	valid_avg_max_x.min_u: 0.415572851896
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000468751502922
+	valid_avg_min_x.mean_u: 6.48953346172e-06
+	valid_avg_min_x.min_u: 5.38834177773e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.90159034729
+	valid_avg_range_x.min_u: 0.415489643812
+	valid_objective: 0.944920063019
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.472364157438
+	valid_y_mean_max_class: 0.409794598818
+	valid_y_min_max_class: 0.182357043028
+	valid_y_misclass: 0.0664062649012
+	valid_y_nll: 0.944920063019
+	valid_y_row_norms_max: 1.94625067711
+	valid_y_row_norms_mean: 1.9364964962
+	valid_y_row_norms_min: 1.93263757229
+Time this epoch: 0:02:38.273364
+Monitoring step:
+	Epochs seen: 12
+	Batches seen: 3744
+	Examples seen: 479232
+	learning_rate: 0.0952479764819
+	momentum: 0.504417777061
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.888933539391
+	test_avg_max_x.min_u: 0.361955225468
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.00120181567036
+	test_avg_min_x.mean_u: 1.76424437086e-05
+	test_avg_min_x.min_u: 8.14667768709e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.88891595602
+	test_avg_range_x.min_u: 0.361727565527
+	test_objective: 1.07677066326
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.467564225197
+	test_y_mean_max_class: 0.403408080339
+	test_y_min_max_class: 0.164515927434
+	test_y_misclass: 0.143830135465
+	test_y_nll: 1.07677066326
+	test_y_row_norms_max: 1.94039297104
+	test_y_row_norms_mean: 1.93649697304
+	test_y_row_norms_min: 1.93109405041
+	total_seconds_last_epoch: 158.273620605
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.985184431076
+	train_avg_max_x.min_u: 0.64835703373
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000300219573546
+	train_avg_min_x.mean_u: 3.91918820242e-06
+	train_avg_min_x.min_u: 7.01951919821e-18
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.985180497169
+	train_avg_range_x.min_u: 0.648277580738
+	train_objective: 0.794374704361
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.467693924904
+	train_y_mean_max_class: 0.452927142382
+	train_y_min_max_class: 0.277785003185
+	train_y_misclass: 0.000225360578042
+	train_y_nll: 0.794374704361
+	train_y_row_norms_max: 1.94038391113
+	train_y_row_norms_mean: 1.93650388718
+	train_y_row_norms_min: 1.93108546734
+	training_seconds_this_epoch: 158.273284912
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.901596903801
+	valid_avg_max_x.min_u: 0.415572851896
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000468751502922
+	valid_avg_min_x.mean_u: 6.48953346172e-06
+	valid_avg_min_x.min_u: 5.38834177773e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.90159034729
+	valid_avg_range_x.min_u: 0.415489643812
+	valid_objective: 0.944743931293
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.467622846365
+	valid_y_mean_max_class: 0.409902215004
+	valid_y_min_max_class: 0.181865364313
+	valid_y_misclass: 0.0651041790843
+	valid_y_nll: 0.944743931293
+	valid_y_row_norms_max: 1.94039297104
+	valid_y_row_norms_mean: 1.93649697304
+	valid_y_row_norms_min: 1.93109405041
+Time this epoch: 0:02:38.298198
+Monitoring step:
+	Epochs seen: 13
+	Batches seen: 4056
+	Examples seen: 519168
+	learning_rate: 0.094852052629
+	momentum: 0.504819512367
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.888933539391
+	test_avg_max_x.min_u: 0.361955225468
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.099999986589
+	test_avg_min_x.max_u: 0.00120181567036
+	test_avg_min_x.mean_u: 1.76424437086e-05
+	test_avg_min_x.min_u: 8.14667768709e-18
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.88891595602
+	test_avg_range_x.min_u: 0.361727565527
+	test_objective: 1.0767275095
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.467025160789
+	test_y_mean_max_class: 0.403396010399
+	test_y_min_max_class: 0.165112927556
+	test_y_misclass: 0.142828553915
+	test_y_nll: 1.0767275095
+	test_y_row_norms_max: 1.94053983688
+	test_y_row_norms_mean: 1.93649685383
+	test_y_row_norms_min: 1.93072223663
+	total_seconds_last_epoch: 158.298278809
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.985184431076
+	train_avg_max_x.min_u: 0.64835703373
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000300219573546
+	train_avg_min_x.mean_u: 3.91918820242e-06
+	train_avg_min_x.min_u: 7.01951919821e-18
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.985180497169
+	train_avg_range_x.min_u: 0.648277580738
+	train_objective: 0.7943546772
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.46702721715
+	train_y_mean_max_class: 0.452941447496
+	train_y_min_max_class: 0.277627229691
+	train_y_misclass: 0.000250400655204
+	train_y_nll: 0.7943546772
+	train_y_row_norms_max: 1.94053220749
+	train_y_row_norms_mean: 1.9364989996
+	train_y_row_norms_min: 1.93071365356
+	training_seconds_this_epoch: 158.298233032
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.901596903801
+	valid_avg_max_x.min_u: 0.415572851896
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000468751502922
+	valid_avg_min_x.mean_u: 6.48953346172e-06
+	valid_avg_min_x.min_u: 5.38834177773e-18
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.90159034729
+	valid_avg_range_x.min_u: 0.415489643812
+	valid_objective: 0.944770812988
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.467022150755
+	valid_y_mean_max_class: 0.409868866205
+	valid_y_min_max_class: 0.182091012597
+	valid_y_misclass: 0.0665064305067
+	valid_y_nll: 0.944770812988
+	valid_y_row_norms_max: 1.94053983688
+	valid_y_row_norms_mean: 1.93649685383
+	valid_y_row_norms_min: 1.93072223663
+Time this epoch: 0:01:35.241995
+Saving to pkl/multicolumn_2COL_GCN_ZCA.pkl...
+Saving to pkl/multicolumn_2COL_GCN_ZCA.pkl done. Time elapsed: 3.930570 seconds
+#####################################################
+ TRAIN 3 COL ALL
+loading..  test
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading..  train
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading..  valid
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_1
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_2
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_3
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_4
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/data_batch_5
+loading file /home/hunter/P2_DATASET/cifar10/cifar-10-batches-py/test_batch
+Parameter and initial learning rate summary:
+	softmax_b: 0.10000000149
+	softmax_W: 0.10000000149
+Compiling sgd_update...
+Compiling sgd_update done. Time elapsed: 19.592600 seconds
+compiling begin_record_entry...
+compiling begin_record_entry done. Time elapsed: 0.185248 seconds
+Monitored channels: 
+	learning_rate
+	momentum
+	test_avg_max_x.max_u
+	test_avg_max_x.mean_u
+	test_avg_max_x.min_u
+	test_avg_mean_x.max_u
+	test_avg_mean_x.mean_u
+	test_avg_mean_x.min_u
+	test_avg_min_x.max_u
+	test_avg_min_x.mean_u
+	test_avg_min_x.min_u
+	test_avg_range_x.max_u
+	test_avg_range_x.mean_u
+	test_avg_range_x.min_u
+	test_objective
+	test_y_col_norms_max
+	test_y_col_norms_mean
+	test_y_col_norms_min
+	test_y_max_max_class
+	test_y_mean_max_class
+	test_y_min_max_class
+	test_y_misclass
+	test_y_nll
+	test_y_row_norms_max
+	test_y_row_norms_mean
+	test_y_row_norms_min
+	total_seconds_last_epoch
+	train_avg_max_x.max_u
+	train_avg_max_x.mean_u
+	train_avg_max_x.min_u
+	train_avg_mean_x.max_u
+	train_avg_mean_x.mean_u
+	train_avg_mean_x.min_u
+	train_avg_min_x.max_u
+	train_avg_min_x.mean_u
+	train_avg_min_x.min_u
+	train_avg_range_x.max_u
+	train_avg_range_x.mean_u
+	train_avg_range_x.min_u
+	train_objective
+	train_y_col_norms_max
+	train_y_col_norms_mean
+	train_y_col_norms_min
+	train_y_max_max_class
+	train_y_mean_max_class
+	train_y_min_max_class
+	train_y_misclass
+	train_y_nll
+	train_y_row_norms_max
+	train_y_row_norms_mean
+	train_y_row_norms_min
+	training_seconds_this_epoch
+	valid_avg_max_x.max_u
+	valid_avg_max_x.mean_u
+	valid_avg_max_x.min_u
+	valid_avg_mean_x.max_u
+	valid_avg_mean_x.mean_u
+	valid_avg_mean_x.min_u
+	valid_avg_min_x.max_u
+	valid_avg_min_x.mean_u
+	valid_avg_min_x.min_u
+	valid_avg_range_x.max_u
+	valid_avg_range_x.mean_u
+	valid_avg_range_x.min_u
+	valid_objective
+	valid_y_col_norms_max
+	valid_y_col_norms_mean
+	valid_y_col_norms_min
+	valid_y_max_max_class
+	valid_y_mean_max_class
+	valid_y_min_max_class
+	valid_y_misclass
+	valid_y_nll
+	valid_y_row_norms_max
+	valid_y_row_norms_mean
+	valid_y_row_norms_min
+Compiling accum...
+graph size: 244
+graph size: 240
+graph size: 240
+Compiling accum done. Time elapsed: 7.680564 seconds
+Monitoring step:
+	Epochs seen: 0
+	Batches seen: 0
+	Examples seen: 0
+	learning_rate: 0.10000000149
+	momentum: 0.500000536442
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.873918712139
+	test_avg_max_x.min_u: 0.331397414207
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.0013320967555
+	test_avg_min_x.mean_u: 2.31822414207e-05
+	test_avg_min_x.min_u: 1.53984620876e-16
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.873895585537
+	test_avg_range_x.min_u: 0.331070303917
+	test_objective: 2.30315566063
+	test_y_col_norms_max: 0.0113889230415
+	test_y_col_norms_mean: 0.00943499617279
+	test_y_col_norms_min: 0.00825979188085
+	test_y_max_max_class: 0.100619539618
+	test_y_mean_max_class: 0.100385144353
+	test_y_min_max_class: 0.100126199424
+	test_y_misclass: 0.910857439041
+	test_y_nll: 2.30315566063
+	test_y_row_norms_max: 0.0116075035185
+	test_y_row_norms_mean: 0.00942762289196
+	test_y_row_norms_min: 0.00818183738738
+	total_seconds_last_epoch: 0.0
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.981908738613
+	train_avg_max_x.min_u: 0.665374100208
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000289135059575
+	train_avg_min_x.mean_u: 4.41762540504e-06
+	train_avg_min_x.min_u: 1.66858092306e-16
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.981904268265
+	train_avg_range_x.min_u: 0.665309786797
+	train_objective: 2.30335259438
+	train_y_col_norms_max: 0.0113889696077
+	train_y_col_norms_mean: 0.00943499151617
+	train_y_col_norms_min: 0.00825981143862
+	train_y_max_max_class: 0.100619509816
+	train_y_mean_max_class: 0.100422888994
+	train_y_min_max_class: 0.100228004158
+	train_y_misclass: 0.899088561535
+	train_y_nll: 2.30335259438
+	train_y_row_norms_max: 0.0116075044498
+	train_y_row_norms_mean: 0.00942762754858
+	train_y_row_norms_min: 0.00818183179945
+	training_seconds_this_epoch: 0.0
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.882823348045
+	valid_avg_max_x.min_u: 0.351008623838
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000729035877157
+	valid_avg_min_x.mean_u: 1.23880745377e-05
+	valid_avg_min_x.min_u: 2.83540520385e-16
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.882811069489
+	valid_avg_range_x.min_u: 0.350823670626
+	valid_objective: 2.30321383476
+	valid_y_col_norms_max: 0.0113889230415
+	valid_y_col_norms_mean: 0.00943499617279
+	valid_y_col_norms_min: 0.00825979188085
+	valid_y_max_max_class: 0.100619539618
+	valid_y_mean_max_class: 0.1003883183
+	valid_y_min_max_class: 0.100133612752
+	valid_y_misclass: 0.913661777973
+	valid_y_nll: 2.30321383476
+	valid_y_row_norms_max: 0.0116075035185
+	valid_y_row_norms_mean: 0.00942762289196
+	valid_y_row_norms_min: 0.00818183738738
+Time this epoch: 0:04:13.934558
+Monitoring step:
+	Epochs seen: 1
+	Batches seen: 312
+	Examples seen: 39936
+	learning_rate: 0.099604062736
+	momentum: 0.500000536442
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.873918712139
+	test_avg_max_x.min_u: 0.331397414207
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.0013320967555
+	test_avg_min_x.mean_u: 2.31822414207e-05
+	test_avg_min_x.min_u: 1.53984620876e-16
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.873895585537
+	test_avg_range_x.min_u: 0.331070303917
+	test_objective: 1.09249198437
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.472083300352
+	test_y_mean_max_class: 0.395711511374
+	test_y_min_max_class: 0.155559778214
+	test_y_misclass: 0.14703528583
+	test_y_nll: 1.09249198437
+	test_y_row_norms_max: 1.94510912895
+	test_y_row_norms_mean: 1.9364964962
+	test_y_row_norms_min: 1.93096637726
+	total_seconds_last_epoch: 253.934646606
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.981908738613
+	train_avg_max_x.min_u: 0.665374100208
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000289135059575
+	train_avg_min_x.mean_u: 4.41762540504e-06
+	train_avg_min_x.min_u: 1.66858092306e-16
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.981904268265
+	train_avg_range_x.min_u: 0.665309786797
+	train_objective: 0.798694610596
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.472209513187
+	train_y_mean_max_class: 0.451049566269
+	train_y_min_max_class: 0.286227673292
+	train_y_misclass: 0.000500801310409
+	train_y_nll: 0.798694610596
+	train_y_row_norms_max: 1.94510555267
+	train_y_row_norms_mean: 1.93649888039
+	train_y_row_norms_min: 1.93096494675
+	training_seconds_this_epoch: 253.934448242
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.882823348045
+	valid_avg_max_x.min_u: 0.351008623838
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000729035877157
+	valid_avg_min_x.mean_u: 1.23880745377e-05
+	valid_avg_min_x.min_u: 2.83540520385e-16
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.882811069489
+	valid_avg_range_x.min_u: 0.350823670626
+	valid_objective: 1.00197660923
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.472159802914
+	valid_y_mean_max_class: 0.400174558163
+	valid_y_min_max_class: 0.160259902477
+	valid_y_misclass: 0.102664299309
+	valid_y_nll: 1.00197660923
+	valid_y_row_norms_max: 1.94510912895
+	valid_y_row_norms_mean: 1.9364964962
+	valid_y_row_norms_min: 1.93096637726
+Time this epoch: 0:04:06.059758
+Monitoring step:
+	Epochs seen: 2
+	Batches seen: 624
+	Examples seen: 79872
+	learning_rate: 0.0992079377174
+	momentum: 0.500401437283
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.873918712139
+	test_avg_max_x.min_u: 0.331397414207
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.0013320967555
+	test_avg_min_x.mean_u: 2.31822414207e-05
+	test_avg_min_x.min_u: 1.53984620876e-16
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.873895585537
+	test_avg_range_x.min_u: 0.331070303917
+	test_objective: 1.09241425991
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.470400303602
+	test_y_mean_max_class: 0.395683735609
+	test_y_min_max_class: 0.155943512917
+	test_y_misclass: 0.147035300732
+	test_y_nll: 1.09241425991
+	test_y_row_norms_max: 1.9410340786
+	test_y_row_norms_mean: 1.93649744987
+	test_y_row_norms_min: 1.93297278881
+	total_seconds_last_epoch: 246.060089111
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.981908738613
+	train_avg_max_x.min_u: 0.665374100208
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000289135059575
+	train_avg_min_x.mean_u: 4.41762540504e-06
+	train_avg_min_x.min_u: 1.66858092306e-16
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.981904268265
+	train_avg_range_x.min_u: 0.665309786797
+	train_objective: 0.798598587513
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.471110552549
+	train_y_mean_max_class: 0.451037108898
+	train_y_min_max_class: 0.287681370974
+	train_y_misclass: 0.000450721156085
+	train_y_nll: 0.798598587513
+	train_y_row_norms_max: 1.94103658199
+	train_y_row_norms_mean: 1.93650400639
+	train_y_row_norms_min: 1.93297278881
+	training_seconds_this_epoch: 246.059906006
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.882823348045
+	valid_avg_max_x.min_u: 0.351008623838
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000729035877157
+	valid_avg_min_x.mean_u: 1.23880745377e-05
+	valid_avg_min_x.min_u: 2.83540520385e-16
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.882811069489
+	valid_avg_range_x.min_u: 0.350823670626
+	valid_objective: 1.00179123878
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.470622330904
+	valid_y_mean_max_class: 0.400232374668
+	valid_y_min_max_class: 0.160920128226
+	valid_y_misclass: 0.103665880859
+	valid_y_nll: 1.00179123878
+	valid_y_row_norms_max: 1.9410340786
+	valid_y_row_norms_mean: 1.93649744987
+	valid_y_row_norms_min: 1.93297278881
+Time this epoch: 0:03:59.610414
+Monitoring step:
+	Epochs seen: 3
+	Batches seen: 936
+	Examples seen: 119808
+	learning_rate: 0.0988120883703
+	momentum: 0.500803172588
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.873918712139
+	test_avg_max_x.min_u: 0.331397414207
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.0013320967555
+	test_avg_min_x.mean_u: 2.31822414207e-05
+	test_avg_min_x.min_u: 1.53984620876e-16
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.873895585537
+	test_avg_range_x.min_u: 0.331070303917
+	test_objective: 1.09248185158
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.464085459709
+	test_y_mean_max_class: 0.39584633708
+	test_y_min_max_class: 0.155341461301
+	test_y_misclass: 0.147435933352
+	test_y_nll: 1.09248185158
+	test_y_row_norms_max: 1.94076550007
+	test_y_row_norms_mean: 1.93649709225
+	test_y_row_norms_min: 1.93050825596
+	total_seconds_last_epoch: 239.610549927
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.981908738613
+	train_avg_max_x.min_u: 0.665374100208
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000289135059575
+	train_avg_min_x.mean_u: 4.41762540504e-06
+	train_avg_min_x.min_u: 1.66858092306e-16
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.981904268265
+	train_avg_range_x.min_u: 0.665309786797
+	train_objective: 0.798533201218
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.464086353779
+	train_y_mean_max_class: 0.45109629631
+	train_y_min_max_class: 0.28545153141
+	train_y_misclass: 0.000500801310409
+	train_y_nll: 0.798533201218
+	train_y_row_norms_max: 1.94077408314
+	train_y_row_norms_mean: 1.93650388718
+	train_y_row_norms_min: 1.93051075935
+	training_seconds_this_epoch: 239.61050415
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.882823348045
+	valid_avg_max_x.min_u: 0.351008623838
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000729035877157
+	valid_avg_min_x.mean_u: 1.23880745377e-05
+	valid_avg_min_x.min_u: 2.83540520385e-16
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.882811069489
+	valid_avg_range_x.min_u: 0.350823670626
+	valid_objective: 1.00191116333
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.464083909988
+	valid_y_mean_max_class: 0.400355309248
+	valid_y_min_max_class: 0.1607824862
+	valid_y_misclass: 0.103866226971
+	valid_y_nll: 1.00191116333
+	valid_y_row_norms_max: 1.94076550007
+	valid_y_row_norms_mean: 1.93649709225
+	valid_y_row_norms_min: 1.93050825596
+Time this epoch: 0:03:59.534831
+Monitoring step:
+	Epochs seen: 4
+	Batches seen: 1248
+	Examples seen: 159744
+	learning_rate: 0.098415941
+	momentum: 0.501205146313
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.873918712139
+	test_avg_max_x.min_u: 0.331397414207
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.0013320967555
+	test_avg_min_x.mean_u: 2.31822414207e-05
+	test_avg_min_x.min_u: 1.53984620876e-16
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.873895585537
+	test_avg_range_x.min_u: 0.331070303917
+	test_objective: 1.09260308743
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.46718031168
+	test_y_mean_max_class: 0.395929604769
+	test_y_min_max_class: 0.155327111483
+	test_y_misclass: 0.146634623408
+	test_y_nll: 1.09260308743
+	test_y_row_norms_max: 1.9405579567
+	test_y_row_norms_mean: 1.93649697304
+	test_y_row_norms_min: 1.92907881737
+	total_seconds_last_epoch: 239.535247803
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.981908738613
+	train_avg_max_x.min_u: 0.665374100208
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000289135059575
+	train_avg_min_x.mean_u: 4.41762540504e-06
+	train_avg_min_x.min_u: 1.66858092306e-16
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.981904268265
+	train_avg_range_x.min_u: 0.665309786797
+	train_objective: 0.798575103283
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.467257529497
+	train_y_mean_max_class: 0.451087266207
+	train_y_min_max_class: 0.285399466753
+	train_y_misclass: 0.000550881435629
+	train_y_nll: 0.798575103283
+	train_y_row_norms_max: 1.94055974483
+	train_y_row_norms_mean: 1.93650388718
+	train_y_row_norms_min: 1.9290753603
+	training_seconds_this_epoch: 239.53465271
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.882823348045
+	valid_avg_max_x.min_u: 0.351008623838
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000729035877157
+	valid_avg_min_x.mean_u: 1.23880745377e-05
+	valid_avg_min_x.min_u: 2.83540520385e-16
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.882811069489
+	valid_avg_range_x.min_u: 0.350823670626
+	valid_objective: 1.00193846226
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.467257648706
+	valid_y_mean_max_class: 0.400417923927
+	valid_y_min_max_class: 0.161057427526
+	valid_y_misclass: 0.104367025197
+	valid_y_nll: 1.00193846226
+	valid_y_row_norms_max: 1.9405579567
+	valid_y_row_norms_mean: 1.93649697304
+	valid_y_row_norms_min: 1.92907881737
+Time this epoch: 0:04:05.199046
+Saving to pkl/multicolumn_3COL.pkl...
+Saving to pkl/multicolumn_3COL.pkl done. Time elapsed: 8.690341 seconds
+Monitoring step:
+	Epochs seen: 5
+	Batches seen: 1560
+	Examples seen: 199680
+	learning_rate: 0.0980200245976
+	momentum: 0.501606822014
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.873918712139
+	test_avg_max_x.min_u: 0.331397414207
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.0013320967555
+	test_avg_min_x.mean_u: 2.31822414207e-05
+	test_avg_min_x.min_u: 1.53984620876e-16
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.873895585537
+	test_avg_range_x.min_u: 0.331070303917
+	test_objective: 1.09243404865
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.470448076725
+	test_y_mean_max_class: 0.395734935999
+	test_y_min_max_class: 0.155523687601
+	test_y_misclass: 0.147335767746
+	test_y_nll: 1.09243404865
+	test_y_row_norms_max: 1.94302666187
+	test_y_row_norms_mean: 1.93649709225
+	test_y_row_norms_min: 1.93209648132
+	total_seconds_last_epoch: 253.889480591
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.981908738613
+	train_avg_max_x.min_u: 0.665374100208
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000289135059575
+	train_avg_min_x.mean_u: 4.41762540504e-06
+	train_avg_min_x.min_u: 1.66858092306e-16
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.981904268265
+	train_avg_range_x.min_u: 0.665309786797
+	train_objective: 0.798581957817
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.4704862535
+	train_y_mean_max_class: 0.451074391603
+	train_y_min_max_class: 0.285693436861
+	train_y_misclass: 0.000500801310409
+	train_y_nll: 0.798581957817
+	train_y_row_norms_max: 1.94302284718
+	train_y_row_norms_mean: 1.93650388718
+	train_y_row_norms_min: 1.93208932877
+	training_seconds_this_epoch: 245.19934082
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.882823348045
+	valid_avg_max_x.min_u: 0.351008623838
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000729035877157
+	valid_avg_min_x.mean_u: 1.23880745377e-05
+	valid_avg_min_x.min_u: 2.83540520385e-16
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.882811069489
+	valid_avg_range_x.min_u: 0.350823670626
+	valid_objective: 1.00199401379
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.470446169376
+	valid_y_mean_max_class: 0.400245785713
+	valid_y_min_max_class: 0.160624459386
+	valid_y_misclass: 0.103966385126
+	valid_y_nll: 1.00199401379
+	valid_y_row_norms_max: 1.94302666187
+	valid_y_row_norms_mean: 1.93649709225
+	valid_y_row_norms_min: 1.93209648132
+Time this epoch: 0:03:57.065821
+Monitoring step:
+	Epochs seen: 6
+	Batches seen: 1872
+	Examples seen: 239616
+	learning_rate: 0.0976240932941
+	momentum: 0.502007722855
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.873918712139
+	test_avg_max_x.min_u: 0.331397414207
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.0013320967555
+	test_avg_min_x.mean_u: 2.31822414207e-05
+	test_avg_min_x.min_u: 1.53984620876e-16
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.873895585537
+	test_avg_range_x.min_u: 0.331070303917
+	test_objective: 1.09226405621
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.475054085255
+	test_y_mean_max_class: 0.395484954119
+	test_y_min_max_class: 0.15621714294
+	test_y_misclass: 0.146935120225
+	test_y_nll: 1.09226405621
+	test_y_row_norms_max: 1.93930315971
+	test_y_row_norms_mean: 1.93649744987
+	test_y_row_norms_min: 1.93178093433
+	total_seconds_last_epoch: 237.065933228
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.981908738613
+	train_avg_max_x.min_u: 0.665374100208
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000289135059575
+	train_avg_min_x.mean_u: 4.41762540504e-06
+	train_avg_min_x.min_u: 1.66858092306e-16
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.981904268265
+	train_avg_range_x.min_u: 0.665309786797
+	train_objective: 0.798625588417
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.476006299257
+	train_y_mean_max_class: 0.451011359692
+	train_y_min_max_class: 0.288413316011
+	train_y_misclass: 0.000500801310409
+	train_y_nll: 0.798625588417
+	train_y_row_norms_max: 1.93929767609
+	train_y_row_norms_mean: 1.93650400639
+	train_y_row_norms_min: 1.93178224564
+	training_seconds_this_epoch: 237.06590271
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.882823348045
+	valid_avg_max_x.min_u: 0.351008623838
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000729035877157
+	valid_avg_min_x.mean_u: 1.23880745377e-05
+	valid_avg_min_x.min_u: 2.83540520385e-16
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.882811069489
+	valid_avg_range_x.min_u: 0.350823670626
+	valid_objective: 1.00176465511
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.475336462259
+	valid_y_mean_max_class: 0.400062859058
+	valid_y_min_max_class: 0.161078199744
+	valid_y_misclass: 0.102764442563
+	valid_y_nll: 1.00176465511
+	valid_y_row_norms_max: 1.93930315971
+	valid_y_row_norms_mean: 1.93649744987
+	valid_y_row_norms_min: 1.93178093433
+Time this epoch: 0:03:57.015017
+Monitoring step:
+	Epochs seen: 7
+	Batches seen: 2184
+	Examples seen: 279552
+	learning_rate: 0.0972279459238
+	momentum: 0.50240945816
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.873918712139
+	test_avg_max_x.min_u: 0.331397414207
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.0013320967555
+	test_avg_min_x.mean_u: 2.31822414207e-05
+	test_avg_min_x.min_u: 1.53984620876e-16
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.873895585537
+	test_avg_range_x.min_u: 0.331070303917
+	test_objective: 1.09245312214
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.465661525726
+	test_y_mean_max_class: 0.395784348249
+	test_y_min_max_class: 0.155935823917
+	test_y_misclass: 0.14743591845
+	test_y_nll: 1.09245312214
+	test_y_row_norms_max: 1.93953943253
+	test_y_row_norms_mean: 1.93649721146
+	test_y_row_norms_min: 1.92970895767
+	total_seconds_last_epoch: 237.015045166
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.981908738613
+	train_avg_max_x.min_u: 0.665374100208
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000289135059575
+	train_avg_min_x.mean_u: 4.41762540504e-06
+	train_avg_min_x.min_u: 1.66858092306e-16
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.981904268265
+	train_avg_range_x.min_u: 0.665309786797
+	train_objective: 0.79852616787
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.465678423643
+	train_y_mean_max_class: 0.45108962059
+	train_y_min_max_class: 0.286058813334
+	train_y_misclass: 0.000525841373019
+	train_y_nll: 0.79852616787
+	train_y_row_norms_max: 1.93954706192
+	train_y_row_norms_mean: 1.93650388718
+	train_y_row_norms_min: 1.92970228195
+	training_seconds_this_epoch: 237.014816284
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.882823348045
+	valid_avg_max_x.min_u: 0.351008623838
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000729035877157
+	valid_avg_min_x.mean_u: 1.23880745377e-05
+	valid_avg_min_x.min_u: 2.83540520385e-16
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.882811069489
+	valid_avg_range_x.min_u: 0.350823670626
+	valid_objective: 1.00193428993
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.465671718121
+	valid_y_mean_max_class: 0.400223135948
+	valid_y_min_max_class: 0.161301627755
+	valid_y_misclass: 0.103766046464
+	valid_y_nll: 1.00193428993
+	valid_y_row_norms_max: 1.93953943253
+	valid_y_row_norms_mean: 1.93649721146
+	valid_y_row_norms_min: 1.92970895767
+Time this epoch: 0:03:57.001635
+Monitoring step:
+	Epochs seen: 8
+	Batches seen: 2496
+	Examples seen: 319488
+	learning_rate: 0.0968320295215
+	momentum: 0.502811491489
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.873918712139
+	test_avg_max_x.min_u: 0.331397414207
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.0013320967555
+	test_avg_min_x.mean_u: 2.31822414207e-05
+	test_avg_min_x.min_u: 1.53984620876e-16
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.873895585537
+	test_avg_range_x.min_u: 0.331070303917
+	test_objective: 1.09245502949
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649888039
+	test_y_max_max_class: 0.467421621084
+	test_y_mean_max_class: 0.395629644394
+	test_y_min_max_class: 0.156343191862
+	test_y_misclass: 0.147235587239
+	test_y_nll: 1.09245502949
+	test_y_row_norms_max: 1.942745924
+	test_y_row_norms_mean: 1.93649673462
+	test_y_row_norms_min: 1.93135452271
+	total_seconds_last_epoch: 237.001678467
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.981908738613
+	train_avg_max_x.min_u: 0.665374100208
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000289135059575
+	train_avg_min_x.mean_u: 4.41762540504e-06
+	train_avg_min_x.min_u: 1.66858092306e-16
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.981904268265
+	train_avg_range_x.min_u: 0.665309786797
+	train_objective: 0.798629581928
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.93650436401
+	train_y_max_max_class: 0.467419594526
+	train_y_mean_max_class: 0.451055765152
+	train_y_min_max_class: 0.286791265011
+	train_y_misclass: 0.000550881435629
+	train_y_nll: 0.798629581928
+	train_y_row_norms_max: 1.94275248051
+	train_y_row_norms_mean: 1.9364989996
+	train_y_row_norms_min: 1.93134593964
+	training_seconds_this_epoch: 237.00163269
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.882823348045
+	valid_avg_max_x.min_u: 0.351008623838
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000729035877157
+	valid_avg_min_x.mean_u: 1.23880745377e-05
+	valid_avg_min_x.min_u: 2.83540520385e-16
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.882811069489
+	valid_avg_range_x.min_u: 0.350823670626
+	valid_objective: 1.00208497047
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649888039
+	valid_y_max_max_class: 0.46742194891
+	valid_y_mean_max_class: 0.400048047304
+	valid_y_min_max_class: 0.161425277591
+	valid_y_misclass: 0.103465557098
+	valid_y_nll: 1.00208497047
+	valid_y_row_norms_max: 1.942745924
+	valid_y_row_norms_mean: 1.93649673462
+	valid_y_row_norms_min: 1.93135452271
+Time this epoch: 0:03:56.989481
+Monitoring step:
+	Epochs seen: 9
+	Batches seen: 2808
+	Examples seen: 359424
+	learning_rate: 0.0964359715581
+	momentum: 0.503213226795
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.873918712139
+	test_avg_max_x.min_u: 0.331397414207
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.0013320967555
+	test_avg_min_x.mean_u: 2.31822414207e-05
+	test_avg_min_x.min_u: 1.53984620876e-16
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.873895585537
+	test_avg_range_x.min_u: 0.331070303917
+	test_objective: 1.09238314629
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.464323222637
+	test_y_mean_max_class: 0.395818859339
+	test_y_min_max_class: 0.155498623848
+	test_y_misclass: 0.14723560214
+	test_y_nll: 1.09238314629
+	test_y_row_norms_max: 1.9403181076
+	test_y_row_norms_mean: 1.93649756908
+	test_y_row_norms_min: 1.93129730225
+	total_seconds_last_epoch: 236.989730835
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.981908738613
+	train_avg_max_x.min_u: 0.665374100208
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000289135059575
+	train_avg_min_x.mean_u: 4.41762540504e-06
+	train_avg_min_x.min_u: 1.66858092306e-16
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.981904268265
+	train_avg_range_x.min_u: 0.665309786797
+	train_objective: 0.798504769802
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.464375764132
+	train_y_mean_max_class: 0.451095879078
+	train_y_min_max_class: 0.285978466272
+	train_y_misclass: 0.000525841373019
+	train_y_nll: 0.798504769802
+	train_y_row_norms_max: 1.94030940533
+	train_y_row_norms_mean: 1.93650400639
+	train_y_row_norms_min: 1.93129873276
+	training_seconds_this_epoch: 236.9896698
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.882823348045
+	valid_avg_max_x.min_u: 0.351008623838
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000729035877157
+	valid_avg_min_x.mean_u: 1.23880745377e-05
+	valid_avg_min_x.min_u: 2.83540520385e-16
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.882811069489
+	valid_avg_range_x.min_u: 0.350823670626
+	valid_objective: 1.0018093586
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.464361965656
+	valid_y_mean_max_class: 0.400335729122
+	valid_y_min_max_class: 0.160569563508
+	valid_y_misclass: 0.103365421295
+	valid_y_nll: 1.0018093586
+	valid_y_row_norms_max: 1.9403181076
+	valid_y_row_norms_mean: 1.93649756908
+	valid_y_row_norms_min: 1.93129730225
+Time this epoch: 0:03:57.035397
+Saving to pkl/multicolumn_3COL.pkl...
+Saving to pkl/multicolumn_3COL.pkl done. Time elapsed: 6.851613 seconds
+Monitoring step:
+	Epochs seen: 10
+	Batches seen: 3120
+	Examples seen: 399360
+	learning_rate: 0.0960400551558
+	momentum: 0.503614068031
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.873918712139
+	test_avg_max_x.min_u: 0.331397414207
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.0013320967555
+	test_avg_min_x.mean_u: 2.31822414207e-05
+	test_avg_min_x.min_u: 1.53984620876e-16
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.873895585537
+	test_avg_range_x.min_u: 0.331070303917
+	test_objective: 1.09265315533
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.468737125397
+	test_y_mean_max_class: 0.395919203758
+	test_y_min_max_class: 0.15497405827
+	test_y_misclass: 0.148337393999
+	test_y_nll: 1.09265315533
+	test_y_row_norms_max: 1.94191086292
+	test_y_row_norms_mean: 1.9364951849
+	test_y_row_norms_min: 1.92891705036
+	total_seconds_last_epoch: 243.887161255
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.981908738613
+	train_avg_max_x.min_u: 0.665374100208
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000289135059575
+	train_avg_min_x.mean_u: 4.41762540504e-06
+	train_avg_min_x.min_u: 1.66858092306e-16
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.981904268265
+	train_avg_range_x.min_u: 0.665309786797
+	train_objective: 0.798647344112
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.468738794327
+	train_y_mean_max_class: 0.451096355915
+	train_y_min_max_class: 0.284433960915
+	train_y_misclass: 0.000550881435629
+	train_y_nll: 0.798647344112
+	train_y_row_norms_max: 1.94190704823
+	train_y_row_norms_mean: 1.93649864197
+	train_y_row_norms_min: 1.92891836166
+	training_seconds_this_epoch: 237.035232544
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.882823348045
+	valid_avg_max_x.min_u: 0.351008623838
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000729035877157
+	valid_avg_min_x.mean_u: 1.23880745377e-05
+	valid_avg_min_x.min_u: 2.83540520385e-16
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.882811069489
+	valid_avg_range_x.min_u: 0.350823670626
+	valid_objective: 1.00213813782
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.468734622002
+	valid_y_mean_max_class: 0.400304198265
+	valid_y_min_max_class: 0.159885630012
+	valid_y_misclass: 0.10286463052
+	valid_y_nll: 1.00213813782
+	valid_y_row_norms_max: 1.94191086292
+	valid_y_row_norms_mean: 1.9364951849
+	valid_y_row_norms_min: 1.92891705036
+Time this epoch: 0:03:57.107349
+Monitoring step:
+	Epochs seen: 11
+	Batches seen: 3432
+	Examples seen: 439296
+	learning_rate: 0.095643915236
+	momentum: 0.504015803337
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.873918712139
+	test_avg_max_x.min_u: 0.331397414207
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.0013320967555
+	test_avg_min_x.mean_u: 2.31822414207e-05
+	test_avg_min_x.min_u: 1.53984620876e-16
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.873895585537
+	test_avg_range_x.min_u: 0.331070303917
+	test_objective: 1.09255361557
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.473100423813
+	test_y_mean_max_class: 0.395678639412
+	test_y_min_max_class: 0.156467065215
+	test_y_misclass: 0.146734789014
+	test_y_nll: 1.09255361557
+	test_y_row_norms_max: 1.94626009464
+	test_y_row_norms_mean: 1.93649673462
+	test_y_row_norms_min: 1.93267595768
+	total_seconds_last_epoch: 237.107559204
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.981908738613
+	train_avg_max_x.min_u: 0.665374100208
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000289135059575
+	train_avg_min_x.mean_u: 4.41762540504e-06
+	train_avg_min_x.min_u: 1.66858092306e-16
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.981904268265
+	train_avg_range_x.min_u: 0.665309786797
+	train_objective: 0.798653721809
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.473098903894
+	train_y_mean_max_class: 0.451043337584
+	train_y_min_max_class: 0.286824941635
+	train_y_misclass: 0.000500801310409
+	train_y_nll: 0.798653721809
+	train_y_row_norms_max: 1.94625329971
+	train_y_row_norms_mean: 1.9364989996
+	train_y_row_norms_min: 1.93267560005
+	training_seconds_this_epoch: 237.107498169
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.882823348045
+	valid_avg_max_x.min_u: 0.351008623838
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000729035877157
+	valid_avg_min_x.mean_u: 1.23880745377e-05
+	valid_avg_min_x.min_u: 2.83540520385e-16
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.882811069489
+	valid_avg_range_x.min_u: 0.350823670626
+	valid_objective: 1.00208055973
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.473100781441
+	valid_y_mean_max_class: 0.400087893009
+	valid_y_min_max_class: 0.161267116666
+	valid_y_misclass: 0.102964781225
+	valid_y_nll: 1.00208055973
+	valid_y_row_norms_max: 1.94626009464
+	valid_y_row_norms_mean: 1.93649673462
+	valid_y_row_norms_min: 1.93267595768
+Time this epoch: 0:03:57.036203
+Monitoring step:
+	Epochs seen: 12
+	Batches seen: 3744
+	Examples seen: 479232
+	learning_rate: 0.0952479764819
+	momentum: 0.504417777061
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.873918712139
+	test_avg_max_x.min_u: 0.331397414207
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.0013320967555
+	test_avg_min_x.mean_u: 2.31822414207e-05
+	test_avg_min_x.min_u: 1.53984620876e-16
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.873895585537
+	test_avg_range_x.min_u: 0.331070303917
+	test_objective: 1.09245538712
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.46627163887
+	test_y_mean_max_class: 0.395775526762
+	test_y_min_max_class: 0.155473351479
+	test_y_misclass: 0.147536084056
+	test_y_nll: 1.09245538712
+	test_y_row_norms_max: 1.94063448906
+	test_y_row_norms_mean: 1.93649709225
+	test_y_row_norms_min: 1.93174779415
+	total_seconds_last_epoch: 237.036239624
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.981908738613
+	train_avg_max_x.min_u: 0.665374100208
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000289135059575
+	train_avg_min_x.mean_u: 4.41762540504e-06
+	train_avg_min_x.min_u: 1.66858092306e-16
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.981904268265
+	train_avg_range_x.min_u: 0.665309786797
+	train_objective: 0.798561215401
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.466373503208
+	train_y_mean_max_class: 0.451087743044
+	train_y_min_max_class: 0.285796135664
+	train_y_misclass: 0.000500801310409
+	train_y_nll: 0.798561215401
+	train_y_row_norms_max: 1.94063460827
+	train_y_row_norms_mean: 1.93650388718
+	train_y_row_norms_min: 1.93174612522
+	training_seconds_this_epoch: 237.036178589
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.882823348045
+	valid_avg_max_x.min_u: 0.351008623838
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000729035877157
+	valid_avg_min_x.mean_u: 1.23880745377e-05
+	valid_avg_min_x.min_u: 2.83540520385e-16
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.882811069489
+	valid_avg_range_x.min_u: 0.350823670626
+	valid_objective: 1.00196528435
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.46631398797
+	valid_y_mean_max_class: 0.40023753047
+	valid_y_min_max_class: 0.160386562347
+	valid_y_misclass: 0.10306494683
+	valid_y_nll: 1.00196528435
+	valid_y_row_norms_max: 1.94063448906
+	valid_y_row_norms_mean: 1.93649709225
+	valid_y_row_norms_min: 1.93174779415
+Time this epoch: 0:03:56.998716
+Monitoring step:
+	Epochs seen: 13
+	Batches seen: 4056
+	Examples seen: 519168
+	learning_rate: 0.094852052629
+	momentum: 0.504819512367
+	test_avg_max_x.max_u: 1.00000107288
+	test_avg_max_x.mean_u: 0.873918712139
+	test_avg_max_x.min_u: 0.331397414207
+	test_avg_mean_x.max_u: 0.10000000149
+	test_avg_mean_x.mean_u: 0.10000000149
+	test_avg_mean_x.min_u: 0.0999999940395
+	test_avg_min_x.max_u: 0.0013320967555
+	test_avg_min_x.mean_u: 2.31822414207e-05
+	test_avg_min_x.min_u: 1.53984620876e-16
+	test_avg_range_x.max_u: 1.00000107288
+	test_avg_range_x.mean_u: 0.873895585537
+	test_avg_range_x.min_u: 0.331070303917
+	test_objective: 1.09233307838
+	test_y_col_norms_max: 1.93649888039
+	test_y_col_norms_mean: 1.93649876118
+	test_y_col_norms_min: 1.93649876118
+	test_y_max_max_class: 0.466286718845
+	test_y_mean_max_class: 0.395680516958
+	test_y_min_max_class: 0.155849263072
+	test_y_misclass: 0.146935135126
+	test_y_nll: 1.09233307838
+	test_y_row_norms_max: 1.94056224823
+	test_y_row_norms_mean: 1.93649709225
+	test_y_row_norms_min: 1.93130099773
+	total_seconds_last_epoch: 236.999023438
+	train_avg_max_x.max_u: 0.999998509884
+	train_avg_max_x.mean_u: 0.981908738613
+	train_avg_max_x.min_u: 0.665374100208
+	train_avg_mean_x.max_u: 0.100000433624
+	train_avg_mean_x.mean_u: 0.100000433624
+	train_avg_mean_x.min_u: 0.0999995619059
+	train_avg_min_x.max_u: 0.000289135059575
+	train_avg_min_x.mean_u: 4.41762540504e-06
+	train_avg_min_x.min_u: 1.66858092306e-16
+	train_avg_range_x.max_u: 0.999998509884
+	train_avg_range_x.mean_u: 0.981904268265
+	train_avg_range_x.min_u: 0.665309786797
+	train_objective: 0.798543870449
+	train_y_col_norms_max: 1.93650436401
+	train_y_col_norms_mean: 1.9365042448
+	train_y_col_norms_min: 1.9365042448
+	train_y_max_max_class: 0.466319978237
+	train_y_mean_max_class: 0.451092302799
+	train_y_min_max_class: 0.286007225513
+	train_y_misclass: 0.000500801310409
+	train_y_nll: 0.798543870449
+	train_y_row_norms_max: 1.94056081772
+	train_y_row_norms_mean: 1.93650388718
+	train_y_row_norms_min: 1.93129968643
+	training_seconds_this_epoch: 236.998947144
+	valid_avg_max_x.max_u: 1.00000107288
+	valid_avg_max_x.mean_u: 0.882823348045
+	valid_avg_max_x.min_u: 0.351008623838
+	valid_avg_mean_x.max_u: 0.10000000149
+	valid_avg_mean_x.mean_u: 0.10000000149
+	valid_avg_mean_x.min_u: 0.0999999940395
+	valid_avg_min_x.max_u: 0.000729035877157
+	valid_avg_min_x.mean_u: 1.23880745377e-05
+	valid_avg_min_x.min_u: 2.83540520385e-16
+	valid_avg_range_x.max_u: 1.00000107288
+	valid_avg_range_x.mean_u: 0.882811069489
+	valid_avg_range_x.min_u: 0.350823670626
+	valid_objective: 1.00195109844
+	valid_y_col_norms_max: 1.93649888039
+	valid_y_col_norms_mean: 1.93649876118
+	valid_y_col_norms_min: 1.93649876118
+	valid_y_max_max_class: 0.466309756041
+	valid_y_mean_max_class: 0.400159090757
+	valid_y_min_max_class: 0.160600826144
+	valid_y_misclass: 0.103565730155
+	valid_y_nll: 1.00195109844
+	valid_y_row_norms_max: 1.94056224823
+	valid_y_row_norms_mean: 1.93649709225
+	valid_y_row_norms_min: 1.93130099773
+Time this epoch: 0:02:22.229636
+Saving to pkl/multicolumn_3COL.pkl...
+Saving to pkl/multicolumn_3COL.pkl done. Time elapsed: 7.604119 seconds
