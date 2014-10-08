@@ -90,16 +90,16 @@
             {
                 'train': *train,
 
-                'valid' : !obj:create_dataset.load_dataset {
-                            which_set: 'valid',
-                            dataset_types: ['gcn', 'toronto']
-
-                          },
-                'test'  : !obj:create_dataset.load_dataset {
-                            which_set: 'test',
-                            dataset_types: ['gcn', 'toronto']
-
-                          },
+#                'valid' : !obj:create_dataset.load_dataset {
+#                            which_set: 'valid',
+#                            dataset_types: ['gcn', 'toronto']
+#
+#                          },
+#                'test'  : !obj:create_dataset.load_dataset {
+#                            which_set: 'test',
+#                            dataset_types: ['gcn', 'toronto']
+#
+#                          },
             },
         termination_criterion: !obj:pylearn2.termination_criteria.EpochCounter {
             max_epochs: 30
