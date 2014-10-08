@@ -79,7 +79,7 @@ class PretrainedMLP(Layer):
     @wraps(Layer.fprop)
     def fprop(self, state_below):
         # get prediction
-        return self.layer_content.fprop(state_below) #self.layer_content.upward_pass(state_below)
+        return self.layer_content.layers[-2].fprop(state_below) #self.layer_content.upward_pass(state_below)
 
 
 class Average(Layer):
