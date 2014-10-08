@@ -11,6 +11,10 @@ from pylearn2.utils import serial
 
 
 def analysis():
+    """
+
+    :return:
+    """
 
     y_ground_truth = np.float64(np.genfromtxt('csv_prediction/prediction_ground_truth.csv', delimiter=','))
 
@@ -152,6 +156,11 @@ def get_mcdnn_predictions(model_pkl_url, dataset_list):
 
 
 def get_all_mcdnn_predictions():
+    """
+
+
+    :return:
+    """
 
     dataset_list = ['gcn', 'toronto']
     get_mcdnn_predictions('pkl/best/multicolumn_2COL_GCN_TOR_best.pkl', dataset_list)
