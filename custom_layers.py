@@ -96,7 +96,7 @@ class Average(Layer):
     def set_input_space(self, space):
         self.input_space = space
         assert isinstance(space, CompositeSpace)
-        print space
+        print "AAAAAAAAAAAAAAAAAAAAAAAAAA", space
         self.output_space = space.components[0]
 
     def fprop(self, state_below):
