@@ -70,7 +70,7 @@ class PretrainedMLP(Layer):
     @wraps(Layer.get_output_space)
     def get_output_space(self):
 
-        return self.layer_content.get_output_space()
+        return self.layer_content.layers[-2].get_output_space()
 
     @wraps(Layer.get_layer_monitoring_channels)
     def get_layer_monitoring_channels(self, state_below=None,
@@ -80,7 +80,7 @@ class PretrainedMLP(Layer):
     @wraps(Layer.fprop)
     def fprop(self, state_below):
         # get prediction
-        return self.layer_content.fprop(state_below) #self.layer_content.upward_pass(state_below)
+        return self.layer_content.layers[-2].fprop(state_below) #self.layer_content.upward_pass(state_below)
 
 
 class Average(Layer):
