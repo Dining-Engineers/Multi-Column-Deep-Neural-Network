@@ -99,7 +99,7 @@
         input_source: ['features0', 'features1', 'features2'],
     },
     algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
-        learning_rate: .1,
+        learning_rate: .06,
         learning_rule: !obj:pylearn2.training_algorithms.learning_rule.Momentum {
             init_momentum: .5,
         },
@@ -121,7 +121,7 @@
                           },
             },
         termination_criterion: !obj:pylearn2.termination_criteria.EpochCounter {
-            max_epochs: 30
+            max_epochs: 50
         },
     },
     extensions: [

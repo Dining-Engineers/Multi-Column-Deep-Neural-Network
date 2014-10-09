@@ -43,6 +43,9 @@ class PretrainedMLP(Layer):
         # # Y = model.fprop(X)
         # # self.pretrained_fprop = theano.function([X], Y)
         print self.layer_content.layers
+        # Remove last layer softmax
+        del self.layer_content.layers[-1]
+        print self.layer_content.layers
 
         del self.self
 
@@ -60,6 +63,8 @@ class PretrainedMLP(Layer):
 
         if self.freeze_params:
             return []
+        # print "BBBBBBB ", self.layer_content.get_params()[:-2]
+        # remove  softmax_b, softmax_W since we are not using it
         return self.layer_content.get_params()
 
     @wraps(Layer.get_input_space)
@@ -69,8 +74,10 @@ class PretrainedMLP(Layer):
 
     @wraps(Layer.get_output_space)
     def get_output_space(self):
+        # since we are excluding softmax layer ...
+        # return self.layer_content.layers[-2].get_output_space()
+        return self.layer_content.get_output_space()
 
-        return self.layer_content.layers[-2].get_output_space()
 
     @wraps(Layer.get_layer_monitoring_channels)
     def get_layer_monitoring_channels(self, state_below=None,
@@ -82,14 +89,13 @@ class PretrainedMLP(Layer):
         # get prediction
 
         # GET PREDICTION ON SECOND-LAST LAYER
-        for layer in self.layer_content.layers[:-1]:
-            state_below =layer.fprop(state_below)
-
-        return state_below
+        # for layer in self.layer_content.layers[:-1]:
+        #     state_below =layer.fprop(state_below)
+        # return state_below
 
         # USE THIS FOR LAST LAYER
         # return self.layer_content.layers[3].fprop(self.layer_content.layers[2].fprop(self.layer_content.layers[1].fprop(self.layer_content.layers[0].fprop(state_below)))) #self.layer_content.upward_pass(state_below)
-
+        return self.layer_content.fprop(state_below)
 
 class Average(Layer):
     """
@@ -105,7 +111,7 @@ class Average(Layer):
     def set_input_space(self, space):
         self.input_space = space
         assert isinstance(space, CompositeSpace)
-        print "AAAAAAAAAAAAAAAAAAAAAAAAAA", space
+        print "DEBUG: ", space
         self.output_space = space.components[0]
 
     def fprop(self, state_below):
