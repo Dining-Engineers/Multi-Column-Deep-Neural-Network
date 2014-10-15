@@ -20,6 +20,13 @@
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
+        <!--<script>-->
+            <!--$(function(file){-->
+                <!--$("#includedContent").load(file);-->
+            <!--});-->
+        <!--</script>-->
+
+
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
 			if( window.location.search.match( /print-pdf/gi ) ) {
@@ -49,11 +56,41 @@
                     <p><small>Corso di Apprendimento Automatico</small></p>
                     <br>
 					<h2>Multi-Column Deep Neural Networks on CIFAR-10 dataset</h2>
-                    <!--<img src="logo_unifi.png" alt="unifi logo">-->
 					<p>
 						<small><a href="mailto:matteo.bruni@gmail.com">Matteo Bruni</a> - <a href="mailto:andrearizzo@outlook.com">Andrea Rizzo</a></small>
 					</p>
 				</section>
+
+                <section>
+                    <h2>Contents</h2>
+
+                    <div style="text-align: left; float: left; margin-top: 20px">
+                        <ul type=”square”>
+                            <li>primo della 1a lista</li>
+                            <li>secondo della 1a lista
+                                <ul>
+                                    <li>primo della 2a lista</li>
+                                    <li>secondo della 2a lista
+                                        <ul>
+                                            <li>primo della 3a lista</li>
+                                        </ul>
+                                    </li>
+                                    <li>terzo della 2a lista</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                     <div style="text-align: left; float: right; margin-top: 20px">
+                        <ul type=”square”>
+                          <li>primo
+                          <li>secondo
+                          <li>terzo
+                        </ul>
+                    </div>
+                </section>
+
+
                 <section>
 					<section>
                         <h2>Classificazione di immagini</h2>
