@@ -54,6 +54,13 @@ body {
     font-size: 26px;
 }
 
+#div-alone {
+    margin-top: 20px;
+    font-size: 26px;
+    line-height: 1.7;
+    text-align: left;
+}
+
 #div-img {
     text-align: right;
     float: right;
