@@ -26,7 +26,7 @@ body {
 
 .reveal {
   font-family: "Lato", sans-serif;
-  font-size: 36px;
+  font-size: 33px;
   font-weight: normal;
   letter-spacing: -0.02em;
   color: #657b83; }
@@ -35,6 +35,36 @@ body {
   color: white;
   background: #d33682;
   text-shadow: none; }
+
+#div-left {
+    width: 50%;
+    text-align: left;
+    float: left;
+    margin-top: 20px;
+    line-height: 1.7;
+    font-size: 26px;
+}
+
+#div-right {
+    width: 50%;
+    text-align: left;
+    float: right;
+    margin-top: 20px;
+    line-height: 1.7;
+    font-size: 26px;
+}
+
+#div-img {
+    text-align: right;
+    float: right;
+    vertical-align: middle;
+    margin-top: 20px;
+}
+
+#div-header {
+    font-size: 26px;
+    /*text-align: justify;*/
+}
 
 /*********************************************
  * HEADERS
@@ -46,7 +76,8 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #586e75;
+  /*color: #586e75;*/
+  color: #499BCF;
   font-family: "League Gothic", Impact, sans-serif;
   line-height: 0.9em;
   letter-spacing: 0.02em;
