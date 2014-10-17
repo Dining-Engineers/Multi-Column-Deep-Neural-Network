@@ -94,7 +94,7 @@
 
                 <section>
                     <h2>Multi-column DNN for image classification</h2>
-                    <div style="width: 55%; text-align: left; float: left; margin-top: 20px; line-height: 1.7; font-size: 26px">
+                    <div id="div-left">
                         <ul>
                             <li><b>Detect the image content:</b></li>
                             <ul>
@@ -118,9 +118,14 @@
                             </ul>
                         </ul>
                     </div>
-
-                    <div style="text-align: right; float: right; vertical-align: middle">
-                        <img style="width: 430px" src="./img/provadnn.png" alt="unifi stemma" >
+ <!--style="width: 55%; text-align: left; float: left; margin-top: 20px; line-height: 1.7; font-size: 26px"-->
+                    <!--style="text-align: right; float: right; vertical-align: middle"-->
+                     <!--style="width: 430px" src="./img/provadnn.png" alt="unifi stemma"-->
+                    <div id="div-right" >
+                        <div style="min-height: 50px; overflow: hidden"></div>
+                        <div id="div-img">
+                            <img src="./img/provadnn.png" alt="unifi stemma" >
+                        </div>
                     </div>
                 </section>
 
@@ -134,12 +139,47 @@
                         <div>
                             <img src="./img/mcdnn_trasparent.png" alt="unifi stemma" >
                         </div>
+                        <div id="div-alone">
+                            <ul>
+                                <li>Each DNN is iteratively trained over only one processed dataset;</li>
+                                <li>The predictions of all DNN are democratically averaged;</li>
+                                <li>Softmax layer returns the image's predicted class.</li>
+                            </ul>
+                        </div>
                     </section>
                     <section>
-                        <h2>Perchè deep?</h2>
-                        <p>
-                            blabla sul deep
-                        </p>
+                        <h2>Why deep learning?</h2>
+                        <div id="div-left">
+                            <ul>
+                                <li></li>
+                                                                <li>Each DNN is iteratively trained over only one processed dataset;</li>
+                                <li>The predictions of all DNN are democratically averaged;</li>
+                                <li>Softmax layer returns the image's predicted class.</li>
+                            </ul>
+                        </div>
+                        <div id="div-right">
+                            <div style="min-height: 100px; overflow: hidden"></div>
+                            <div id="div-img">
+                                <img src="./img/mcdnn_trasparent.png" alt="unifi stemma" >
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>Deep learning milestone</h2>
+                        <div id="div-alone">
+                            <ul>
+                                <li>1980: Kunihiko Fukushima introduces the <b>Neocognitron</b><sup style="font-size: 16px">[2]</sup>;</li>
+                                <li class="fragment">1989: Yann LeCun et al. apply backpropagation algorithm to DNN:</li>
+                                <ul class="fragment">
+                                    <li>too much time to train the network;</li>
+                                </ul>
+                                <li class="fragment">1991: J. Schmidhuber <b>vanishing gradient problem</b>;</li>
+                                <li class="fragment">2000: G. Hinton pre-trained one layer at a time with <b>unsupervised algorithm</b>, then using supervised backpropagation;</li>
+                                <li class="fragment">2010: D. Cireșan by using GPUs, trains a DNN with <b>supervised algorithm</b> even though the vanishing gradient problem;</li>
+                                <li class="fragment">2011: DNN becomes the <b>state-of-art</b> systems in computer vision;</li>
+                                <li class="fragment">2012: D. Ciresan at al. train a Multi-Column DNN and on traffic sign recognition benchmark it <b>out-performs humans</b>.</li>
+                            </ul>
+                        </div>
                     </section>
                     <section>
                         <h2>Neocognitron:</h2>
@@ -416,6 +456,17 @@
                             blablabla
                         </p>
                     </section>
+                </section>
+
+                <section>
+                    <h2>References</h2>
+                    <div id="div-alone">
+                        <ul>
+                          <li>[1] D. Cireșan, U. Meier and J. Schmidhuber: Multi-column Deep Neural Networks for Image Classification (2012);
+                          <li>
+                          <li>
+                        </ul>
+                    </div>
                 </section>
 
 
@@ -726,17 +777,6 @@ function linkify( selector ) {
 						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
 					</ul>
 				</section>
-
-                <section>
-                    <h2>References</h2>
-                    <div id="div-alone">
-                        <ul>
-                          <li>[1] D. Cireșan, U. Meier and J. Schmidhuber: Multi-column Deep Neural Networks for Image Classification (2012);
-                          <li>
-                          <li>
-                        </ul>
-                    </div>
-                </section>
 
 				<section>
 					<h1>THE END</h1>
