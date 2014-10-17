@@ -14,7 +14,7 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/our-reveal.min.css">
 		<link rel="stylesheet" href="css/theme/our-solarized.css" id="theme">
 
 		<!-- For syntax highlighting -->
@@ -118,9 +118,6 @@
                             </ul>
                         </ul>
                     </div>
- <!--style="width: 55%; text-align: left; float: left; margin-top: 20px; line-height: 1.7; font-size: 26px"-->
-                    <!--style="text-align: right; float: right; vertical-align: middle"-->
-                     <!--style="width: 430px" src="./img/provadnn.png" alt="unifi stemma"-->
                     <div id="div-right" >
                         <div style="min-height: 50px; overflow: hidden"></div>
                         <div id="div-img">
@@ -133,7 +130,7 @@
                     <h2>Solution proposed</h2>
                     <div id="div-header">
                         It is based on <i><b>Multi-column Deep Neural Networks for Image Classification</b></i>
-                        - D. Cireșan, U. Meier and J. Schmidhuber<sup style="font-size: 16px">[1]</sup> of Dalle Molle Institute for Artificial Intelligence (IDSIA).
+                        - D. Cireșan, U. Meier and J. Schmidhuber<sup>[1]</sup> of Dalle Molle Institute for Artificial Intelligence (IDSIA).
                     </div>
                     <div>
                         <img src="./img/mcdnn_trasparent.png" alt="unifi stemma" >
@@ -150,18 +147,35 @@
                 <section>
                     <section>
                         <h2>Why deep learning?</h2>
-                        <div id="div-left">
+                        <div id="div-header">
                             <ul>
-                                <li></li>
-                                                                <li>Each DNN is iteratively trained over only one processed dataset;</li>
-                                <li>The predictions of all DNN are democratically averaged;</li>
-                                <li>Softmax layer returns the image's predicted class.</li>
+                                <li>The visual nervous system proposed by Hubel and Wiesel has a deep hierarchy model<sup>[2]</sup>:</li>
                             </ul>
                         </div>
-                        <div id="div-right">
-                            <div style="min-height: 100px; overflow: hidden"></div>
+                        <div id="div-left" style="width: 60%">
+                            <ul>
+                                <li>Suggests that:</li>
+                                <ul>
+                                    <li>Concepts are describe in <b>hierarchical</b> ways;</li>
+                                    <li><b>Multiple levels architecture</b>:</li>
+                                    <ul>
+                                        <li>multiple stages of transformation and representation;</li>
+                                        <li>with increasing level of abstraction;</li>
+                                    </ul>
+                                    <li><b>Distributed representation</b>:</li>
+                                    <ul>
+                                        <li>Each level of abstraction forms a large number of features not mutually exclusive;</li>
+                                    </ul>
+                                    <li>First extract low-level features i.e. low level concepts</li>
+                                    <li>Detect the most frequent patterns i.e. increase abstraction;</li>
+                                    <li>Putting all together to identify categories;</li>
+                                </ul>
+                            </ul>
+                        </div>
+                        <div id="div-right" style="width: 40%">
+                            <div style="min-height: 50px; overflow: hidden"></div>
                             <div id="div-img">
-                                <img src="./img/mcdnn_trasparent.png" alt="unifi stemma" >
+                                <img src="./img/deep_hierarchy_model.png" alt="unifi stemma" >
                             </div>
                         </div>
                     </section>
@@ -169,7 +183,7 @@
                         <h2>Deep learning milestone</h2>
                         <div id="div-alone">
                             <ul>
-                                <li>1980: Kunihiko Fukushima introduces the <b>Neocognitron</b><sup style="font-size: 16px">[2]</sup>;</li>
+                                <li>1980: Kunihiko Fukushima introduces the <b>Neocognitron</b><sup>[3]</sup>;</li>
                                 <li class="fragment">1989: Yann LeCun et al. apply backpropagation algorithm to DNN:</li>
                                 <ul class="fragment">
                                     <li>too much time to train the network;</li>
@@ -185,6 +199,8 @@
                     <section>
                         <h2>Neocognitron:</h2>
                         <p>
+
+                            <li>Convolutional Neural Networks (CNN) were inspired by the visual sistem's structure;</li>
                             cos'è una rete convoluzionale
                         </p>
                     </section>
@@ -462,9 +478,12 @@
                 <section>
                     <h2>References</h2>
                     <div id="div-alone">
+                        <!--<object type="text/html" data="references.html">-->
+                        <!--<p>backup content</p>-->
+                        <!--</object>-->
                         <ul>
                           <li>[1] D. Cireșan, U. Meier and J. Schmidhuber: Multi-column Deep Neural Networks for Image Classification (2012);
-                          <li>
+                          <li>[2] D. H. Hubel and T. N. Wiesel: Receptive fields, binocular interaction and functional architecture in the cat's visual cortex (1962);
                           <li>
                         </ul>
                     </div>

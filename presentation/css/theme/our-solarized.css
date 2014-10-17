@@ -36,6 +36,16 @@ body {
   background: #d33682;
   text-shadow: none; }
 
+sup {
+    font-size: 16px !important;
+}
+
+/*.slides {*/
+    /*width: 1024 !important;*/
+    /*height: 768 !important;*/
+    /*zoom: 1 !important;*/
+/*}*/
+
 #div-left {
     width: 50%;
     text-align: left;
