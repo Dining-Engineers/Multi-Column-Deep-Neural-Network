@@ -20,6 +20,13 @@
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
+        <!--<script>-->
+            <!--$(function(file){-->
+                <!--$("#includedContent").load(file);-->
+            <!--});-->
+        <!--</script>-->
+
+
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
 			if( window.location.search.match( /print-pdf/gi ) ) {
@@ -30,6 +37,7 @@
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
 			}
 		</script>
+
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -43,28 +51,89 @@
 			<div class="slides">
 				<section>
                     <img width="200" height="200" src="./img/Stemma.png" alt="unifi stemma" >
-					<h3>Università degli Studi di Firenze</h3>
+					<h3 style="color: #586e75;">Università degli Studi di Firenze</h3>
                     <p>Laurea Magistrale in Ingegneria Informatica</p>
                     <p><small>Corso di Apprendimento Automatico</small></p>
                     <br>
-					<h2>Multi-Column Deep Neural Networks for Image Classification</h2>
-                    <!--<img src="logo_unifi.png" alt="unifi logo">-->
+					<h2 style="color: #586e75;">Multi-Column Deep Neural Networks for Image Classification</h2>
 					<p>
 						<small><a href="mailto:matteo.bruni@gmail.com">Matteo Bruni</a> - <a href="mailto:andrearizzo@outlook.com">Andrea Rizzo</a></small>
 					</p>
 				</section>
+
                 <section>
-					<section>
-                        <h2>Classificazione di immagini</h2>
-                        <p>
-                            blbala obiettivo classificare immagini cifar10 blabla
-                        </p>
-                    </section>
+                    <h2>Contents</h2>
+
+                    <div id="div-left">
+                        <ul>
+                            <li>primo della 1a lista</li>
+                            <li>secondo della 1a lista
+                                <ul>
+                                    <li>primo della 2a lista</li>
+                                    <li>secondo della 2a lista
+                                        <ul>
+                                            <li>primo della 3a lista</li>
+                                        </ul>
+                                    </li>
+                                    <li>terzo della 2a lista</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                     <div id="div-right">
+                        <ul>
+                          <li>primo
+                          <li>secondo
+                          <li>terzo
+                        </ul>
+                    </div>
+                </section>
+
+
+
+                <section>
+                    <h2>Multi-column DNN for image classification</h2>
+                    <div style="width: 55%; text-align: left; float: left; margin-top: 20px; line-height: 1.7; font-size: 26px">
+                        <ul>
+                            <li><b>Detect the image content:</b></li>
+                            <ul>
+                                <li>e.g. cat, doog, airplain, birt, etc...</li>
+                            </ul>
+                            <li><b>Using deep learning algorithms:</b></li>
+                            <ul>
+                                <li>Convolutional Neural Network (CNN)</li>
+                            </ul>
+                            <li><b>Famous benchmarks:</b></li>
+                            <ul>
+                                <li>CIFAR-10 and CIFAR-100;</li>
+                                <li>MNIST: handwritten digits;</li>
+                            </ul>
+                            <li><b>Issues:</b></li>
+                            <ul>
+                                <li>Higher number of layer than shallow Neural Network (NN);</li>
+                                <li>Multiple Deep Neural Network (DNN);</li>
+                                <li>Vanishing gradient problem;</li>
+                                <li>Computational complexity.</li>
+                            </ul>
+                        </ul>
+                    </div>
+
+                    <div style="text-align: right; float: right; vertical-align: middle">
+                        <img style="width: 430px" src="./img/provadnn.png" alt="unifi stemma" >
+                    </div>
+                </section>
+
+                <section>
                     <section>
-                        <h2>Idea Paper: generico</h2>
-                        <p>
-                            utilizzo reti convoluzionali deep per classificazione
-                        </p>
+                        <h2>Solution proposed</h2>
+                        <div id="div-header">
+                            It is based on <i><b>Multi-column Deep Neural Networks for Image Classification</b></i>
+                            - D. Cireșan, U. Meier and J. Schmidhuber<sup style="font-size: 16px">[1]</sup> of Dalle Molle Institute for Artificial Intelligence (IDSIA).
+                        </div>
+                        <div>
+                            <img src="./img/mcdnn_trasparent.png" alt="unifi stemma" >
+                        </div>
                     </section>
                     <section>
                         <h2>Perchè deep?</h2>
@@ -657,6 +726,17 @@ function linkify( selector ) {
 						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
 					</ul>
 				</section>
+
+                <section>
+                    <h2>References</h2>
+                    <div id="div-alone">
+                        <ul>
+                          <li>[1] D. Cireșan, U. Meier and J. Schmidhuber: Multi-column Deep Neural Networks for Image Classification (2012);
+                          <li>
+                          <li>
+                        </ul>
+                    </div>
+                </section>
 
 				<section>
 					<h1>THE END</h1>
