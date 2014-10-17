@@ -147,3 +147,13 @@ body {
  *********************************************/
 .reveal .slide-number {
   color: #268bd2; }
+
+
+
+/*.revel .slides {*/
+    /*text-mar: left;*/
+/*}*/
+/*.reveal .slides section>* {*/
+    /*margin-left: 0;*/
+    /*margin-right: 0;*/
+/*}*/

@@ -30,7 +30,6 @@
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
 			}
 		</script>
-
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -48,7 +47,7 @@
                     <p>Laurea Magistrale in Ingegneria Informatica</p>
                     <p><small>Corso di Apprendimento Automatico</small></p>
                     <br>
-					<h2>Multi-Column Deep Neural Networks on CIFAR-10 dataset</h2>
+					<h2>Multi-Column Deep Neural Networks for Image Classification</h2>
                     <!--<img src="logo_unifi.png" alt="unifi logo">-->
 					<p>
 						<small><a href="mailto:matteo.bruni@gmail.com">Matteo Bruni</a> - <a href="mailto:andrearizzo@outlook.com">Andrea Rizzo</a></small>
@@ -90,11 +89,13 @@
                     <section>
                         <h2>Architettura: Multi Deep Neural Network</h2>
                         <p>
-                            Immagine MCDNN struttura architettura
+                            <img width="500" src="./img/mcdnn.png" alt="unifi stemma" >
                         </p>
                     </section>
                     <section>
                         <h2>Architettura: Single Deep Neural Network</h2>
+                        <img width="500" src="./img/dnn_training2.png" alt="single dnn training" >
+
                         <p>
                             Immagine singola DNN (in un blocco)
 
@@ -104,13 +105,14 @@
                     <section>
                         <h2>Struttura</h2>
                         <p>
+                            <img width="500" src="./img/sdnn_composition2.bmp" alt="dnn composition"  style="float: left">
                             Struttura DNN nel dettaglio
 
                             Usato Maxout invece di ConvRect come facevano loro
                         </p>
                     </section>
                     <section>
-                        <h2>Costo: MSQ</h2>
+                        <h2>Costo: Negative Log Likelihood</h2>
                         <p>
                             blablabla
                         </p>
@@ -141,9 +143,40 @@
                         </p>
                     </section>
                     <section>
-                        <h2>Dropout</h2>
-                        <p>
-                            blabla
+                        <!--<script type="text/template">-->
+                        <h2> Dropout </h2>
+
+                        <p align="">
+                            Combining the predictions of many different models is a very successful way to reduce test errors
+                            but it appears to be too expensive for big neural networks that already take several days
+                            to train. There is, however, a very efficient version of model combination that only costs about a
+                            factor of two during training.
+                        </p>
+                        With the following paper a technique has been proposed to address this problem: Dropout.
+                        <blockquote>
+						&ldquo;G.E. Hinton, N. Srivastava, A. Krizhevsky, I. Sutskever, and R.R. Salakhutdinov. Improving neural
+                            net-works by preventing co-adaptation of feature detectors. arXiv preprint arXiv:1207.0580, 2012.&rdquo;
+					    </blockquote>
+
+                    </section>
+                    <section>
+                        <!--<script type="text/template">-->
+                        <h2> Dropout </h2>
+
+                        <p align="">
+
+                            Dropout consists of setting to zero the output of each hidden neuron with probability 0.5. The
+                            neurons which are “dropped out” in this way do not contribute to the forward pass and do not participate in back-
+                            propagation. So every time an input is presented, the neural network samples a different architecture,
+                            but all these architectures share weights.
+
+                            This technique reduces complex co-adaptations of neurons,
+                            since a neuron cannot rely on the presence of particular other neurons. It is, therefore, forced to
+                            learn more robust features that are useful in conjunction with many different random subsets of the
+                            other neurons.
+                            Without dropout, our network ex-hibits substantial overfitting. Dropout roughly doubles the number of
+                            iterations required to converge.
+
                         </p>
                     </section>
                     <section>
@@ -219,7 +252,47 @@
                     <section>
                         <h2>ZCA Whitening</h2>
                         <p>
-                            blablabla
+                            aggiungere anche http://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf
+
+
+                            Let your (centred) data be stored in a matrix $X$ with features in rows and data points in
+                            columns. Let the covariance matrix $C$ have eigenvectors in columns of $E$ and eigenvalues
+                            on the diagonal of $D$, so that $C=EDE^⊤$.
+
+                            PCA whitening transformation is given by $W_{PCA}=D−1/2E^⊤$
+
+                            However, this whitening transformation is not unique. Indeed, whitened data will stay
+                            whitened after rotation, which means that any $W=RW_{PCA}$ with orthogonal matrix $R$ will
+                            also be a whitening transformation.
+
+                            In what is called ZCA whitening, we take $E$ as this orthogonal matrix, i.e.
+                            $W_{ZCA}=ED−1/2E^⊤$.
+                            One defining property of ZCA transformation is that it results in whitened data that is as
+                            close as possible to the original data (in the least squares sense). In other words,
+                            if you want to minimize &∥X−AX∥^2$ subject to $AX$ being whitened, then you should take
+                            $A=W_{ZCA}$. Here is a 2D illustration:
+
+                            Left subplot shows the data and its principal axes. Note the dark shading in the upper-right
+                            corner of the distribution: it marks its orientation. Rows of WPCA are shown on the second
+                            subplot: these are the vectors the data is projected on. After whitening (below) the
+                            distribution looks round, but notice that it also looks rotated --- dark corner is now on
+                            the East side, not on the North-East side. Rows of WZCA are shown on the third subplot (note
+                            that they are not orthogonal!). After whitening (below) the distribution looks round and
+                            it's oriented in the same way as originally. Of course, one can get from PCA whitened data
+                            to ZCA whitened data by rotating with E.
+
+                            The term "ZCA" seems to have been introduced in Bell and Sejnowski 1996 in the context of
+                            independent component analysis, and stands for "zero-phase component analysis". See there
+                            for more details. Most probably, you came across this term in the context of image
+                            processing. It turns out, that when applied to a bunch of natural images (pixels as
+                            features, each image as a data point), principal axes look like Fourier components of
+                            increasing frequencies, see first column of their Figure 1 below. So they are very "global".
+                            On the other hand, rows of ZCA transformation look very "local", see the second column.
+                            This is precisely because ZCA tries to transform the data as little as possible, and so
+                            each row should better be close to one the original basis functions (which would be images
+                            with only one active pixel). And this is possible to achieve, because correlations in
+                            natural images are mostly very local (so de-correlation filters can also be local).
+
                         </p>
                     </section>
                     <section>
