@@ -64,7 +64,7 @@
                 <section>
                     <h2>Contents</h2>
 
-                    <div id="div-left">
+                    <div class="div-left">
                         <ul>
                             <li>primo della 1a lista</li>
                             <li>secondo della 1a lista
@@ -81,7 +81,7 @@
                         </ul>
                     </div>
 
-                     <div id="div-right">
+                     <div class="div-right">
                         <ul>
                           <li>primo
                           <li>secondo
@@ -94,7 +94,7 @@
 
                 <section>
                     <h2>Multi-column DNN for image classification</h2>
-                    <div id="div-left">
+                    <div class="div-left">
                         <ul>
                             <li><b>Detect the image content:</b></li>
                             <ul>
@@ -118,9 +118,9 @@
                             </ul>
                         </ul>
                     </div>
-                    <div id="div-right" >
+                    <div class="div-right" >
                         <div style="min-height: 50px; overflow: hidden"></div>
-                        <div id="div-img">
+                        <div class="div-img">
                             <img src="./img/provadnn.png" alt="unifi stemma" >
                         </div>
                     </div>
@@ -128,14 +128,14 @@
 
                 <section>
                     <h2>Solution proposed</h2>
-                    <div id="div-header">
+                    <div class="div-header">
                         It is based on <i><b>Multi-column Deep Neural Networks for Image Classification</b></i>
                         - D. Cireșan, U. Meier and J. Schmidhuber<sup>[1]</sup> of Dalle Molle Institute for Artificial Intelligence (IDSIA).
                     </div>
                     <div>
                         <img src="./img/mcdnn_trasparent.png" alt="unifi stemma" >
                     </div>
-                    <div id="div-alone">
+                    <div class="div-alone">
                         <ul>
                             <li>Each DNN is iteratively trained over only one processed dataset;</li>
                             <li>The predictions of all DNN are democratically averaged;</li>
@@ -181,7 +181,7 @@
                     </section>
                     <section>
                         <h2>Deep learning milestone</h2>
-                        <div id="div-alone">
+                        <div class="div-alone">
                             <ul>
                                 <li>1980: Kunihiko Fukushima introduces the <b>Neocognitron</b><sup>[3]</sup>;</li>
                                 <li class="fragment">1989: Yann LeCun et al. apply backpropagation algorithm to DNN:</li>
@@ -196,6 +196,8 @@
                             </ul>
                         </div>
                     </section>
+                </section>
+                <section>
                     <section>
                         <h2>Neocognitron:</h2>
                         <p>
@@ -204,70 +206,8 @@
                             cos'è una rete convoluzionale
                         </p>
                     </section>
-                    <section>
-                        <h2>Paper: Maxout</h2>
-                        <p>
-                            blabla sul maxout
-                        </p>
-                    </section>
                 </section>
                 <section>
-                    <section>
-                        <h2>Architettura: Multi Deep Neural Network</h2>
-                        <p>
-                            <img width="500" src="./img/mcdnn.png" alt="unifi stemma" >
-                        </p>
-                    </section>
-                    <section>
-                        <h2>Architettura: Single Deep Neural Network</h2>
-                        <img width="500" src="./img/dnn_training2.png" alt="single dnn training" >
-
-                        <p>
-                            Immagine singola DNN (in un blocco)
-
-                            testo blabla una dnn fa questo blabla
-                        </p>
-                    </section>
-                    <section>
-                        <h2>Struttura</h2>
-                        <p>
-                            <img width="500" src="./img/sdnn_composition2.bmp" alt="dnn composition"  style="float: left">
-                            Struttura DNN nel dettaglio
-
-                            Usato Maxout invece di ConvRect come facevano loro
-                        </p>
-                    </section>
-                    <section>
-                        <h2>Costo: Negative Log Likelihood</h2>
-                        <p>
-                            blablabla
-                        </p>
-                    </section>
-                    <section>
-                        <h2>Algoritmo discesa: SGD</h2>
-                        <p>
-                            blablabla
-                        </p>
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h2>Architettura singola rete nel dettaglio:</h2>
-                        <p>
-                            Elenco:
-                            Input
-                            dropout
-                            ConvMaxout
-                            Maxout
-                            Softmax
-                        </p>
-                    </section>
-                    <section>
-                        <h2>Input di Rete</h2>
-                        <p>
-                            Preprocessing, Conv2DSpace
-                        </p>
-                    </section>
                     <section>
                         <!--<script type="text/template">-->
                         <h2> Dropout </h2>
@@ -304,6 +244,102 @@
                             iterations required to converge.
 
                         </p>
+                    </section>
+                    <section>
+                        <h2>ReLU</h2>
+                        <p>
+                            blabla sul maxout
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Paper: Maxout</h2>
+                        <p>
+                            blabla sul maxout
+                        </p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Softmax</h2>
+                        <p>
+                            blabla sul maxout
+                        </p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Costo: Negative Log Likelihood</h2>
+                        <p>
+                            blablabla
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Algoritmo discesa: SGD</h2>
+                        <p>
+                            blablabla
+                        </p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Architettura: Multi Deep Neural Network</h2>
+                        <p>
+                            <img width="500" src="./img/mcdnn.png" alt="unifi stemma" >
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Architettura: Single Deep Neural Network</h2>
+                        <img width="500" src="./img/dnn_training2.png" alt="single dnn training" >
+
+                        <p>
+                            Immagine singola DNN (in un blocco)
+
+                            testo blabla una dnn fa questo blabla
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Struttura</h2>
+                        <p>
+                            <img width="500" src="./img/sdnn_composition2.bmp" alt="dnn composition"  style="float: left">
+                            Struttura DNN nel dettaglio
+
+                            Usato Maxout invece di ConvRect come facevano loro
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>Architettura singola rete nel dettaglio:</h2>
+                        <p>
+                            Elenco:
+                            Input
+                            dropout
+                            ConvMaxout
+                            Maxout
+                            Softmax
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Input di Rete</h2>
+                        <p>
+                            Preprocessing, Conv2DSpace
+                        </p>
+                    </section>
+                    <section>
+                        <!--<script type="text/template">-->
+                        <h2> Dropout </h2>
+
+                        <p align="">
+                            Combining the predictions of many different models is a very successful way to reduce test errors
+                            but it appears to be too expensive for big neural networks that already take several days
+                            to train. There is, however, a very efficient version of model combination that only costs about a
+                            factor of two during training.
+                        </p>
+                        With the following paper a technique has been proposed to address this problem: Dropout.
+                        <blockquote>
+						&ldquo;G.E. Hinton, N. Srivastava, A. Krizhevsky, I. Sutskever, and R.R. Salakhutdinov. Improving neural
+                            net-works by preventing co-adaptation of feature detectors. arXiv preprint arXiv:1207.0580, 2012.&rdquo;
+					    </blockquote>
+
                     </section>
                     <section>
                         <h2>ConvMaxout</h2>

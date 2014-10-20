@@ -46,7 +46,7 @@ sup {
     /*zoom: 1 !important;*/
 /*}*/
 
-#div-left {
+.reveal .slides .div-left {
     width: 50%;
     text-align: left;
     float: left;
@@ -55,7 +55,7 @@ sup {
     font-size: 26px;
 }
 
-#div-right {
+.reveal .slides .div-right {
     width: 50%;
     text-align: left;
     float: right;
@@ -64,21 +64,21 @@ sup {
     font-size: 26px;
 }
 
-#div-alone {
+.reveal .slides .div-alone {
     margin-top: 20px;
     font-size: 26px;
     line-height: 1.7;
     text-align: left;
 }
 
-#div-img {
+.reveal .slides .div-img {
     text-align: right;
     float: right;
     vertical-align: middle;
     margin-top: 20px;
 }
 
-#div-header {
+.reveal .slides .div-header {
     font-size: 26px;
     /*text-align: justify;*/
 }
