@@ -147,12 +147,12 @@
                 <section>
                     <section>
                         <h2>Why deep learning?</h2>
-                        <div id="div-header">
+                        <div class="div-header">
                             <ul>
                                 <li>The visual nervous system proposed by Hubel and Wiesel has a deep hierarchy model<sup>[2]</sup>:</li>
                             </ul>
                         </div>
-                        <div id="div-left" style="width: 60%">
+                        <div class="div-left" style="width: 60%">
                             <ul>
                                 <li>Suggests that:</li>
                                 <ul>
@@ -172,7 +172,7 @@
                                 </ul>
                             </ul>
                         </div>
-                        <div id="div-right" style="width: 40%">
+                        <div class="div-right"  style="width: 40%">
                             <div style="min-height: 80px; overflow: hidden"></div>
                             <div id="div-img">
                                 <img src="./img/deep_hierarchy_model.png" alt="unifi stemma" >
@@ -210,41 +210,118 @@
                 <section>
                     <section>
                         <!--<script type="text/template">-->
-                        <h2> Dropout </h2>
+                        <h2>Dropout</h2>
 
-                        <p align="">
-                            Combining the predictions of many different models is a very successful way to reduce test errors
-                            but it appears to be too expensive for big neural networks that already take several days
-                            to train. There is, however, a very efficient version of model combination that only costs about a
-                            factor of two during training.
-                        </p>
-                        With the following paper a technique has been proposed to address this problem: Dropout.
-                        <blockquote>
-						&ldquo;G.E. Hinton, N. Srivastava, A. Krizhevsky, I. Sutskever, and R.R. Salakhutdinov. Improving neural
-                            net-works by preventing co-adaptation of feature detectors. arXiv preprint arXiv:1207.0580, 2012.&rdquo;
-					    </blockquote>
+                        <div class="div-header">
+                            <b>How to improve a neural network?</b>
+                        </div>
+
+                        <div class="div-alone">
+                            <ul>
+                                <li>Train many models and average the models' predictions:</li>
+                                <ul>
+                                    <li>reduce test error and overfitting;</li>
+                                    <li>too expensive for big NN and that already take serveral day to train.</li>
+                                </ul>
+                                <li><b>Dropout</b> is a more efficient solution<sup>[3]</sup>. It provides:</li>
+                                <ul>
+                                    <li>an inexpensive and simple means of both training a large ensemble of models;</li>
+                                </ul>
+                            </ul>
+
+                        </div>
+
+                        <!--<p align="">-->
+                            <!--Combining the predictions of many different models is a very successful way to reduce test errors-->
+                            <!--but it appears to be too expensive for big neural networks that already take several days-->
+                            <!--to train. There is, however, a very efficient version of model combination that only costs about a-->
+                            <!--factor of two during training.-->
+                        <!--</p>-->
+                        <!--With the following paper a technique has been proposed to address this problem: Dropout.-->
+                        <!--<blockquote>-->
+						<!--&ldquo;G.E. Hinton, N. Srivastava, A. Krizhevsky, I. Sutskever, and R.R. Salakhutdinov. Improving neural-->
+                            <!--net-works by preventing co-adaptation of feature detectors. arXiv preprint arXiv:1207.0580, 2012.&rdquo;-->
+					    <!--</blockquote>-->
 
                     </section>
                     <section>
-                        <!--<script type="text/template">-->
-                        <h2> Dropout </h2>
+                        <h2>How Dropout works (1)</h2>
 
-                        <p align="">
-
-                            Dropout consists of setting to zero the output of each hidden neuron with probability 0.5. The
-                            neurons which are “dropped out” in this way do not contribute to the forward pass and do not participate in back-
-                            propagation. So every time an input is presented, the neural network samples a different architecture,
-                            but all these architectures share weights.
-
-                            This technique reduces complex co-adaptations of neurons,
-                            since a neuron cannot rely on the presence of particular other neurons. It is, therefore, forced to
-                            learn more robust features that are useful in conjunction with many different random subsets of the
-                            other neurons.
-                            Without dropout, our network ex-hibits substantial overfitting. Dropout roughly doubles the number of
-                            iterations required to converge.
-
-                        </p>
+                        <div class="div-alone">
+                            <ul>
+                                <li>Given a feedforward architecture:</li>
+                                <ul>
+                                    <li>Input: $v \, \in \mathbb{R}^{m}$;</li>
+                                    <li>Hidden layers: $ \, h = \{h^{(1)}, \dots, h^{(l)} \}$;</li>
+                                    <li>Output: $\, y \in \mathbb{R}^{n}$;</li>
+                                </ul>
+                                <li>Dropout trains a set of models, each of which:</li>
+                                <ul>
+                                    <li>contains a subset of the variables in both $v$ and $h$;</li>
+                                    <li>each model uses the same set of parameters $\theta$:</li>
+                                        <ul>
+                                            <li>to parameterize a family of distributions $p(y | v; \theta, \mu)$;</li>
+                                            <li>where $\mu \in M$ is a binary mask determining which variables to include in the model;</li>
+                                        </ul>
+                                </ul>
+                            </ul>
+                        </div>
                     </section>
+                    <section>
+                        <h2>How Dropout works (2)</h2>
+
+                        <div class="div-alone">
+                            <ul>
+                                <li>On each presentation of a training example:</li>
+                                <ul>
+                                    <li>a different sub-model is obtained by randomly sampling $\mu$;</li>
+                                    <li>the sub-model is trained by following the gradient of $log \, p(y | v; \theta, \mu)$;</li>
+                                </ul>
+
+                                <li>Each model is trained for only one step and all the models share the parameters $\theta$.</li>
+                            </ul>
+                            <br><br>
+                            <b>Note</b>: each update must have a large effect so that it makes the sub-model induced by that $\mu$ fit the current input $v$ well.
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>How Dropout works (3)</h2>
+                        <div class="div-header">
+                            <b>Model prediction</b>
+                        </div>
+
+                        <div class="div-alone">
+                            <ul>
+                                <li>Model prediction is obtained by averaging together all the sub-models prediction.</li>
+                                <li>By using Dropout the number of models trained is exponential:</li>
+                                <ul>
+                                    <li>when $p(y | v;\theta) = softmax(v^{T}W+b)$</li>
+                                    <li>the predictive distribution defined by renormalizing the geometric mean of $p(y | v;\theta, \mu)$ over $M$ is simply given by:</li>
+                                    <br>
+                                        <p align="center"><b>$softmax(v^{T}\frac{W}{2}+b)$</b></p>
+
+                                </ul>
+                            </ul>
+                        </div>
+                    </section>
+
+
+                        <!--<p align="">-->
+
+                            <!--Dropout consists of setting to zero the output of each hidden neuron with probability 0.5. The-->
+                            <!--neurons which are “dropped out” in this way do not contribute to the forward pass and do not participate in back--->
+                            <!--propagation. So every time an input is presented, the neural network samples a different architecture,-->
+                            <!--but all these architectures share weights.-->
+
+                            <!--This technique reduces complex co-adaptations of neurons,-->
+                            <!--since a neuron cannot rely on the presence of particular other neurons. It is, therefore, forced to-->
+                            <!--learn more robust features that are useful in conjunction with many different random subsets of the-->
+                            <!--other neurons.-->
+                            <!--Without dropout, our network ex-hibits substantial overfitting. Dropout roughly doubles the number of-->
+                            <!--iterations required to converge.-->
+
+                        <!--</p>-->
                     <section>
                         <h2>ReLU</h2>
                         <p>
@@ -520,7 +597,7 @@
                         <ul>
                           <li>[1] D. Cireșan, U. Meier and J. Schmidhuber: Multi-column Deep Neural Networks for Image Classification (2012);
                           <li>[2] D. H. Hubel and T. N. Wiesel: Receptive fields, binocular interaction and functional architecture in the cat's visual cortex (1962);
-                          <li>
+                          <li>[3]
                         </ul>
                     </div>
                 </section>
@@ -930,10 +1007,10 @@ function linkify( selector ) {
 				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
 				// parallaxBackgroundSize: '2100px 900px',
 
-                math: {
-                    mathjax: 'plugin/math/MathJax.js',
-                    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
-                },
+                //math: {
+                  //  mathjax: 'plugin/mathjax/MathJax.js',
+                    //config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+                //},
 
                 dependencies: [
                     // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/

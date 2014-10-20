@@ -46,29 +46,33 @@ sup {
     /*zoom: 1 !important;*/
 /*}*/
 
+.reveal .slides>section>section {
+    line-height: 1.65;
+    font-size: 25px;
+}
+
+.reveal .slides {
+    margin-top: 20px;
+    /*line-height: 1.65;*/
+    /*text-align: left;*/
+}
+
 .reveal .slides .div-left {
     width: 50%;
-    text-align: left;
+    /*text-align: left;*/
     float: left;
-    margin-top: 20px;
-    line-height: 1.7;
-    font-size: 26px;
+    /*margin-top: 20px;*/
+    /*line-height: 1.65;*/
+    /*font-size: 26px;*/
 }
 
 .reveal .slides .div-right {
     width: 50%;
-    text-align: left;
+    /*text-align: left;*/
     float: right;
-    margin-top: 20px;
-    line-height: 1.7;
-    font-size: 26px;
-}
-
-.reveal .slides .div-alone {
-    margin-top: 20px;
-    font-size: 26px;
-    line-height: 1.7;
-    text-align: left;
+    /*margin-top: 20px;*/
+    /*line-height: 1.65;*/
+    /*font-size: 26px;*/
 }
 
 .reveal .slides .div-img {
