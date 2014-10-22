@@ -183,15 +183,15 @@
                         <div class="div-alone">
                             <ul>
                                 <li>1980: Kunihiko Fukushima introduces the <b>Neocognitron</b><sup>[3]</sup>;</li>
-                                <li class="fragment">1989: Yann LeCun et al. apply backpropagation algorithm to DNN:</li>
-                                <ul class="fragment">
+                                <li>1989: Yann LeCun et al. apply backpropagation algorithm to DNN:</li>
+                                <ul>
                                     <li>too much time to train the network;</li>
                                 </ul>
-                                <li class="fragment">1991: J. Schmidhuber <b>vanishing gradient problem</b>;</li>
-                                <li class="fragment">2000: G. Hinton pre-trained one layer at a time with <b>unsupervised algorithm</b>, then using supervised backpropagation;</li>
-                                <li class="fragment">2010: D. Cireșan by using GPUs, trains a DNN with <b>supervised algorithm</b> even though the vanishing gradient problem;</li>
-                                <li class="fragment">2011: DNN becomes the <b>state-of-art</b> systems in computer vision;</li>
-                                <li class="fragment">2012: D. Ciresan at al. train a Multi-Column DNN and on traffic sign recognition benchmark it <b>out-performs humans</b>.</li>
+                                <li>1991: J. Schmidhuber <b>vanishing gradient problem</b>;</li>
+                                <li>2000: G. Hinton pre-trained one layer at a time with <b>unsupervised algorithm</b>, then using supervised backpropagation;</li>
+                                <li>2010: D. Cireșan by using GPUs, trains a DNN with <b>supervised algorithm</b> even though the vanishing gradient problem;</li>
+                                <li>2011: DNN becomes the <b>state-of-art</b> systems in computer vision;</li>
+                                <li>2012: D. Ciresan at al. train a Multi-Column DNN and on traffic sign recognition benchmark it <b>out-performs humans</b>.</li>
                             </ul>
                         </div>
                     </section>
@@ -288,9 +288,16 @@
                                 <li>We use $k\text{C}n$ to indicate a <b>C-Layer</b> that applies $k$ filters of $n\times n$ dimension to a feature map ;</li>
                             </ul>
                         </div>
-                        <div >
-                            <img src="./img/cnn_operation.png">
-                            <p class="img-note"><i>Figure: C-Layer operation.</i></p>
+                        <div style="padding-top: 5px">
+                            <div class="div-left">
+                                <img src="./img/cnn_operation.png" width="70%">
+                                <p class="img-note"><i>Figure: C-Layer operation.</i></p>
+                            </div>
+
+                            <div class="div-right">
+                                <img src="./img/convolution.gif" width="70%">
+                                <p class="img-note"><i>Figure: convolution operation.</i></p>
+                            </div>
                         </div>
                     </section>
 
@@ -336,6 +343,11 @@
                                 </ul>
                             </ul>
                         </div>
+                                               <div >
+                            <br>
+                            <img style="width: 40%" src="./img/max_pool.gif">
+                            <p class="img-note"><i>Figure: Max-pooling.</i></p>
+                        </div>
                     </section>
 
                     <section>
@@ -380,20 +392,7 @@
                                     <li>an inexpensive and simple means of both training a large ensemble of models;</li>
                                 </ul>
                             </ul>
-
                         </div>
-
-                        <!--<p align="">-->
-                            <!--Combining the predictions of many different models is a very successful way to reduce test errors-->
-                            <!--but it appears to be too expensive for big neural networks that already take several days-->
-                            <!--to train. There is, however, a very efficient version of model combination that only costs about a-->
-                            <!--factor of two during training.-->
-                        <!--</p>-->
-                        <!--With the following paper a technique has been proposed to address this problem: Dropout.-->
-                        <!--<blockquote>-->
-						<!--&ldquo;G.E. Hinton, N. Srivastava, A. Krizhevsky, I. Sutskever, and R.R. Salakhutdinov. Improving neural-->
-                            <!--net-works by preventing co-adaptation of feature detectors. arXiv preprint arXiv:1207.0580, 2012.&rdquo;-->
-					    <!--</blockquote>-->
 
                     </section>
                     <section>
@@ -471,14 +470,8 @@
                             model the biological neuron's responses in their area of operation. While sigmoid and tanh
                             activation functions are biologically implausible.<br>
 
-                            <!--<div class="div-img">-->
-                            <img src="./img/synapse_vs_sigmoid_trasp.png" alt="unifi stemma" ><br>
+                            <img src="./img/synapse_vs_sigmoid_trasp.png" alt="unifi stemma">
                             <p class="img-note">Figure: left: Firing of a neuron from biological data. Right: traditional activation functions.</p>
-
-                            <!--</div>-->
-
-                            <!--It makes calculating the gradient during back propagation trivial. It is 0 if x < 0 and 1-->
-                            <!--elsewhere. This speeds up the training of the network.-->
 
                     </section>
 
@@ -489,8 +482,8 @@
                             <ul>
                                 <li>ReLU derivative:</li>
                                 <ul>
-                                    <li>is not fully differentiable (not at 0)</li>
-                                    <li>can only take two values, 0 or 1.</li>
+                                    <li>is not fully differentiable (not at $0$)</li>
+                                    <li>can only take two values, $0$ or $1$.</li>
                                 </ul>
                                 <br>
                                 <li>Compared to the logistic sigmoid neuron:</li>
@@ -504,7 +497,7 @@
                         <div class="div-right">
                             <div style="min-height: 50px; overflow: hidden"></div>
                             <img src="./img/relu_trasp.png" width="320" alt="relu">
-                            <p class="img-note">Figure: ReLu vs Softplus.</p>
+                            <p class="img-note">Figure: ReLu vs Softplus activation function.</p>
                         </div>
 
 
@@ -550,12 +543,98 @@
                     </section>
 
                     <section>
-                        <h2>Paper: Maxout</h2>
-                        <p>
-                            blabla sul maxout
-                        </p>
+                        <h2>Maxout</h2>
+                        <div class="subtitle">Introduction</div>
+                        <div class="div-alone">
+                            <ul>
+                                <li><b>Maxout</b> is so named because its output is the max of a set of inputs:
+                                    <ul>
+                                        <li>it is a natural companion to dropout;</li>
+                                    </ul>
+                                <li>Maxout model introduce a new type of activation function called <b>maxout unit</b>:</li>
+                                    <ul>
+                                        <li>Given an input $x \in \mathbb{R^d}$, the maxout layer implements the function:</li>
+                                    </ul>
+                            </ul>
+                            <div class="equation"> $h_{i}(x) = \max\limits_{j \in [1, k]}^{} z_{i}^{(j)}$ </div>
+                            <p style="padding-left:3em" >where:</p>
+                            <div class="equation">
+                                $z_{i}^{(j)} = x^{T}W_{i}^{(j)} + b_{i}^{(j)}$
+                            </div>
+                            <p style="padding-left:3em" >and:</p>
+                            <div class="equation">
+                                $W \in \mathbb{R}^{d \times m \times k} \text{and  } b \in \mathbb{R}^{m \times k}$
+                            </div>
+                            <ul>
+                                <ul>
+                                    <ul>
+                                        <li>$m$: number of hidden units;</li>
+                                        <li>$d$: size of input vector;</li>
+                                        <li>$k$: number of linear models.</li>
+                                    </ul>
+                                </ul>
+                            </ul>
+
+                        </div>
                     </section>
+
+                    <section>
+                        <h2>Maxout</h2>
+                        <div class="subtitle">Activation function</div>
+                        <div class="div-alone">
+                            <ul>
+                                <li>Maxout learn the activation function:</li>
+                                <ul>
+                                    <li>with $k=2$ (number of maxout unit) the activation function can be:</li>
+                                    <ul>
+                                        <li>ReLU function;</li>
+                                        <li>Absolute function;</li>
+                                    </ul>
+                                    <li>with $k=5$ the activation function can be a <i>quadratic</i> function.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                        <div style="margin-top: 40px">
+                            <img src="./img/maxout_net.png" alt="unifi stemma" width="50%">
+                            <p class="img-note">Figure: example of maxout net with $2$ hidden units.</p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Maxout</h2>
+                        <div class="subtitle">Universal approximator</div>
+                        <div class="div-alone">
+                            <ul>
+                                <li><b>Theorem (<i>universal approximator</i>)</b>: any continuous function $f$ can be approximated arbitrarily
+                                    well on a compact domain $C ⊂ \mathbb{R}^{n}$ by a maxout network with two maxout hidden units.</li>
+
+                                <div style="margin-left: 3em; margin-top: 1em">
+                                    <b>Proof</b>:
+                                    <ul>
+                                        <li><i>(Wang, 2004)</i> any continuous function can be expressed as a difference of $2$ convex functions:</li>
+                                    </ul>
+                                </div>
+                                <div class="equation">
+                                    $g(x)=h_{1}(x)-h_{2}(x)$
+                                </div>
+                                <div style="margin-left: 3em;">
+                                    <ul>
+                                        <li><i>(Stone-Weierstrass)</i> any continuous function can be approximated by a piecewise linear function</li>
+                                    </ul>
+                                </div>
+                                <div class="equation">
+                                    $|f(x)-g(x)|< \epsilon$
+                                </div>
+                            </ul>
+                        </div>
+                        <div style="margin-top: 20px">
+                            <img src="./img/maxout.png" alt="unifi stemma" width="60%">
+                            <p class="img-note">Figure: examples of approximation with maxout.</p>
+                        </div>
+                    </section>
+
                 </section>
+
                 <section>
                     <section>
                         <h2>Softmax</h2>
