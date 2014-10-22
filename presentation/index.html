@@ -14,7 +14,7 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/our-reveal.min.css">
+		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/our-solarized.css" id="theme">
 
 		<!-- For syntax highlighting -->
@@ -228,13 +228,13 @@
                             <ul>
                                 <li>Implements the convolution operation:</li>
                                 <ul>
-                                    <li>A <b>linear filter</b> $W \in \mathbb{R}^{m \times m}$ is applied to the input image or to a feature map $I \in \mathbb{R}^{N \times N}$. Mathematically:</li>
-                                    <div class="equation">$X_{ij}=\sum_{k=0}^{m-1}\sum_{l=0}^{m-1}I_{(i+k)(j+l)}W_{kl}$</div>
+                                    <li>A <b>linear filter</b> $W \in \mathbb{R}^{m \times m}$ is applied to the input image or to a feature map $X \in \mathbb{R}^{N \times N}$. Mathematically:</li>
+                                    <div class="equation">$c_{ij}=\sum\limits_{k=0}^{m-1}\sum\limits_{l=0}^{m-1}x_{(i+k)(j+l)}w_{kl}$</div>
                                     <ul>
                                         <li><b>Sparse connectivity</b> i.e. only a subset of units in a feature map are used;</li>
                                     </ul>
                                     <li>After a <b>non-linear function</b> $\sigma$ is applied.</li>
-                                    <li>The ouput image $Y = \sigma(X)$ is called <b>feature map</b>;</li>
+                                    <li>The ouput image $Y = \sigma(C)$ is called <b>feature map</b>;</li>
                                     <ul>
                                         <li>by appling $k$ different filters we obtain $k$ feature maps: $\{Y^{s}\}_{s=1}^{k}$.</li>
                                         <li>$Y \in \mathbb{R}^{(N-m+1) \times (N-m+1)}$</li>
@@ -1138,7 +1138,7 @@ function linkify( selector ) {
                 progress: true,
 
                 // Display the page number of the current slide
-                slideNumber: false,
+                slideNumber: true,
 
                 // Push each slide change to the browser history
                 history: true,
@@ -1177,7 +1177,7 @@ function linkify( selector ) {
                 autoSlideStoppable: true,
 
                 // Enable slide navigation via mouse wheel
-                mouseWheel: false,
+                mouseWheel: true,
 
                 // Hides the address bar on mobile devices
                 hideAddressBar: true,
@@ -1209,10 +1209,10 @@ function linkify( selector ) {
 				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
 				// parallaxBackgroundSize: '2100px 900px',
 
-                //math: {
-                  //  mathjax: 'plugin/mathjax/MathJax.js',
-                    //config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
-                //},
+                math: {
+                    mathjax: '../../mathjax/MathJax.js',
+                    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+                },
 
                 dependencies: [
                     // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
@@ -1232,7 +1232,7 @@ function linkify( selector ) {
                     { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
 
                     // Remote control your reveal.js presentation using a touch device
-                    { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    //{ src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
 
                     // MathJax
                     { src: 'plugin/math/math.js', async: true }

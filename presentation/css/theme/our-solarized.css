@@ -40,10 +40,32 @@ sup {
     font-size: 16px !important;
 }
 
-/*.slides {*/
-    /*width: 1024 !important;*/
-    /*height: 768 !important;*/
-    /*zoom: 1 !important;*/
+.reveal .slides>section>section.present {
+    display:block;
+    z-index:11;
+    opacity:1;
+    width: 1050px
+}.reveal.center
+
+.slides {
+    /*position: ;*/
+    top: 45%;
+    vertical-align: middle;
+    /*left: 0;*/
+}
+
+/*.reveal .slides {*/
+  /*height: 100%;*/
+  /*top: 0;*/
+  /*margin-top: 0;*/
+/*}*/
+
+/*.reveal .slides>section {*/
+  /*min-height: 90%;*/
+/*}*/
+
+/*.reveal .slides>section>section {*/
+  /*min-height: 100%;*/
 /*}*/
 
 .reveal .slides>section {
@@ -62,11 +84,11 @@ sup {
     padding-top: 20px
 }
 
-.reveal .slides {
-    margin-top: 20px;
+/*.reveal .slides {*/
+    /*margin-top: 20px;*/
     /*line-height: 1.65;*/
     /*text-align: left;*/
-}
+/*}*/
 
 
 
@@ -112,7 +134,7 @@ sup {
 
 .reveal .slides .equation {
     text-align: center;
-    padding: 20px;
+    padding: 5px;
 }
 
 /*********************************************
