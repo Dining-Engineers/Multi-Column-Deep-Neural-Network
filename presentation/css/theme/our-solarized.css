@@ -46,9 +46,19 @@ sup {
     /*zoom: 1 !important;*/
 /*}*/
 
+.reveal .slides>section {
+    line-height: 1.65;
+    font-size: 25px;
+}
+
 .reveal .slides>section>section {
     line-height: 1.65;
     font-size: 25px;
+}
+
+.reveal .slides .div-alone {
+    text-align: left;
+    padding-top: 20px
 }
 
 .reveal .slides {
@@ -56,6 +66,8 @@ sup {
     /*line-height: 1.65;*/
     /*text-align: left;*/
 }
+
+
 
 .reveal .slides .div-left {
     width: 50%;
@@ -76,15 +88,30 @@ sup {
 }
 
 .reveal .slides .div-img {
-    text-align: right;
+    text-align: center;
     float: right;
     vertical-align: middle;
     margin-top: 20px;
 }
 
 .reveal .slides .div-header {
-    font-size: 26px;
-    /*text-align: justify;*/
+    /*font-size: 26px;*/
+    text-align: justify;
+}
+
+.reveal .slides .img-note {
+     font-size: 20px
+}
+
+.reveal .slides .subtitle {
+    margin-top: -20px;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.reveal .slides .equation {
+    text-align: center;
+    padding: 20px;
 }
 
 /*********************************************

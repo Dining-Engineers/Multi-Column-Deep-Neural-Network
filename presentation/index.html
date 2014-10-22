@@ -63,7 +63,6 @@
 
                 <section>
                     <h2>Contents</h2>
-
                     <div class="div-left">
                         <ul>
                             <li>primo della 1a lista</li>
@@ -199,20 +198,128 @@
                 </section>
                 <section>
                     <section>
-                        <h2>Neocognitron:</h2>
-                        <p>
-
-                            <li>Convolutional Neural Networks (CNN) were inspired by the visual sistem's structure;</li>
-                            cos'è una rete convoluzionale
-                        </p>
+                        <h2>Convolutional Neural Networks (CNN)</h2>
+                        <div class="subtitle">Introduction</div>
+                        <div class="div-alone">
+                            <ul>
+                                <li>CNNs are an implementation of deep learning architecture:</li>
+                                <ul>
+                                    <li>are variations of Multi-Layer Perceptrons (MLP);</li>
+                                    <li>each layer has a topological structure, i.e. each unit as a 2D position that corresponds to an image's pixel;</li>
+                                </ul>
+                                <li>CNN's design:</li>
+                                <ul>
+                                    <li><b>Convolutional layer</b>: implements the convolution operation as in image processing;</li>
+                                    <li><b>Max-pooling layer</b>: implements a form of non-linear down-sampling;</li>
+                                    <li><b>Fully connected layer</b>: the upper-layer and corresponds to a traditional MLP.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                        <div>
+                            <img src="./img/LeNet-trasparent.png">
+                            <p class="img-note"><i>Figure: Convolutional Neural Network: 1x48x48-10C2-MP2-16C5-MP2-16C13-180N-7N.</i></p>
+                        </div>
                     </section>
+
+                    <section>
+                        <h2>Convolutional Neural Networks (CNN)</h2>
+                        <div class="subtitle">Convolutional layer</div>
+                        <div class="div-alone">
+                            <ul>
+                                <li>Implements the convolution operation:</li>
+                                <ul>
+                                    <li>A <b>linear filter</b> $W \in \mathbb{R}^{m \times m}$ is applied to the input image or to a feature map $I \in \mathbb{R}^{N \times N}$. Mathematically:</li>
+                                    <div class="equation">$X_{ij}=\sum_{k=0}^{m-1}\sum_{l=0}^{m-1}I_{(i+k)(j+l)}W_{kl}$</div>
+                                    <ul>
+                                        <li><b>Sparse connectivity</b> i.e. only a subset of units in a feature map are used;</li>
+                                    </ul>
+                                    <li>After a <b>non-linear function</b> $\sigma$ is applied.</li>
+                                    <li>The ouput image $Y = \sigma(X)$ is called <b>feature map</b>;</li>
+                                    <ul>
+                                        <li>by appling $k$ different filters we obtain $k$ feature maps: $\{Y^{s}\}_{s=1}^{k}$.</li>
+                                        <li>$Y \in \mathbb{R}^{(N-m+1) \times (N-m+1)}$</li>
+                                    </ul>
+                                </ul>
+                                <li>We use $k\text{C}n$ to indicate a <b>C-Layer</b> that applies $k$ filters of $n\times n$ dimension to a feature map ;</li>
+                            </ul>
+                        </div>
+                        <div >
+                            <img src="./img/cnn_operation.png">
+                            <p class="img-note"><i>Figure: C-Layer operation.</i></p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Convolutional Neural Networks (CNN)</h2>
+                        <div class="subtitle">Convolutional layer: shared weights</div>
+                        <div class="div-alone">
+                            <ul>
+                                <li>The linear filter $W$ is applied across the entire input feature map;</li>
+                                <ul>
+                                    <li>The units share the same weights $w_{ij}$</li>
+                                </ul>
+                                <li>Advantage of <b>weight sharing</b>:</li>
+                                <ul>
+                                    <li>The features che be detected regardless of their position;</li>
+                                    <li>Increased of learning efficiency by reducing the number of free parameters;</li>
+                                    <li>CNNs achieve better generalization.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                        <div >
+                            <img style="width: 35%" src="./img/cnn_shared_weights.png">
+                            <p class="img-note"><i>Figure: the weiths with the same color are shared.</i></p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Convolutional Neural Networks (CNN)</h2>
+                        <div class="subtitle">Max-pooling layer</div>
+                        <div class="div-alone">
+                            <ul>
+                                <li>M-Layer implements a form of non-linear <b>down-sampling</b>;</li>
+                                <li>How <b>M-Layer</b> works:</li>
+                                <ul>
+                                    <li>The M-Layer receives as input a set of feature maps $I=\{I_j\}$ which is the output of C-Layer that precedes it;</li>
+                                    <li>Each feature map $I_j$ is partitioned into a set of non-overlapping rectangles $R_{i}^{(j)} \in \mathbb{R}^{k \times k}$;</li>
+                                    <li>For each rectangles $R_{i}^{(j)}$ the maximum value are taken which form the output feature map $O_j$;</li>
+                                    <li>The output of M-Layer is a set of feature maps $O=\{O_j\}$;</li>
+                                </ul>
+                                <li>If the input feature maps $I_j \in \mathbb{R}^{N \times N}$ then the output feature maps $O_j \in \mathbb{R}^{\frac{N}{k} \times \frac{N}{k}} \;$ :</li>
+                                <ul>
+                                    <li>as each $k \times k$ sub-region is reduced to just a single value via the max function.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Convolutional Neural Networks (CNN)</h2>
+                        <div class="subtitle">Max-pooling layer: advantage</div>
+                        <div class="div-alone">
+                            <ul>
+                                <li>Advantage of M-Layer:</li>
+                                <ul>
+                                    <li>reduces the computational complexity for the layers above;</li>
+                                    <li>provides a form of translation invariance:</li>
+                                    <ul>
+                                        <li>If we consider the neighbors of a feature map's unit the 8-connected units;</li>
+                                        <li>and max-pooling is done over a $2 \times 2$ region, $3$ out of these $8$ possible configurations will produce exactly the same output at the C-layer above;</li>
+                                    </ul>
+                                </ul>
+                            </ul>
+                        </div>
+                    </section>
+
                 </section>
+
                 <section>
+
                     <section>
                         <!--<script type="text/template">-->
                         <h2>Dropout</h2>
 
-                        <div class="div-header">
+                        <div>
                             <b>How to improve a neural network?</b>
                         </div>
 
@@ -287,7 +394,7 @@
 
                     <section>
                         <h2>How Dropout works (3)</h2>
-                        <div class="div-header">
+                        <div>
                             <b>Model prediction</b>
                         </div>
 
