@@ -221,7 +221,7 @@
                                 <li>Train many models and average the models' predictions:</li>
                                 <ul>
                                     <li>reduce test error and overfitting;</li>
-                                    <li>too expensive for big NN and that already take serveral day to train.</li>
+                                    <li>too expensive for big NN and that already take several days to train.</li>
                                 </ul>
                                 <li><b>Dropout</b> is a more efficient solution<sup>[3]</sup>. It provides:</li>
                                 <ul>
@@ -305,29 +305,124 @@
                             </ul>
                         </div>
                     </section>
-
-
-                        <!--<p align="">-->
-
-                            <!--Dropout consists of setting to zero the output of each hidden neuron with probability 0.5. The-->
-                            <!--neurons which are “dropped out” in this way do not contribute to the forward pass and do not participate in back--->
-                            <!--propagation. So every time an input is presented, the neural network samples a different architecture,-->
-                            <!--but all these architectures share weights.-->
-
-                            <!--This technique reduces complex co-adaptations of neurons,-->
-                            <!--since a neuron cannot rely on the presence of particular other neurons. It is, therefore, forced to-->
-                            <!--learn more robust features that are useful in conjunction with many different random subsets of the-->
-                            <!--other neurons.-->
-                            <!--Without dropout, our network ex-hibits substantial overfitting. Dropout roughly doubles the number of-->
-                            <!--iterations required to converge.-->
-
-                        <!--</p>-->
                     <section>
-                        <h2>ReLU</h2>
-                        <p>
-                            blabla sul maxout
-                        </p>
+                        <h2>Rectified Linear Units (ReLU) (1)</h2>
+
+
+                            Rectified Linear units are a drop in replacement for the traditional nonlinear activation
+                            functions.<br>
+                            <!--ReLUs (Rectified Linear Units) are capable of having values in the range of-->
+                            <!--[0, inf].-->
+
+                                              $ y = max (0 , b + \sum\limits_{i=1}^k x_i  w_i) $ <br>
+
+                            ReLU units are more biologically plausible then the other activation functions, since they
+                            model the biological neuron's responses in their area of operation. While sigmoid and tanh
+                            activation functions are biologically implausible.<br>
+
+                            <!--<div class="div-img">-->
+                            <img src="./img/synapse_vs_sigmoid_trasp.png" alt="unifi stemma" ><br>
+                            Left: Firing of a neuron from biological data. Right: traditional activation functions.
+
+                            <!--</div>-->
+
+                            <!--It makes calculating the gradient during back propagation trivial. It is 0 if x < 0 and 1-->
+                            <!--elsewhere. This speeds up the training of the network.-->
+
+
                     </section>
+                    <section>
+                        <h2>Rectified Linear Units (ReLU) (2)</h2>
+
+                        <div class="div-left">
+
+                            <p align="left">ReLU derivative:</p>
+                            <ul>
+                                <li>is not fully differentiable (not at 0)</li>
+                                <li>can only take two values, 0 or 1.</li>
+                            </ul>
+
+
+                        <br><br>
+
+                        <p align="left">Compared to the logistic sigmoid neuron:</p>
+                        <ul>
+                            <li>it is much more efficient to compute (both its value and its partial derivatives)</li>
+                            <li>considerably speeds up training.</li>
+                            <li>enables much larger network implementations.</li>
+                        </ul>
+                        </div>
+                        <div class="div-img">
+                            <img src="./img/relu_trasp.png" width="320" alt="unifi stemma">
+                        </div>
+
+
+                    </section>
+                    <section>
+                        <h2>Rectified Linear Units (ReLU) (3)</h2>
+
+
+                        <!--<div class="div-left">-->
+                        <p align="left">ReLU Advantages:</p>
+                        <ul>
+                            <li><b>Biological plausibility:</b> One-sided, compared to the antisymmetry of tanh.</li>
+                            <li><b>Sparse activation:</b> For example, in a randomly initialized networks, only about 50% of hidden units is activated (having a non-zero output).</li>
+                            <li><b>Efficient gradient propagation:</b> No vanishing gradient problem or exploding effect.</li>
+                            <li><b>Efficient computation:</b> Only comparison, addition and multiplication.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Rectified Linear Units (ReLU) (4)</h2>
+
+                        <!--</div>-->
+                        <p align="left">Sparse representations advantages:</p>
+                        <ul>
+                        <li><b> Information disentangling.</b>
+                                A dense representation is highly entangled because
+                                almost any change in the input modifies most of
+                                the entries in the representation vector. Instead,
+                                if a representation is both sparse and robust to
+                                small input changes, the set of non-zero features
+                                is almost always roughly conserved by small
+                                changes of the input.</li>
+                        <li><b> Efficient variable-size representation. </b>
+                                Different inputs may contain different amounts of information and would be
+                                more conveniently represented using a variable-size data-structure.
+                                Varying the number of active neurons allows a model to control the effective
+                                dimensionality of the representation for a given input and the required precision.</li>
+                        <li><b> Linear separability.</b>
+                                Sparse representations are also more likely to be linearly separable, or more
+                                easily separable with less non-linear machinery,
+                                simply because the information is represented in
+                                a high-dimensional space.
+                                <!--Besides, this can reflect-->
+                                <!--the original data format. In text-related applications for instance,-->
+                                <!--the original raw data is already very sparse (see Section 4.2).-->
+                                </li>
+                        <li><b> Distributed but sparse.</b>
+                                Dense distributed representations are the richest representations, be-
+                                ing potentially exponentially more efficient than
+                                purely local ones (Bengio, 2009). Sparse representations’ efficiency
+                                is still exponentially greater,
+                                with the power of the exponent being the number
+                                of non-zero features. They may represent a good
+                                trade-off with respect to the above criteria.</li>
+
+                        </ul>
+                        Potential Problems One may hypothesize that the
+                        hard saturation at 0 may hurt optimization by block-
+                        ing gradient back-propagation. To evaluate the poten-
+                        tial impact of this effect we also investigate the soft-
+                        plus activation: softplus(x) = log(1+e x ) (Dugas et al.,
+                        2001), a smooth version of the rectifying non-linearity.
+                        We lose the exact sparsity, but may hope to gain eas-
+                        ier training. However, experimental results tend to contradict that hypothesis, suggesting
+                        that hard zeros can actually help supervised training.
+
+
+
+                    </section>
+
                     <section>
                         <h2>Paper: Maxout</h2>
                         <p>
