@@ -53,7 +53,8 @@ sup {
 
 .reveal .slides>section>section {
     line-height: 1.65;
-    font-size: 25px;
+    /*font-size: 25px;*/
+    font-size: 0.9em;
 }
 
 .reveal .slides .div-alone {
