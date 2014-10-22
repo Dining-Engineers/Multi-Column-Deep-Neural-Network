@@ -48,13 +48,13 @@ sup {
 
 .reveal .slides>section {
     line-height: 1.65;
-    font-size: 25px;
+    font-size: 0.85em;
 }
 
 .reveal .slides>section>section {
     line-height: 1.65;
     /*font-size: 25px;*/
-    font-size: 0.9em;
+    font-size: 0.85em;
 }
 
 .reveal .slides .div-alone {
