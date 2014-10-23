@@ -939,76 +939,122 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
 
                     <section>
                         <h2>Single Convolutional Neural Network</h2>
-                        <div class="subtitle">Input</div>
-                        <div class="div-alone">
-                            <ul>
-                                <li></li>
-                            </ul>
+                        <div class="subtitle">Architecture: Fully connected layer</div>
+                        <div class="div-left">
+                            <div style="min-height: 50px; overflow: hidden"></div>
+                            <pre><code>
+!obj:pylearn2.models.maxout.Maxout {
+    layer_name: 'h3',
+    irange: .005,
+    num_units: 240,
+    num_pieces: 5,
+},
+					        </code></pre>
+
+                            <div class="img-note">
+                                Figure: example of YAML code for fully connected layer.
+                            </div>
+
+                            <!--<div style="min-height: 50px; overflow: hidden"></div>-->
+
+                        </div>
+
+                        <div class="div-right">
+                            <div style="text-align: left; padding: 30px">
+                                <ul>
+                                    <li>The single architecture use a fully connected layer $h_3$ with the following parameters:</li>
+                                    <ul>
+                                        <li><b>num_units</b>: use $240$ neurons with maxout activation function;</li>
+                                        <li><b>num_pieces</b>: use $5$ linear models for each maxout unit;</li>
+                                    </ul>
+                                </ul>
+                            </div>
                         </div>
                     </section>
 
 
+                    <section>
+                        <h2>Single Convolutional Neural Network</h2>
+                        <div class="subtitle">Architecture: Softmax layer</div>
+                        <!--<div class="div-header">In training fase</div>-->
 
 
-                    <section>
-                        <h2>Architettura singola rete nel dettaglio:</h2>
-                        <p>
-                            Elenco:
-                            Input
-                            dropout
-                            ConvMaxout
-                            Maxout
-                            Softmax
-                        </p>
-                    </section>
-                    <section>
-                        <h2>Input di Rete</h2>
-                        <p>
-                            Preprocessing, Conv2DSpace
-                        </p>
-                    </section>
-                    <section>
-                        <!--<script type="text/template">-->
-                        <h2> Dropout </h2>
+                        <div class="div-left">
+                            <div style="min-height: 50px; overflow: hidden"></div>
+                            <pre><code>
+!obj:pylearn2.models.mlp.Softmax {
+    layer_name: 'y',
+    n_classes: 10,
+    irange: .005
+}
+					        </code></pre>
 
-                        <p align="">
-                            Combining the predictions of many different models is a very successful way to reduce test errors
-                            but it appears to be too expensive for big neural networks that already take several days
-                            to train. There is, however, a very efficient version of model combination that only costs about a
-                            factor of two during training.
-                        </p>
-                        With the following paper a technique has been proposed to address this problem: Dropout.
-                        <blockquote>
-						&ldquo;G.E. Hinton, N. Srivastava, A. Krizhevsky, I. Sutskever, and R.R. Salakhutdinov. Improving neural
-                            net-works by preventing co-adaptation of feature detectors. arXiv preprint arXiv:1207.0580, 2012.&rdquo;
-					    </blockquote>
+                            <div class="img-note">
+                                Figure: example of YAML code for softmax layer.
+                            </div>
+                        </div>
 
+                        <div class="div-right">
+                            <div style="text-align: left; padding: 30px">
+                                <ul>
+                                    <li>The single architecture use a softmax layer $y$ with the following parameters:</li>
+                                    <ul>
+                                        <li><b>n_classes</b>: use $10$ output class vector;</li>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
                     </section>
+
                     <section>
-                        <h2>ConvMaxout</h2>
-                        <p>
-                            blabla
-                        </p>
-                    </section>
-                    <section>
-                        <h2>Maxpooling</h2>
-                        <p>
-                            blabla
-                        </p>
-                    </section>
-                    <section>
-                        <h2>Maxout Neuron</h2>
-                        <p>
-                            blabla
-                        </p>
-                    </section>
-                    <section>
-                        <h2>Softmax</h2>
-                        <p>
-                            blabla
-                        </p>
+                        <h2>Single Convolutional Neural Network</h2>
+                        <div class="subtitle">Training algorithm</div>
+
+                        <div>
+                            <pre><code>
+algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
+    learning_rate: .1,
+    learning_rule: !obj:pylearn2.training_algorithms.learning_rule.Momentum {
+        init_momentum: .5,
+    },
+    cost: !obj:pylearn2.costs.mlp.dropout.Dropout {
+        input_include_probs: { 'h0' : 0.8 },
+    },
+    termination_criterion: !obj:pylearn2.termination_criteria.MonitorBased {
+        channel_name: "valid_y_misclass",
+        prop_decrease: 0.,
+        N: 100
+    },
+},
+					        </code></pre>
+
+                            <div class="img-note">
+                                Figure: example of YAML code for softmax layer.
+                            </div>
+                        </div>
+
+                        <div class="div-alone" style="padding-left: 10px">
+                            The learning algorithm used is Minibatch SGD with the following parameters:
+                            <ul style="padding-left: 40px; padding-top: 10px">
+                                <li><b>Dropout</b>: apply dropout to the layer $h_0$ with $0.8$ probability;</li>
+                                <li><b>Termination criterion</b>: stop if miss class rate doesn't decrease in $100$ iterations;</li>
+                                <!--<ul>-->
+                                    <!--<li></li>-->
+                                <!--</ul>-->
+                            </ul>
+                        </div>
+
+                        <!--<div class="div-right">-->
+                            <!--<ul>-->
+                                <!--<li><b>Termination criterion</b>: stop if miss class rate doesn't decrease in $100$ iterations;</li>-->
+                                <!--<ul>-->
+                                    <!--<li></li>-->
+                                <!--</ul>-->
+                            <!--</ul>-->
+                        <!--</div>-->
                     </section>
                 </section>
+
                 <section>
                     <section>
                         <h2>Architettura MCDNN: passiamo al Multicolumn...</h2>
