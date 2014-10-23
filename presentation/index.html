@@ -387,7 +387,7 @@
                                     <li>reduce test error and overfitting;</li>
                                     <li>too expensive for big NN and that already take several days to train.</li>
                                 </ul>
-                                <li><b>Dropout</b> is a more efficient solution<sup>[3]</sup>. It provides:</li>
+                                <li><b>Dropout</b> is a more efficient solution<sup>[4]</sup>. It provides:</li>
                                 <ul>
                                     <li>an inexpensive and simple means of both training a large ensemble of models;</li>
                                 </ul>
@@ -511,7 +511,7 @@
                                 <li>Potential problem by using ReLU activation function:</li>
                                 <ul>
                                     <li>hard saturation at $0$ may hurt optimization by blocking gradient back-propagation.
-                                        To evaluate the potential impact of this effect we also investigate the <i>soft-plus activation</i>  (Dugas et al.,2001):
+                                        To evaluate the potential impact of this effect we also investigate the <i>soft-plus activation</i>:
                                         <div class="equation">
                                             $softplus(x) = log(1+ e^x)$
                                         </div>
@@ -551,7 +551,7 @@
                                     <ul>
                                         <li>it is a natural companion to dropout;</li>
                                     </ul>
-                                <li>Maxout model introduce a new type of activation function called <b>maxout unit</b>:</li>
+                                <li>Maxout model introduce a new type of activation function called <b>maxout unit</b><sup>[6]</sup>:</li>
                                     <ul>
                                         <li>Given an input $x \in \mathbb{R^d}$, the maxout layer implements the function:</li>
                                     </ul>
@@ -895,9 +895,12 @@
                         <!--<p>backup content</p>-->
                         <!--</object>-->
                         <ul>
-                          <li>[1] D. Cireșan, U. Meier and J. Schmidhuber: Multi-column Deep Neural Networks for Image Classification (2012);
-                          <li>[2] D. H. Hubel and T. N. Wiesel: Receptive fields, binocular interaction and functional architecture in the cat's visual cortex (1962);
-                          <li>[3]
+                          <li>[1] D. Cireșan, U. Meier and J. Schmidhuber: Multi-column Deep Neural Networks for Image Classification (2012);</li>
+                          <li>[2] D. H. Hubel and T. N. Wiesel: Receptive fields, binocular interaction and functional architecture in the cat's visual cortex (1962);</li>
+                          <li>[3] K. Fukushima: Neocognitron: A Self-organizing Neural Network Model for a Mechanism of Pattern Recognition Unaffected by Shift in Position (1980);</li>
+                          <li>[4] G. E. Hinton, N. Srivastava, A. Krizhevsky, I. Sutskever and R. R. Salakhutdinov: Improving neural networks by preventing co-adaptation of feature detectors (2012);</li>
+                            <li>[5] X. Glorot, A. Bordes and Y. Bengio: Deep sparse rectifier neural networks (2011);</li>
+                            <li>[6] I. J. Goodfellow, D. Warde-Farley, M. Mirza, A. Courville and Y. Bengio: Maxout Networks (2013)</li>
                         </ul>
                     </div>
                 </section>
