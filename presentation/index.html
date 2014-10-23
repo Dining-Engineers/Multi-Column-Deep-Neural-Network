@@ -638,28 +638,211 @@
                 <section>
                     <section>
                         <h2>Softmax</h2>
-                        <p>
-                            blabla sul maxout
-                        </p>
+                        <div class="subtitle">Softmax layer</div>
+                        <div class="div-alone">
+                            <ul>
+                                <li><b>Softmax regression</b> is a generalization of logistic regression:</li>
+                                <ul>
+                                    <li>where we want to handle multiple classes;</li>
+                                </ul>
+                                <li>In logistic regression the labels are binary: $y^{(i)} \in \{0,1\}$ ;</li>
+                                <li>Softmax regression allows us to handle: $y^{(i)} \in \{1,\ldots,K\}$ :</li>
+                                <ul>
+                                    <li>where $K$ is the number of classes;</li>
+                                </ul>
+                                <li>Given a training set: $\{ (x^{(1)}, y^{(1)}), \ldots, (x^{(m)}, y^{(m)}) \}$ of $m$ labeled examples, where the input features are $x^{(i)} \in \mathbb{R}^n$.</li>
+                                <ul>
+                                    <li>with logistic regression the hypotesis took the form:</li>
+                                </ul>
+                            </ul>
+                            <br>
+                             <div align="center" style="margin-top: 1em; margin-bottom: 1em">$h_\theta(x) = \frac{1}{1+\exp(-\theta^\top x)}$</div>
+                            <ul>
+                                <ul>
+                                    <li>where $\theta^\top$ are the parameters to optimize.</li>
+                                </ul>
+                            </ul>
+                        </div>
                     </section>
+
+                    <section>
+                        <h2>Softmax</h2>
+                        <div class="subtitle">Softmax layer</div>
+                        <div class="div-alone">
+                            <ul>
+                                <li>Given a test input $x$, we want our hypothesis to estimate the probability that $P(y=k | x)$ for each value of $k = 1 \ldots, K$:</li>
+                                <ul>
+                                    <li>i.e., we want to estimate the probability of the class label taking on each of the $K$ different possible values.</li>
+                                </ul>
+                                <li>Thus, our hypothesis will output a $K$-dimensional vector (whose elements sum to 1) giving us our $K$ estimated probabilities:</li>
+                                    <ul>
+                                        <li>Concretely, our hypothesis $h_{\theta}(x)$ takes the form:</li>
+                                    </ul>
+                            </ul>
+                            <div class="equation" style="margin-top: 1em; margin-bottom: 1em">
+                               $
+                                    \begin{align}
+                                    h_\theta(x) =
+                                    \begin{bmatrix}
+                                    P(y = 1 | x; \theta) \\
+                                    P(y = 2 | x; \theta) \\
+                                    \vdots \\
+                                    P(y = K | x; \theta)
+                                    \end{bmatrix}
+                                    =
+                                    \frac{1}{ \sum_{j=1}^{K}{\exp(\theta^{(j)\top} x) }}
+                                    \begin{bmatrix}
+                                    \exp(\theta^{(1)\top} x ) \\
+                                    \exp(\theta^{(2)\top} x ) \\
+                                    \vdots \\
+                                    \exp(\theta^{(K)\top} x ) \\
+                                    \end{bmatrix}
+                                    \end{align}
+                                    $
+                            </div>
+
+                            <ul>
+                                <ul>
+                                    <li>where $\theta^{(1)}, \theta^{(2)}, \ldots, \theta^{(K)} \in \mathbb{R}^{n}$ are the parameters of our model:</li>
+                                        <ul>
+                                            <li><i>Notice</i> that the term $\frac{1}{ \sum_{j=1}^{K}{\exp(\theta^{(j)\top} x) } } $ normalizes the distribution, so that it sums to one.</li>
+                                        </ul>
+                                </ul>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Cost Function</h2>
+                        <div class="subtitle">Softmax cost</div>
+                        <div class="div-alone">
+                            <ul>
+                                <li>The <b>cost function</b> used in softmax regression is the follow:</li>
+                            </ul>
+                            <div class="equation" style="margin-top: 1em; margin-bottom: 1em">
+                                $ J(\theta) = - \left[ \sum_{i=1}^{m} \sum_{k=1}^{K}  1\left\{y^{(i)} = k\right\} \log \frac{\exp(\theta^{(k)\top} x^{(i)})}{\sum_{j=1}^K \exp(\theta^{(j)\top} x^{(i)})}\right] $
+                            </div>
+                            <ul>
+                                <ul>
+                                    <li>that is a generalization of logistic regression cost function:</li>
+                                </ul>
+                            </ul>
+                            <div class="equation" style="margin-top: 1em; margin-bottom: 1em">
+                                $J(\theta) = - \left[ \sum_{i=1}^m   (1-y^{(i)}) \log (1-h_\theta(x^{(i)})) + y^{(i)} \log h_\theta(x^{(i)}) \right]
+= - \left[ \sum_{i=1}^{m} \sum_{k=0}^{1} 1\left\{y^{(i)} = k\right\} \log P(y^{(i)} = k | x^{(i)} ; \theta) \right]$
+                            </div>
+
+                            <ul>
+                                <ul>
+                                    <li>where we sum over the $K$ different possible values of the class label.</li>
+                                </ul>
+                                <li>To obtain the parameters $\theta$ we'll resort to an iterative optimization algorithm using the gradient:</li>
+                            </ul>
+
+                            <div class="equation" style="margin-top: 1em; margin-bottom: 1em">
+$ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ y^{(i)} = k\}  - P(y^{(i)} = k | x^{(i)}; \theta) \right) \right]  } $
+                            </div>
+
+                        </div>
+                    </section>
+
                 </section>
+
+                <section>
+
+                    <section>
+                        <h2>Optimization method</h2>
+                        <div class="subtitle">Gradient Descent methods</div>
+                        <div class="div-alone">
+                            <ul>
+                                <li>The Gradient Descent (GD) method is used to optimize the cost function:</li>
+                                <ul>
+                                    <li>called Batch GD which use the full training set to compute the next update to parameters at each iteration;</li>
+                                    <li>in practice computing the cost and gradient for the entire training set can be:
+                                        <ul>
+                                            <li>very slow;</li>
+                                            <li>sometimes intractable on a single machine if the dataset is too big to fit in main memory.</li>
+                                        </ul>
+                                </ul>
+                                <li><b>Stochastic Gradient Descent (SGD)</b> addresses both of these issues by following the negative gradient of the objective
+                                    after seeing:
+                                <ul>
+                                    <li>only a single or a few training examples: <b>online</b> setting;</li>
+                                    <li>a small batch of examples e.g. $128$, $256$: <b>Minibatch SGD</b>.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Optimization method</h2>
+                        <div class="subtitle">Minibatch Stochastic Gradient Descent</div>
+                        <div class="div-alone">
+                            <ul>
+                                <li>The standard gradient descent algorithm updates the parameters $\theta$ of the objective $J(\theta)$ as:</li>
+                            </ul>
+                            <div class="equation" style="margin-top: 1em; margin-bottom: 1em">
+                                $\theta = \theta - \alpha \nabla_\theta E[J(\theta)]$
+                            </div>
+
+                            <ul>
+                                <ul>
+                                    <li>where the expectation in the above equation is approximated by evaluating the cost and gradient over the full training set.</li>
+                                </ul>
+                                <li>Minibatch SGD update and computes the gradient of the parameters using a small batch of examples;</li>
+                                <ul>
+                                    <li>the new update is given by:</li>
+                                </ul>
+                            </ul>
+
+                            <div class="equation" style="margin-top: 1em; margin-bottom: 1em">
+                                $\theta = \theta - \alpha \nabla_\theta J(\theta; x^{b},y^{b})$
+                            </div>
+
+                            <ul>
+                                <ul>
+                                    <li>where $\{x^{b}, y^{b}\}$ is the $b$-th subset of training set and $\alpha$ is the learning rate.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Optimization method</h2>
+                        <div class="subtitle">Momentum</div>
+                        <div class="div-alone">
+                            <ul>
+                                <li>The objective has the form of a long shallow ravine leading to the optimum and steep walls on the sides, standard SGD will tend to oscillate across the narrow ravine since the negative gradient will point down one of the steep sides rather than along the ravine towards the optimum;</li>
+                                <li><b>Momentum</b> is one method for pushing the objective more quickly along the shallow ravine;</li>
+                                <ul>
+                                    <li>The momentum update is given by:</li>
+                                </ul>
+                            </ul>
+                            <div class="equation" style="margin-top: 1em; margin-bottom: 1em">
+                                $\theta^{k+1} = \theta^{k} -  \Delta \theta^{k+1}$
+                            </div>
+                            <div class="equation" style="margin-top: 1em; margin-bottom: 1em">
+                                $\Delta \theta^{k+1} = \gamma \Delta \theta^{k} + \alpha \nabla_{\theta} J(\theta; x^{(i)},y^{(i)})$
+                            </div>
+
+                            <ul>
+                                <ul>
+                                    <li>where $\gamma$ is the <i>momentum</i> and $\alpha$ the learning rate.</li>
+                                </ul>
+                            </ul>
+
+                        </div>
+                    </section>
+
+                </section>
+
                 <section>
                     <section>
-                        <h2>Costo: Negative Log Likelihood</h2>
-                        <p>
-                            blablabla
-                        </p>
-                    </section>
-                    <section>
-                        <h2>Algoritmo discesa: SGD</h2>
-                        <p>
-                            blablabla
-                        </p>
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h2>Architettura: Multi Deep Neural Network</h2>
+                        <h2>Implementation technologies</h2>
+                        <div class="subtitle">Tools</div>
+                        <div class="div-alone">
+
+                        </div>
                         <p>
                             <img width="500" src="./img/mcdnn.png" alt="unifi stemma" >
                         </p>
