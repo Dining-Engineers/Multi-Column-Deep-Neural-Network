@@ -35,7 +35,7 @@ class PretrainedMLP(Layer):
         fine-tuned to optimize the MLP's cost function.
     """
 
-    def __init__(self, layer_name, layer_content, freeze_params=True):
+    def __init__(self, layer_name, layer_content, freeze_params=True, exclude_last_layer=False):
         super(PretrainedMLP, self).__init__()
         self.__dict__.update(locals())
         # model = layer_content
@@ -44,7 +44,9 @@ class PretrainedMLP(Layer):
         # # self.pretrained_fprop = theano.function([X], Y)
         print self.layer_content.layers
         # Remove last layer softmax
-        del self.layer_content.layers[-1]
+        if exclude_last_layer:
+            del self.layer_content.layers[-1]
+
         print self.layer_content.layers
 
         del self.self

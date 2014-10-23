@@ -837,35 +837,118 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
                 </section>
 
                 <section>
+                    <h2>Implementation technologies</h2>
+                    <div class="subtitle">Tools</div>
+                    <div class="div-alone">
+                        <ul>
+                            <li>Dataset: CIFAR-10</li>
+                            <li>Python:</li>
+                            <ul>
+                                <li>Pylearn2</li>
+                                <li>Theano</li>
+                                <li>Nvidia CUDA</li>
+                            </ul>
+                            <li>Pycharm</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Multi-Column Convolutional Neural Network</h2>
+                    <div class="subtitle">Architecture</div>
+                    <div class="div-alone">
+                        <ul>
+                            <li>We will go through the implementation details.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="./img/mcdnn_trasparent.png" alt="unifi stemma" >
+                    </div>
+                </section>
+
+                <section>
                     <section>
-                        <h2>Implementation technologies</h2>
-                        <div class="subtitle">Tools</div>
+                        <h2>Single Convolutional Neural Network</h2>
+                        <div class="subtitle">Input dataset</div>
                         <div class="div-alone">
+                            <ul>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Single Convolutional Neural Network</h2>
+                        <div class="subtitle">Architecture: Convolutional and Max-pooling layers</div>
+                        <div class="div-left">
+                            <div style="min-height: 100px; overflow: hidden"></div>
+                            <pre><code>
+!obj:pylearn2.models.maxout.MaxoutConvC01B {
+    pad: 4,
+    num_channels: 48,
+    num_pieces: 2,
+    kernel_shape: [8, 8],
+    pool_shape: [4, 4],
+    pool_stride: [2, 2],
+    irange: .005,
+},
+					        </code></pre>
+
+                            <div class="img-note">
+                                Figure: example of YAML code for convolutional layer definition.
+                            </div>
+
+                            <!--<div style="min-height: 50px; overflow: hidden"></div>-->
 
                         </div>
-                        <p>
-                            <img width="500" src="./img/mcdnn.png" alt="unifi stemma" >
-                        </p>
+
+                        <div class="div-right">
+                            <div style="text-align: left; padding: 30px">
+                                <ul>
+                                    <li>The single architecture use $3$ convolutional layer $\{h_0, h_1, h_2\}$ with the following parameters:</li>
+                                    <ul>
+                                        <li><b>pad</b>: apply a padding of $n$ pixel:</li>
+                                        <ul>
+                                            <li>$4$, $3$, $3$</li>
+                                        </ul>
+                                        <li><b>num_channels</b>: is the number of feature maps:</li>
+                                        <ul>
+                                            <li>$48$, $128$, $128$</li>
+                                        </ul>
+                                        <li><b>num_pieces</b>: use $n$ linear models for each maxout unit;</li>
+                                        <ul>
+                                            <li>$2$, $2$, $2$</li>
+                                        </ul>
+                                        <li><b>kernel_shape</b>:</li>
+                                        <ul>
+                                            <li>$8\times8$, $8\times8$, $5\times5$</li>
+                                        </ul>
+                                       <li><b>pool_shape</b>:</li>
+                                        <ul>
+                                            <li>$4\times4$, $4\times4$, $2\times2$</li>
+                                        </ul>
+                                        <li><b>pool_stride</b>:</li>
+                                        <ul>
+                                            <li>$2\times2$, $2\times2$, $2\times2$</li>
+                                        </ul>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
                     </section>
+
                     <section>
-                        <h2>Architettura: Single Deep Neural Network</h2>
-                        <img width="500" src="./img/dnn_training2.png" alt="single dnn training" >
-
-                        <p>
-                            Immagine singola DNN (in un blocco)
-
-                            testo blabla una dnn fa questo blabla
-                        </p>
+                        <h2>Single Convolutional Neural Network</h2>
+                        <div class="subtitle">Input</div>
+                        <div class="div-alone">
+                            <ul>
+                                <li></li>
+                            </ul>
+                        </div>
                     </section>
-                    <section>
-                        <h2>Struttura</h2>
-                        <p>
-                            <img width="500" src="./img/sdnn_composition2.bmp" alt="dnn composition"  style="float: left">
-                            Struttura DNN nel dettaglio
 
-                            Usato Maxout invece di ConvRect come facevano loro
-                        </p>
-                    </section>
+
+
 
                     <section>
                         <h2>Architettura singola rete nel dettaglio:</h2>

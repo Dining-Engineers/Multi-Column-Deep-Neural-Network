@@ -56,6 +56,11 @@ li {
     vertical-align: middle;
 }
 
+.reveal pre{
+ font-size: 0.80em;
+ width: 100%;
+}
+
 .reveal .slides {
     line-height: 1.65;
     font-size: 0.85em;

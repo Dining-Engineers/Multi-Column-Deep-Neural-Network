@@ -25,7 +25,8 @@
                                   !obj:custom_layers.PretrainedMLP {
                                     layer_name: 'gcn_column',
                                     layer_content: !pkl: 'pkl/best/singlecolumn_complex_GCN_paper_best.pkl',
-                                    freeze_params: False
+                                    freeze_params: False,
+                                    exclude_last_layer: True,
                                   }
                                   ]
                         },
@@ -42,7 +43,8 @@
                                   !obj:custom_layers.PretrainedMLP {
                                     layer_name: 'toronto_column',
                                     layer_content: !pkl: 'pkl/best/singlecolumn_complex_TORONTO_paper_best.pkl',
-                                    freeze_params: False
+                                    freeze_params: False,
+                                    exclude_last_layer: True,
                                   }]
                         },
                         !obj:pylearn2.models.mlp.MLP {
@@ -58,7 +60,8 @@
                                   !obj:custom_layers.PretrainedMLP {
                                     layer_name: 'zca_column',
                                     layer_content: !pkl: 'pkl/best/singlecolumn_complex_ZCA_paper_best.pkl',
-                                    freeze_params: False
+                                    freeze_params: False,
+                                    exclude_last_layer: True,
                                   }
                                   ]
                         },
