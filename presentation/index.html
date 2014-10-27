@@ -1084,73 +1084,186 @@ algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
                     </section>
                     <section>
                         <h2>Cifar10</h2>
-                        <p>
-                            parametri blablabla
-                        </p>
+
+                        The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per
+                        class. There are 50000 training images and 10000 test images.
+                        The dataset is divided into five training batches and one test batch, each with 10000 images.
+                        The test batch contains exactly 1000 randomly-selected images from each class. The training
+                        batches contain the remaining images in random order, but some training batches may contain
+                        more images from one class than another. Between them, the training batches contain exactly
+                        5000 images from each class.
+
+                        Here are the classes in the dataset, as well as 10 random images from each:
+
+                        <img  width="500" src="./img/cifar10.png" alt="cifar10" >
+                        <div class="img-note">Cifar-10 Dataset</div>
+
+                        The classes are completely mutually exclusive. There is no overlap between automobiles and trucks. "Automobile" includes sedans, SUVs, things of that sort. "Truck" includes only big trucks. Neither includes pickup trucks.
+
                     </section>
                     <section>
                         <h2>Preprocessing</h2>
-                        <p>
-                            blablabla
-                        </p>
+
+                        Preprocessing/filtering.
+
+                        Operations that give as a result a modified image with the same dimensions as the
+                        original image (e.g., contrast enhancement and noise reduction).
+
+                        We mean any operation of which the input consists of sensor
+                        data, and of which the output is a full image.
+
+                        <br>
+                        Preprocessing operations generally fall into one of three categories:
+                        <li>image reconstruction (to reconstruct an image from a number of sensor measurements),
+                        </li>
+                        <li>image restoration (to remove any aberrations introduced by the sensor, including
+                            noise),</li>
+                        <li>image enhancement (accentuation of certain desired features, which may facilitate later
+                            processing steps such as segmentation or object recognition).</li>
+
+
                     </section>
                     <section>
-                        <h2>GCN</h2>
-                        <p>
-                            blablabla
-                        </p>
+                        <h2>Global Contrast Normalization (GCN)</h2>
+
+                        In image processing, normalization is a process that changes the range of pixel intensity
+                        values. Applications include photographs with poor contrast due to glare, for example.
+                        Normalization is sometimes called contrast stretching or histogram stretching.
+
+
+                        Global contrast normalizes by subtracting the mean across features and then
+                        normalizes by either the vector norm or the standard deviation (across features, for each
+                        example).
+
+
+
                     </section>
                     <section>
                         <h2>ZCA Whitening</h2>
-                        <p>
-                            aggiungere anche http://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf
 
+                        We can store $n$ dimensional data points in the columns of a $d \times n$ matrix $X$.
+                        Assuming the data points have zero mean, their covariance matrix is given by
 
-                            Let your (centred) data be stored in a matrix $X$ with features in rows and data points in
-                            columns. Let the covariance matrix $C$ have eigenvectors in columns of $E$ and eigenvalues
-                            on the diagonal of $D$, so that $C=EDE^⊤$.
+                        <div class="equation">
+                            $\frac{1}{n-1}XX^T$.
+                        </div>
 
-                            PCA whitening transformation is given by $W_{PCA}=D−1/2E^⊤$
+                        We wish to decorrelate the data dimensions from one another. We can do this with a linear
+                        transformation $W$, which will transform the data matrix $X$ as follows:
 
-                            However, this whitening transformation is not unique. Indeed, whitened data will stay
-                            whitened after rotation, which means that any $W=RW_{PCA}$ with orthogonal matrix $R$ will
-                            also be a whitening transformation.
+                        <div class="equation">
+                            $Y=WX$.
+                        </div>
 
-                            In what is called ZCA whitening, we take $E$ as this orthogonal matrix, i.e.
-                            $W_{ZCA}=ED−1/2E^⊤$.
-                            One defining property of ZCA transformation is that it results in whitened data that is as
-                            close as possible to the original data (in the least squares sense). In other words,
-                            if you want to minimize &∥X−AX∥^2$ subject to $AX$ being whitened, then you should take
-                            $A=W_{ZCA}$. Here is a 2D illustration:
+                        In order for W to be a decorrelating matrix, $Y Y^T$ must be diagonal. However, we can
+                        restrict our search only to $W$s that satisfy
 
-                            Left subplot shows the data and its principal axes. Note the dark shading in the upper-right
-                            corner of the distribution: it marks its orientation. Rows of WPCA are shown on the second
-                            subplot: these are the vectors the data is projected on. After whitening (below) the
-                            distribution looks round, but notice that it also looks rotated --- dark corner is now on
-                            the East side, not on the North-East side. Rows of WZCA are shown on the third subplot (note
-                            that they are not orthogonal!). After whitening (below) the distribution looks round and
-                            it's oriented in the same way as originally. Of course, one can get from PCA whitened data
-                            to ZCA whitened data by rotating with E.
+                        <div class="equation">
+                            $YY^T=(n-1)I$.
+                        </div>
 
-                            The term "ZCA" seems to have been introduced in Bell and Sejnowski 1996 in the context of
-                            independent component analysis, and stands for "zero-phase component analysis". See there
-                            for more details. Most probably, you came across this term in the context of image
-                            processing. It turns out, that when applied to a bunch of natural images (pixels as
-                            features, each image as a data point), principal axes look like Fourier components of
-                            increasing frequencies, see first column of their Figure 1 below. So they are very "global".
-                            On the other hand, rows of ZCA transformation look very "local", see the second column.
-                            This is precisely because ZCA tries to transform the data as little as possible, and so
-                            each row should better be close to one the original basis functions (which would be images
-                            with only one active pixel). And this is possible to achieve, because correlations in
-                            natural images are mostly very local (so de-correlation filters can also be local).
+                        In other words, $W$s that make the covariance matrix of the transformed data matrix
+                        equal to the identity. There are multiple $W$s that fit this description, so we can restrict
+                        our search further by requiring
 
-                        </p>
+                        <div class="equation">
+                            $W = W^T$.
+                        </div>
+
+                        Given these restrictions, we can find $W$:
+
+                        <div class="equation">
+                            $
+                            \begin{split}
+                            YY^T & = (n-1)I \\
+                            WXX^TW^T & = (n-1)I \\
+                            W^TWXX^TW^T &= (n-1)W^T \\
+                            W^2XX^TW^T &= (n-1)W^T \\
+                            W^2XX^T &= (n-1)I \\
+                            W^2 &= (n-1)(XX^T)^{-1} \\
+                            W &= \sqrt{n-1}(XX^T)^{-\frac{1}{2}}.
+                            \end{split}$
+                        </div>
+                    </section>
+                    <section>
+                        <h2>ZCA Whitening</h2>
+
+                        $(XX^T)^{-\frac{1}{2}}$ is easly found because $XX^T$ is symmetric and hence othogonally
+                        diagonalizable.
+
+                        <div class="equation">
+                            $XX^T = PDP^T$
+                        </div>
+
+                        for some orthogonal matrix P and diagonal matrix D. So
+
+                        <div class="equation">
+                            $
+                            \begin{split}
+                            (XX^T)^{-\frac{1}{2}} & = ((XX^T)^{-1})^{\frac{1}{2}} \\
+                            &= ((PDP^T)^{-1})^{\frac{1}{2}} \\
+                            &= (PD^{-1}P^T)^{\frac{1}{2}} \\
+                            &= PD^{-\frac{1}{2}}P^T
+                            \end{split}$
+                        </div>
+
+                        where $D^{-\frac{1}{2}}$ is just $D$ with all the elements taken to the power $-\frac{1}{2}$.
+                        <br>
+                        Some $W = (XX^T)^{-\frac{1}{2}}$ transforms $X$ in such a way that the resultant data dimensions
+                        are uncorrelated with one another and the variance in each dimension is exactly $1$.
+                        $W$ may also be thought of as rotating $X$ to the space of its principal components, dividing
+                        each principal component by the square root of the variance in that direction, and then rotating
+                        back to pixel space. $W$ is called a <b>whitening matrix</b>, and is referred to as the
+                        <i>Zero Components Analysis</i> (ZCA) solution to the equation
+
+                        <div class="equation">
+                            $YY^T = diagonal$
+                        </div>
+
+                        The <i>dewhitening matrix</i>, $W^{-1}$, is given by
+
+                        <div class="equation">
+                            $W^{-1} = PD^{\frac{1}{2}}P^T$.
+                        </div>
+                </section>
+                    <section>
+                        <h2>ZCA Whitening</h2>
+
+                        <div class="div-left">
+                            <img src="./img/pre_zca.png" alt="unifi stemma" >
+                            <div class="img-note">Pre ZCA</div>
+                        </div>
+
+                        <div class="div-right">
+                            <img src="./img/after_zca.png" alt="unifi stemma" >
+                            <div class="img-note">After ZCA</div>
+                        </div>
+
+                        <br><br>
+                        ZCA-whitened images still resemble normal images, whereas PCA-whitened ones look nothing
+                        like normal images. This is probably important for algorithms like convolutional neural
+                        networks, which treat neighbouring pixels together
+                        and so greatly rely on the local properties of natural images. For most other machine
+                        learning algorithms it should be absolutely irrelevant whether the data is whitened with
+                        PCA or ZCA.
+
                     </section>
                     <section>
                         <h2>Toronto Preprocessing</h2>
-                        <p>
-                            blablabla
-                        </p>
+
+
+                        if toronto_prepro:
+                            assert not center
+                            assert not gcn
+                            X = X / 255.
+                            if which_set == 'test':
+                                other = CIFAR10(which_set='train')
+                                oX = other.X
+                                oX /= 255.
+                                X = X - oX.mean(axis=0)
+                            else:
+                                X = X - X.mean(axis=0)
+                        self.toronto_prepro = toronto_prepro
                     </section>
                 </section>
                 <section>
