@@ -231,8 +231,8 @@
                                     <!--the original data format. In text-related applications for instance,-->
                                     <!--the original raw data is already very sparse (see Section 4.2).-->
                                     </li>
-                                    <li style="text-align: justify"><b> Distributed but sparse:</b> dense distributed representations are the richest representations, be-
-                                    ing potentially exponentially more efficient than purely local ones (Bengio, 2009). Sparse representations’ efficiency
+                                    <li style="text-align: justify"><b> Distributed but sparse:</b> dense distributed representations are the richest representations,
+                                        being potentially exponentially more efficient than purely local ones (Bengio, 2009). Sparse representations’ efficiency
                                     is still exponentially greater, with the power of the exponent being the number
                                     of non-zero features. They may represent a good trade-off with respect to the above criteria.</li>
                                 </ul>
@@ -1078,12 +1078,7 @@ algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
                 <section>
                     <section>
                         <h2>Dataset</h2>
-                        <p>
-                            blablabla
-                        </p>
-                    </section>
-                    <section>
-                        <h2>Cifar10</h2>
+                        <div class="subtitle">Cifar-10</div>
 
                         The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per
                         class. There are 50000 training images and 10000 test images.
@@ -1296,13 +1291,87 @@ algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
                     <section>
                         <h2>Risultati</h2>
                         <p>
-                            Singola rete vs naive vs multi
+                            <!--_____Results __________	______________________-->
+                            <!--_______METHOD__________	_____MEAN____VAR______-->
+                            <!--Single GCN             	  (0.189, 0.15327900000000005)-->
+                            <!--Single TOR             	  (0.2036, 0.16214703999999996)-->
+                            <!--Single ZCA             	  (0.15140000000000001, 0.12847804000000002)-->
+                            <!---------------------------------------------------------------------->
+                            <!--Multi GCN_TOR          	  (0.1701, 0.14116598999999994)-->
+                            <!--Multi GCN_ZCA          	  (0.14960000000000001, 0.12721984)-->
+                            <!--Multi ZCA_TOR          	  (0.13300000000000001, 0.11531099999999997)-->
+                            <!--Multi GCN_TOR_ZCA      	  (0.14810000000000001, 0.12616639000000004)-->
+                            <!----------------------------------------------------------------------->
+                            <!--Multi-Naive GCN_TOR    	  (0.18010000000000001, 0.14766398999999997)-->
+                            <!--Multi-Naive GCN_ZCA    	  (0.15179999999999999, 0.12875676)-->
+                            <!--Multi-Naive ZCA_TOR    	  (0.1424, 0.12212224000000001)-->
+                            <!--Multi-Naive GCN_TOR_ZCA	  (0.154, 0.13028399999999998)-->
+                            <!--_______________________________________-->
+                        <br>
+                        <div class="datagrid"><table>
+                            <thead>
+                                <tr><th width="40%">Method</th><th width="30%">Mean Error</th><th width="30%">Var</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr class="alt"><td>Single GCN</td><td>0.189</td><td>0.153279</td></tr>
+                                <tr><td>Single TOR</td><td>0.2036</td><td>0.162147</td></tr>
+                                <tr class="alt"><td>Single ZCA</td><td>0.1514</td><td>0.128478</td></tr>
+
+                                <!--<tr><td>Multi-Naive GCN_TOR</td><td>0.1801</td><td>0.147663</td></tr>-->
+                                <!--<tr class="alt"><td>Multi-Naive GCN_ZCA</td><td>0.151799</td><td>0.128756</td></tr>-->
+                                <!--<tr><td>Multi-Naive ZCA_TOR </td><td>0.1424</td><td>0.122122</td></tr>-->
+                                <!--<tr class="alt"><td>Multi-Naive GCN_TOR_ZCA</td><td>0.154</td><td>0.130283</td></tr>-->
+
+                                <!--<tr><td>Multi GCN_TOR</td><td>0.1701</td><td>0.141165</td></tr>-->
+                                <!--<tr class="alt"><td>Multi GCN_ZCA</td><td>0.1496</td><td>0.127219</td></tr>-->
+                                <!--<tr><td>Multi ZCA_TOR</td><td>0.1330</td><td>0.115310</td></tr>-->
+                                <!--<tr class="alt"><td>Multi GCN_TOR_ZCA</td><td>0.14810</td><td>0.126166</td></tr>-->
+                            </tbody>
+                            </table>
+                        </div>
+                        <div class="img-note">Tab 1. Single Column Deep Neural Network</div>
+                        <br>
+                        <div class="datagrid"><table>
+                            <thead>
+                                <tr><th width="40%">Method</th><th width="30%">Mean Error</th><th width="30%">Var</th></tr>
+                            </thead>
+                            <tbody>
+
+                                <tr><td>Multi-Naive GCN_TOR</td><td>0.1801</td><td>0.147663</td></tr>
+                                <tr class="alt"><td>Multi-Naive GCN_ZCA</td><td>0.151799</td><td>0.128756</td></tr>
+                                <tr><td>Multi-Naive ZCA_TOR </td><td>0.1424</td><td>0.122122</td></tr>
+                                <tr class="alt"><td>Multi-Naive GCN_TOR_ZCA</td><td>0.154</td><td>0.130283</td></tr>
+
+                            </tbody>
+                            </table>
+                        </div>
+                        <div class="img-note">Tab 2. Multi Column Deep Neural Network, naive implementation</div>
+                        <br>
+                        <div class="datagrid"><table>
+                            <thead>
+                                <tr><th width="40%">Method</th><th width="30%">Mean Error</th><th width="30%">Var</th></tr>
+                            </thead>
+                            <tbody>
+
+                                <tr><td>Multi GCN_TOR</td><td>0.1701</td><td>0.141165</td></tr>
+                                <tr class="alt"><td>Multi GCN_ZCA</td><td>0.1496</td><td>0.127219</td></tr>
+                                <tr><td>Multi ZCA_TOR</td><td>0.1330</td><td>0.115310</td></tr>
+                                <tr class="alt"><td>Multi GCN_TOR_ZCA</td><td>0.14810</td><td>0.126166</td></tr>
+                            </tbody>
+                            </table>
+                        </div>
+                        <div class="img-note">Tab 3. Multi Column Deep Neural Network</div>
+
+
                         </p>
                     </section>
                     <section>
                         <h2>Confusion Matrix</h2>
                         <p>
-                            parametri blablabla
+                            <div class="">
+                            <img src="./img/confusionMulti_ZCA_TOR.png" alt="unifi stemma" >
+                            <div class="img-note">Confusion Matrix of a MCDNN: ZCA, TOR</div>
+                        </div>
                         </p>
                     </section>
                     <section>
