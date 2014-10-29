@@ -907,7 +907,7 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
 
                         <div class="div-right">
                             <br>
-                            <img  width="80%" src="./img/cifar10.png" alt="cifar10">
+                            <img  width="75%" src="./img/cifar10.png" alt="cifar10">
                             <div class="img-note">Cifar-10 dataset.</div>
                         </div>
 
@@ -963,114 +963,248 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
                         <div class="subtitle">Zero Components Analysis (ZCA)</div>
 
                         <div class="div-alone">
-
-                        </div>
-
-                        We can store $n$ dimensional data points in the columns of a $d \times n$ matrix $X$.
-                        Assuming the data points have zero mean, their covariance matrix is given by
-
-                        <div class="equation">
-                            $\frac{1}{n-1}XX^T$.
-                        </div>
-
-                        We wish to decorrelate the data dimensions from one another. We can do this with a linear
-                        transformation $W$, which will transform the data matrix $X$ as follows:
-
-                        <div class="equation">
-                            $Y=WX$.
-                        </div>
-
-                        In order for W to be a decorrelating matrix, $Y Y^T$ must be diagonal. However, we can
-                        restrict our search only to $W$s that satisfy
-
-                        <div class="equation">
-                            $YY^T=(n-1)I$.
-                        </div>
-
-                        In other words, $W$s that make the covariance matrix of the transformed data matrix
-                        equal to the identity. There are multiple $W$s that fit this description, so we can restrict
-                        our search further by requiring
-
-                        <div class="equation">
-                            $W = W^T$.
-                        </div>
-
-                        Given these restrictions, we can find $W$:
-
-                        <div class="equation">
-                            $
-                            \begin{split}
-                            YY^T & = (n-1)I \\
-                            WXX^TW^T & = (n-1)I \\
-                            W^TWXX^TW^T &= (n-1)W^T \\
-                            W^2XX^TW^T &= (n-1)W^T \\
-                            W^2XX^T &= (n-1)I \\
-                            W^2 &= (n-1)(XX^T)^{-1} \\
-                            W &= \sqrt{n-1}(XX^T)^{-\frac{1}{2}}.
-                            \end{split}$
+                            <ul>
+                                <li><b>Whitening</b> is an important pre-processing step for many algorithms.</li>
+                                <li>The images contain redundant data:</li>
+                                <ul>
+                                    <li>the values of adjacent pixels in an image are highly correlated.</li>
+                                </ul>
+                                <li>The <b>goal</b> of whitening is to make the input <b>less redundant</b>:</li>
+                                <ul>
+                                    <li><i>(i)</i> the features are less correlated with each other;</li>
+                                    <li><i>(ii)</i> the features all have the same variance.</li>
+                                </ul>
+                            </ul>
                         </div>
                     </section>
+
                     <section>
-                        <h2>ZCA Whitening</h2>
+                        <h2>Dataset</h2>
+                        <div class="subtitle">Zero Components Analysis (ZCA): method (1)</div>
 
-                        $(XX^T)^{-\frac{1}{2}}$ is easly found because $XX^T$ is symmetric and hence othogonally
-                        diagonalizable.
+                        <div class="div-alone">
+                            <ul>
+                                <li>The images $32 \times 32$ are flattened in $n=1024$ dimensional vectors;</li>
+                                <ul>
+                                    <li>the dataset can be stored in a matrix $X \in \mathbb{R}^{d\times n}$;</li>
+                                </ul>
+                                <li>GCN is applied in order to have mean zero. Therefore the covariance matris is given by:</li>
+                            </ul>
 
-                        <div class="equation">
-                            $XX^T = PDP^T$
+                            <div class="equation">
+                                $\Sigma = \frac{1}{n-1} XX^\top$
+                            </div>
+
+                            <ul>
+                                <li>recalling that $\sigma_{ii}$ elements of $\Sigma$ matrix are the variances and $\sigma_{ij} (i \neq j)$ are the covariance.</li>
+                                <li>In order to achive <i>(i)</i>, we can do this with a linear transformation $W$ such that:</li>
+                            </ul>
+
+                            <div class="equation">
+                                $Y = WX$
+                            </div>
+
+                            <ul>
+                                <li>where $W$ is the decorrelating matrix, then $YY^{\top}$ must be diagonal i.e. uncorrelated;</li>
+                                <li>therefore $W$ shall be such that</li>
+                            </ul>
+
+                            <div class="equation">
+                                $YY^{\top} = (n-1)I$
+                            </div>
+
+                            <ul>
+                                <li>i.e. $W$ make the covariance matrix of the transformed data matrix equal to the identity <i>(ii)</i>.</li>
+                                <li>Let $W$ a  a symmetric matrix i.e. $W = W^{\top}$;</li>
+                                <li>we can find $W$:</li>
+                            </ul>
+
+                            <div class="equation">
+                                $
+                                \begin{split}
+                                YY^T & = (n-1)I \\
+                                WXX^TW^T & = (n-1)I \\
+                                W^TWXX^TW^T &= (n-1)W^T \\
+                                W^2XX^TW^T &= (n-1)W^T \\
+                                W^2XX^T &= (n-1)I \\
+                                W^2 &= (n-1)(XX^T)^{-1} \\
+                                W &= \sqrt{n-1}(XX^T)^{-\frac{1}{2}}
+                                \end{split}$
+                            </div>
+
+                        </div>
+                    </section>
+
+
+                    <!--<section>-->
+                        <!--<h2>Dataset</h2>-->
+                        <!--<div class="subtitle">Zero Components Analysis (ZCA)</div>-->
+
+                        <!--<div class="div-alone">-->
+
+                        <!--</div>-->
+
+                        <!--We can store $n$ dimensional data points in the columns of a $d \times n$ matrix $X$.-->
+                        <!--Assuming the data points have zero mean, their covariance matrix is given by-->
+
+                        <!--<div class="equation">-->
+                            <!--$\frac{1}{n-1}XX^T$.-->
+                        <!--</div>-->
+
+                        <!--We wish to decorrelate the data dimensions from one another. We can do this with a linear-->
+                        <!--transformation $W$, which will transform the data matrix $X$ as follows:-->
+
+                        <!--<div class="equation">-->
+                            <!--$Y=WX$.-->
+                        <!--</div>-->
+
+                        <!--In order for W to be a decorrelating matrix, $Y Y^T$ must be diagonal. However, we can-->
+                        <!--restrict our search only to $W$s that satisfy-->
+
+                        <!--<div class="equation">-->
+                            <!--$YY^T=(n-1)I$.-->
+                        <!--</div>-->
+
+                        <!--In other words, $W$s that make the covariance matrix of the transformed data matrix-->
+                        <!--equal to the identity. There are multiple $W$s that fit this description, so we can restrict-->
+                        <!--our search further by requiring-->
+
+                        <!--<div class="equation">-->
+                            <!--$W = W^T$.-->
+                        <!--</div>-->
+
+                        <!--Given these restrictions, we can find $W$:-->
+
+                        <!--<div class="equation">-->
+                            <!--$-->
+                            <!--\begin{split}-->
+                            <!--YY^T & = (n-1)I \\-->
+                            <!--WXX^TW^T & = (n-1)I \\-->
+                            <!--W^TWXX^TW^T &= (n-1)W^T \\-->
+                            <!--W^2XX^TW^T &= (n-1)W^T \\-->
+                            <!--W^2XX^T &= (n-1)I \\-->
+                            <!--W^2 &= (n-1)(XX^T)^{-1} \\-->
+                            <!--W &= \sqrt{n-1}(XX^T)^{-\frac{1}{2}}.-->
+                            <!--\end{split}$-->
+                        <!--</div>-->
+                    <!--</section>-->
+
+                    <section>
+                        <h2>Dataset</h2>
+                        <div class="subtitle">Zero Components Analysis (ZCA): how represent $(XX^T)^{-\frac{1}{2}}$</div>
+
+                        <div class="div-alone">
+                            <div class="equation">$W = \sqrt{n-1}(XX^T)^{-\frac{1}{2}}$</div>
+                            <ul>
+                                <li>Since $XX^{\top}$ is symmetric it's hence orthogonally diagonalizable;</li>
+                                <ul>
+                                    <li>we can write $XX^{\top}$ as:</li>
+                                </ul>
+                            </ul>
+
+                            <div class="equation">
+                                $XX^T = PDP^T$
+                            </div>
+
+                            <ul>
+                                <ul>
+                                    where $P$ is a orthogonal matrix and $D$ is a diagonal matrix.
+                                </ul>
+                                <li>So:</li>
+                            </ul>
+
+                            <div class="equation">
+                                $
+                                \begin{split}
+                                (XX^T)^{-\frac{1}{2}} & = ((XX^T)^{-1})^{\frac{1}{2}} \\
+                                &= ((PDP^T)^{-1})^{\frac{1}{2}} \\
+                                &= (PD^{-1}P^T)^{\frac{1}{2}} \\
+                                &= PD^{-\frac{1}{2}}P^T
+                                \end{split}$
+                            </div>
+
+                            <ul>
+                                <ul>
+                                where $D^{-\frac{1}{2}}$ is just $D$ with all the elements taken to the power $-\frac{1}{2}$
+                                </ul>
+                                <li>$W$ is called a <b>whitening matrix</b>, and is referred to as the
+                        <i>Zero Components Analysis</i> (ZCA) solution to the equation</li>
+                            </ul>
+
+                            <div class="equation">
+                                $YY^T = diagonal$
+                            </div>
+                        </div>
+                    </section>
+
+                    <!--<section>-->
+                        <!--$(XX^T)^{-\frac{1}{2}}$ is easly found because $XX^T$ is symmetric and hence othogonally-->
+                        <!--diagonalizable.-->
+
+                        <!--<div class="equation">-->
+                            <!--$XX^T = PDP^T$-->
+                        <!--</div>-->
+
+                        <!--for some orthogonal matrix P and diagonal matrix D. So-->
+
+                        <!--<div class="equation">-->
+                            <!--$-->
+                            <!--\begin{split}-->
+                            <!--(XX^T)^{-\frac{1}{2}} & = ((XX^T)^{-1})^{\frac{1}{2}} \\-->
+                            <!--&= ((PDP^T)^{-1})^{\frac{1}{2}} \\-->
+                            <!--&= (PD^{-1}P^T)^{\frac{1}{2}} \\-->
+                            <!--&= PD^{-\frac{1}{2}}P^T-->
+                            <!--\end{split}$-->
+                        <!--</div>-->
+
+                        <!--where $D^{-\frac{1}{2}}$ is just $D$ with all the elements taken to the power $-\frac{1}{2}$.-->
+                        <!--<br>-->
+                        <!--Some $W = (XX^T)^{-\frac{1}{2}}$ transforms $X$ in such a way that the resultant data dimensions-->
+                        <!--are uncorrelated with one another and the variance in each dimension is exactly $1$.-->
+                        <!--$W$ may also be thought of as rotating $X$ to the space of its principal components, dividing-->
+                        <!--each principal component by the square root of the variance in that direction, and then rotating-->
+                        <!--back to pixel space. $W$ is called a <b>whitening matrix</b>, and is referred to as the-->
+                        <!--<i>Zero Components Analysis</i> (ZCA) solution to the equation-->
+
+                        <!--<div class="equation">-->
+                            <!--$YY^T = diagonal$-->
+                        <!--</div>-->
+
+                        <!--The <i>dewhitening matrix</i>, $W^{-1}$, is given by-->
+
+                        <!--<div class="equation">-->
+                            <!--$W^{-1} = PD^{\frac{1}{2}}P^T$.-->
+                        <!--</div>-->
+                    <!--</section>-->
+
+                    <section>
+                        <h2>Dataset</h2>
+                        <div class="subtitle">Zero Components Analysis (ZCA): advantages</div>
+
+                        <div class="div-alone">
+                            <ul>
+                                <li>ZCA-whitened images still <b>resemble</b> normal images:</li>
+                                <ul>
+                                    <li>whereas PCA-whitened ones look nothing.</li>
+                                </ul>
+                                <li>This is <b>important</b> for algorithms like CNN, which treat neighbouring pixels together:</li>
+                                <ul>
+                                    <li>so greatly rely on the local properties of natural images</li>
+                                </ul>
+                            </ul>
                         </div>
 
-                        for some orthogonal matrix P and diagonal matrix D. So
-
-                        <div class="equation">
-                            $
-                            \begin{split}
-                            (XX^T)^{-\frac{1}{2}} & = ((XX^T)^{-1})^{\frac{1}{2}} \\
-                            &= ((PDP^T)^{-1})^{\frac{1}{2}} \\
-                            &= (PD^{-1}P^T)^{\frac{1}{2}} \\
-                            &= PD^{-\frac{1}{2}}P^T
-                            \end{split}$
-                        </div>
-
-                        where $D^{-\frac{1}{2}}$ is just $D$ with all the elements taken to the power $-\frac{1}{2}$.
                         <br>
-                        Some $W = (XX^T)^{-\frac{1}{2}}$ transforms $X$ in such a way that the resultant data dimensions
-                        are uncorrelated with one another and the variance in each dimension is exactly $1$.
-                        $W$ may also be thought of as rotating $X$ to the space of its principal components, dividing
-                        each principal component by the square root of the variance in that direction, and then rotating
-                        back to pixel space. $W$ is called a <b>whitening matrix</b>, and is referred to as the
-                        <i>Zero Components Analysis</i> (ZCA) solution to the equation
-
-                        <div class="equation">
-                            $YY^T = diagonal$
-                        </div>
-
-                        The <i>dewhitening matrix</i>, $W^{-1}$, is given by
-
-                        <div class="equation">
-                            $W^{-1} = PD^{\frac{1}{2}}P^T$.
-                        </div>
-                    </section>
-                    <section>
-                        <h2>ZCA Whitening</h2>
 
                         <div class="div-left">
                             <img src="./img/pre_zca.png" alt="unifi stemma" >
-                            <div class="img-note">Pre ZCA</div>
+                            <div class="img-note">Figure: before ZCA.</div>
                         </div>
 
                         <div class="div-right">
                             <img src="./img/after_zca.png" alt="unifi stemma" >
-                            <div class="img-note">After ZCA</div>
+                            <div class="img-note">Figure: after ZCA.</div>
                         </div>
-
-                        <br><br>
-                        ZCA-whitened images still resemble normal images, whereas PCA-whitened ones look nothing
-                        like normal images. This is probably important for algorithms like convolutional neural
-                        networks, which treat neighbouring pixels together
-                        and so greatly rely on the local properties of natural images. For most other machine
-                        learning algorithms it should be absolutely irrelevant whether the data is whitened with
-                        PCA or ZCA.
 
                     </section>
 
@@ -1338,8 +1472,8 @@ algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
                         <div class="subtitle">Confusion Matrix</div>
 
                         <div>
-                            <img src="./img/confusionMulti_ZCA_TOR.png" alt="unifi stemma" width="90%">
-                            <div class="img-note">Confusion Matrix of a MCDNN: ZCA, TOR</div>
+                            <img src="./img/confusionMulti_ZCA_TOR.png" alt="unifi stemma" width="80%">
+                            <div class="img-note">Figure: confusion Matrix of a MCDNN: ZCA, TOR.</div>
                         </div>
 
                     </section>
