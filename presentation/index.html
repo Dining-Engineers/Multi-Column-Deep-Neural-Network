@@ -380,7 +380,8 @@
                             <b>How to improve a neural network?</b>
                         </div>
 
-                        <div class="div-alone">
+                        <div class="div-left">
+                            <br>
                             <ul>
                                 <li>Train many models and average the models' predictions:</li>
                                 <ul>
@@ -392,6 +393,10 @@
                                     <li>an inexpensive and simple means of both training a large ensemble of models;</li>
                                 </ul>
                             </ul>
+                        </div>
+
+                        <div class="div-right">
+                            <img src="./img/mcdnn_dropout.png" width="80%">
                         </div>
 
                     </section>
@@ -871,67 +876,81 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
                         <h2>Dataset</h2>
                         <div class="subtitle">Cifar-10</div>
 
-                        <ul>
-                            <li>The CIFAR-10 dataset is a famous benchmark:</li>
+                        <div class="div-left">
+                            <br>
                             <ul>
-                                <li>consists of 60000 32x32 colour images in 10 classes, with 6000 images per class;</li>
+                                <li>The CIFAR-10 dataset is a famous benchmark:</li>
+                                <ul>
+                                    <li>consists of $60000$ $32\times 32$ colour images in $10$ classes, with $6000$ images per class;</li>
+                                    <li>there are $50000$ training images and $10000$ test images:</li>
+                                    <ul>
+                                        <li>the <b>test</b> batch contains $1000$ randomly-selected images from each class;</li>
+                                        <li>the <b>training</b> batches contain the remaining images in random order</li>
+                                    </ul>
+                                </ul>
                             </ul>
-                        </ul>
+                        </div>
 
-                        The CIFAR-10 dataset  . There are 50000 training images and 10000 test images.
-                        The dataset is divided into five training batches and one test batch, each with 10000 images.
-                        The test batch contains exactly 1000 randomly-selected images from each class. The training
-                        batches contain the remaining images in random order, but some training batches may contain
-                        more images from one class than another. Between them, the training batches contain exactly
-                        5000 images from each class.
-
-                        Here are the classes in the dataset, as well as 10 random images from each:
-
-                        <img  width="500" src="./img/cifar10.png" alt="cifar10" >
-                        <div class="img-note">Cifar-10 Dataset</div>
-
-                        The classes are completely mutually exclusive. There is no overlap between automobiles and trucks. "Automobile" includes sedans, SUVs, things of that sort. "Truck" includes only big trucks. Neither includes pickup trucks.
+                        <div class="div-right">
+                            <br>
+                            <img  width="80%" src="./img/cifar10.png" alt="cifar10">
+                            <div class="img-note">Cifar-10 dataset.</div>
+                        </div>
 
                     </section>
+
                     <section>
-                        <h2>Preprocessing</h2>
+                        <h2>Dataset</h2>
+                        <div class="subtitle">Preprocessing</div>
 
-                        Preprocessing/filtering.
+                        <div class="div-alone">
+                            <ul>
+                                <li>Operations that give as a result a modified image with the same dimensions as the
+                                    original image (e.g., contrast enhancement and noise reduction).</li>
+                                <li>In order to <b>enhance the performance</b> of the MCDNN, the dataset is preprocessed in $3$ different ways:</li>
+                                <ul>
+                                    <li><i>Global Contrast Normalization (GCN)</i>;</li>
+                                    <li><i>ZCA Whitening</i>;</li>
+                                    <li><i>Toronto preprocessing</i>.</li>
+                                </ul>
+                                <li>Each preprocessed dataset is given as input to a single DNN;</li>
+                            </ul>
+                        </div>
+                    </section>
 
-                        Operations that give as a result a modified image with the same dimensions as the
-                        original image (e.g., contrast enhancement and noise reduction).
+                    <section>
+                        <h2>Dataset</h2>
+                        <div class="subtitle">GCN and Toronto preprocessing</div>
 
-                        We mean any operation of which the input consists of sensor
-                        data, and of which the output is a full image.
-
-                        <br>
-                        Preprocessing operations generally fall into one of three categories:
-                        <li>image reconstruction (to reconstruct an image from a number of sensor measurements),
-                        </li>
-                        <li>image restoration (to remove any aberrations introduced by the sensor, including
-                            noise),</li>
-                        <li>image enhancement (accentuation of certain desired features, which may facilitate later
-                            processing steps such as segmentation or object recognition).</li>
-
+                        <div class="div-alone">
+                            <ul>
+                                <li>In image processing, normalization is a process that changes the range of pixel intensity
+                        values.</li>
+                                <li><b>Global Contrast Normalization</b>:</li>
+                                <ul>
+                                    <li>each training sample is normalized by subtracting the per-example mean across pixels;</li>
+                                    <li>and then normalizes by either the vector norm or the standard deviation;</li>
+                                </ul>
+                                <li><b>Toronto preprocessing</b>:</li>
+                                <ul>
+                                    <li>each training sample is normalized by subtracting the per-pixel mean across examples;</li>
+                                    <li>and then normalizes by the maximum intensity value i.e. $255$;</li>
+                                    <ul>
+                                        <li>if the test is used the mean must be computed across the training set.</li>
+                                    </ul>
+                                </ul>
+                            </ul>
+                        </div>
 
                     </section>
+
                     <section>
-                        <h2>Global Contrast Normalization (GCN)</h2>
+                        <h2>Dataset</h2>
+                        <div class="subtitle">Zero Components Analysis (ZCA)</div>
 
-                        In image processing, normalization is a process that changes the range of pixel intensity
-                        values. Applications include photographs with poor contrast due to glare, for example.
-                        Normalization is sometimes called contrast stretching or histogram stretching.
+                        <div class="div-alone">
 
-
-                        Global contrast normalizes by subtracting the mean across features and then
-                        normalizes by either the vector norm or the standard deviation (across features, for each
-                        example).
-
-
-
-                    </section>
-                    <section>
-                        <h2>ZCA Whitening</h2>
+                        </div>
 
                         We can store $n$ dimensional data points in the columns of a $d \times n$ matrix $X$.
                         Assuming the data points have zero mean, their covariance matrix is given by
@@ -1040,23 +1059,7 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
                         PCA or ZCA.
 
                     </section>
-                    <section>
-                        <h2>Toronto Preprocessing</h2>
 
-
-                        if toronto_prepro:
-                            assert not center
-                            assert not gcn
-                            X = X / 255.
-                            if which_set == 'test':
-                                other = CIFAR10(which_set='train')
-                                oX = other.X
-                                oX /= 255.
-                                X = X - oX.mean(axis=0)
-                            else:
-                                X = X - X.mean(axis=0)
-                        self.toronto_prepro = toronto_prepro
-                    </section>
                 </section>
 
 
