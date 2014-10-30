@@ -869,7 +869,7 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
 
                     <div>
                         <img src="./img/mcdnn_trasparent.png" alt="unifi stemma" >
-                        <div class="img-note">Multi-Column Deep Neural Network architecture.</div>
+                        <div class="img-note">Figure: Multi-Column Deep Neural Network architecture.</div>
                     </div>
 
                     <div class="div-alone">
@@ -880,7 +880,7 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
 
                     <div>
                         <img src="./img/dnn_training_trasparent.png" width="57%">
-                        <div class="img-note">Single DNN training.</div>
+                        <div class="img-note">Figure: single DNN training.</div>
                     </div>
 
                 </section>
@@ -980,7 +980,7 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
 
                     <section>
                         <h2>Dataset</h2>
-                        <div class="subtitle">Zero Components Analysis (ZCA): method (1)</div>
+                        <div class="subtitle">Zero Components Analysis (ZCA): method</div>
 
                         <div class="div-alone">
                             <ul>
@@ -988,16 +988,16 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
                                 <ul>
                                     <li>the dataset can be stored in a matrix $X \in \mathbb{R}^{d\times n}$;</li>
                                 </ul>
-                                <li>GCN is applied in order to have mean zero. Therefore the covariance matris is given by:</li>
+                                <li>GCN is applied in order to have mean zero. </li> <!--Therefore the covariance matris is given by:</li>-->
                             </ul>
 
-                            <div class="equation">
-                                $\Sigma = \frac{1}{n-1} XX^\top$
-                            </div>
+                            <!--<div class="equation">-->
+                                <!--$\Sigma = \frac{1}{n-1} XX^\top$-->
+                            <!--</div>-->
 
                             <ul>
-                                <li>recalling that $\sigma_{ii}$ elements of $\Sigma$ matrix are the variances and $\sigma_{ij} (i \neq j)$ are the covariance.</li>
-                                <li>In order to achive <i>(i)</i>, we can do this with a linear transformation $W$ such that:</li>
+                                <!--<li>recalling that $\sigma_{ii}$ elements of $\Sigma$ matrix are the variances and $\sigma_{ij} (i \neq j)$ are the covariance.</li>-->
+                                <li>To achive <i>(i)</i>, we search a linear transformation $W$ such that:</li>
                             </ul>
 
                             <div class="equation">
@@ -1005,8 +1005,7 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
                             </div>
 
                             <ul>
-                                <li>where $W$ is the decorrelating matrix, then $YY^{\top}$ must be diagonal i.e. uncorrelated;</li>
-                                <li>therefore $W$ shall be such that</li>
+                                <li>where $W$ is the decorrelating matrix, then $YY^{\top}$ must be diagonal i.e. uncorrelated. Therefore $W$ shall be such that</li>
                             </ul>
 
                             <div class="equation">
@@ -1014,23 +1013,43 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
                             </div>
 
                             <ul>
-                                <li>i.e. $W$ make the covariance matrix of the transformed data matrix equal to the identity <i>(ii)</i>.</li>
-                                <li>Let $W$ a  a symmetric matrix i.e. $W = W^{\top}$;</li>
-                                <li>we can find $W$:</li>
+                                i.e. $W$ make the covariance matrix of the transformed data matrix equal to the identity <i>(ii)</i>.
+                                <li>Let $W$ a  a symmetric matrix i.e. $W = W^{\top}$:</li>
+                                <!--<li>we can find $W$:</li>-->
                             </ul>
 
                             <div class="equation">
-                                $
-                                \begin{split}
-                                YY^T & = (n-1)I \\
-                                WXX^TW^T & = (n-1)I \\
-                                W^TWXX^TW^T &= (n-1)W^T \\
-                                W^2XX^TW^T &= (n-1)W^T \\
-                                W^2XX^T &= (n-1)I \\
-                                W^2 &= (n-1)(XX^T)^{-1} \\
-                                W &= \sqrt{n-1}(XX^T)^{-\frac{1}{2}}
-                                \end{split}$
+                                <!--$-->
+                                <!--\begin{split}-->
+                                <!--YY^T & = (n-1)I \\-->
+                                <!--WXX^TW^T & = (n-1)I \\-->
+                                <!--W^TWXX^TW^T &= (n-1)W^T \\-->
+                                <!--W^2XX^TW^T &= (n-1)W^T \\-->
+                                <!--W^2XX^T &= (n-1)I \\-->
+                                <!--W^2 &= (n-1)(XX^T)^{-1} \\-->
+                                $W = \sqrt{n-1}(XX^T)^{-\frac{1}{2}} $
+                                <!--\end{split}$-->
                             </div>
+
+
+                            <ul>
+                                <li>Since $XX^{\top}$ is symmetric it's hence orthogonally diagonalizable, we can write:</li>
+                            </ul>
+
+                            <div class="equation">
+                                $(XX^T)^{-\frac{1}{2}} = PD^{-\frac{1}{2}}P^T $
+                            </div>
+
+                            <ul>where $P$ is a orthogonal matrix and $D$ is a diagonal matrix.</ul>
+
+                            <ul>
+                                <li>$W$ is called a <b>whitening matrix</b>, and is referred to as the <i>Zero Components Analysis</i> (ZCA) solution to the equation:</li>
+                            </ul>
+
+                            <div class="equation">
+                                $YY^T = diagonal$
+                            </div>
+
 
                         </div>
                     </section>
@@ -1089,53 +1108,53 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
                         <!--</div>-->
                     <!--</section>-->
 
-                    <section>
-                        <h2>Dataset</h2>
-                        <div class="subtitle">Zero Components Analysis (ZCA): how represent $(XX^T)^{-\frac{1}{2}}$</div>
+                    <!--<section>-->
+                        <!--<h2>Dataset</h2>-->
+                        <!--<div class="subtitle">Zero Components Analysis (ZCA): how represent $(XX^T)^{-\frac{1}{2}}$</div>-->
 
-                        <div class="div-alone">
-                            <div class="equation">$W = \sqrt{n-1}(XX^T)^{-\frac{1}{2}}$</div>
-                            <ul>
-                                <li>Since $XX^{\top}$ is symmetric it's hence orthogonally diagonalizable;</li>
-                                <ul>
-                                    <li>we can write $XX^{\top}$ as:</li>
-                                </ul>
-                            </ul>
+                        <!--<div class="div-alone">-->
+                            <!--<div class="equation">$W = \sqrt{n-1}(XX^T)^{-\frac{1}{2}}$</div>-->
+                            <!--<ul>-->
+                                <!--<li>Since $XX^{\top}$ is symmetric it's hence orthogonally diagonalizable;</li>-->
+                                <!--<ul>-->
+                                    <!--<li>we can write $XX^{\top}$ as:</li>-->
+                                <!--</ul>-->
+                            <!--</ul>-->
 
-                            <div class="equation">
-                                $XX^T = PDP^T$
-                            </div>
+                            <!--<div class="equation">-->
+                                <!--$XX^T = PDP^T$-->
+                            <!--</div>-->
 
-                            <ul>
-                                <ul>
-                                    where $P$ is a orthogonal matrix and $D$ is a diagonal matrix.
-                                </ul>
-                                <li>So:</li>
-                            </ul>
+                            <!--<ul>-->
+                                <!--<ul>-->
+                                    <!--where $P$ is a orthogonal matrix and $D$ is a diagonal matrix.-->
+                                <!--</ul>-->
+                                <!--<li>So:</li>-->
+                            <!--</ul>-->
 
-                            <div class="equation">
-                                $
-                                \begin{split}
-                                (XX^T)^{-\frac{1}{2}} & = ((XX^T)^{-1})^{\frac{1}{2}} \\
-                                &= ((PDP^T)^{-1})^{\frac{1}{2}} \\
-                                &= (PD^{-1}P^T)^{\frac{1}{2}} \\
-                                &= PD^{-\frac{1}{2}}P^T
-                                \end{split}$
-                            </div>
+                            <!--<div class="equation">-->
+                                <!--$-->
+                                <!--\begin{split}-->
+                                <!--(XX^T)^{-\frac{1}{2}} & = ((XX^T)^{-1})^{\frac{1}{2}} \\-->
+                                <!--&= ((PDP^T)^{-1})^{\frac{1}{2}} \\-->
+                                <!--&= (PD^{-1}P^T)^{\frac{1}{2}} \\-->
+                                <!--&= PD^{-\frac{1}{2}}P^T-->
+                                <!--\end{split}$-->
+                            <!--</div>-->
 
-                            <ul>
-                                <ul>
-                                where $D^{-\frac{1}{2}}$ is just $D$ with all the elements taken to the power $-\frac{1}{2}$
-                                </ul>
-                                <li>$W$ is called a <b>whitening matrix</b>, and is referred to as the
-                        <i>Zero Components Analysis</i> (ZCA) solution to the equation</li>
-                            </ul>
+                            <!--<ul>-->
+                                <!--<ul>-->
+                                <!--where $D^{-\frac{1}{2}}$ is just $D$ with all the elements taken to the power $-\frac{1}{2}$-->
+                                <!--</ul>-->
+                                <!--<li>$W$ is called a <b>whitening matrix</b>, and is referred to as the-->
+                        <!--<i>Zero Components Analysis</i> (ZCA) solution to the equation</li>-->
+                            <!--</ul>-->
 
-                            <div class="equation">
-                                $YY^T = diagonal$
-                            </div>
-                        </div>
-                    </section>
+                            <!--<div class="equation">-->
+                                <!--$YY^T = diagonal$-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</section>-->
 
                     <!--<section>-->
                         <!--$(XX^T)^{-\frac{1}{2}}$ is easly found because $XX^T$ is symmetric and hence othogonally-->
