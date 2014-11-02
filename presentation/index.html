@@ -73,10 +73,10 @@
                                     <li>Convolutional Layer</li>
                                     <li>Max-pooling Layer</li>
                                 </ul>
-                            <li>Activation function</li>
+                            <li>Activation functions</li>
                             <ul>
-                                <li>Dropout</li>
                                 <li>Rectified Linear Units (RELU)</li>
+                                <li>Dropout</li>
                                 <li>Maxout</li>
                             </ul>
                             <li>Softmax</li>
@@ -380,110 +380,31 @@
                 <section>
 
                     <section>
-                        <!--<script type="text/template">-->
-                        <h2>Dropout</h2>
-
-                        <div>
-                            <b>How to improve a neural network?</b>
-                        </div>
-
-                        <div class="div-left">
-                            <br>
-                            <ul>
-                                <li>Train many models and average the models' predictions:</li>
-                                <ul>
-                                    <li>reduce test error and overfitting;</li>
-                                    <li>too expensive for big NN and that already take several days to train.</li>
-                                </ul>
-                                <li><b>Dropout</b> is a more efficient solution<sup>[4]</sup>. It provides:</li>
-                                <ul>
-                                    <li>an inexpensive and simple means of both training a large ensemble of models;</li>
-                                </ul>
-                            </ul>
-                        </div>
-
-                        <div class="div-right">
-                            <img src="./img/mcdnn_dropout.png" width="80%">
-                        </div>
-
-                    </section>
-                    <section>
-                        <h2>How Dropout works (1)</h2>
-
-                        <div class="div-alone">
-                            <ul>
-                                <li>Given a feedforward architecture:</li>
-                                <ul>
-                                    <li>Input: $v \, \in \mathbb{R}^{m}$;</li>
-                                    <li>Hidden layers: $ \, h = \{h^{(1)}, \dots, h^{(l)} \}$;</li>
-                                    <li>Output: $\, y \in \mathbb{R}^{n}$;</li>
-                                </ul>
-                                <li>Dropout trains a set of models, each of which:</li>
-                                <ul>
-                                    <li>contains a subset of the variables in both $v$ and $h$;</li>
-                                    <li>each model uses the same set of parameters $\theta$:</li>
-                                        <ul>
-                                            <li>to parameterize a family of distributions $p(y | v; \theta, \mu)$;</li>
-                                            <li>where $\mu \in M$ is a binary mask determining which variables to include in the model;</li>
-                                        </ul>
-                                </ul>
-                            </ul>
-                        </div>
-                    </section>
-                    <section>
-                        <h2>How Dropout works (2)</h2>
-
-                        <div class="div-alone">
-                            <ul>
-                                <li>On each presentation of a training example:</li>
-                                <ul>
-                                    <li>a different sub-model is obtained by randomly sampling $\mu$;</li>
-                                    <li>the sub-model is trained by following the gradient of $log \, p(y | v; \theta, \mu)$;</li>
-                                </ul>
-
-                                <li>Each model is trained for only one step and all the models share the parameters $\theta$.</li>
-                            </ul>
-                            <br><br>
-                            <b>Note</b>: each update must have a large effect so that it makes the sub-model induced by that $\mu$ fit the current input $v$ well.
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2>How Dropout works (3)</h2>
-                        <div>
-                            <b>Model prediction</b>
-                        </div>
-
-                        <div class="div-alone">
-                            <ul>
-                                <li>Model prediction is obtained by averaging together all the sub-models prediction.</li>
-                                <li>By using Dropout the number of models trained is exponential:</li>
-                                <ul>
-                                    <li>when $p(y | v;\theta) = softmax(v^{T}W+b)$</li>
-                                    <li>the predictive distribution defined by renormalizing the geometric mean of $p(y | v;\theta, \mu)$ over $M$ is simply given by:</li>
-                                    <br>
-                                        <p align="center"><b>$softmax(v^{T}\frac{W}{2}+b)$</b></p>
-
-                                </ul>
-                            </ul>
-                        </div>
-                    </section>
-                    <section>
                         <h2>Rectified Linear Units (ReLU)</h2>
                         <div class="subtitle">ReLU function</div>
-                            Rectified Linear units are a drop in replacement for the traditional nonlinear activation
-                            functions.<br>
-                            <!--ReLUs (Rectified Linear Units) are capable of having values in the range of-->
-                            <!--[0, inf].-->
-                        <div class="equation">
-                            $ y = max (0 , b + \sum\limits_{i=1}^k x_i  w_i) $ <br>
-                        </div>
-                            ReLU units are more biologically plausible then the other activation functions, since they
-                            model the biological neuron's responses in their area of operation. While sigmoid and tanh
-                            activation functions are biologically implausible.<br>
+                        <div class="div-alone">
+                            <ul>
+                                <li>Rectified Linear units are a drop in replacement for the traditional nonlinear activation functions:</li>
+                            </ul>
 
+                            <div class="equation">
+                                $ y = max (0 , b + \sum\limits_{i=1}^k x_i  w_i) $ <br>
+                            </div>
+
+                            <ul>
+                                <li>ReLU units are <b>more biologically plausible</b> then the other activation functions;</li>
+                                <ul>
+                                    <li>since they model the biological neuron's responses in their area of operation.</li>
+                                </ul>
+                                <li>While $sigmoid$ and $tanh$ activation functions are biologically <i>implausible</i>.</li>
+                            </ul>
+                            <br>
+                        </div>
+
+                        <div>
                             <img src="./img/synapse_vs_sigmoid_trasp.png" alt="unifi stemma">
                             <p class="img-note">Figure: left: Firing of a neuron from biological data. Right: traditional activation functions.</p>
+                        </div>
 
                     </section>
 
@@ -549,6 +470,103 @@
                                     <li><b>Sparse activation:</b> e.g. in a randomly initialized networks, only about 50% of hidden units is activated (having a non-zero output);</li>
                                     <li><b>Efficient gradient propagation:</b> no vanishing gradient problem or exploding effect;</li>
                                     <li><b>Efficient computation:</b> only comparison, addition and multiplication.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Dropout</h2>
+                        <div class="subtitle">How to improve a neural network</div>
+
+                        <div class="div-left">
+                            <br>
+                            <ul>
+                                <li>Train many models and average the models' predictions:</li>
+                                <ul>
+                                    <li>reduce test error and overfitting;</li>
+                                    <li>too expensive for big NN and that already take several days to train.</li>
+                                </ul>
+                                <li><b>Dropout</b> is a more efficient solution<sup>[4]</sup>. It provides:</li>
+                                <ul>
+                                    <li>an inexpensive and simple means of both training a large ensemble of models;</li>
+                                </ul>
+                            </ul>
+                        </div>
+
+                        <div class="div-right">
+                            <img src="./img/mcdnn_dropout.png" width="80%">
+                        </div>
+
+                    </section>
+                    <section>
+                        <h2>Dropout</h2>
+                        <div class="subtitle">How Dropout works</div>
+
+                        <div class="div-alone">
+                            <ul>
+                                <li>Given a feedforward architecture:</li>
+                                <ul>
+                                    <li>Input: $v \, \in \mathbb{R}^{m}$;</li>
+                                    <li>Hidden layers: $ \, h = \{h^{(1)}, \dots, h^{(l)} \}$;</li>
+                                    <li>Output: $\, y \in \mathbb{R}^{n}$;</li>
+                                </ul>
+                                <li><b>Dropout</b> trains a set of models, each of which:</li>
+                                <ul>
+                                    <li>contains a subset of the variables in both $v$ and $h$;</li>
+                                    <li>each model uses the same set of parameters $\theta$:</li>
+                                        <ul>
+                                            <li>to parameterize a family of distributions $p(y | v; \theta, \mu)$;</li>
+                                            <li>where $\mu \in M$ is a binary mask determining which variables to include in the model.</li>
+                                        </ul>
+                                </ul>
+                                <li>On each presentation of a training example:</li>
+                                <ul>
+                                    <li>a different sub-model is obtained by randomly sampling $\mu$;</li>
+                                    <li>the sub-model is trained by following the gradient of $log \, p(y | v; \theta, \mu)$;</li>
+                                </ul>
+
+                                <li>Each model is trained for only one step and all the models share the parameters $\theta$.</li>
+                            </ul>
+                            <br><br>
+                            <b>Note</b>: each update must have a large effect so that it makes the sub-model induced by that $\mu$ fit the current input $v$ well.
+
+                        </div>
+                    </section>
+
+                    <!--<section>-->
+                        <!--<h2>Dropout</h2>-->
+                        <!--<div class="subtitle">How Dropout works</div>-->
+
+                        <!--<div class="div-alone">-->
+                            <!--<ul>-->
+                                <!--<li>On each presentation of a training example:</li>-->
+                                <!--<ul>-->
+                                    <!--<li>a different sub-model is obtained by randomly sampling $\mu$;</li>-->
+                                    <!--<li>the sub-model is trained by following the gradient of $log \, p(y | v; \theta, \mu)$;</li>-->
+                                <!--</ul>-->
+
+                                <!--<li>Each model is trained for only one step and all the models share the parameters $\theta$.</li>-->
+                            <!--</ul>-->
+                            <!--<br><br>-->
+                            <!--<b>Note</b>: each update must have a large effect so that it makes the sub-model induced by that $\mu$ fit the current input $v$ well.-->
+                        <!--</div>-->
+                    <!--</section>-->
+
+                    <section>
+                        <h2>Dropout</h2>
+                        <div class="subtitle">Model prediction</div>
+
+                        <div class="div-alone">
+                            <ul>
+                                <li>Model prediction is obtained by averaging together all the sub-models prediction.</li>
+                                <li>By using Dropout the number of models trained is exponential:</li>
+                                <ul>
+                                    <li>when $p(y | v;\theta) = softmax(v^{T}W+b)$</li>
+                                    <li>the predictive distribution defined by renormalizing the geometric mean of $p(y | v;\theta, \mu)$ over $M$ is simply given by:</li>
+                                    <br>
+                                        <p align="center"><b>$softmax(v^{T}\frac{W}{2}+b)$</b></p>
+
                                 </ul>
                             </ul>
                         </div>
@@ -667,8 +685,13 @@
                                     <li>with logistic regression the hypotesis took the form:</li>
                                 </ul>
                             </ul>
-                            <br>
-                             <div align="center" style="margin-top: 1em; margin-bottom: 1em">$h_\theta(x) = \frac{1}{1+\exp(-\theta^\top x)}$</div>
+
+                            <div class="equation">
+                                $h_\theta(x) = \frac{1}{1+\exp(-\theta^\top x)}$
+                            </div>
+
+                            <!--<br>-->
+                             <!--<div align="center" style="margin-top: 1em; margin-bottom: 1em">$h_\theta(x) = \frac{1}{1+\exp(-\theta^\top x)}$</div>-->
                             <ul>
                                 <ul>
                                     <li>where $\theta^\top$ are the parameters to optimize.</li>
@@ -851,7 +874,8 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
                 <section>
                     <h2>Implementation technologies</h2>
                     <div class="subtitle">Tools</div>
-                    <div class="div-alone">
+                    <br>
+                    <div class="div-left">
                         <ul>
                             <li>Dataset: CIFAR-10</li>
                             <li>Python:</li>
@@ -861,7 +885,22 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
                                 <li>Nvidia CUDA</li>
                             </ul>
                             <li>Pycharm</li>
+                            <li>PC Desktop:</li>
+                            <ul>
+                                <li>CPU:</li>
+                                <li>RAM:</li>
+                                <li>GPU:</li>
+                            </ul>
                         </ul>
+                    </div>
+                    <div class="div-right">
+                        <img src="./img/python-logo.png" width="27%">
+                        <br>
+                        <img src="./img/theano-logo.png" width="27%">
+                        <br>
+                        <img src="./img/pycharm-logo.png"width="55%">
+                        <br>
+                        <img src="./img/CUDA-logo.png" width="27%">
                     </div>
                 </section>
 
