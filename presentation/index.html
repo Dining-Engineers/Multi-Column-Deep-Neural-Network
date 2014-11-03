@@ -144,7 +144,7 @@
                     <div class="div-alone">
                         <ul>
                             <li>Each DNN is iteratively trained over only one processed dataset;</li>
-                            <li>The predictions of all DNN are democratically averaged;</li>
+                            <li>The feature vectors of all DNN are democratically averaged;</li>
                             <li>Softmax layer returns the image's predicted class.</li>
                         </ul>
                     </div>
@@ -152,7 +152,8 @@
 
                 <section>
                     <section>
-                        <h2>Why deep learning?</h2>
+                        <h2>Deep learning</h2>
+                        <div class="subtitle">Introduction</div>
                         <div class="div-header">
                             <ul>
                                 <li>The visual nervous system proposed by Hubel and Wiesel has a deep hierarchy model<sup>[2]</sup>:</li>
@@ -186,7 +187,9 @@
                         </div>
                     </section>
                     <section>
-                        <h2>Deep learning milestone</h2>
+                        <h2>Deep learning</h2>
+                        <div class="subtitle">Milestone</div>
+
                         <div class="div-alone">
                             <ul>
                                 <li>1980: Kunihiko Fukushima introduces the <b>Neocognitron</b><sup>[3]</sup>;</li>
@@ -204,48 +207,70 @@
                     </section>
 
                     <section>
-                        <h2>Sparse representation</h2>
-                        <div class="subtitle">Advantages</div>
+                        <h2>Deep learning</h2>
+                        <div class="subtitle">Sparse representation: advantages</div>
 
                         <div class="div-alone">
-                            <ul>
-                                <li>Sparse representations advantages:</li>
+                            <!--<ul>-->
+                                <!--<li>Sparse representations advantages:</li>-->
                                 <ul>
-                                    <li style="text-align: justify"><b>Information disentangling:</b> a dense representation is highly entangled because almost any change in the input modifies most of
-                                    the entries in the representation vector. Instead, if a representation is both sparse and robust to
-                                    small input changes, the set of non-zero features is almost always roughly conserved by small
-                                    changes of the input;</li>
-                                    <li style="text-align: justify"><b>Efficient variable-size representation:</b> different inputs may contain different amounts of information and would be
-                                    more conveniently represented using a variable-size data-structure. Varying the number of active neurons allows a model to control the effective
+                                    <li style="text-align: justify"><b>Information disentangling:</b> </li>
+                                    <ul>
+                                        <li>a <i>dense representation</i> is highly entangled, any change in the input modifies most of
+                                        the entries in the representation vector;</li>
+                                        <li>a <i>sparse representation</i> is robust to small input changes.</li>
+                                    </ul>
+
+                                    <li style="text-align: justify"><b>Efficient variable-size representation:</b> </li>
+                                    <ul>
+                                        <li>different inputs may contain different amounts of information;</li>
+                                        <li>varying the number of active neurons allows a model to control the effective
                                     dimensionality of the representation for a given input and the required precision;</li>
-                                </ul>
-                            </ul>
+                                    </ul>
 
-                        </div>
-                    </section>
 
-                    <section>
-                        <h2>Sparse representation</h2>
-                        <div class="subtitle">Advantages</div>
-                        <div class="div-alone">
-                            <ul>
-                                <li>Sparse representations advantages:</li>
-                                <ul>
-                                    <li style="text-align: justify"><b>Linear separability:</b> sparse representations are also more likely to be linearly separable, or more
-                                    easily separable with less non-linear machinery, simply because the information is represented in
-                                    a high-dimensional space.
-                                    <!--Besides, this can reflect-->
-                                    <!--the original data format. In text-related applications for instance,-->
-                                    <!--the original raw data is already very sparse (see Section 4.2).-->
-                                    </li>
-                                    <li style="text-align: justify"><b> Distributed but sparse:</b> dense distributed representations are the richest representations,
-                                        being potentially exponentially more efficient than purely local ones (Bengio, 2009). Sparse representations’ efficiency
+                                    <li style="text-align: justify"><b>Linear separability:</b> </li>
+                                    <ul>
+                                        <li>sparse representations are also more likely to be linearly separable.</li>
+                                    </ul>
+                                    <li style="text-align: justify"><b> Distributed but sparse:</b></li>
+                                    <ul>
+                                        <li>dense distributed representations are the richest representations, being potentially exponentially more efficient than purely local ones (Bengio, 2009);</li>
+                                        <li>sparse representations’ efficiency
                                     is still exponentially greater, with the power of the exponent being the number
                                     of non-zero features. They may represent a good trade-off with respect to the above criteria.</li>
+                                    </ul>
+
+
                                 </ul>
-                            </ul>
+                            <!--</ul>-->
+
                         </div>
                     </section>
+
+                    <!--<section>-->
+                        <!--<h2>Deep learning</h2>-->
+                        <!--<div class="subtitle">Sparse representation: advantages</div>-->
+
+                        <!--<div class="div-alone">-->
+                            <!--<ul>-->
+                                <!--<li>Sparse representations advantages:</li>-->
+                                <!--<ul>-->
+                                    <!--<li style="text-align: justify"><b>Linear separability:</b> </li>-->
+                                    <!--<ul>-->
+                                        <!--<li>sparse representations are also more likely to be linearly separable.</li>-->
+                                    <!--</ul>-->
+                                    <!--<li style="text-align: justify"><b> Distributed but sparse:</b></li>-->
+                                    <!--<ul>-->
+                                        <!--<li>dense distributed representations are the richest representations, being potentially exponentially more efficient than purely local ones (Bengio, 2009);</li>-->
+                                        <!--<li>sparse representations’ efficiency-->
+                                    <!--is still exponentially greater, with the power of the exponent being the number-->
+                                    <!--of non-zero features. They may represent a good trade-off with respect to the above criteria.</li>-->
+                                    <!--</ul>-->
+                                <!--</ul>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</section>-->
                 </section>
 
                 <section>
