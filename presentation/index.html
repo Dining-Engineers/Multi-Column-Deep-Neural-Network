@@ -455,8 +455,6 @@
                             <div style="min-height: 50px; overflow: hidden"></div>
                             <img src="./img/relu_trasp.png" width="320" alt="relu">
                             <p class="img-note">Figure: ReLu vs Softplus activation function.</p>
-                            <img src="./img/sigmoidederivata.png" width="320" alt="relu">
-
                         </div>
 
 
@@ -1127,148 +1125,6 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
                         </div>
                     </section>
 
-
-                    <!--<section>-->
-                        <!--<h2>Dataset</h2>-->
-                        <!--<div class="subtitle">Zero Components Analysis (ZCA)</div>-->
-
-                        <!--<div class="div-alone">-->
-
-                        <!--</div>-->
-
-                        <!--We can store $n$ dimensional data points in the columns of a $d \times n$ matrix $X$.-->
-                        <!--Assuming the data points have zero mean, their covariance matrix is given by-->
-
-                        <!--<div class="equation">-->
-                            <!--$\frac{1}{n-1}XX^T$.-->
-                        <!--</div>-->
-
-                        <!--We wish to decorrelate the data dimensions from one another. We can do this with a linear-->
-                        <!--transformation $W$, which will transform the data matrix $X$ as follows:-->
-
-                        <!--<div class="equation">-->
-                            <!--$Y=WX$.-->
-                        <!--</div>-->
-
-                        <!--In order for W to be a decorrelating matrix, $Y Y^T$ must be diagonal. However, we can-->
-                        <!--restrict our search only to $W$s that satisfy-->
-
-                        <!--<div class="equation">-->
-                            <!--$YY^T=(n-1)I$.-->
-                        <!--</div>-->
-
-                        <!--In other words, $W$s that make the covariance matrix of the transformed data matrix-->
-                        <!--equal to the identity. There are multiple $W$s that fit this description, so we can restrict-->
-                        <!--our search further by requiring-->
-
-                        <!--<div class="equation">-->
-                            <!--$W = W^T$.-->
-                        <!--</div>-->
-
-                        <!--Given these restrictions, we can find $W$:-->
-
-                        <!--<div class="equation">-->
-                            <!--$-->
-                            <!--\begin{split}-->
-                            <!--YY^T & = (n-1)I \\-->
-                            <!--WXX^TW^T & = (n-1)I \\-->
-                            <!--W^TWXX^TW^T &= (n-1)W^T \\-->
-                            <!--W^2XX^TW^T &= (n-1)W^T \\-->
-                            <!--W^2XX^T &= (n-1)I \\-->
-                            <!--W^2 &= (n-1)(XX^T)^{-1} \\-->
-                            <!--W &= \sqrt{n-1}(XX^T)^{-\frac{1}{2}}.-->
-                            <!--\end{split}$-->
-                        <!--</div>-->
-                    <!--</section>-->
-
-                    <!--<section>-->
-                        <!--<h2>Dataset</h2>-->
-                        <!--<div class="subtitle">Zero Components Analysis (ZCA): how represent $(XX^T)^{-\frac{1}{2}}$</div>-->
-
-                        <!--<div class="div-alone">-->
-                            <!--<div class="equation">$W = \sqrt{n-1}(XX^T)^{-\frac{1}{2}}$</div>-->
-                            <!--<ul>-->
-                                <!--<li>Since $XX^{\top}$ is symmetric it's hence orthogonally diagonalizable;</li>-->
-                                <!--<ul>-->
-                                    <!--<li>we can write $XX^{\top}$ as:</li>-->
-                                <!--</ul>-->
-                            <!--</ul>-->
-
-                            <!--<div class="equation">-->
-                                <!--$XX^T = PDP^T$-->
-                            <!--</div>-->
-
-                            <!--<ul>-->
-                                <!--<ul>-->
-                                    <!--where $P$ is a orthogonal matrix and $D$ is a diagonal matrix.-->
-                                <!--</ul>-->
-                                <!--<li>So:</li>-->
-                            <!--</ul>-->
-
-                            <!--<div class="equation">-->
-                                <!--$-->
-                                <!--\begin{split}-->
-                                <!--(XX^T)^{-\frac{1}{2}} & = ((XX^T)^{-1})^{\frac{1}{2}} \\-->
-                                <!--&= ((PDP^T)^{-1})^{\frac{1}{2}} \\-->
-                                <!--&= (PD^{-1}P^T)^{\frac{1}{2}} \\-->
-                                <!--&= PD^{-\frac{1}{2}}P^T-->
-                                <!--\end{split}$-->
-                            <!--</div>-->
-
-                            <!--<ul>-->
-                                <!--<ul>-->
-                                <!--where $D^{-\frac{1}{2}}$ is just $D$ with all the elements taken to the power $-\frac{1}{2}$-->
-                                <!--</ul>-->
-                                <!--<li>$W$ is called a <b>whitening matrix</b>, and is referred to as the-->
-                        <!--<i>Zero Components Analysis</i> (ZCA) solution to the equation</li>-->
-                            <!--</ul>-->
-
-                            <!--<div class="equation">-->
-                                <!--$YY^T = diagonal$-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</section>-->
-
-                    <!--<section>-->
-                        <!--$(XX^T)^{-\frac{1}{2}}$ is easly found because $XX^T$ is symmetric and hence othogonally-->
-                        <!--diagonalizable.-->
-
-                        <!--<div class="equation">-->
-                            <!--$XX^T = PDP^T$-->
-                        <!--</div>-->
-
-                        <!--for some orthogonal matrix P and diagonal matrix D. So-->
-
-                        <!--<div class="equation">-->
-                            <!--$-->
-                            <!--\begin{split}-->
-                            <!--(XX^T)^{-\frac{1}{2}} & = ((XX^T)^{-1})^{\frac{1}{2}} \\-->
-                            <!--&= ((PDP^T)^{-1})^{\frac{1}{2}} \\-->
-                            <!--&= (PD^{-1}P^T)^{\frac{1}{2}} \\-->
-                            <!--&= PD^{-\frac{1}{2}}P^T-->
-                            <!--\end{split}$-->
-                        <!--</div>-->
-
-                        <!--where $D^{-\frac{1}{2}}$ is just $D$ with all the elements taken to the power $-\frac{1}{2}$.-->
-                        <!--<br>-->
-                        <!--Some $W = (XX^T)^{-\frac{1}{2}}$ transforms $X$ in such a way that the resultant data dimensions-->
-                        <!--are uncorrelated with one another and the variance in each dimension is exactly $1$.-->
-                        <!--$W$ may also be thought of as rotating $X$ to the space of its principal components, dividing-->
-                        <!--each principal component by the square root of the variance in that direction, and then rotating-->
-                        <!--back to pixel space. $W$ is called a <b>whitening matrix</b>, and is referred to as the-->
-                        <!--<i>Zero Components Analysis</i> (ZCA) solution to the equation-->
-
-                        <!--<div class="equation">-->
-                            <!--$YY^T = diagonal$-->
-                        <!--</div>-->
-
-                        <!--The <i>dewhitening matrix</i>, $W^{-1}$, is given by-->
-
-                        <!--<div class="equation">-->
-                            <!--$W^{-1} = PD^{\frac{1}{2}}P^T$.-->
-                        <!--</div>-->
-                    <!--</section>-->
-
                     <section>
                         <h2>Dataset</h2>
                         <div class="subtitle">Zero Components Analysis (ZCA): advantages</div>
@@ -1577,7 +1433,7 @@ algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
                                 <tbody>
 
                                     <tr><td>Our implementation</td><td>2</td><td>48C8-MP4-128C8-MP4-128C5-MP2-240N-10N</td><td>Maxout</td><td>$13.30$%</td></tr>
-                                    <tr class="alt"><td>Paper implementation</td><td>8</td><td>300C3-MP2-300C2-MP2-300C3-MP2-300C2-MP2-300N-100N-10N</td><td>Hyperbolic tangent </td><td>$11.21$%</td></tr>
+                                    <tr class="alt"><td>Paper implementation</td><td>8</td><td>300C3-MP2-300C2-MP2-300C3-MP2-300C2-MP2-300N-100N-10N</td><td>Hyperbolic tangent</td><td>$11.21$%</td></tr>
 
                                 </tbody>
                                 </table>
