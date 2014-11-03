@@ -228,7 +228,6 @@
                                     dimensionality of the representation for a given input and the required precision;</li>
                                     </ul>
 
-
                                     <li style="text-align: justify"><b>Linear separability:</b> </li>
                                     <ul>
                                         <li>sparse representations are also more likely to be linearly separable.</li>
@@ -317,7 +316,7 @@
                                         <li>$Y \in \mathbb{R}^{(N-m+1) \times (N-m+1)}$</li>
                                     </ul>
                                 </ul>
-                                <li>We use $k\text{C}n$ to indicate a <b>C-Layer</b> that applies $k$ filters of $n\times n$ dimension to a feature map ;</li>
+                                <li>We use $k\text{C}n$ to indicate a <b>C-Layer</b> that applies $k$ filters of $m\times m$ dimension to a feature map ;</li>
                             </ul>
                         </div>
                         <div style="padding-top: 5px">
@@ -344,7 +343,7 @@
                                 </ul>
                                 <li>Advantage of <b>weight sharing</b>:</li>
                                 <ul>
-                                    <li>The features che be detected regardless of their position;</li>
+                                    <li>The features can be detected regardless of their position;</li>
                                     <li>Increased of learning efficiency by reducing the number of free parameters;</li>
                                     <li>CNNs achieve better generalization.</li>
                                 </ul>
@@ -352,7 +351,7 @@
                         </div>
                         <div >
                             <img style="width: 35%" src="./img/cnn_shared_weights.png">
-                            <p class="img-note"><i>Figure: the weiths with the same color are shared.</i></p>
+                            <p class="img-note"><i>Figure: the weights with the same color are shared.</i></p>
                         </div>
                     </section>
 
@@ -366,7 +365,7 @@
                                 <ul>
                                     <li>The M-Layer receives as input a set of feature maps $I=\{I_j\}$ which is the output of C-Layer that precedes it;</li>
                                     <li>Each feature map $I_j$ is partitioned into a set of non-overlapping rectangles $R_{i}^{(j)} \in \mathbb{R}^{k \times k}$;</li>
-                                    <li>For each rectangles $R_{i}^{(j)}$ the maximum value are taken which form the output feature map $O_j$;</li>
+                                    <li>For each rectangle $R_{i}^{(j)}$ the maximum value are taken which form the output feature map $O_j$;</li>
                                     <li>The output of M-Layer is a set of feature maps $O=\{O_j\}$;</li>
                                 </ul>
                                 <li>If the input feature maps $I_j \in \mathbb{R}^{N \times N}$ then the output feature maps $O_j \in \mathbb{R}^{\frac{N}{k} \times \frac{N}{k}} \;$ :</li>
