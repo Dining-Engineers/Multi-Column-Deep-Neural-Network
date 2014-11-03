@@ -435,26 +435,52 @@
                     <section>
                         <h2>Rectified Linear Units (ReLU)</h2>
                         <div class="subtitle">ReLU derivative</div>
-                        <div class="div-left">
+
+                        <div style="min-height: 20px; overflow: hidden"></div>
+
+                        <div class="div-alone">
+                            <div class="div-left">
                             <ul>
                                 <li>ReLU derivative:</li>
                                 <ul>
                                     <li>is not fully differentiable (not at $0$)</li>
                                     <li>can only take two values, $0$ or $1$.</li>
                                 </ul>
-                                <br>
-                                <li>Compared to the logistic sigmoid neuron:</li>
+                            </ul>
+
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="div-right">
+                            <ul>
+                               <li>Compared to the logistic sigmoid neuron:</li>
                                 <ul>
                                     <li>it is much more efficient to compute (both its value and its partial derivatives)</li>
                                     <li>considerably speeds up training.</li>
                                     <li>enables much larger network implementations.</li>
                                 </ul>
-                        </ul>
+                            </ul>
+                            <!--<div style="min-height: 50px; overflow: hidden"></div>-->
+
                         </div>
-                        <div class="div-right">
-                            <div style="min-height: 50px; overflow: hidden"></div>
-                            <img src="./img/relu_trasp.png" width="320" alt="relu">
-                            <p class="img-note">Figure: ReLu vs Softplus activation function.</p>
+
+                        <div style="min-height: 10px; overflow: hidden; width: 100%"></div>
+
+                        <div style="display: inline-flex; width: 100%">
+                            <div style="width: 50%">
+                                <img src="./img/relu_trasp.png" width="320" alt="relu">
+                                <p class="img-note">Figure: ReLu vs Softplus activation function.</p>
+                            </div>
+
+                            <div style="width: 50%">
+                                <img src="./img/sigmoidederivata.png" width="360" alt="relu">
+                                <p class="img-note">Figure: Sigmoid function derivative.</p>
+                            </div>
+
+
                         </div>
 
 
