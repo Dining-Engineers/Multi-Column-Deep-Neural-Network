@@ -601,7 +601,7 @@
                         <div class="subtitle">Introduction</div>
                         <div class="div-alone">
                             <ul>
-                                <li><b>Maxout</b> is so named because its output is the max of a set of inputs:
+                                <li><b>Maxout</b> (J. Goodfellow et al. 2013) is so named because its output is the max of a set of inputs:
                                     <ul>
                                         <li>it is a natural companion to dropout;</li>
                                     </ul>
@@ -963,18 +963,15 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
                     <section>
                         <h2>Dataset</h2>
                         <div class="subtitle">Cifar-10</div>
-
+                        <br>
                         <div class="div-left">
+                            <br>
                             <br>
                             <ul>
                                 <li>The CIFAR-10 dataset is a famous benchmark:</li>
                                 <ul>
                                     <li>consists of $60000$ $32\times 32$ colour images in $10$ classes, with $6000$ images per class;</li>
                                     <li>there are $50000$ training images and $10000$ test images:</li>
-                                    <ul>
-                                        <li>the <b>test</b> batch contains $1000$ randomly-selected images from each class;</li>
-                                        <li>the <b>training</b> batches contain the remaining images in random order</li>
-                                    </ul>
                                 </ul>
                             </ul>
                         </div>
@@ -1088,7 +1085,7 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
 
                             <ul>
                                 i.e. $W$ make the covariance matrix of the transformed data matrix equal to the identity <i>(ii)</i>.
-                                <li>Let $W$ a  a symmetric matrix i.e. $W = W^{\top}$:</li>
+                                <li>Let $W$ a symmetric matrix i.e. $W = W^{\top}$:</li>
                                 <!--<li>we can find $W$:</li>-->
                             </ul>
 
@@ -1317,7 +1314,6 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
     num_pieces: 2,
     kernel_shape: [8, 8],
     pool_shape: [4, 4],
-    pool_stride: [2, 2],
     irange: .005,
 },
 					        </code></pre>
@@ -1354,10 +1350,6 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
                                        <li><b>pool_shape</b>:</li>
                                         <ul>
                                             <li>$4\times4$, $4\times4$, $2\times2$</li>
-                                        </ul>
-                                        <li><b>pool_stride</b>:</li>
-                                        <ul>
-                                            <li>$2\times2$, $2\times2$, $2\times2$</li>
                                         </ul>
                                     </ul>
                                 </ul>
@@ -1583,7 +1575,7 @@ algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
                                 <tbody>
 
                                     <tr><td>Our implementation</td><td>2</td><td>48C8-MP4-128C8-MP4-128C5-MP2-240N-10N</td><td>Maxout</td><td>$13.30$%</td></tr>
-                                    <tr class="alt"><td>Paper implementation</td><td>8</td><td>300C3-MP2-300C2-MP2-300C3-MP2-300C2-MP2-300N-100N-10N</td><td>ReLU</td><td>$11.21$%</td></tr>
+                                    <tr class="alt"><td>Paper implementation</td><td>8</td><td>300C3-MP2-300C2-MP2-300C3-MP2-300C2-MP2-300N-100N-10N</td><td>Hyperbolic tangent </td><td>$11.21$%</td></tr>
 
                                 </tbody>
                                 </table>
