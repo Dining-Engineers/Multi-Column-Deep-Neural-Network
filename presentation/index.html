@@ -304,8 +304,8 @@
                             <ul>
                                 <li>Implements the convolution operation:</li>
                                 <ul>
-                                    <li>A <b>linear filter</b> $W \in \mathbb{R}^{m \times m}$ is applied to the input image or to a feature map $X \in \mathbb{R}^{N \times N}$. Mathematically:</li>
-                                    <div class="equation">$c_{ij}=\sum\limits_{k=0}^{m-1}\sum\limits_{l=0}^{m-1}x_{(i+k)(j+l)}w_{kl}$</div>
+                                    <li>A <b>linear filter</b> $W \in \mathbb{R}^{m \times m}$ and bias $b$ is applied to the input image or to a feature map $X \in \mathbb{R}^{N \times N}$. Mathematically:</li>
+                                    <div class="equation">$c_{ij}=\sum\limits_{k=0}^{m-1}\sum\limits_{l=0}^{m-1}x_{(i+k)(j+l)}w_{kl} + b$</div>
                                     <ul>
                                         <li><b>Sparse connectivity</b> i.e. only a subset of units in a feature map are used;</li>
                                     </ul>
@@ -316,7 +316,7 @@
                                         <li>$Y \in \mathbb{R}^{(N-m+1) \times (N-m+1)}$</li>
                                     </ul>
                                 </ul>
-                                <li>We use $k\text{C}n$ to indicate a <b>C-Layer</b> that applies $k$ filters of $m\times m$ dimension to a feature map ;</li>
+                                <li>We use $k\text{C}m$ to indicate a <b>C-Layer</b> that applies $k$ filters of $m\times m$ dimension to a feature map ;</li>
                             </ul>
                         </div>
                         <div style="padding-top: 5px">
@@ -377,7 +377,7 @@
                                                <div >
                             <br>
                             <img style="width: 40%" src="./img/max_pool.gif">
-                            <p class="img-note"><i>Figure: Max-pooling.</i></p>
+                            <p class="img-note"><i>Figure: Max-pooling operation.</i></p>
                         </div>
                     </section>
 
@@ -744,7 +744,10 @@
                              <!--<div align="center" style="margin-top: 1em; margin-bottom: 1em">$h_\theta(x) = \frac{1}{1+\exp(-\theta^\top x)}$</div>-->
                             <ul>
                                 <ul>
-                                    <li>where $\theta^\top$ are the parameters to optimize.</li>
+                                    <li>where $\theta^\top$ are the parameters to optimize and $ 0 \leq h_\theta(x) \leq 1$.</li>
+                                    <ul>
+                                        <li>i.e. $h_\theta(x) = P(y=1|x;\theta)$</li>
+                                    </ul>
                                 </ul>
                             </ul>
                         </div>
@@ -898,7 +901,7 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
                         <div class="div-alone">
                             <ul>
                                 <li>The objective has the form of a long shallow ravine leading to the optimum and steep walls on the sides, standard SGD will tend to oscillate across the narrow ravine since the negative gradient will point down one of the steep sides rather than along the ravine towards the optimum;</li>
-                                <li><b>Momentum</b> is one method for pushing the objective more quickly along the shallow ravine;</li>
+                                <li><b>Momentum</b> is one method for pushing the objective more quickly along the shallow ravine<sup>[7]</sup>;</li>
                                 <ul>
                                     <li>The momentum update is given by:</li>
                                 </ul>
@@ -1021,8 +1024,8 @@ $ \nabla_{\theta^{(k)}} J(\theta) = - \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ 
                                 <li>In order to <b>enhance the performance</b> of the MCDNN, the dataset is preprocessed in $3$ different ways:</li>
                                 <ul>
                                     <li><i>Global Contrast Normalization (GCN)</i>;</li>
-                                    <li><i>ZCA Whitening</i>;</li>
-                                    <li><i>Toronto preprocessing</i>.</li>
+                                    <li><i>Toronto preprocessing</i>;</li>
+                                    <li><i>ZCA Whitening</i>.</li>
                                 </ul>
                                 <li>Each preprocessed dataset is given as input to a single DNN;</li>
                             </ul>
@@ -1493,12 +1496,13 @@ algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
                         <!--<p>backup content</p>-->
                         <!--</object>-->
                         <ul>
-                          <li>[1] D. Cireșan, U. Meier and J. Schmidhuber: Multi-column Deep Neural Networks for Image Classification (2012);</li>
-                          <li>[2] D. H. Hubel and T. N. Wiesel: Receptive fields, binocular interaction and functional architecture in the cat's visual cortex (1962);</li>
-                          <li>[3] K. Fukushima: Neocognitron: A Self-organizing Neural Network Model for a Mechanism of Pattern Recognition Unaffected by Shift in Position (1980);</li>
-                          <li>[4] G. E. Hinton, N. Srivastava, A. Krizhevsky, I. Sutskever and R. R. Salakhutdinov: Improving neural networks by preventing co-adaptation of feature detectors (2012);</li>
+                            <li>[1] D. Cireșan, U. Meier and J. Schmidhuber: Multi-column Deep Neural Networks for Image Classification (2012);</li>
+                            <li>[2] D. H. Hubel and T. N. Wiesel: Receptive fields, binocular interaction and functional architecture in the cat's visual cortex (1962);</li>
+                            <li>[3] K. Fukushima: Neocognitron: A Self-organizing Neural Network Model for a Mechanism of Pattern Recognition Unaffected by Shift in Position (1980);</li>
+                            <li>[4] G. E. Hinton, N. Srivastava, A. Krizhevsky, I. Sutskever and R. R. Salakhutdinov: Improving neural networks by preventing co-adaptation of feature detectors (2012);</li>
                             <li>[5] X. Glorot, A. Bordes and Y. Bengio: Deep sparse rectifier neural networks (2011);</li>
-                            <li>[6] I. J. Goodfellow, D. Warde-Farley, M. Mirza, A. Courville and Y. Bengio: Maxout Networks (2013)</li>
+                            <li>[6] I. J. Goodfellow, D. Warde-Farley, M. Mirza, A. Courville and Y. Bengio: Maxout Networks (2013);</li>
+                            <li>[7] A. Ng et al: Optimization: Stochastic Gradient Descent - Momentum - Tutorial Stanford University.</li>
                         </ul>
                     </div>
                 </section>
